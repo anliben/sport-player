@@ -32,6 +32,10 @@ export class MesaPage implements OnInit {
 
   maxPlayer: number = 0;
 
+  nome = ''
+  position = ''
+
+
   constructor(
     private WebSocket: WebSocketService
   ) { }
@@ -39,7 +43,36 @@ export class MesaPage implements OnInit {
 
   ngOnInit() {
 
-    this.WebSocket.emit('updateUsers', { 'room': '1' })
+    //this.WebSocket.emit('updateUsers', { 'room': '1' })
+
+    this.WebSocket.listen('join').subscribe((data:any)=> {
+      console.log(data)
+      if (data.username === this.nome) {
+        this.avatar2 = data.src
+        this.namej2 = data.username
+        this.j2 = true;
+      }else{
+        if(data.posicao == 'top'){
+
+          this.avatar1 = data.src
+          this.namej1 = data.username
+          this.j1 = true;
+        }
+
+        if(data.posicao == 'left'){
+          this.avatar3 = data.src
+          this.namej3 = data.username
+          this.j3 = true;
+        }
+        
+        if(data.posicao == 'right'){
+          this.avatar4 = data.src
+          this.namej4 = data.username
+          this.j4 = true;
+        }
+        
+      }
+    })
 
     this.WebSocket.listen('joined-top').subscribe((data: any) => {
       console.log('join', data)
@@ -97,6 +130,15 @@ export class MesaPage implements OnInit {
 
   menu() {
     this.isModalOpen = !this.isModalOpen;
+  }
+
+  enterRoom(){
+    
+    console.log('entrando nessa room')
+    this.nome = window.prompt('Digite seu nome')
+    this.position = window.prompt('Digite sua posicao')
+    this.WebSocket.emit('join', { 'username': this.nome, 'room': '1', 'posicao': this.position, 'src': '/assets/game/game/homem.png' })
+
   }
 
   changeUserTop() {

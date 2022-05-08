@@ -1,0 +1,30 @@
+<div class="bg-background">
+ 
+  <div class="flex items-center justify-evenly">
+    <img class="h-14" src="/assets/game/partidaTruco/config.png">
+    <img class="h-14" src="/assets/game/partidaTruco/nos.png">
+    <img class="h-14" src="/assets/game/partidaTruco/eles.png">
+    <img class="h-14 " src="/assets/game/partidaTruco/valor-da-rodada.png">
+    <img (click)="menu()" class="h-14 m-3" src="/assets/game/partidaTruco/informacoes.png">
+  </div>
+  <ion-modal class="w-6/12" [isOpen]="isModalOpen">
+    <ng-template>
+      <h1>Ola Mundo</h1>
+      <button (click)="menu()">fechar</button>
+    </ng-template>
+  </ion-modal>
+
+  <div class="flex justify-center">
+    <img class="w-100 w-8/12 mt-10 h-8/12" src="/assets/game/partidaTruco/mesa-fundo.png">
+
+    <app-avatar-mesa (click)="changeUserTop()" [joined]="j1" class="absolute" [nome]="namej1" cartas="/assets/game/cartas/4paus.png"
+      [avatar]="avatar1"></app-avatar-mesa>
+    <app-avatar-mesa (click)="changeUserBottom()" [joined]="j2" class="absolute bottom-32" [nome]="namej2" cartas="/assets/game/cartas/4paus.png"
+      [avatar]="avatar2"></app-avatar-mesa>
+    <app-avatar-mesa (click)="changeUserLeft()" [joined]="j3" class="absolute bottom-96 left-10" [nome]="namej3" cartas="/assets/game/cartas/4paus.png"
+    [avatar]="avatar3"></app-avatar-mesa>
+    <app-avatar-mesa (click)="changeUserRight()" [joined]="j4" class="absolute bottom-96 right-10" [nome]="namej4" cartas="/assets/game/cartas/4paus.png"
+    [avatar]="avatar4"></app-avatar-mesa>
+  
+    </div>
+</div>

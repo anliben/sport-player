@@ -1,0 +1,8 @@
+{
+  "name": "Sport Player",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "387164d5"
+}

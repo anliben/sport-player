@@ -1,0 +1,33 @@
+
+<ion-content>
+  <div  class="bg-background-home h-full p-0 m-0 bg-contain z-0">
+    <app-header moeda="55" diamante="20"></app-header>
+    <app-perfil></app-perfil>
+    <div class="flex flex-col items-center justify-center z-50">
+      <img class="w-42 h-52 mb-8" src="/assets/game/game/clube.png">
+      <div class="bg-black z-30" (click)="changeScreen('trucco')">
+        <img class="w-38 h-16" src="/assets/game/game/truco.png">
+      </div>
+      <img class="w-38 h-16" src="/assets/game/game/poker.png">
+      <img class="w-38 h-16" src="/assets/game/game/futebol.png">
+    </div>
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button tab="play">
+          <ion-icon name="play"></ion-icon>
+          <ion-label>Jogar</ion-label>
+        </ion-tab-button>
+    
+        <ion-tab-button tab="store">
+          <ion-icon name="cart-outline"></ion-icon>
+          <ion-label>Loja</ion-label>
+        </ion-tab-button>
+    
+        <ion-tab-button tab="config">
+          <ion-icon name="settings"></ion-icon>
+          <ion-label>configurão</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </div>
+</ion-content>

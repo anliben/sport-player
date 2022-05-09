@@ -8,6 +8,7 @@ import { TruccoPageRoutingModule } from './trucco-routing.module';
 
 import { TruccoPage } from './trucco.page';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { MesaComponent } from 'src/app/shared/components/mesa/mesa.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     TruccoPageRoutingModule,
     SharedModule
   ],
-  declarations: [TruccoPage]
+  declarations: [
+    MesaComponent
+  ]
 })
 export class TruccoPageModule {}

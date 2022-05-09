@@ -21,7 +21,6 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
   declarations: [
     AppComponent,
     HomePage,
-    MesaComponent,
     MesaPage
   ],
   imports: [

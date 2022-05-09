@@ -6,9 +6,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { MesaPageRoutingModule } from './mesa-routing.module';
 
-import { MesaPage } from './mesa.page';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { CartaBaralhoComponent } from 'src/app/components/carta-baralho/carta-baralho.component';
 
 @NgModule({
   imports: [
@@ -18,6 +16,7 @@ import { CartaBaralhoComponent } from 'src/app/components/carta-baralho/carta-ba
     MesaPageRoutingModule,
     SharedModule,
   ],
-  declarations: [MesaPage, CartaBaralhoComponent],
+  declarations: [
+  ],
 })
 export class MesaPageModule {}

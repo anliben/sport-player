@@ -10,8 +10,8 @@ import { SharedModule } from './shared/shared.module';
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { HomePageModule } from './pages/home/home.module';
 import { HomePage } from './pages/home/home.page';
+import { MesaComponent } from './shared/components/mesa/mesa.component';
 
 export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -19,7 +19,8 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
 @NgModule({
   declarations: [
     AppComponent,
-    HomePage
+    HomePage,
+    MesaComponent
   ],
   imports: [
     BrowserModule,

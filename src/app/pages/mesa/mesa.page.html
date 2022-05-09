@@ -1,30 +1,28 @@
 <div class="p-3 flex flex-col bg-background h-screen justify-between">
   <section class="flex items-center justify-between">
-    <div class="flex items-center justify-center">
+    <div class="flex items-center justify-center bg-yellow-400">
       <img
         class="cursor-pointer h-8"
         src="/assets/game/partidaTruco/config.png"
       />
-      <!-- <img
-        class="cursor-pointer h-8 ml-2"
-        src="/assets/game/partidaTruco/espectadores.png"
-      /> -->
       <div
-        class="bg-[url('/assets/game/partidaTruco/espectadores.png')] h-9 w-32 bg-contain bg-no-repeat"
+        class="bg-[url('/assets/game/partidaTruco/espectadores.png')] h-9 w-16 bg-contain bg-no-repeat"
       >
         <span class="absolute left-16 top-8 text-fuchsia-600">999</span>
       </div>
     </div>
-    <div class="flex justify-between">
+
+    <div class="flex justify-center bg-orange-100 items-center">
       <img class="h-12" src="/assets/game/partidaTruco/nos.png" />
       <img class="h-12" src="/assets/game/partidaTruco/eles.png" />
-      <img class="h-12" src="/assets/game/partidaTruco/valor-da-rodada.png" />
-      <img
-        (click)="menu()"
-        class="cursor-pointer h-12"
-        src="/assets/game/partidaTruco/informacoes.png"
-      />
+      <img class="h-8" src="/assets/game/partidaTruco/valor-da-rodada.png" />
     </div>
+
+    <img
+      (click)="menu()"
+      class="cursor-pointer h-12 relative left-3"
+      src="/assets/game/partidaTruco/informacoes.png"
+    />
   </section>
 
   <ion-modal class="w-6/12" [isOpen]="isModalOpen">
@@ -54,16 +52,22 @@
           ></app-avatar-mesa>
 
           <div class="flex flex-col justify-center items-center">
-            <span class="block text-white opacity-60 font-medium uppercase"
-              >{{tableType}}</span
+            <!-- {{tableType}} -->
+            <span
+              *ngIf="tableType === 'cashgame'"
+              class="block text-white opacity-60 font-medium uppercase"
+              >{{"mesa.cashgame" | translate }}</span
             >
-            <div *ngIf="true">
-              <p class="text-white">{{"mesa.cashgame" | translate }}</p>
-            </div>
+            <span
+              *ngIf="tableType === 'torneio'"
+              class="block text-white opacity-60 font-medium uppercase"
+              >{{ "mesa.tournament" | translate }}</span
+            >
           </div>
 
           <div>
             <p>Jack</p>
+            <p>baralho</p>
           </div>
           <div class="w-8 h-14 rotate-180">
             <app-carta-baralho naipe="copas" numero="7"></app-carta-baralho>
@@ -79,12 +83,15 @@
             [avatar]="avatar2"
           ></app-avatar-mesa>
 
-          <div class="w-8 h-14 rotate-90">
-            <app-carta-baralho naipe="copas" numero="7"></app-carta-baralho>
-          </div>
+          <div class="flex">
+            <div class="w-8 h-14 rotate-90">
+              <app-carta-baralho naipe="copas" numero="7"></app-carta-baralho>
+            </div>
+            <div class="w-14"></div>
 
-          <div class="w-8 h-14 -rotate-90">
-            <app-carta-baralho naipe="copas" numero="7"></app-carta-baralho>
+            <div class="w-8 h-14 -rotate-90">
+              <app-carta-baralho naipe="copas" numero="7"></app-carta-baralho>
+            </div>
           </div>
 
           <app-avatar-mesa
@@ -101,11 +108,32 @@
             <app-carta-baralho naipe="copas" numero="7"></app-carta-baralho>
           </div>
 
-          <div class="">
-            <p>Lorem</p>
-            <p>Lorem</p>
-            <p>Lorem</p>
-            <p>Lorem</p>
+          <div class="flex flex-col items-center">
+            <span
+              *ngIf="tableType === 'cashgame'"
+              class="block text-white opacity-60 font-medium uppercase text-xs"
+              >{{"mesa.cashgame" | translate }}</span
+            >
+            <span
+              *ngIf="tableType === 'torneio'"
+              class="block text-white opacity-60 font-medium uppercase text-xs"
+              >{{"mesa.tournament" | translate }}</span
+            >
+            <span
+              class="block text-white font-medium opacity-60 uppercase text-xs"
+            >
+              Limpo
+            </span>
+            <span
+              class="block text-white font-medium opacity-60 uppercase text-xs"
+            >
+              Id: 4568
+            </span>
+            <span
+              class="block text-white font-medium opacity-60 uppercase text-xs"
+            >
+              entrada: 600
+            </span>
           </div>
           <app-avatar-mesa
             (click)="enterRoom()"
@@ -154,10 +182,15 @@
         />
 
         <div class="flex items-center">
-          <img
+          <!-- <img
             class="h-6 ml-2 mr-2"
             src="../../../assets/game/partidaTruco/lista-de-espera.png"
-          />
+          /> -->
+          <div
+            class="h-6 w-20 bg-contain bg-no-repeat ml-2 mr-2 bg-[url('/assets/game/partidaTruco/lista-de-espera.png')]"
+          >
+            <span class="text-purple-500 relative left-14 font-medium">0</span>
+          </div>
 
           <img
             class="cursor-pointer h-8 ml-2 mr-2"

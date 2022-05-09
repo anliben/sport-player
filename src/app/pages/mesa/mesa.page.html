@@ -1,15 +1,26 @@
 <div class="p-3 flex flex-col bg-background h-screen justify-between">
   <section class="flex items-center justify-between">
-    <img
-      class="cursor-pointer h-12"
-      src="/assets/game/partidaTruco/config.png"
-    />
-    <img class="h-12" src="/assets/game/partidaTruco/nos.png" />
-    <img class="h-12" src="/assets/game/partidaTruco/eles.png" />
-    <img class="h-12" src="/assets/game/partidaTruco/valor-da-rodada.png" />
+    <div class="flex items-center justify-center bg-yellow-400">
+      <img
+        class="cursor-pointer h-8"
+        src="/assets/game/partidaTruco/config.png"
+      />
+      <div
+        class="bg-[url('/assets/game/partidaTruco/espectadores.png')] h-9 w-16 bg-contain bg-no-repeat"
+      >
+        <span class="absolute left-16 top-8 text-fuchsia-600">999</span>
+      </div>
+    </div>
+
+    <div class="flex justify-center bg-orange-100 items-center">
+      <img class="h-12" src="/assets/game/partidaTruco/nos.png" />
+      <img class="h-12" src="/assets/game/partidaTruco/eles.png" />
+      <img class="h-8" src="/assets/game/partidaTruco/valor-da-rodada.png" />
+    </div>
+
     <img
       (click)="menu()"
-      class="cursor-pointer h-14 m-3"
+      class="cursor-pointer h-12 relative left-3"
       src="/assets/game/partidaTruco/informacoes.png"
     />
   </section>
@@ -21,17 +32,17 @@
     </ng-template>
   </ion-modal>
 
-  <section class="flex justify-between h-3/5">
+  <section class="flex justify-between h-4/6">
     <img
       class="cursor-pointer h-10 self-end"
       src="/assets/game/partidaTruco/convidar-amigos.png"
     />
 
-    <div class="w-7/12 h-6/6">
+    <div class="w-7/12 h-full">
       <div
         class="bg-mesa bg-center m-auto bg-[length:100%_100%] max-w-sm bg-no-repeat w-full h-full flex flex-col justify-between items-center"
       >
-        <div class="flex grow basis-1/4 flex-col items-center">
+        <div class="flex grow basis-1/4 flex-col items-center justify-between">
           <app-avatar-mesa
             (click)="enterRoom()"
             [joined]="j3"
@@ -39,12 +50,31 @@
             cartas="/assets/game/cartas/4paus.png"
             [avatar]="avatar3"
           ></app-avatar-mesa>
-          <p class="text-white">{{"mesa.cashgame" | translate }}</p>
-          <p>Jackpot</p>
-          <p>Jackpot</p>
+
+          <div class="flex flex-col justify-center items-center">
+            <!-- {{tableType}} -->
+            <span
+              *ngIf="tableType === 'cashgame'"
+              class="block text-white opacity-60 font-medium uppercase"
+              >{{"mesa.cashgame" | translate }}</span
+            >
+            <span
+              *ngIf="tableType === 'torneio'"
+              class="block text-white opacity-60 font-medium uppercase"
+              >{{ "mesa.tournament" | translate }}</span
+            >
+          </div>
+
+          <div>
+            <p>Jack</p>
+            <p>baralho</p>
+          </div>
+          <div class="w-8 h-14 rotate-180">
+            <app-carta-baralho naipe="copas" numero="7"></app-carta-baralho>
+          </div>
         </div>
 
-        <div class="flex justify-between w-full">
+        <div class="flex justify-between items-center w-full">
           <app-avatar-mesa
             (click)="enterRoom()"
             [joined]="j2"
@@ -52,6 +82,18 @@
             cartas="/assets/game/cartas/4paus.png"
             [avatar]="avatar2"
           ></app-avatar-mesa>
+
+          <div class="flex">
+            <div class="w-8 h-14 rotate-90">
+              <app-carta-baralho naipe="copas" numero="7"></app-carta-baralho>
+            </div>
+            <div class="w-14"></div>
+
+            <div class="w-8 h-14 -rotate-90">
+              <app-carta-baralho naipe="copas" numero="7"></app-carta-baralho>
+            </div>
+          </div>
+
           <app-avatar-mesa
             (click)="enterRoom()"
             [joined]="j4"
@@ -62,12 +104,36 @@
         </div>
 
         <div class="flex grow basis-1/4 items-center justify-between flex-col">
-          <app-carta-baralho naipe="copas" numero="7"></app-carta-baralho>
-          <div class="">
-            <p>Lorem</p>
-            <p>Lorem</p>
-            <p>Lorem</p>
-            <p>Lorem</p>
+          <div class="w-8 h-14">
+            <app-carta-baralho naipe="copas" numero="7"></app-carta-baralho>
+          </div>
+
+          <div class="flex flex-col items-center">
+            <span
+              *ngIf="tableType === 'cashgame'"
+              class="block text-white opacity-60 font-medium uppercase text-xs"
+              >{{"mesa.cashgame" | translate }}</span
+            >
+            <span
+              *ngIf="tableType === 'torneio'"
+              class="block text-white opacity-60 font-medium uppercase text-xs"
+              >{{"mesa.tournament" | translate }}</span
+            >
+            <span
+              class="block text-white font-medium opacity-60 uppercase text-xs"
+            >
+              Limpo
+            </span>
+            <span
+              class="block text-white font-medium opacity-60 uppercase text-xs"
+            >
+              Id: 4568
+            </span>
+            <span
+              class="block text-white font-medium opacity-60 uppercase text-xs"
+            >
+              entrada: 600
+            </span>
           </div>
           <app-avatar-mesa
             (click)="enterRoom()"
@@ -116,11 +182,16 @@
         />
 
         <div class="flex items-center">
-          <img
+          <!-- <img
             class="h-6 ml-2 mr-2"
             src="../../../assets/game/partidaTruco/lista-de-espera.png"
-          />
-          
+          /> -->
+          <div
+            class="h-6 w-20 bg-contain bg-no-repeat ml-2 mr-2 bg-[url('/assets/game/partidaTruco/lista-de-espera.png')]"
+          >
+            <span class="text-purple-500 relative left-14 font-medium">0</span>
+          </div>
+
           <img
             class="cursor-pointer h-8 ml-2 mr-2"
             src="../../../assets/game/partidaTruco/MICROFONE.png"

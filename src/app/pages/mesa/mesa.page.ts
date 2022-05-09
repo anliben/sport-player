@@ -7,6 +7,7 @@ import { WebSocketService } from 'src/app/services/web-socket.service';
   styleUrls: ['./mesa.page.scss'],
 })
 export class MesaPage implements OnInit {
+  tableType: string = 'cashgame';
 
   isModalOpen: boolean = false;
 
@@ -19,11 +20,10 @@ export class MesaPage implements OnInit {
   j3: boolean = false;
   j4: boolean = false;
 
-  namej1: string = 'roberto'
-  namej2: string = 'william'
-  namej3: string = 'joao'
-  namej4: string = 'tiago'
-
+  namej1: string = 'roberto';
+  namej2: string = 'william';
+  namej3: string = 'joao';
+  namej4: string = 'tiago';
 
   avatar1: string = '';
   avatar2: string = '';
@@ -32,118 +32,108 @@ export class MesaPage implements OnInit {
 
   maxPlayer: number = 0;
 
-  nome = ''
-  position = ''
+  nome = '';
+  position = '';
 
-  players = []
-  countPlayer = 0
+  players = [];
+  countPlayer = 0;
 
-  constructor(
-    private WebSocket: WebSocketService
-  ) { }
-
+  constructor(private WebSocket: WebSocketService) {}
 
   ngOnInit() {
-    this.generatePlayers()
+    this.generatePlayers();
     const numero = Math.floor(Math.random() * this.players.length);
-    let player = this.players[numero]
-    this.nome = this.players[numero].username
-    this.position = this.players[numero].posicao
+    let player = this.players[numero];
+    this.nome = this.players[numero].username;
+    this.position = this.players[numero].posicao;
 
-    this.WebSocket.emit('insertPlayer', this.players)
+    this.WebSocket.emit('insertPlayer', this.players);
 
     //this.WebSocket.emit('updateUsers', { 'room': '1' })
 
     // escutar players na sala
     this.WebSocket.listen('findPlayers').subscribe((data: any) => {
-      this.countPlayer = data.length
-      console.log(data)
-      console.log("player que estao na sala");
-      
-    }
-    )
+      this.countPlayer = data.length;
+      console.log(data);
+      console.log('player que estao na sala');
+    });
 
     this.WebSocket.listen('join').subscribe((data: any) => {
       if (data.username === this.nome) {
-        this.avatar2 = data.src
-        this.namej2 = data.username
+        this.avatar2 = data.src;
+        this.namej2 = data.username;
         this.j2 = true;
       } else {
         if (data.posicao == 'top') {
-
-          this.avatar1 = data.src
-          this.namej1 = data.username
+          this.avatar1 = data.src;
+          this.namej1 = data.username;
           this.j1 = true;
         }
 
         if (data.posicao == 'left') {
-          this.avatar3 = data.src
-          this.namej3 = data.username
+          this.avatar3 = data.src;
+          this.namej3 = data.username;
           this.j3 = true;
         }
 
         if (data.posicao == 'right') {
-          this.avatar4 = data.src
-          this.namej4 = data.username
+          this.avatar4 = data.src;
+          this.namej4 = data.username;
           this.j4 = true;
         }
-
       }
-    })
+    });
 
     this.WebSocket.listen('joined-top').subscribe((data: any) => {
-      console.log('join', data)
-      this.avatar1 = data.src
-      this.namej1 = data.username
+      console.log('join', data);
+      this.avatar1 = data.src;
+      this.namej1 = data.username;
       this.j1 = true;
-      this.maxPlayer += 1
-    })
+      this.maxPlayer += 1;
+    });
 
     this.WebSocket.listen('joined-bottom').subscribe((data: any) => {
-      console.log('join', data)
-      this.avatar2 = data.src
-      this.namej2 = data.username
+      console.log('join', data);
+      this.avatar2 = data.src;
+      this.namej2 = data.username;
       this.j2 = true;
-    })
+    });
 
     this.WebSocket.listen('joined-left').subscribe((data: any) => {
-      console.log('join', data)
-      this.avatar3 = data.src
-      this.namej3 = data.username
+      console.log('join', data);
+      this.avatar3 = data.src;
+      this.namej3 = data.username;
       this.j3 = true;
-    })
+    });
 
     this.WebSocket.listen('joined-right').subscribe((data: any) => {
-      console.log('join', data)
-      this.avatar4 = data.src
-      this.namej4 = data.username
+      console.log('join', data);
+      this.avatar4 = data.src;
+      this.namej4 = data.username;
       this.j4 = true;
-    })
+    });
 
     this.WebSocket.listen('leave-top').subscribe((data: any) => {
-      console.log('leave', data)
-      this.avatar1 = ''
+      console.log('leave', data);
+      this.avatar1 = '';
       this.j1 = false;
-    })
+    });
     this.WebSocket.listen('leave-bottom').subscribe((data: any) => {
-      console.log('leave', data)
-      this.avatar2 = ''
+      console.log('leave', data);
+      this.avatar2 = '';
       this.j2 = false;
-    })
+    });
     this.WebSocket.listen('leave-left').subscribe((data: any) => {
-      console.log('leave', data)
-      this.avatar3 = ''
+      console.log('leave', data);
+      this.avatar3 = '';
       this.j3 = false;
-    })
+    });
     this.WebSocket.listen('leave-right').subscribe((data: any) => {
-      console.log('leave', data)
-      this.avatar4 = ''
+      console.log('leave', data);
+      this.avatar4 = '';
       this.j4 = false;
-    })
-
-
+    });
   }
-
 
   menu() {
     this.isModalOpen = !this.isModalOpen;
@@ -151,7 +141,7 @@ export class MesaPage implements OnInit {
 
   enterRoom() {
     // pergunta para o servidor os jogadores que estão na mesma sala
-    this.WebSocket.emit('findPlayer', { 'room': '1' })
+    this.WebSocket.emit('findPlayer', { room: '1' });
 
     /* this.nome = window.prompt('Digite seu nome')
     this.position = window.prompt('Digite sua posicao')
@@ -161,59 +151,83 @@ export class MesaPage implements OnInit {
 
   changeUserTop() {
     if (!this.joinedRoomTop) {
-      this.joinedRoomTop = true
-      this.WebSocket.emit('join', { 'username': this.namej1, 'room': '1', 'posicao': 'top', 'src': '/assets/game/game/homem.png' })
+      this.joinedRoomTop = true;
+      this.WebSocket.emit('join', {
+        username: this.namej1,
+        room: '1',
+        posicao: 'top',
+        src: '/assets/game/game/homem.png',
+      });
     } else {
-      this.joinedRoomTop = false
-      this.WebSocket.emit('leave', { 'username': this.namej1, 'room': '1', 'posicao': 'top', 'src': '/assets/game/game/homem.png' })
+      this.joinedRoomTop = false;
+      this.WebSocket.emit('leave', {
+        username: this.namej1,
+        room: '1',
+        posicao: 'top',
+        src: '/assets/game/game/homem.png',
+      });
     }
   }
 
   changeUserBottom() {
     if (!this.joinedRoomBottom) {
-      this.joinedRoomBottom = true
-      this.WebSocket.emit('join', { 'username': this.namej2, 'room': '1', 'posicao': 'bottom', 'src': '/assets/game/game/homem.png' })
+      this.joinedRoomBottom = true;
+      this.WebSocket.emit('join', {
+        username: this.namej2,
+        room: '1',
+        posicao: 'bottom',
+        src: '/assets/game/game/homem.png',
+      });
     } else {
-      this.joinedRoomBottom = false
-      this.WebSocket.emit('leave', { 'username': this.namej2, 'room': '1', 'posicao': 'bottom', 'src': '/assets/game/game/homem.png' })
+      this.joinedRoomBottom = false;
+      this.WebSocket.emit('leave', {
+        username: this.namej2,
+        room: '1',
+        posicao: 'bottom',
+        src: '/assets/game/game/homem.png',
+      });
     }
   }
   changeUserLeft() {
-
     if (!this.joinedRoomLeft) {
-      this.WebSocket.emit('join', { 'username': this.namej3, 'room': '1', 'posicao': 'left', 'src': '/assets/game/game/homem.png' })
+      this.WebSocket.emit('join', {
+        username: this.namej3,
+        room: '1',
+        posicao: 'left',
+        src: '/assets/game/game/homem.png',
+      });
       this.joinedRoomLeft = true;
     } else {
       this.joinedRoomLeft = false;
-      this.WebSocket.emit('leave', { 'username': this.namej3 })
+      this.WebSocket.emit('leave', { username: this.namej3 });
     }
   }
   changeUserRight() {
-
     if (!this.joinedRoomRight) {
       this.joinedRoomRight = true;
-      this.WebSocket.emit('join', { 'username': this.namej4, 'room': '1', 'posicao': 'right', 'src': '/assets/game/game/homem.png' })
-
+      this.WebSocket.emit('join', {
+        username: this.namej4,
+        room: '1',
+        posicao: 'right',
+        src: '/assets/game/game/homem.png',
+      });
     } else {
-      this.joinedRoomRight = false
-      this.WebSocket.emit('leave', { 'username': this.namej4 })
+      this.joinedRoomRight = false;
+      this.WebSocket.emit('leave', { username: this.namej4 });
     }
   }
 
   // generate 100 players random
   generatePlayers() {
-    let posicoes = ['top', 'bottom', 'left', 'right']
+    let posicoes = ['top', 'bottom', 'left', 'right'];
     for (let i = 0; i < 100; i++) {
-      let indexPosicoes = Math.floor(Math.random() * posicoes.length)
+      let indexPosicoes = Math.floor(Math.random() * posicoes.length);
       this.players.push({
         username: 'joao ' + i,
         src: '/assets/game/game/homem.png',
         posicao: posicoes[indexPosicoes],
-        room: '1'
-      })
+        room: '1',
+      });
     }
-
   }
-
-
 }

@@ -10,5 +10,8 @@
             "store":"Store",
             "config":"Settings"
         }
+    },
+    "mesa":{
+        "cashgame":"Cash Game Translated"
     }
 }

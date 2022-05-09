@@ -1,14 +1,18 @@
 {
-    "config":{
-        "app":{
-        "name":"Sport Player"
-        }
-    },
-    "home":{
-        "tab":{
-            "play":"Jogar",
-            "store":"Loja",
-            "config":"Configurações"
-        }
+  "config": {
+    "app": {
+      "name": "Sport Player"
     }
+  },
+  "home": {
+    "tab": {
+      "play": "Jogar",
+      "store": "Loja",
+      "config": "Configurações"
+    }
+  },
+  "mesa": {
+    "cashgame": "Cash Game Translated",
+    "tournament": "Torneio Translated"
+  }
 }

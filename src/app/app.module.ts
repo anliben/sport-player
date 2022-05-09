@@ -7,19 +7,40 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
+import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HomePage } from './pages/home/home.page';
+import { MesaPage } from './pages/mesa/mesa.page';
+import { ConfigPage } from './pages/home/config/config.page';
+import { TruccoPage } from './pages/trucco/trucco.page';
 
+export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomePage,
+    ConfigPage,
+    TruccoPage
   ],
-  entryComponents: [],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(),
+    TranslateModule.forRoot({
+      defaultLanguage: 'pt',
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+      }
+    }),
     AppRoutingModule,
     SharedModule
-],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  ],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, TranslateService],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

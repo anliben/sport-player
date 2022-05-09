@@ -35,6 +35,7 @@ export class MesaPage implements OnInit {
   nome = ''
   position = ''
 
+  players = []
 
   constructor(
     private WebSocket: WebSocketService
@@ -42,35 +43,48 @@ export class MesaPage implements OnInit {
 
 
   ngOnInit() {
+    this.generatePlayers()
+    const numero = Math.floor(Math.random() * this.players.length);
+    let player = this.players[numero]
+    this.nome = this.players[numero].username
+    this.position = this.players[numero].posicao
+
+    this.WebSocket.emit('insertPlayer', player)
 
     //this.WebSocket.emit('updateUsers', { 'room': '1' })
 
-    this.WebSocket.listen('join').subscribe((data:any)=> {
+    // escutar players na sala
+    this.WebSocket.listen('findPlayers').subscribe((data: any) => {
+      console.log(data)
+    }
+    )
+
+    this.WebSocket.listen('join').subscribe((data: any) => {
       console.log(data)
       if (data.username === this.nome) {
         this.avatar2 = data.src
         this.namej2 = data.username
         this.j2 = true;
-      }else{
-        if(data.posicao == 'top'){
+      } else {
+        if (data.posicao == 'top') {
 
           this.avatar1 = data.src
           this.namej1 = data.username
           this.j1 = true;
         }
 
-        if(data.posicao == 'left'){
+        if (data.posicao == 'left') {
           this.avatar3 = data.src
           this.namej3 = data.username
           this.j3 = true;
         }
-        
-        if(data.posicao == 'right'){
+
+        if (data.posicao == 'right') {
           this.avatar4 = data.src
           this.namej4 = data.username
           this.j4 = true;
         }
-        
+
       }
     })
 
@@ -81,28 +95,28 @@ export class MesaPage implements OnInit {
       this.j1 = true;
       this.maxPlayer += 1
     })
-    
+
     this.WebSocket.listen('joined-bottom').subscribe((data: any) => {
       console.log('join', data)
       this.avatar2 = data.src
       this.namej2 = data.username
       this.j2 = true;
     })
-    
+
     this.WebSocket.listen('joined-left').subscribe((data: any) => {
       console.log('join', data)
       this.avatar3 = data.src
       this.namej3 = data.username
       this.j3 = true;
     })
-    
+
     this.WebSocket.listen('joined-right').subscribe((data: any) => {
       console.log('join', data)
       this.avatar4 = data.src
       this.namej4 = data.username
       this.j4 = true;
     })
-    
+
     this.WebSocket.listen('leave-top').subscribe((data: any) => {
       console.log('leave', data)
       this.avatar1 = ''
@@ -132,13 +146,15 @@ export class MesaPage implements OnInit {
     this.isModalOpen = !this.isModalOpen;
   }
 
-  enterRoom(){
-    
+  enterRoom() {
+    // pergunta para o servidor os jogadores que estão na mesma sala
+    this.WebSocket.emit('findPlayer', { 'room': '1' })
+
     console.log('entrando nessa room')
-    this.nome = window.prompt('Digite seu nome')
+    /* this.nome = window.prompt('Digite seu nome')
     this.position = window.prompt('Digite sua posicao')
     this.WebSocket.emit('join', { 'username': this.nome, 'room': '1', 'posicao': this.position, 'src': '/assets/game/game/homem.png' })
-
+ */
   }
 
   changeUserTop() {
@@ -181,5 +197,22 @@ export class MesaPage implements OnInit {
       this.WebSocket.emit('leave', { 'username': this.namej4 })
     }
   }
+
+  // generate 100 players random
+  generatePlayers() {
+    let posicoes = ['top', 'bottom', 'left', 'right']
+    for (let i = 0; i < 100; i++) {
+      let indexPosicoes = Math.floor(Math.random() * posicoes.length)
+      this.players.push({
+        username: 'joao ' + i,
+        src: '/assets/game/game/homem.png',
+        posicao: posicoes[indexPosicoes],
+        room: '1'
+      })
+    }
+    console.log(this.players);
+
+  }
+
 
 }

@@ -1,0 +1,14 @@
+{
+    "config":{
+        "app":{
+            "name":"Sport Player"
+        }
+    },
+    "home":{
+        "tab":{
+            "play":"Play",
+            "store":"Store",
+            "config":"Settings"
+        }
+    }
+}

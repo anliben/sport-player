@@ -1,24 +1,26 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
+import { ConfigPage } from './pages/home/config/config.page';
+import { HomePage } from './pages/home/home.page';
+import { MesaPage } from './pages/mesa/mesa.page';
+import { TruccoPage } from './pages/trucco/trucco.page';
 
 const routes: Routes = [
   {
     path: '',
-    //loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
-    loadChildren: () => import('./pages/mesa/mesa.module').then( m => m.MesaPageModule)
+    component: HomePage,
   },
   {
     path: 'mesa',
-    loadChildren: () => import('./pages/mesa/mesa.module').then( m => m.MesaPageModule)
-  },
-  {
-    path: 'home',
-    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
+    component: MesaPage
   },
   {
     path: 'trucco',
-    loadChildren: () => import('./pages/trucco/trucco.module').then( m => m.TruccoPageModule)
+    component: TruccoPage
+  },
+  {
+    path: 'config',
+    component: ConfigPage
   }
 ];
 @NgModule({

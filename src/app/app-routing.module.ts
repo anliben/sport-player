@@ -12,21 +12,21 @@ const routes: Routes = [
   },
   {
     path: 'mesa',
-    component: MesaPage
+    component: MesaPage,
   },
   {
     path: 'trucco',
-    component: TruccoPage
+    component: TruccoPage,
   },
   {
     path: 'config',
-    component: ConfigPage
-  }
+    component: ConfigPage,
+  },
 ];
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

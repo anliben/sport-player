@@ -9,9 +9,10 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class HomePage implements OnInit {
 
+  
   constructor(
     private router: Router,
-    public translate: TranslateService
+    private translate: TranslateService
   ) { }
 
   ngOnInit() {

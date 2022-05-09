@@ -36,6 +36,7 @@ export class MesaPage implements OnInit {
   position = '';
 
   players = [];
+  countPlayer = 0;
 
   constructor(private WebSocket: WebSocketService) {}
 
@@ -52,7 +53,9 @@ export class MesaPage implements OnInit {
 
     // escutar players na sala
     this.WebSocket.listen('findPlayers').subscribe((data: any) => {
+      this.countPlayer = data.length;
       console.log(data);
+      console.log('player que estao na sala');
     });
 
     this.WebSocket.listen('join').subscribe((data: any) => {

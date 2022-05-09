@@ -1,6 +1,61 @@
-
 <ion-content>
-  <div  class="bg-background-home h-full p-0 m-0 bg-contain">
+  <div class="bg-background-home h-full p-0 m-0 bg-contain">
     <app-header moeda="55" diamante="20"></app-header>
+    <h1 class="text-center m-1">SORTE DIARIA</h1>
+    <div class="flex justify-center">
+      <ion-row>
+
+        <div class="h-14 w-14 relative flex my-auto m-0.5">
+          <img class="h-14 w-14" src="../../../../assets/game/loja/sortido-item.png">
+          <div class="absolute left-1 bottom-1">
+            <img class="h-12 w-12" src=".../../../../assets/game/loja/interrogacao.png">
+          </div>
+        </div>
+
+        <div class="h-16 w-16 relative flex my-auto m-0.2">
+          <img class="h-16 w-16" src="../../../../assets/game/loja/sortido-item.png">
+          <div class="absolute left-1 bottom-1">
+            <img class="h-14 w-14 " src=".../../../../assets/game/loja/interrogacao.png">
+          </div>
+        </div>
+        <div class="h-20 w-20 relative flex my-auto m-1">
+          <img class="h-20 w-20" src="../../../../assets/game/loja/sortido-item.png">
+          <div class="absolute left-1 bottom-1">
+            <img class="h-16 w-16 m-1" src=".../../../../assets/game/loja/interrogacao.png">
+          </div>
+        </div>
+        <div class="h-16 w-16 relative flex my-auto m-0.2">
+          <img class="h-16 w-16" src="../../../../assets/game/loja/sortido-item.png">
+          <div class="absolute left-1 bottom-1">
+            <img class="h-14 w-14 " src=".../../../../assets/game/loja/interrogacao.png">
+          </div>
+        </div>
+        <div class="h-14 w-14 relative flex my-auto m-0.5">
+          <img class="h-14 w-14" src="../../../../assets/game/loja/sortido-item.png">
+          <div class="absolute left-1 bottom-1">
+            <img class="h-12 w-12" src=".../../../../assets/game/loja/interrogacao.png">
+          </div>
+        </div>
+
+      </ion-row>
+    </div>
+
+    <img class="h-9 w-28 mx-auto m-2" src="../../../../assets/game/loja/botao-sortear.png">
+
+    <div class="flex justify-center">
+      <div class="grid grid-cols-3 gap-3">
+        <div *ngFor="let storeItens of storeItens">
+
+          <div class="h-28 w-24 relative">
+            <img class="h-28 w-24" src="../../../../assets/game/loja/sortido-item.png">
+            <div class="absolute bottom-0">
+              <img class="h-8" src="../../../../assets/game/loja/loja-preco-quadr.png">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
   </div>
+
 </ion-content>

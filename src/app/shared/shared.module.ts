@@ -6,6 +6,7 @@ import { PerfilComponent } from './components/perfil/perfil.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicModule } from '@ionic/angular';
 import { MesaComponent } from './components/mesa/mesa.component';
+import { CartaBaralhoComponent } from '../components/carta-baralho/carta-baralho.component';
 
 
 
@@ -14,7 +15,8 @@ import { MesaComponent } from './components/mesa/mesa.component';
     AvatarMesaComponent,
     HeaderComponent,
     PerfilComponent,
-    MesaComponent
+    MesaComponent,
+    CartaBaralhoComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +27,8 @@ import { MesaComponent } from './components/mesa/mesa.component';
     AvatarMesaComponent,
     HeaderComponent,
     PerfilComponent,
-    MesaComponent
+    MesaComponent,
+    CartaBaralhoComponent
   ]
 })
 export class SharedModule { }

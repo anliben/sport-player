@@ -49,7 +49,7 @@ export class MesaPage implements OnInit {
     this.nome = this.players[numero].username
     this.position = this.players[numero].posicao
 
-    this.WebSocket.emit('insertPlayer', player)
+    this.WebSocket.emit('insertPlayer', this.players)
 
     //this.WebSocket.emit('updateUsers', { 'room': '1' })
 
@@ -60,7 +60,6 @@ export class MesaPage implements OnInit {
     )
 
     this.WebSocket.listen('join').subscribe((data: any) => {
-      console.log(data)
       if (data.username === this.nome) {
         this.avatar2 = data.src
         this.namej2 = data.username
@@ -150,7 +149,6 @@ export class MesaPage implements OnInit {
     // pergunta para o servidor os jogadores que estão na mesma sala
     this.WebSocket.emit('findPlayer', { 'room': '1' })
 
-    console.log('entrando nessa room')
     /* this.nome = window.prompt('Digite seu nome')
     this.position = window.prompt('Digite sua posicao')
     this.WebSocket.emit('join', { 'username': this.nome, 'room': '1', 'posicao': this.position, 'src': '/assets/game/game/homem.png' })
@@ -210,7 +208,6 @@ export class MesaPage implements OnInit {
         room: '1'
       })
     }
-    console.log(this.players);
 
   }
 

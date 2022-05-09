@@ -8,7 +8,7 @@ import { TruccoPage } from './pages/trucco/trucco.page';
 const routes: Routes = [
   {
     path: '',
-    component: HomePage,
+    component: MesaPage,
   },
   {
     path: 'mesa',

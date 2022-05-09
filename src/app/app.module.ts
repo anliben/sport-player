@@ -23,7 +23,8 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
     AppComponent,
     HomePage,
     ConfigPage,
-    TruccoPage
+    TruccoPage,
+    MesaPage
   ],
   imports: [
     BrowserModule,

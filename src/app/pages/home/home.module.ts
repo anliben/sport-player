@@ -8,7 +8,6 @@ import { HomePageRoutingModule } from './home-routing.module';
 
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ConfigPage } from './config/config.page';
-import { StorePage } from './store/store.page';
 
 @NgModule({
   imports: [

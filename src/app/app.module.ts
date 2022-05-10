@@ -11,7 +11,6 @@ import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-transla
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HomePage } from './pages/home/home.page';
-import { MesaComponent } from './shared/components/mesa/mesa.component';
 import { MesaPage } from './pages/mesa/mesa.page';
 import { StorePage } from './pages/home/store/store.page';
 

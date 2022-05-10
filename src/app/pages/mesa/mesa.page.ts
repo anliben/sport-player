@@ -47,15 +47,49 @@ export class MesaPage implements OnInit {
     this.nome = this.players[numero].username;
     this.position = this.players[numero].posicao;
 
-    this.WebSocket.emit('insertPlayer', this.players);
+    // this.nome = window.prompt('Digite seu nome');
+
+    this.WebSocket.emit('insertPlayer', {
+        username: this.nome,
+        posicao: "right",
+        room: "1",
+        src: "/assets/game/game/homem.png",
+    });
 
     //this.WebSocket.emit('updateUsers', { 'room': '1' })
 
     // escutar players na sala
     this.WebSocket.listen('findPlayers').subscribe((data: any) => {
-      this.countPlayer = data.length;
-      console.log(data);
-      console.log('player que estao na sala');
+      let arrs = ['left', 'right']
+      for (let index = 0; index < data.length; index++) {
+        const player = data[index];
+        if(player.friend === this.nome){
+          player.posicao = 'top';
+          this.j3 = true;
+          this.avatar3 = player.src;
+          this.namej3 = player.username;
+        }else if(player.username === this.nome){
+          player.posicao = 'bottom';
+          this.j1 = true;
+          this.avatar1 = player.src;
+          this.namej1 = player.username;
+        }
+        else {
+          if(arrs[0] === 'left'){
+            player.posicao = arrs[0];
+            this.j2 = true;
+            this.avatar2 = player.src;
+            this.namej2 = player.username;
+            arrs.shift();
+          }
+          player.posicao = arrs[0];
+            this.j4 = true;
+            this.avatar4 = player.src;
+            this.namej4 = player.username;
+        }
+        
+        console.log(data);
+      }
     });
 
     this.WebSocket.listen('join').subscribe((data: any) => {
@@ -227,6 +261,9 @@ export class MesaPage implements OnInit {
         src: '/assets/game/game/homem.png',
         posicao: posicoes[indexPosicoes],
         room: '1',
+        friend: '',
+        rival1: '',
+        rival2: '',
       });
     }
   }

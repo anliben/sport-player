@@ -1,7 +1,8 @@
 <ion-content>
-  <div class="bg-background-home h-full p-0 m-0 bg-contain">
+  <div class="bg-background-home h-full p-0 m-0 bg-contain ">
     <app-header moeda="55" diamante="20"></app-header>
-    <h1 class="text-center m-1">SORTE DIARIA</h1>
+    <h1 class="text-center font-bold m-1">SORTE DIARIA</h1>
+
     <div class="flex justify-center">
       <ion-row>
 
@@ -11,7 +12,6 @@
             <img class="h-12 w-12" src=".../../../../assets/game/loja/interrogacao.png">
           </div>
         </div>
-
         <div class="h-16 w-16 relative flex my-auto m-0.2">
           <img class="h-16 w-16" src="../../../../assets/game/loja/sortido-item.png">
           <div class="absolute left-1 bottom-1">
@@ -41,21 +41,54 @@
     </div>
 
     <img class="h-9 w-28 mx-auto m-2" src="../../../../assets/game/loja/botao-sortear.png">
+      <div class="flex justify-center mb-6">
+        <div class="grid grid-cols-3 gap-3">
+          <div *ngFor="let storeItem of storeItens">
 
-    <div class="flex justify-center">
-      <div class="grid grid-cols-3 gap-3">
-        <div *ngFor="let storeItens of storeItens">
-
-          <div class="h-28 w-24 relative">
-            <img class="h-28 w-24" src="../../../../assets/game/loja/sortido-item.png">
-            <div class="absolute bottom-0">
-              <img class="h-8" src="../../../../assets/game/loja/loja-preco-quadr.png">
+            <div class="h-28 w-24 relative">
+              <img class="h-28 w-24" src="../../../../assets/game/loja/sortido-item.png">
+              <div class="absolute bottom-0">
+                <img class="h-6" src="../../../../assets/game/loja/loja-preco-quadr.png">
+                <div class="absolute bottom-0 mx-6 my-6">
+                  <img class="h-11" src="{{storeItem.imgItem}}">
+                  <h3 class="my-1 mb-0 font-bold text-xl">
+                    1000
+                  </h3>
+                </div>
+                <h3 class="absolute bottom-0 mx-5 my-0.5 font-bold text-yellow-100/50">
+                  R$ {{storeItem.price}}
+                </h3>
+              </div>
             </div>
-          </div>
 
+          </div>
         </div>
       </div>
+      
+      <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+        </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
     </div>
-  </div>
-
 </ion-content>
+
+  <ion-tabs class="fixed bottom-0 z-20">
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="store">
+        <ion-icon name="cart-outline"></ion-icon>
+        <ion-label>{{ "home.tab.store" | translate }}</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="play">
+        <ion-icon name="play"></ion-icon>
+        <ion-label>{{ "home.tab.play" | translate }}</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="config">
+        <ion-icon name="settings"></ion-icon>
+        <ion-label>{{ "home.tab.config" | translate }}</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+
+

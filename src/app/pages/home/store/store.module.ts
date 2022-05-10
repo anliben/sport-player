@@ -17,6 +17,6 @@ import { SharedModule } from 'src/app/shared/shared.module';
     StorePageRoutingModule,
     SharedModule
   ],
-  declarations: [StorePage]
+  declarations: []
 })
 export class StorePageModule {}

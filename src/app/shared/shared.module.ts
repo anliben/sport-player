@@ -5,6 +5,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { IonicModule } from '@ionic/angular';
 import { CartaBaralhoComponent } from './components/carta-baralho/carta-baralho.component';
+import { JackpotComponent } from './components/jackpot/jackpot.component';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { CartaBaralhoComponent } from './components/carta-baralho/carta-baralho.
     HeaderComponent,
     PerfilComponent,
     CartaBaralhoComponent,
+    JackpotComponent,
   ],
   imports: [CommonModule, IonicModule.forRoot()],
   exports: [
@@ -19,6 +21,7 @@ import { CartaBaralhoComponent } from './components/carta-baralho/carta-baralho.
     AvatarMesaComponent,
     HeaderComponent,
     PerfilComponent,
+    JackpotComponent,
     CartaBaralhoComponent,
   ],
 })

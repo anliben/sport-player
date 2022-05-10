@@ -13,6 +13,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HomePage } from './pages/home/home.page';
 import { MesaComponent } from './shared/components/mesa/mesa.component';
 import { MesaPage } from './pages/mesa/mesa.page';
+import { StorePage } from './pages/home/store/store.page';
 
 export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -21,7 +22,8 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
   declarations: [
     AppComponent,
     HomePage,
-    MesaPage
+    MesaPage,
+    StorePage
   ],
   imports: [
     BrowserModule,

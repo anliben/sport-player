@@ -19,8 +19,7 @@ import { StorePage } from './store/store.page';
     SharedModule
   ],
   declarations: [
-    ConfigPage,
-    StorePage
+    ConfigPage
   ]
 })
 export class HomePageModule {}

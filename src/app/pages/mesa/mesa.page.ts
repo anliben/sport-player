@@ -91,82 +91,6 @@ export class MesaPage implements OnInit {
         console.log(data);
       }
     });
-
-    this.WebSocket.listen('join').subscribe((data: any) => {
-      if (data.username === this.nome) {
-        this.avatar2 = data.src;
-        this.namej2 = data.username;
-        this.j2 = true;
-      } else {
-        if (data.posicao == 'top') {
-          this.avatar1 = data.src;
-          this.namej1 = data.username;
-          this.j1 = true;
-        }
-
-        if (data.posicao == 'left') {
-          this.avatar3 = data.src;
-          this.namej3 = data.username;
-          this.j3 = true;
-        }
-
-        if (data.posicao == 'right') {
-          this.avatar4 = data.src;
-          this.namej4 = data.username;
-          this.j4 = true;
-        }
-      }
-    });
-
-    this.WebSocket.listen('joined-top').subscribe((data: any) => {
-      console.log('join', data);
-      this.avatar1 = data.src;
-      this.namej1 = data.username;
-      this.j1 = true;
-      this.maxPlayer += 1;
-    });
-
-    this.WebSocket.listen('joined-bottom').subscribe((data: any) => {
-      console.log('join', data);
-      this.avatar2 = data.src;
-      this.namej2 = data.username;
-      this.j2 = true;
-    });
-
-    this.WebSocket.listen('joined-left').subscribe((data: any) => {
-      console.log('join', data);
-      this.avatar3 = data.src;
-      this.namej3 = data.username;
-      this.j3 = true;
-    });
-
-    this.WebSocket.listen('joined-right').subscribe((data: any) => {
-      console.log('join', data);
-      this.avatar4 = data.src;
-      this.namej4 = data.username;
-      this.j4 = true;
-    });
-
-    this.WebSocket.listen('leave-top').subscribe((data: any) => {
-      console.log('leave', data);
-      this.avatar1 = '';
-      this.j1 = false;
-    });
-    this.WebSocket.listen('leave-bottom').subscribe((data: any) => {
-      console.log('leave', data);
-      this.avatar2 = '';
-      this.j2 = false;
-    });
-    this.WebSocket.listen('leave-left').subscribe((data: any) => {
-      console.log('leave', data);
-      this.avatar3 = '';
-      this.j3 = false;
-    });
-    this.WebSocket.listen('leave-right').subscribe((data: any) => {
-      console.log('leave', data);
-      this.avatar4 = '';
-      this.j4 = false;
-    });
   }
 
   menu() {
@@ -174,13 +98,7 @@ export class MesaPage implements OnInit {
   }
 
   enterRoom() {
-    // pergunta para o servidor os jogadores que estão na mesma sala
     this.WebSocket.emit('findPlayer', { room: '1' });
-
-    /* this.nome = window.prompt('Digite seu nome')
-    this.position = window.prompt('Digite sua posicao')
-    this.WebSocket.emit('join', { 'username': this.nome, 'room': '1', 'posicao': this.position, 'src': '/assets/game/game/homem.png' })
- */
   }
 
   changeUserTop() {

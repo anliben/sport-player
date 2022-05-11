@@ -196,3 +196,9 @@ table {
 .my-custom-class {
   color: red;
 }
+
+@media (max-width: 400px) {
+  .customSm {
+    // transform: scale(100vw / 100%);
+  }
+}

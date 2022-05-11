@@ -7,14 +7,13 @@ import { WebSocketService } from 'src/app/services/web-socket.service';
   styleUrls: ['./avatar-mesa.component.scss'],
 })
 export class AvatarMesaComponent implements OnInit {
-
   @Input() avatar: string;
   @Input() cartas: string;
   @Input() nome: string;
   @Input() joined: boolean = false;
+  @Input() cardDirection: string = 'left';
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() { }
-
+  ngOnInit() {}
 }

@@ -1,7 +1,43 @@
-<figure *ngIf="!joined" class="w-20 flex flex-col bg-black">
-  <img class="" [src]="avatar" />
-  <figcaption class="text-white">{{ nome }}</figcaption>
-</figure>
+<div
+  class="flex items-center"
+  [ngClass]="{ 'flex-row-reverse ': cardDirection === 'left' }"
+>
+  <figure *ngIf="!joined" class="flex flex-col items-center">
+    <img
+      class="w-12 h-12 rounded-full border-solid border-[1px] border-[#eec26f]"
+      [src]="avatar"
+    />
+
+    <div
+      class="flex relative bottom-2 justify-center items-center rounded-md border-solid border-[0.5px] border-[#eec26f] bg-[#272727] py-0.5 px-1.5"
+    >
+      <figcaption class="text-white font-bold uppercase text-[10px]">
+        {{ nome }}
+      </figcaption>
+    </div>
+  </figure>
+
+  <div class="absolute">
+    <div
+      *ngFor="let item of [1, 2, 3]; let i = index"
+      [ngClass]="{
+        'bg-red-400 right-[2.5rem]': cardDirection === 'left',
+        'bg-blue-400 left-10': cardDirection === 'right',
+        'right-[3rem]': cardDirection === 'left' && i === 1,
+        'right-[3.5rem]': cardDirection === 'left' && i === 2,
+        'left-[3rem]': cardDirection === 'right' && i === 1,
+        'left-[3.5rem]': cardDirection === 'right' && i === 2
+      }"
+      class="absolute -top-8 w-8 h-12 rounded-sm"
+    >
+      <img
+        class="h-full w-full"
+        src="/assets/game/partidaTruco/costas-das-cartas.png"
+      />
+    </div>
+  </div>
+</div>
+
 <figure *ngIf="joined" class="cursor-pointer w-7 h-2 flex flex-col">
   <img class="" src="/assets/game/partidaTruco/botao-entrar-mesa.png" />
 </figure>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 import { WebSocketService } from 'src/app/services/web-socket.service';
+import { ConfiguracaoJogoModalComponent } from 'src/app/shared/components/configuracao-jogo-modal/configuracao-jogo-modal.component';
 
 @Component({
   selector: 'app-mesa',
@@ -43,7 +45,11 @@ export class MesaPage implements OnInit {
   rightAnimation: boolean = false;
   bottomAnimation: boolean = false;
 
-  constructor(private WebSocket: WebSocketService) {}
+  constructor(
+    private WebSocket: WebSocketService,
+    private modalController: ModalController
+  ) {}
+
 
   ngOnInit() {
     this.generatePlayers();
@@ -54,34 +60,32 @@ export class MesaPage implements OnInit {
 
 
     this.WebSocket.emit('insertPlayer', {
-        username: this.nome,
-        posicao: "right",
-        room: "1",
-        src: "/assets/game/game/homem.png",
+      username: this.nome,
+      posicao: 'right',
+      room: '1',
+      src: '/assets/game/game/homem.png',
     });
 
     //this.WebSocket.emit('updateUsers', { 'room': '1' })
 
     // escutar players na sala
     this.WebSocket.listen('findPlayers').subscribe((data: any) => {
-      console.log(data);
-      
-      let arrs = ['left', 'right']
+
+      let arrs = ['left', 'right'];
       for (let index = 0; index < data.length; index++) {
         const player = data[index];
-        if(player.friend === this.nome){
+        if (player.friend === this.nome) {
           player.posicao = 'top';
           this.j3 = true;
           this.avatar3 = player.src;
           this.namej3 = player.username;
-        }else if(player.username === this.nome){
+        } else if (player.username === this.nome) {
           player.posicao = 'bottom';
           this.j1 = true;
           this.avatar1 = player.src;
           this.namej1 = player.username;
-        }
-        else {
-          if(arrs[0] === 'left'){
+        } else {
+          if (arrs[0] === 'left') {
             player.posicao = arrs[0];
             this.j2 = true;
             this.avatar2 = player.src;
@@ -89,17 +93,24 @@ export class MesaPage implements OnInit {
             arrs.shift();
           }
           player.posicao = arrs[0];
-            this.j4 = true;
-            this.avatar4 = player.src;
-            this.namej4 = player.username;
+          this.j4 = true;
+          this.avatar4 = player.src;
+          this.namej4 = player.username;
         }
-        
+
       }
     });
   }
 
-  menu() {
-    this.isModalOpen = !this.isModalOpen;
+  async presentConfigGameModal() {
+    const modal = await this.modalController.create({
+      component: ConfiguracaoJogoModalComponent,
+      showBackdrop: true,
+      cssClass: 'my-custom-class',
+      backdropDismiss: true,
+      animated: false,
+    });
+    return await modal.present();
   }
 
   enterRoom() {

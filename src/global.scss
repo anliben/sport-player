@@ -93,13 +93,13 @@ video,
 input,
 textarea,
 select {
-    background: transparent;
-    border: 0;
-    font-size: 100%;
-    margin: 0;
-    outline: 0;
-    padding: 0;
-    vertical-align: baseline;
+  background: transparent;
+  border: 0;
+  font-size: 100%;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  vertical-align: baseline;
 }
 
 article,
@@ -113,17 +113,17 @@ hgroup,
 menu,
 nav,
 section {
-    display: block;
+  display: block;
 }
 
 body {
-    line-height: 1;
+  line-height: 1;
 }
 
 abbr[title],
 dfn[title] {
-    border-bottom: 1px dotted;
-    cursor: help;
+  border-bottom: 1px dotted;
+  cursor: help;
 }
 
 /*blockquote, q {
@@ -133,51 +133,50 @@ dfn[title] {
      content:none;
  }*/
 del {
-    text-decoration: line-through;
+  text-decoration: line-through;
 }
 
 hr {
-    background: transparent;
-    border: 0;
-    clear: both;
-    color: transparent;
-    height: 1px;
-    margin: 0;
-    padding: 0;
+  background: transparent;
+  border: 0;
+  clear: both;
+  color: transparent;
+  height: 1px;
+  margin: 0;
+  padding: 0;
 }
 
 mark {
-    background-color: #ffffb3;
-    font-style: italic
+  background-color: #ffffb3;
+  font-style: italic;
 }
 
 input,
 select {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
 ins {
-    background-color: red;
-    color: white;
-    text-decoration: none;
+  background-color: red;
+  color: white;
+  text-decoration: none;
 }
 
 ol,
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 table {
-    border-collapse: collapse;
-    border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
+@import "tailwindcss/base";
 
-@import 'tailwindcss/base';
+@import "tailwindcss/components";
 
-@import 'tailwindcss/components';
-
-@import 'tailwindcss/utilities';
+@import "tailwindcss/utilities";
 /* Core CSS required for Ionic components to work properly */
 @import "~@ionic/angular/css/core.css";
 
@@ -185,7 +184,7 @@ table {
 @import "~@ionic/angular/css/normalize.css";
 @import "~@ionic/angular/css/structure.css";
 @import "~@ionic/angular/css/typography.css";
-@import '~@ionic/angular/css/display.css';
+@import "~@ionic/angular/css/display.css";
 
 /* Optional CSS utils that can be commented out */
 @import "~@ionic/angular/css/padding.css";
@@ -193,3 +192,7 @@ table {
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+.my-custom-class {
+  color: red;
+}

@@ -40,10 +40,16 @@ export class MesaPage implements OnInit {
   players = [];
   countPlayer = 0;
 
+  leftAnimation: boolean = false;
+  topAnimation: boolean = false;
+  rightAnimation: boolean = false;
+  bottomAnimation: boolean = false;
+
   constructor(
     private WebSocket: WebSocketService,
     private modalController: ModalController
   ) {}
+
 
   ngOnInit() {
     this.generatePlayers();
@@ -52,7 +58,6 @@ export class MesaPage implements OnInit {
     this.nome = this.players[numero].username;
     this.position = this.players[numero].posicao;
 
-    // this.nome = window.prompt('Digite seu nome');
 
     this.WebSocket.emit('insertPlayer', {
       username: this.nome,
@@ -65,6 +70,7 @@ export class MesaPage implements OnInit {
 
     // escutar players na sala
     this.WebSocket.listen('findPlayers').subscribe((data: any) => {
+
       let arrs = ['left', 'right'];
       for (let index = 0; index < data.length; index++) {
         const player = data[index];
@@ -92,7 +98,6 @@ export class MesaPage implements OnInit {
           this.namej4 = player.username;
         }
 
-        console.log(data);
       }
     });
   }
@@ -126,6 +131,7 @@ export class MesaPage implements OnInit {
         friend: '',
         rival1: '',
         rival2: '',
+        mao: ''
       });
     }
   }

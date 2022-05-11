@@ -12,8 +12,13 @@ export class AvatarMesaComponent implements OnInit {
   @Input() nome: string;
   @Input() joined: boolean = false;
   @Input() cardDirection: string = 'left';
+  @Input() eu: boolean = false; // prop eu para aprecer minhas cartas.
 
   constructor() {}
 
   ngOnInit() {}
+
+  onClickLog(i) {
+    console.log('Click event: ', i);
+  }
 }

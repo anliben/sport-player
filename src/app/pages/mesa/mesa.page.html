@@ -19,18 +19,18 @@
     </div>
 
     <img
-      (click)="menu()"
+      (click)="presentConfigGameModal()"
       class="cursor-pointer h-12 relative left-3"
       src="/assets/game/partidaTruco/informacoes.png"
     />
   </section>
 
-  <ion-modal class="w-6/12" [isOpen]="isModalOpen">
+  <!-- <ion-modal [isOpen]="isModalOpen">
     <ng-template>
       <h1>Ola Mundo</h1>
       <button (click)="menu()">fechar</button>
     </ng-template>
-  </ion-modal>
+  </ion-modal> -->
 
   <section class="flex justify-between h-4/6">
     <img
@@ -55,7 +55,7 @@
             <!-- {{tableType}} -->
             <span
               *ngIf="tableType === 'cashgame'"
-              class="block text-white opacity-60 font-medium uppercase"
+              class="block text-black opacity-50 font-semibold uppercase"
               >{{"mesa.cashgame" | translate }}</span
             >
             <span
@@ -95,6 +95,7 @@
           </div>
 
           <app-avatar-mesa
+            cardDirection="right"
             (click)="enterRoom()"
             [joined]="j4"
             [nome]="namej4"
@@ -137,6 +138,8 @@
             </span>
           </div>
           <app-avatar-mesa
+            eu="true"
+            cardDirection="right"
             (click)="enterRoom()"
             [joined]="j1"
             [nome]="namej1"

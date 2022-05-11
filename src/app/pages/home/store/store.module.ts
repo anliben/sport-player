@@ -6,7 +6,6 @@ import { IonicModule } from '@ionic/angular';
 
 import { StorePageRoutingModule } from './store-routing.module';
 
-import { StorePage } from './store.page';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({

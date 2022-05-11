@@ -1,11 +1,12 @@
 <div
-  class="flex items-center"
+  class="flex items-center customSm"
   [ngClass]="{ 'flex-row-reverse ': cardDirection === 'left' }"
 >
   <figure *ngIf="!joined" class="flex flex-col items-center">
     <img
       class="w-12 h-12 rounded-full border-solid border-[1px] border-[#eec26f]"
-      [src]="avatar"
+      src="/assets/game/partidaTruco/perfil-foto-exemplo.png"
+      lorem="avatar"
     />
 
     <div
@@ -17,23 +18,40 @@
     </div>
   </figure>
 
-  <div class="absolute">
+  <ng-template #costa>
+    <div class="absolute">
+      <div
+        *ngFor="let item of [1, 2, 3]; let i = index"
+        [ngClass]="{
+          'right-[2.5rem]': cardDirection === 'left',
+          'left-10': cardDirection === 'right',
+          'right-[3rem]': cardDirection === 'left' && i === 1,
+          'right-[3.5rem]': cardDirection === 'left' && i === 2,
+          'left-[3rem]': cardDirection === 'right' && i === 1,
+          'left-[3.5rem]': cardDirection === 'right' && i === 2
+        }"
+        class="absolute -top-8 w-8 h-12 rounded-sm"
+      >
+        <img
+          class="h-full w-full"
+          src="/assets/game/partidaTruco/costas-das-cartas.png"
+        />
+      </div>
+    </div>
+  </ng-template>
+
+  <div class="absolute" *ngIf="eu; else costa">
     <div
       *ngFor="let item of [1, 2, 3]; let i = index"
       [ngClass]="{
-        'bg-red-400 right-[2.5rem]': cardDirection === 'left',
-        'bg-blue-400 left-10': cardDirection === 'right',
-        'right-[3rem]': cardDirection === 'left' && i === 1,
-        'right-[3.5rem]': cardDirection === 'left' && i === 2,
-        'left-[3rem]': cardDirection === 'right' && i === 1,
-        'left-[3.5rem]': cardDirection === 'right' && i === 2
+        'left-[3rem]': cardDirection === 'right',
+        'left-[4.5rem]': cardDirection === 'right' && i === 1,
+        'left-[6rem]': cardDirection === 'right' && i === 2
       }"
       class="absolute -top-8 w-8 h-12 rounded-sm"
+      (click)="onClickLog(i)"
     >
-      <img
-        class="h-full w-full"
-        src="/assets/game/partidaTruco/costas-das-cartas.png"
-      />
+      <app-carta-baralho class="" naipe="copas" numero="7"></app-carta-baralho>
     </div>
   </div>
 </div>

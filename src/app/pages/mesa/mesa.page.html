@@ -32,17 +32,19 @@
     </ng-template>
   </ion-modal> -->
 
-  <section class="flex justify-between h-4/6">
+  <section class="flex justify-center h-[70%]">
     <img
       class="cursor-pointer h-10 self-end"
       src="/assets/game/partidaTruco/convidar-amigos.png"
     />
 
-    <div class="w-7/12 h-full">
+    <div class="w-[100%] h-full bg-orange-300">
       <div
-        class="bg-mesa bg-center m-auto bg-[length:100%_100%] max-w-sm bg-no-repeat w-full h-full flex flex-col justify-between items-center"
+        class="bg-mesa bg-center m-auto bg-[length:100%_100%] max-w-xs bg-no-repeat w-full h-full flex flex-col justify-between items-center"
       >
-        <div class="flex grow basis-1/4 flex-col items-center justify-between">
+        <div
+          class="flex grow basis-1/4 max-h-1/4 flex-col items-center justify-between"
+        >
           <app-avatar-mesa
             (click)="enterRoom()"
             [joined]="j3"
@@ -66,8 +68,19 @@
           </div>
 
           <app-jackpot></app-jackpot>
-          <div class="w-8 h-14">
-            <p>baralho</p>
+
+          <div class="flex">
+            <div class="relative right-[40%] w-8 h-14 rotate-90 z-10">
+              <img
+                class="h-full w-full rounded-sm customSm"
+                src="/assets/game/partidaTruco/costas-das-cartas.png"
+              />
+            </div>
+            <app-carta-baralho
+              class="relative right-14 top-5 -rotate-180"
+              naipe="copas"
+              numero="7"
+            ></app-carta-baralho>
           </div>
           <div class="w-8 h-14 rotate-180">
             <app-carta-baralho naipe="copas" numero="7"></app-carta-baralho>
@@ -87,7 +100,7 @@
             <div class="w-8 h-14 rotate-90">
               <app-carta-baralho naipe="copas" numero="7"></app-carta-baralho>
             </div>
-            <div class="w-14"></div>
+            <div class="w-14 customSm"></div>
 
             <div class="w-8 h-14 -rotate-90">
               <app-carta-baralho naipe="copas" numero="7"></app-carta-baralho>

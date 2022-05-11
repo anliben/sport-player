@@ -6,6 +6,7 @@ import { PerfilComponent } from './components/perfil/perfil.component';
 import { IonicModule } from '@ionic/angular';
 import { CartaBaralhoComponent } from './components/carta-baralho/carta-baralho.component';
 import { JackpotComponent } from './components/jackpot/jackpot.component';
+import { ConfiguracaoJogoModalComponent } from './components/configuracao-jogo-modal/configuracao-jogo-modal.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { JackpotComponent } from './components/jackpot/jackpot.component';
     PerfilComponent,
     CartaBaralhoComponent,
     JackpotComponent,
+    ConfiguracaoJogoModalComponent,
   ],
   imports: [CommonModule, IonicModule.forRoot()],
   exports: [
@@ -22,6 +24,7 @@ import { JackpotComponent } from './components/jackpot/jackpot.component';
     HeaderComponent,
     PerfilComponent,
     JackpotComponent,
+    ConfiguracaoJogoModalComponent,
     CartaBaralhoComponent,
   ],
 })

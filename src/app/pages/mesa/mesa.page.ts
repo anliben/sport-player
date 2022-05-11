@@ -64,6 +64,8 @@ export class MesaPage implements OnInit {
 
     // escutar players na sala
     this.WebSocket.listen('findPlayers').subscribe((data: any) => {
+      console.log(data);
+      
       let arrs = ['left', 'right']
       for (let index = 0; index < data.length; index++) {
         const player = data[index];
@@ -92,7 +94,6 @@ export class MesaPage implements OnInit {
             this.namej4 = player.username;
         }
         
-        console.log(data);
       }
     });
   }

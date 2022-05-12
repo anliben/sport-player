@@ -12,7 +12,7 @@
     <div
       class="flex relative bottom-2 justify-center items-center rounded-md border-solid border-[0.5px] border-[#eec26f] bg-[#272727] py-0.5 px-1.5"
     >
-      <figcaption class="text-white font-bold uppercase text-[10px]">
+      <figcaption class="text-white text-[0.4rem]">
         {{ nome }}
       </figcaption>
     </div>
@@ -42,16 +42,20 @@
 
   <div class="absolute" *ngIf="eu; else costa">
     <div
-      *ngFor="let item of [1, 2, 3]; let i = index"
+      *ngFor="let item of cards; let i = index"
       [ngClass]="{
         'left-[3rem]': cardDirection === 'right',
         'left-[4.5rem]': cardDirection === 'right' && i === 1,
         'left-[6rem]': cardDirection === 'right' && i === 2
       }"
       class="absolute -top-8 w-8 h-12 rounded-sm"
-      (click)="onClickLog(i)"
+      (click)="onClickLog(item)"
     >
-      <app-carta-baralho class="" naipe="copas" numero="7"></app-carta-baralho>
+      <app-carta-baralho
+        class=""
+        [naipe]="item.naipe"
+        [numero]="item.numero"
+      ></app-carta-baralho>
     </div>
   </div>
 </div>

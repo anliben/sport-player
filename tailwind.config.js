@@ -10,6 +10,7 @@ module.exports = {
         diamante: "url('/assets/game/game/fundo-loja.png')",
         mesa_part_truco: "url('/assets/game/partidaTruco/mesa-fundo.png')",
         mesa: "url('/assets/game/partidaTruco/mesa-fundo.png')",
+        fundo_roleta: 'url("/assets/game/game/fundo-roleta.png")',
       },
       fontFamily: {
         vag: ["Vag-Round", "sans-serif"],

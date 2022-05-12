@@ -13,6 +13,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HomePage } from './pages/home/home.page';
 import { MesaPage } from './pages/mesa/mesa.page';
 import { StorePage } from './pages/home/store/store.page';
+import { ConfigPage } from './pages/home/config/config.page';
+import { FormsModule } from '@angular/forms';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -22,7 +25,8 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
     AppComponent,
     HomePage,
     MesaPage,
-    StorePage
+    StorePage,
+    ConfigPage
   ],
   imports: [
     BrowserModule,
@@ -38,6 +42,8 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
     }),
     AppRoutingModule,
     SharedModule,
+    FormsModule,
+    ScrollingModule
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, TranslateService],
   bootstrap: [AppComponent],

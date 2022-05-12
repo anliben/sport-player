@@ -17,8 +17,6 @@ import { ConfigPage } from './config/config.page';
     HomePageRoutingModule,
     SharedModule
   ],
-  declarations: [
-    ConfigPage
-  ]
+  declarations: [  ]
 })
 export class HomePageModule {}

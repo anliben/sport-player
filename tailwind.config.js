@@ -12,6 +12,9 @@ module.exports = {
         "mesa": "url('/assets/game/partidaTruco/mesa-fundo.png')",
       },
     },
+    colors: {
+      primary: "#8b8b5c"
+    }
   },
   plugins: [],
 };

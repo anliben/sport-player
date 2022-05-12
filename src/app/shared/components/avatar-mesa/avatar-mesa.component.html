@@ -2,7 +2,7 @@
   class="flex items-center customSm"
   [ngClass]="{ 'flex-row-reverse ': cardDirection === 'left' }"
 >
-  <figure *ngIf="!joined" class="flex flex-col items-center">
+  <figure *ngIf="!joined" class="flex flex-col items-center cursor-pointer">
     <img
       class="w-12 h-12 rounded-full border-solid border-[1px] border-[#eec26f]"
       src="/assets/game/partidaTruco/perfil-foto-exemplo.png"
@@ -52,7 +52,7 @@
       (click)="onClickLog(item)"
     >
       <app-carta-baralho
-        class=""
+        class="cursor-pointer transition-transform hover:absolute hover:-translate-y-1"
         [naipe]="item.naipe"
         [numero]="item.numero"
       ></app-carta-baralho>

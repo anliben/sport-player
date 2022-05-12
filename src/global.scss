@@ -193,8 +193,28 @@ table {
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
+/*fonts*/
+@font-face {
+  font-family: "MonuEx-regular"; //This is what we are going to call
+  src: url("./assets/fonts/MonumentExtended-Regular.otf");
+}
+@font-face {
+  font-family: "Vag-Round"; //This is what we are going to call
+  src: url("./assets/fonts/VAGRoundedBT.ttf");
+}
+
+* {
+  font-family: "MonuEx-regular";
+  text-transform: uppercase;
+}
+
 .my-custom-class {
   color: red;
+}
+
+.text-vag {
+  font-family: "Vag-Round";
+  // color: #ffffb3;
 }
 
 @media (max-width: 400px) {

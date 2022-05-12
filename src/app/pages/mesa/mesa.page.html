@@ -1,6 +1,6 @@
 <div class="p-3 flex flex-col bg-background h-screen justify-between">
   <section class="flex items-center justify-between">
-    <div class="flex items-center justify-center bg-yellow-400">
+    <div class="flex items-center justify-center">
       <img
         class="cursor-pointer h-8"
         src="/assets/game/partidaTruco/config.png"
@@ -8,14 +8,72 @@
       <div
         class="bg-[url('/assets/game/partidaTruco/espectadores.png')] h-9 w-16 bg-contain bg-no-repeat"
       >
-        <span class="absolute left-16 top-8 text-fuchsia-600">999</span>
+        <span
+          class="absolute left-[4.2rem] top-[2.1rem] text-[#8b8b5c] font-vag"
+          >{{spectorsCount}}</span
+        >
       </div>
     </div>
 
-    <div class="flex justify-center bg-orange-100 items-center">
-      <img class="h-12" src="/assets/game/partidaTruco/nos.png" />
-      <img class="h-12" src="/assets/game/partidaTruco/eles.png" />
-      <img class="h-8" src="/assets/game/partidaTruco/valor-da-rodada.png" />
+    <div class="flex justify-center items-center">
+      <div class="flex">
+        <div class="flex flex-col relative top-5 mr-1">
+          <div
+            [ngClass]="{'bg-[#8b8b5c]': false}"
+            class="bg-[#3d3c3c] border-solid border-[0.8px] border-[#8b8b5c] rounded-full w-[0.6rem] h-[0.6rem]"
+          ></div>
+          <div
+            [ngClass]="{'bg-[#8b8b5c]': false}"
+            class="bg-[#3d3c3c] mt-[2px] mb-[2px] border-solid border-[0.8px] border-[#8b8b5c] rounded-full w-[0.6rem] h-[0.6rem]"
+          ></div>
+          <div
+            [ngClass]="{'bg-[#ffffb3]': true}"
+            class="bg-[#3d3c3c] border-solid border-[0.8px] border-[#8b8b5c] rounded-full w-[0.6rem] h-[0.6rem]"
+          ></div>
+        </div>
+        <div
+          class="w-14 h-[3.5rem] mr-1 flex justify-center items-center bg-[url('/assets/game/partidaTruco/nos.png')] bg-contain bg-no-repeat"
+        >
+          <span
+            class="relative top-[0.4rem] text-[#8b8b5c] font-vag text-[1.6rem]"
+            >6</span
+          >
+        </div>
+      </div>
+
+      <div class="flex">
+        <div
+          class="w-14 h-[3.5rem] relative top-[0.3rem] flex justify-center items-center bg-[url('/assets/game/partidaTruco/eles.png')] bg-contain bg-no-repeat"
+        >
+          <span
+            class="relative top-[0.1rem] text-[#8b8b5c] font-vag text-[1.6rem]"
+            >5</span
+          >
+        </div>
+        <div class="flex flex-col relative top-5 ml-1">
+          <div
+            [ngClass]="{'bg-[#8b8b5c]': false}"
+            class="bg-[#3d3c3c] border-solid border-[0.8px] border-[#8b8b5c] rounded-full w-[0.6rem] h-[0.6rem]"
+          ></div>
+          <div
+            [ngClass]="{'bg-[#8b8b5c]': false}"
+            class="bg-[#3d3c3c] mt-[2px] mb-[2px] border-solid border-[0.8px] border-[#8b8b5c] rounded-full w-[0.6rem] h-[0.6rem]"
+          ></div>
+          <div
+            [ngClass]="{'bg-red-400': true}"
+            class="bg-[#3d3c3c] border-solid border-[0.8px] border-[#8b8b5c] rounded-full w-[0.6rem] h-[0.6rem]"
+          ></div>
+        </div>
+      </div>
+
+      <div
+        class="ml-4 w-14 h-[3.5rem] mr-1 bg-center flex justify-center items-center bg-[url('/assets/game/partidaTruco/valor-da-rodada.png')] bg-contain bg-no-repeat"
+      >
+        <span
+          class="relative top-[0.4rem] text-[#8b8b5c] font-vag text-[1.6rem]"
+          >1</span
+        >
+      </div>
     </div>
 
     <img
@@ -34,11 +92,11 @@
 
   <section class="flex justify-center h-[70%]">
     <img
-      class="cursor-pointer h-10 self-end"
+      class="cursor-pointer h-10 self-end transition ease-in-out delay-150 hover:scale-110 duration-300"
       src="/assets/game/partidaTruco/convidar-amigos.png"
     />
 
-    <div class="w-[100%] h-full bg-orange-300">
+    <div class="w-[100%] h-full">
       <div
         class="bg-mesa bg-center m-auto bg-[length:100%_100%] max-w-xs bg-no-repeat w-full h-full flex flex-col justify-between items-center"
       >
@@ -51,35 +109,39 @@
             [nome]="namej3"
             cartas="/assets/game/cartas/4paus.png"
             [avatar]="avatar3"
+            [cards]="exampleCards"
           ></app-avatar-mesa>
+
+          <app-tampa-p class="relative -top-4 left-8"></app-tampa-p>
 
           <div class="flex flex-col justify-center items-center">
             <!-- {{tableType}} -->
             <span
               *ngIf="tableType === 'cashgame'"
-              class="block text-black opacity-50 font-semibold uppercase"
+              class="block text-black opacity-50 text-[1rem]"
               >{{"mesa.cashgame" | translate }}</span
             >
             <span
               *ngIf="tableType === 'torneio'"
-              class="block text-white opacity-60 font-medium uppercase"
+              class="block text-black opacity-60 text-[1rem]"
               >{{ "mesa.tournament" | translate }}</span
             >
           </div>
 
           <app-jackpot></app-jackpot>
 
-          <div class="flex">
-            <div class="relative right-[40%] w-8 h-14 rotate-90 z-10">
+          <!-- cardVirada -->
+          <div class="flex w-full">
+            <div class="relative w-8 h-14 rotate-90 z-10">
               <img
-                class="h-full w-full rounded-sm customSm"
+                class="h-full w-full rounded-sm"
                 src="/assets/game/partidaTruco/costas-das-cartas.png"
               />
             </div>
             <app-carta-baralho
-              class="relative right-14 top-5 -rotate-180"
-              naipe="copas"
-              numero="7"
+              class="relative right-8 top-5 -rotate-180"
+              [naipe]="cardVira.naipe"
+              [numero]="cardVira.numero"
             ></app-carta-baralho>
           </div>
           <div class="w-8 h-14 rotate-180">
@@ -88,13 +150,16 @@
         </div>
 
         <div class="flex justify-between items-center w-full">
-          <app-avatar-mesa
-            (click)="enterRoom()"
-            [joined]="j2"
-            [nome]="namej2"
-            cartas="/assets/game/cartas/4paus.png"
-            avatar="/assets/game/partidaTruco/perfil-foto-exemplo.png"
-          ></app-avatar-mesa>
+          <div>
+            <app-avatar-mesa
+              (click)="enterRoom()"
+              [joined]="j2"
+              [nome]="namej2"
+              cartas="/assets/game/cartas/4paus.png"
+              avatar="/assets/game/partidaTruco/perfil-foto-exemplo.png"
+            ></app-avatar-mesa>
+            <app-tampa-p class="relative -top-4 bg-white left-14"></app-tampa-p>
+          </div>
 
           <div class="flex">
             <div class="w-8 h-14 rotate-90">
@@ -114,6 +179,7 @@
             [nome]="namej4"
             cartas="/assets/game/cartas/4paus.png"
             [avatar]="avatar4"
+            [cards]="exampleCards"
           ></app-avatar-mesa>
         </div>
 
@@ -125,28 +191,22 @@
           <div class="flex flex-col items-center">
             <span
               *ngIf="tableType === 'cashgame'"
-              class="block text-white opacity-60 font-medium uppercase text-xs"
+              class="block text-white opacity-60 text-[0.6rem]"
               >{{"mesa.cashgame" | translate }}</span
             >
             <span
               *ngIf="tableType === 'torneio'"
-              class="block text-white opacity-60 font-medium uppercase text-xs"
+              class="block text-white opacity-60 text-[0.6rem]"
               >{{"mesa.tournament" | translate }}</span
             >
-            <span
-              class="block text-white font-medium opacity-60 uppercase text-xs"
-            >
+            <span class="block text-white opacity-60 text-[0.6rem]">
               Limpo
             </span>
 
-            <span
-              class="block text-white font-medium opacity-60 uppercase text-xs"
-            >
+            <span class="block text-white opacity-60 text-[0.6rem]">
               Id: 4568
             </span>
-            <span
-              class="block text-white font-medium opacity-60 uppercase text-xs"
-            >
+            <span class="block text-white opacity-60 text-[0.6rem]">
               entrada: 600
             </span>
           </div>
@@ -158,12 +218,13 @@
             [nome]="namej1"
             cartas="/assets/game/cartas/4paus.png"
             [avatar]="avatar1"
+            [cards]="exampleCards"
           ></app-avatar-mesa>
         </div>
       </div>
     </div>
     <img
-      class="cursor-pointer h-10 self-end"
+      class="cursor-pointer h-10 self-end transition ease-in-out delay-150 hover:scale-110 duration-300"
       src="/assets/game/partidaTruco/sinal-secreto.png"
     />
   </section>
@@ -206,7 +267,7 @@
           <div
             class="h-6 w-20 bg-contain bg-no-repeat ml-2 mr-2 bg-[url('/assets/game/partidaTruco/lista-de-espera.png')]"
           >
-            <span class="text-purple-500 relative left-14 font-medium">0</span>
+            <span class="font-vag text-[#8b8b5c] relative left-14">0</span>
           </div>
 
           <img

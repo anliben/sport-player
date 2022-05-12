@@ -13,6 +13,7 @@ export class AvatarMesaComponent implements OnInit {
   @Input() joined: boolean = false;
   @Input() cardDirection: string = 'left';
   @Input() eu: boolean = false; // prop eu para aprecer minhas cartas.
+  @Input() cards: object[] = [];
 
   constructor() {}
 

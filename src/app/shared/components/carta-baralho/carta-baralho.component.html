@@ -1,14 +1,16 @@
 <div
-  class="w-8 h-14 customSm bg-gray-100 border-solid border-[1.3px] border-white rounded-sm shadow-sm shadow-[#272727]/50 flex flex-col items-start justify-center p-[2px]"
+  class="w-8 h-14 customSm bg-gray-100 border-solid border-[1.3px] border-white rounded-sm shadow-sm shadow-[#272727]/50 flex flex-col items-start justify-center p-[5px]"
 >
-  <div class="relative -top-1">
-    <span [ngClass]="{}" class="text-red-500 font-extrabold text-[0.8rem]">{{
-      numero
-    }}</span>
-    <img
-      class="relative -top-1 h-2"
-      src="../../../assets/game/naipes/copas.png"
-    />
+  <div class="relative -top-1 items-center justify-center">
+    <span
+      [ngClass]="{
+        'text-red-500': naipe === 'copas' || naipe === 'ouros',
+        'text-black': naipe === 'paus' || naipe === 'espadas'
+      }"
+      class="text-vag text-[1rem]"
+      >{{ numero }}</span
+    >
+    <img class="relative -top-1 h-2" [src]="getNaipeSrc()" />
   </div>
-  <img class="h-5 self-end" src="../../../assets/game/naipes/copas.png" />
+  <img class="h-5 self-end" [src]="getNaipeSrc()" />
 </div>

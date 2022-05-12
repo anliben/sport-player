@@ -45,11 +45,34 @@ export class MesaPage implements OnInit {
   rightAnimation: boolean = false;
   bottomAnimation: boolean = false;
 
+  // Minhas adições Tiago:
+  // -> espectadores
+  spectorsCount: string | number = '----';
+  // -> cartas de exemplo
+  exampleCards: object[] = [
+    {
+      naipe: 'paus',
+      numero: '1',
+    },
+    {
+      naipe: 'espadas',
+      numero: 'A',
+    },
+    {
+      naipe: 'ouros',
+      numero: 'K',
+    },
+  ];
+  // -> carta vira (A que fica por baixo da carta de costa em baixo do jackpot!!)
+  cardVira: object | null = {
+    naipe: 'espadas',
+    numero: 'Q',
+  };
+
   constructor(
     private WebSocket: WebSocketService,
     private modalController: ModalController
   ) {}
-
 
   ngOnInit() {
     this.generatePlayers();
@@ -57,7 +80,6 @@ export class MesaPage implements OnInit {
     let player = this.players[numero];
     this.nome = this.players[numero].username;
     this.position = this.players[numero].posicao;
-
 
     this.WebSocket.emit('insertPlayer', {
       username: this.nome,
@@ -70,7 +92,6 @@ export class MesaPage implements OnInit {
 
     // escutar players na sala
     this.WebSocket.listen('findPlayers').subscribe((data: any) => {
-
       let arrs = ['left', 'right'];
       for (let index = 0; index < data.length; index++) {
         const player = data[index];
@@ -97,7 +118,6 @@ export class MesaPage implements OnInit {
           this.avatar4 = player.src;
           this.namej4 = player.username;
         }
-
       }
     });
   }
@@ -117,7 +137,6 @@ export class MesaPage implements OnInit {
     this.WebSocket.emit('findPlayer', { room: '1' });
   }
 
-
   // generate 100 players random
   generatePlayers() {
     let posicoes = ['top', 'bottom', 'left', 'right'];
@@ -131,7 +150,7 @@ export class MesaPage implements OnInit {
         friend: '',
         rival1: '',
         rival2: '',
-        mao: ''
+        mao: '',
       });
     }
   }

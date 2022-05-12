@@ -13,6 +13,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HomePage } from './pages/home/home.page';
 import { MesaPage } from './pages/mesa/mesa.page';
 import { StorePage } from './pages/home/store/store.page';
+import { TruccoPage } from './pages/trucco/trucco.page';
+import { PokerPage } from './pages/poker/poker.page';
 
 export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -22,7 +24,9 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
     AppComponent,
     HomePage,
     MesaPage,
-    StorePage
+    StorePage,
+    TruccoPage,
+    PokerPage
   ],
   imports: [
     BrowserModule,

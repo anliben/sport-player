@@ -11,5 +11,4 @@ export class TruccoPage implements OnInit {
 
   ngOnInit() {
   }
-
 }

@@ -1,29 +1,48 @@
-
 <ion-content>
-  <div class="bg-background-home h-screen min-h-screen p-0 m-0 bg-contain">
-    <app-header moeda="55" diamante="20"></app-header>
-    <app-perfil></app-perfil>
-    <div class="flex flex-col">
-      <div>
-        <ion-button class="w-20 rounded-none">todos</ion-button>
-        <ion-button class="w-20 rounded-none">mineiro</ion-button>
-        <ion-button class="w-20 rounded-none">paulista</ion-button>
-        <ion-button class="w-20 rounded-none">torneio</ion-button>
+  <!-- class="bg-background-home h-screen min-h-screen p-0 m-0 bg-cover bg-no-repeat" -->
+  <div class="bg-background-home h-full w-full min-h-screen p-0 m-0 bg-[length:100%_100%] bg-no-repeat">
+    <div>
+      <app-header moeda="55" diamante="20"></app-header>
+      <app-perfil></app-perfil>
+      <div class="flex flex-col mt-1">
+        <div>
+          <ion-item color="dark" class="text-lg">
+            <ion-label>Modalidade</ion-label>
+            <ion-select value="01">
+              <ion-select-option value="01">todos</ion-select-option>
+              <ion-select-option value="02">mineiro</ion-select-option>
+              <ion-select-option value="03">paulista</ion-select-option>
+              <ion-select-option value="04">torneio</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </div>
+
+        <div>
+          <ion-item color="dark" class="text-lg">
+            <ion-label>Jogadores</ion-label>
+            <ion-select value="01">
+              <ion-select-option value="01">todos</ion-select-option>
+              <ion-select-option value="02">1x1</ion-select-option>
+              <ion-select-option value="03">2x2</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </div>
+
+        <div>
+          <ion-item color="dark" class="text-lg">
+            <ion-label>Modo</ion-label>
+            <ion-select value="01">
+              <ion-select-option value="01">todos</ion-select-option>
+              <ion-select-option value="02">Sujo</ion-select-option>
+              <ion-select-option value="03">paulista</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </div>
       </div>
-      <div>
-        <ion-button class="w-20 rounded-none">todos</ion-button>
-        <ion-button class="w-20 rounded-none">1x1</ion-button>
-        <ion-button class="w-20 rounded-none">2x2</ion-button>
+      <div class="scroll-smooth hover:scroll-auto h-22 mt-10">
+        <!-- <app-mesa></app-mesa> -->
       </div>
-      <div>
-        <ion-button>todos</ion-button>
-        <ion-button>sujo</ion-button>
-        <ion-button>limpo</ion-button>
-      </div>
-    </div>
-    <div class="scroll-smooth hover:scroll-auto h-22 mt-10">
-        <app-mesa></app-mesa>
-    </div>
 
     </div>
+  </div>
 </ion-content>

@@ -9,16 +9,83 @@ import { IonInfiniteScroll } from '@ionic/angular';
 })
 export class StorePage implements OnInit {
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
-  storeItens: any [] = [];
+  storeItens: any [] = [
+    {
+      "id": 1,
+      "price": 100,
+      "type": "vip",
+      "dayVip": 30,
+      "item": "lorem",
+      "imgItem": "../../../../assets/game/game/diamente.png"
+    },
+    {
+      "id": 2,
+      "price": 100,
+      "type": "vip",
+      "dayVip": 60,
+      "item": "lorem",
+      "imgItem": "../../../../assets/game/game/diamente.png"
+    },
+    {
+      "id": 3,
+      "price": 100,
+      "type": "vip",
+      "dayVip": 90,
+      "item": "lorem",
+      "imgItem": "../../../../assets/game/game/diamente.png"
+    },
+    {
+      "id": 4,
+      "price": 100,
+      "type": "diamante",
+      "quantity": 500,
+      "item": "lorem",
+      "imgItem": "../../../../assets/game/game/diamente.png"
+    },
+    {
+      "id": 5,
+      "price": 100,
+      "type": "diamante",
+      "quantity": 1000,
+      "item": "lorem",
+      "imgItem": "../../../../assets/game/game/diamente.png"
+    },
+    {
+      "id": 6,
+      "price": 100,
+      "type": "diamante",
+      "quantity": 2000,
+      "item": "lorem",
+      "imgItem": "../../../../assets/game/game/diamente.png"
+    },
+    {
+      "id": 7,
+      "price": 100,
+      "type": "emoji",
+      "item": "lorem",
+      "imgItem": "../../../../assets/game/game/diamente.png"
+    },
+    {
+      "id": 8,
+      "price": 100,
+      "type": "emoji",
+      "item": "lorem",
+      "imgItem": "../../../../assets/game/game/diamente.png"
+    },
+    {
+      "id": 9,
+      "price": 100,
+      "type": "emoji",
+      "item": "lorem",
+      "imgItem": "../../../../assets/game/game/diamente.png"
+    }
+    
+  ];
 
   constructor(private httpClient: HttpClient) { }
 
   ngOnInit() {
-     this.httpClient.get(`http://localhost:3000/dataStoreItem`).subscribe((res:any)=>{
-      this.storeItens = res.items;
-      console.log(this.storeItens); 
-      
-    })
+    
   }
   loadData(event) {
     setTimeout(() => {

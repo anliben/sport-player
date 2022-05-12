@@ -1,147 +1,167 @@
 <ion-content>
-  <div class="bg-background-home h-full p-0 m-0 bg-contain z-0">
+  <div class="bg-background-home h-full p-0 m-0 bg-cover bg-no-repeat z-0">
     <app-header moeda="55" diamante="20"></app-header>
 
-    <ion-card  class="bg-zinc-800/90 rounded-none border border-amber-200/50">
-      <div class="border-b border-amber-200/50 border-solid">
-        <h1 class="font-bold text-lg text-center text-yellow-100/50 ">CONFIGURAÇÕES</h1>
-      </div>
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button tab="store">
+          <ion-icon name="cart-outline"></ion-icon>
+          <ion-label>{{ "home.tab.store" | translate }}</ion-label>
+        </ion-tab-button>
 
-      <div class="h-24 ml-8 grid grid-rows-1 grid-flow-col gap-1 mt-2 ">
-        <div
-          class="bg-[url('/assets/game/game/homem.png')] bg-black z-20 rounded-full  w-14 h-14 bg-no-repeat bg-contain">
-          <div class="mt-14 w-16 font-bold text-yellow-500/75 underline">TROCAR</div>
+        <ion-tab-button tab="play">
+          <ion-icon name="play"></ion-icon>
+          <ion-label>{{ "home.tab.play" | translate }}</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="config">
+          <ion-icon name="settings"></ion-icon>
+          <ion-label>{{ "home.tab.config" | translate }}</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+
+    <div class="flex justify-center">
+      <ion-card class="bg-zinc-800/90 rounded-none border border-amber-200/50 w-96">
+        <div class="border-b border-amber-200/50 border-solid">
+          <h1 class="font-bold text-lg text-center text-yellow-100/50 ">CONFIGURAÇÕES</h1>
         </div>
-        <div class="mt-1">
-          <div class="bg-gray-900/75 -ml-4 h-8 w-44 rounded-2xl">
-            <h2 class=" font-bold ml-2 text-3xl text-yellow-100/50 ">NICKNAME</h2>
+        <div class="h-24 ml-8 grid grid-rows-1 grid-flow-col gap-1 mt-2 ">
+          <div
+            class="bg-[url('/assets/game/game/homem.png')] bg-black z-20 rounded-full  w-14 h-14 bg-no-repeat bg-contain">
+            <div class="mt-14 w-16 font-bold text-yellow-500/75 underline">TROCAR</div>
           </div>
-          <h3 class="font-bold text-yellow-500/75 underline">EDITAR</h3>
-          <h3 class="font-bold text-yellow-100/50">ID:</h3>
-        </div>
-      </div>
-      <div class="grid grid-rows-2 ">
-        <div class="place-items-center ">
-          <ion-row>
-            <img class="h-6 ml-12 " src="../../../../assets/icon/conta-icone.png">
-            <h2 class=" ml-3 text-lg text-center font-bold text-yellow-100/50">EFEITOS SONOROS</h2>
-          </ion-row>
-          <hr class="h-0.5 w-8/12 max-w-full ml-20 border-amber-100/25 border-solid" />
-        </div>
-        <div class=" place-items-center ">
-          <ion-row>
-            <h3 class="ml-20 text-sm font-bold text-yellow-100/50">SOM</h3>
-            <ion-item color="default" class=" w-40 h-4">
-              <ion-range class="-mt-7" [(ngModel)]="brightness">
-              </ion-range>
-            </ion-item>
-          </ion-row>
-        </div>
-        <div class="-mt-2 place-items-center ">
-          <ion-row>
-            <h3 class="ml-20 text-sm font-bold text-yellow-100/50" >VIBRAR</h3>
-            <ion-item color="default" class="-mt-1 ml-4 h-8 w-24">
-              <ion-toggle class="-mt-4 h-4" color="medium" checked></ion-toggle>
-            </ion-item>
-          </ion-row>
-        </div>
-        <div class=" place-items-center ">
-          <ion-row>
-            <img class="h-6 ml-12 " src="../../../../assets/icon/conta-icone.png">
-            <h2 class=" ml-3 text-lg text-center font-bold text-yellow-100/50">CONTA</h2>
-          </ion-row>
-          <hr class="h-0.5 w-8/12 ml-20 border-amber-100/25 border-solid" />
-        </div>
-        <div class="place-items-center">
-          <ion-row (click)="select('alterartelefone')">
-            <h3 class="ml-20 my-0.5 text-xs font-bold text-yellow-100/50">ALTERAR TELEFONE</h3>
-          </ion-row>
-          <hr class="h-0.5 w-7/12 max-w-full ml-20 border-amber-100/25 border-solid" />
-
-          <div *ngIf="type === 'alterartelefone'">
-            <ion-row>
-              <h3 class="ml-20 my-0.5 text-xs font-bold text-yellow-100/50">TELEFONE ATUAL:</h3>
-              <ion-item color="default" class="h-3.5 w-32 mt-1 -ml-3">
-                <input class="text-xs h-3.5  bg-zinc-900/90" placeholder="(11) 99999-9999">
-              </ion-item>
-            </ion-row>
-            <hr class="h-0.5 w-7/12 max-w-full ml-20 border-amber-100/25 border-solid" />
-            <ion-row>
-              <h3 class="ml-20 my-0.5 text-xs font-bold text-yellow-100/50">NOVO TELEFONE:</h3>
-              <ion-item color="default" class="h-3.5 w-32 mt-1 -ml-3">
-                <input class="text-xs h-3.5 w-36 bg-zinc-900/90" placeholder="(11) 99999-9999">
-              </ion-item>
-            </ion-row>
-            <hr class="h-0.5 w-7/12 max-w-full ml-20 border-amber-100/25 border-solid" />
-            <img class="h-5 mx-auto rounded-xl object-cover" src="../../../../assets/game/buttons/botao-salvar.png">
+          <div class="mt-1">
+            <div class="bg-gray-900/75 -ml-4 h-8 w-44 rounded-2xl">
+              <h2 class=" font-bold ml-2 text-3xl text-yellow-100/50 ">NICKNAME</h2>
+            </div>
+            <h3 class="font-bold text-yellow-500/75 underline">EDITAR</h3>
+            <h3 class="font-bold text-yellow-100/50">ID:</h3>
           </div>
         </div>
+        <div class="grid grid-rows-2 ">
+          <div class="place-items-center ">
+            <ion-row>
+              <img class="h-6 ml-12 " src="../../../../assets/game/partidaTruco/config/audio-icone.png">
+              <h2 class=" ml-3 text-lg text-center font-bold text-yellow-100/50">EFEITOS SONOROS </h2>
+            </ion-row>
+            <hr class="h-0.5 w-8/12 max-w-full ml-20 border-amber-100/25 border-solid" />
+          </div>
+          <div class=" place-items-center ">
+            <ion-row>
+              <h3 class="ml-20 text-sm font-bold text-yellow-100/50">SOM</h3>
+              <ion-item color="default" class=" w-40 h-5">
+                <ion-range class="-mt-7" [(ngModel)]="brightness">
+                </ion-range>
+              </ion-item>
+            </ion-row>
+          </div>
+          <div class="-mt-2 place-items-center ">
+            <ion-row>
+              <h3 class="ml-20 text-sm font-bold text-yellow-100/50">VIBRAR</h3>
+              <ion-item color="default" class="-mt-1 ml-4 h-8 w-24">
+                <ion-toggle class="-mt-4 h-4" color="medium" checked></ion-toggle>
+              </ion-item>
+            </ion-row>
+          </div>
+          <div class=" place-items-center ">
+            <ion-row>
+              <img class="h-6 ml-12 " src="../../../../assets/icon/conta-icone.png">
+              <h2 class=" ml-3 text-lg text-center font-bold text-yellow-100/50">CONTA</h2>
+            </ion-row>
+            <hr class="h-0.5 w-8/12 ml-20 border-amber-100/25 border-solid" />
+          </div>
+          <div class="place-items-center">
+            <ion-row (click)="select('alterartelefone')">
+              <h3 class="ml-20 my-0.5 text-xs font-bold text-yellow-100/50">ALTERAR TELEFONE</h3>
+            </ion-row>
+            <hr class="h-0.5 w-7/12 max-w-full ml-20 border-amber-100/25 border-solid" />
 
-        <div class="mt-2 place-items-center ">
-          <ion-row (click)="select('alteraremail')">
-            <h3 class="ml-20 my-0.5 text-xs font-bold text-yellow-100/50">ALTERAR EMAIL</h3>
-          </ion-row>
-          <hr class="h-0.5 w-7/12 max-w-full ml-20 border-amber-100/25 border-solid" />
-          <div *ngIf="type === 'alteraremail'">
-            <ion-row>
-              <h3 class="ml-20 my-0.5 text-xs font-bold text-yellow-100/50">EMAIL ATUAL:</h3>
-              <ion-item color="default" class="h-3.5 w-40 mt-1">
-                <input class="text-xs h-3.5 w-40 bg-zinc-900/90" placeholder="">
-              </ion-item>
+            <div *ngIf="type === 'alterartelefone'">
+              <ion-row>
+                <h3 class="ml-20 my-0.5 text-xs font-bold text-yellow-100/50">TELEFONE ATUAL:</h3>
+                <ion-item color="default" class="h-3.5 w-32 mt-1 -ml-3">
+                  <input class="text-xs h-3.5  bg-zinc-900/90" placeholder="(11) 99999-9999">
+                </ion-item>
+              </ion-row>
+              <hr class="h-0.5 w-7/12 max-w-full ml-20 border-amber-100/25 border-solid" />
+              <ion-row>
+                <h3 class="ml-20 my-0.5 text-xs font-bold text-yellow-100/50">NOVO TELEFONE:</h3>
+                <ion-item color="default" class="h-3.5 w-32 mt-1 -ml-3">
+                  <input class="text-xs h-3.5 w-36 bg-zinc-900/90" placeholder="(11) 99999-9999">
+                </ion-item>
+              </ion-row>
+              <hr class="h-0.5 w-7/12 max-w-full ml-20 border-amber-100/25 border-solid" />
+              <img class="h-5 mx-auto rounded-xl object-cover" src="../../../../assets/game/buttons/botao-salvar.png">
+            </div>
+          </div>
+
+          <div class="mt-2 place-items-center ">
+            <ion-row (click)="select('alteraremail')">
+              <h3 class="ml-20 my-0.5 text-xs font-bold text-yellow-100/50">ALTERAR EMAIL</h3>
             </ion-row>
             <hr class="h-0.5 w-7/12 max-w-full ml-20 border-amber-100/25 border-solid" />
-            <ion-row>
-              <h3 class="ml-20 my-0.5 text-xs font-bold text-yellow-100/50">NOVO EMAIL:</h3>
-              <ion-item color="default" class="h-3.5 w-40 mt-1 ml-1">
-                <input class="text-xs h-3.5 w-40 bg-zinc-900/90" placeholder="">
-              </ion-item>
+            <div *ngIf="type === 'alteraremail'">
+              <ion-row>
+                <h3 class="ml-20 my-0.5 text-xs font-bold text-yellow-100/50">EMAIL ATUAL:</h3>
+                <ion-item color="default" class="h-3.5 w-40 mt-1">
+                  <input class="text-xs h-3.5 w-40 bg-zinc-900/90" placeholder="">
+                </ion-item>
+              </ion-row>
+              <hr class="h-0.5 w-7/12 max-w-full ml-20 border-amber-100/25 border-solid" />
+              <ion-row>
+                <h3 class="ml-20 my-0.5 text-xs font-bold text-yellow-100/50">NOVO EMAIL:</h3>
+                <ion-item color="default" class="h-3.5 w-40 mt-1 ml-1">
+                  <input class="text-xs h-3.5 w-40 bg-zinc-900/90" placeholder="">
+                </ion-item>
+              </ion-row>
+              <hr class="h-0.5 w-7/12 max-w-full ml-20 border-amber-100/25 border-solid" />
+              <img class="h-5 mx-auto rounded-xl" src="../../../../assets/game/buttons/botao-salvar.png">
+            </div>
+          </div>
+
+          <div class="mt-2 place-items-center ">
+            <ion-row (click)="select('alterarsenha')">
+              <h3 class="ml-20 my-0.5 text-xs font-bold text-yellow-100/50">ALTERAR SENHA</h3>
             </ion-row>
             <hr class="h-0.5 w-7/12 max-w-full ml-20 border-amber-100/25 border-solid" />
-            <img class="h-5 mx-auto rounded-xl" src="../../../../assets/game/buttons/botao-salvar.png">
+            <div *ngIf="type === 'alterarsenha'">
+              <ion-row>
+                <h3 class="ml-20 my-0.5 text-xs font-bold text-yellow-100/50">SENHA ATUAL:</h3>
+                <ion-item color="default" class="h-3.5 w-24 mt-1 ml-2 bg-zinc-900/90">
+                  <input class="text-xs h-3.5 w-32 bg-zinc-900/90" type="password" placeholder="">
+                </ion-item>
+              </ion-row>
+              <hr class="h-0.5 w-7/12 max-w-full ml-20 border-amber-100/25 border-solid" />
+              <ion-row>
+                <h3 class="ml-20 my-0.5 text-xs font-bold text-yellow-100/50">NOVA SENHA:</h3>
+                <ion-item color="default" class="h-3.5 w-24 mt-1 ml-3.5 bg-zinc-900/90">
+                  <input class="text-xs h-3.5 w-32 bg-zinc-900/90" type="password" placeholder="">
+                </ion-item>
+              </ion-row>
+              <hr class="h-0.5 w-7/12 max-w-full ml-20 border-amber-100/25 border-solid" />
+              <ion-row>
+                <h3 class="ml-20 my-0.5 text-xs font-bold text-yellow-100/50">CONFIRMAR:</h3>
+                <ion-item color="default" class="h-3.5 w-24 mt-1 ml-5 bg-zinc-900/90">
+                  <input class="text-xs h-3.5 w-32 bg-zinc-900/90" type="password" placeholder="">
+                </ion-item>
+              </ion-row>
+              <hr class="h-0.5 w-7/12 max-w-full ml-20 border-amber-100/25 border-solid" />
+              <img class="h-5 mx-auto rounded-xl" src="../../../../assets/game/buttons/botao-salvar.png">
+            </div>
+          </div>
+
+          <img class="h-5 mx-auto rounded-xl mt-2" src="../../../../assets/icon/excluir-conta.png">
+          <div class="place-items-center my-5">
+            <ion-row>
+              <img class="h-6 ml-12 object-fill" src="../../../../assets/game/partidaTruco/config/regras.png">
+              <h2 class=" ml-3 text-lg text-center font-bold text-yellow-100/50">TERMOS DE USO</h2>
+            </ion-row>
+            <hr class="h-0.5 w-8/12 max-w-full ml-20 border-amber-100/25 border-solid" />
           </div>
         </div>
-
-        <div class="mt-2 place-items-center ">
-          <ion-row (click)="select('alterarsenha')">
-            <h3 class="ml-20 my-0.5 text-xs font-bold text-yellow-100/50">ALTERAR SENHA</h3>
-          </ion-row>
-          <hr class="h-0.5 w-7/12 max-w-full ml-20 border-amber-100/25 border-solid" />
-          <div *ngIf="type === 'alterarsenha'">
-            <ion-row>
-              <h3 class="ml-20 my-0.5 text-xs font-bold text-yellow-100/50">SENHA ATUAL:</h3>
-              <ion-item color="default" class="h-3.5 w-24 mt-1 ml-2 bg-zinc-900/90">
-                <input class="text-xs h-3.5 w-32 bg-zinc-900/90" type="password" placeholder="">
-              </ion-item>
-            </ion-row>
-            <hr class="h-0.5 w-7/12 max-w-full ml-20 border-amber-100/25 border-solid" />
-            <ion-row>
-              <h3 class="ml-20 my-0.5 text-xs font-bold text-yellow-100/50">NOVA SENHA:</h3>
-              <ion-item color="default" class="h-3.5 w-24 mt-1 ml-3.5 bg-zinc-900/90">
-                <input class="text-xs h-3.5 w-32 bg-zinc-900/90" type="password" placeholder="">
-              </ion-item>
-            </ion-row>
-            <hr class="h-0.5 w-7/12 max-w-full ml-20 border-amber-100/25 border-solid" />
-            <ion-row>
-              <h3 class="ml-20 my-0.5 text-xs font-bold text-yellow-100/50">CONFIRMAR:</h3>
-              <ion-item color="default" class="h-3.5 w-24 mt-1 ml-5 bg-zinc-900/90">
-                <input class="text-xs h-3.5 w-32 bg-zinc-900/90" type="password" placeholder="">
-              </ion-item>
-            </ion-row>
-            <hr class="h-0.5 w-7/12 max-w-full ml-20 border-amber-100/25 border-solid" />
-            <img class="h-5 mx-auto rounded-xl" src="../../../../assets/game/buttons/botao-salvar.png">
-          </div>
-        </div>
-        <img class="h-5 mx-auto rounded-xl mt-2" src="../../../../assets/icon/excluir-conta.png">
-        <div class="place-items-center my-5">
-          <ion-row>
-            <img class="h-6 ml-12 object-fill" src="../../../../assets/icon/conta-icone.png">
-            <h2 class=" ml-3 text-lg text-center font-bold text-yellow-100/50">TERMO DE USO</h2>
-          </ion-row>
-          <hr class="h-0.5 w-8/12 max-w-full ml-20 border-amber-100/25 border-solid" />
-        </div>
-
-      </div>
-    </ion-card>
+      </ion-card>
+    </div>
 
   </div>
 </ion-content>

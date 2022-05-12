@@ -1,7 +1,25 @@
 <ion-content>
-  <div class="bg-background-home h-full p-0 m-0 bg-contain ">
+  <div class="bg-background-home h-full p-0 m-0 bg-cover bg-no-repeat ">
     <app-header moeda="55" diamante="20"></app-header>
-    <div class="flex justify-center m-2">
+    <ion-tabs >
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button tab="store">
+          <ion-icon name="cart-outline"></ion-icon>
+          <ion-label>{{ "home.tab.store" | translate }}</ion-label>
+        </ion-tab-button>
+    
+        <ion-tab-button tab="play">
+          <ion-icon name="play"></ion-icon>
+          <ion-label>{{ "home.tab.play" | translate }}</ion-label>
+        </ion-tab-button>
+    
+        <ion-tab-button tab="config">
+          <ion-icon name="settings"></ion-icon>
+          <ion-label>{{ "home.tab.config" | translate }}</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+    <div class="flex justify-center my-4 mx-2">
       <img class="h-6 object-cover" src="../../../../assets/game/game/sorte-di-ria.png">
 
     </div>
@@ -42,8 +60,11 @@
       </ion-row>
     </div>
 
-    <img class="h-8 w-36 mx-auto m-2 object-cover rounded-xl" src="../../../../assets/game/loja/botao-sortear.png">
-      <div class="flex justify-center mb-6">
+    <img class="h-8 w-36 my-6 mx-auto m-2 object-cover rounded-xl" src="../../../../assets/game/loja/botao-sortear.png">
+    
+    <cdk-virtual-scroll-viewport itemSize="56"class="h-2/4 sm:h-2/4 w-full">
+ 
+    <div class="flex justify-center mb-6">
         <div class="grid grid-cols-3 gap-3">
           <div *ngFor="let storeItem of storeItens">
 
@@ -66,31 +87,10 @@
           </div>
         </div>
       </div>
-      
-      <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
-        <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
-        </ion-infinite-scroll-content>
-      </ion-infinite-scroll>
+    </cdk-virtual-scroll-viewport>
     </div>
 </ion-content>
 
-  <ion-tabs class="fixed bottom-0 z-20">
-    <ion-tab-bar slot="bottom">
-      <ion-tab-button tab="store">
-        <ion-icon name="cart-outline"></ion-icon>
-        <ion-label>{{ "home.tab.store" | translate }}</ion-label>
-      </ion-tab-button>
   
-      <ion-tab-button tab="play">
-        <ion-icon name="play"></ion-icon>
-        <ion-label>{{ "home.tab.play" | translate }}</ion-label>
-      </ion-tab-button>
-  
-      <ion-tab-button tab="config">
-        <ion-icon name="settings"></ion-icon>
-        <ion-label>{{ "home.tab.config" | translate }}</ion-label>
-      </ion-tab-button>
-    </ion-tab-bar>
-  </ion-tabs>
 
 

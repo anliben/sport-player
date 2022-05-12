@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { MesaPageRoutingModule } from './mesa-routing.module';
 
 import { SharedModule } from 'src/app/shared/shared.module';
+import { TampaPComponent } from './components/tampa-p/tampa-p.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     MesaPageRoutingModule,
     SharedModule,
   ],
-  declarations: [],
+  declarations: [TampaPComponent],
+  exports: [TampaPComponent],
 })
 export class MesaPageModule {}

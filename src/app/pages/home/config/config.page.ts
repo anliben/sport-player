@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-config',
@@ -6,17 +7,54 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./config.page.scss'],
 })
 export class ConfigPage implements OnInit {
+  formAlterEmail: FormGroup;
+  formAlterPhone: FormGroup;
+  formAlterPassword: FormGroup;
   brightness: number = 100;
   type = '';
-  constructor() { }
+  constructor( private fb: FormBuilder) { }
 
   ngOnInit() {
+    this.formAlterPhone = this.fb.group({
+      phoneAtual: [''],
+      newPhone: ['']
+    })
+    this.formAlterEmail = this.fb.group({
+      emailAtual: [''],
+      newEmail: ['']
+    })
+    this.formAlterPassword = this.fb.group({
+      passwordAtual: [''],
+      newPassword: [''],
+      confirmedPassword: ['']
+    })
   }
-  select(type){
+  
+  selectTypeConfig(type){
     if(this.type !== type){
       this.type = type;
     }else{
       this.type = '';
     }
   }
+
+  savePhone(){
+    let { phoneAtual, newPhone } = this.formAlterPhone.getRawValue();
+    console.log(phoneAtual)
+    console.log(newPhone)
+  }
+
+  saveEmail(){
+    let { emailAtual, newEmail} = this.formAlterEmail.getRawValue();
+    console.log(emailAtual);
+    console.log(newEmail);
+  }
+
+  savePassword(){
+    let { passwordAtual, newPassword, confirmedPassword} = this.formAlterPassword.getRawValue();
+    console.log(passwordAtual);
+    console.log(newPassword);
+    console.log(confirmedPassword);    
+  }
+
 }

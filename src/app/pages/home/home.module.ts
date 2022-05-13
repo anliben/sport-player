@@ -7,7 +7,6 @@ import { IonicModule } from '@ionic/angular';
 import { HomePageRoutingModule } from './home-routing.module';
 
 import { SharedModule } from 'src/app/shared/shared.module';
-import { ConfigPage } from './config/config.page';
 
 @NgModule({
   imports: [

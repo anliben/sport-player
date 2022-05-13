@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { RegisterComponent } from './auth/register/register.component';
 
 const routes: Routes = [
   {
@@ -23,14 +24,9 @@ const routes: Routes = [
       import('./pages/trucco/trucco.module').then((m) => m.TruccoPageModule),
   },
   {
-    path: 'home',
-    loadChildren: () =>
-      import('./pages/home/home.module').then((m) => m.HomePageModule),
-  },
-  {
     path: 'poker',
     loadChildren: () => import('./pages/poker/poker.module').then( m => m.PokerPageModule)
-  },
+  }
 ];
 @NgModule({
   imports: [

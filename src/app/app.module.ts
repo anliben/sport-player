@@ -19,7 +19,7 @@ import { MesaPage } from './pages/mesa/mesa.page';
 import { StorePage } from './pages/home/store/store.page';
 
 import { ConfigPage } from './pages/home/config/config.page';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MesaPageModule } from './pages/mesa/mesa.module';
 import { TruccoPage } from './pages/trucco/trucco.page';
@@ -56,7 +56,9 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
     SharedModule,
     FormsModule,
     MesaPageModule,
-    ScrollingModule,
+    ScrollingModule, 
+    ReactiveFormsModule
+
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },

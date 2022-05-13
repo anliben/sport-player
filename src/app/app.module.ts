@@ -23,7 +23,6 @@ import { FormsModule } from '@angular/forms';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MesaPageModule } from './pages/mesa/mesa.module';
 import { TruccoPage } from './pages/trucco/trucco.page';
-=======
 import { PokerPage } from './pages/poker/poker.page';
 
 

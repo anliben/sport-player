@@ -13,7 +13,7 @@
       class="flex relative bottom-2 justify-center items-center rounded-md border-solid border-[0.5px] border-[#eec26f] bg-[#272727] py-0.5 px-1.5"
     >
       <figcaption class="text-white text-[0.4rem]">
-        {{ nome }}
+        {{ nome.length > 4 ? nome.substring(0, 4) + "..." : nome }}
       </figcaption>
     </div>
   </figure>

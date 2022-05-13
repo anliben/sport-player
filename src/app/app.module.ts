@@ -21,12 +21,13 @@ import { ConfigPage } from './pages/home/config/config.page';
 import { FormsModule } from '@angular/forms';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MesaPageModule } from './pages/mesa/mesa.module';
+import { TruccoPage } from './pages/trucco/trucco.page';
 
 export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 @NgModule({
-  declarations: [AppComponent, HomePage, MesaPage, StorePage, ConfigPage],
+  declarations: [AppComponent, HomePage, MesaPage, StorePage, ConfigPage, TruccoPage],
   imports: [
     BrowserModule,
     HttpClientModule,

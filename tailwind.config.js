@@ -20,6 +20,9 @@ module.exports = {
         vag: ["Vag-Round", "sans-serif"],
       },
     },
+    colors: {
+      primary: "#8b8b5c"
+    }
   },
   plugins: [],
 };

@@ -4,19 +4,15 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { TruccoPageRoutingModule } from './trucco-routing.module';
-
-import { SharedModule } from 'src/app/shared/shared.module';
+import { PokerPageRoutingModule } from './poker-routing.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TruccoPageRoutingModule,
-    SharedModule,
+    PokerPageRoutingModule
   ],
-
   declarations: []
 })
-export class TruccoPageModule {}
+export class PokerPageModule {}

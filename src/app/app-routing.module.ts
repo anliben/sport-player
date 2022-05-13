@@ -27,6 +27,10 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/home/home.module').then((m) => m.HomePageModule),
   },
+  {
+    path: 'poker',
+    loadChildren: () => import('./pages/poker/poker.module').then( m => m.PokerPageModule)
+  },
 ];
 @NgModule({
   imports: [

@@ -17,17 +17,30 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HomePage } from './pages/home/home.page';
 import { MesaPage } from './pages/mesa/mesa.page';
 import { StorePage } from './pages/home/store/store.page';
+
 import { ConfigPage } from './pages/home/config/config.page';
 import { FormsModule } from '@angular/forms';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MesaPageModule } from './pages/mesa/mesa.module';
 import { TruccoPage } from './pages/trucco/trucco.page';
+=======
+import { PokerPage } from './pages/poker/poker.page';
+
 
 export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 @NgModule({
-  declarations: [AppComponent, HomePage, MesaPage, StorePage, ConfigPage, TruccoPage],
+  declarations: [
+    AppComponent,
+    HomePage,
+    MesaPage,
+    StorePage,
+    TruccoPage,
+    ConfigPage,
+    PokerPage
+  ],
+  
   imports: [
     BrowserModule,
     HttpClientModule,

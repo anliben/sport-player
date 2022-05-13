@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { NavController } from '@ionic/angular';
+
 @Component({
   selector: 'app-trucco',
   templateUrl: './trucco.page.html',
@@ -17,4 +19,5 @@ export class TruccoPage implements OnInit {
   back(){
     this.router.navigate(['']);
   }
+
 }

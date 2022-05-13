@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-trucco',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./trucco.page.scss'],
 })
 export class TruccoPage implements OnInit {
-
-  constructor() { }
+  diamante = 9999;
+  moeda = 9999;
+  constructor( private router : Router) { }
 
   ngOnInit() {
   }
 
+  back(){
+    this.router.navigate(['']);
+  }
 }

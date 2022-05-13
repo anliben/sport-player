@@ -1,29 +1,63 @@
-
 <ion-content>
-  <div class="bg-background-home h-screen min-h-screen p-0 m-0 bg-contain">
-    <app-header moeda="55" diamante="20"></app-header>
+  <div class="bg-background-home h-screen min-h-screen p-0 m-0 bg-cover bg-no-repeat">
+    <div class="flex justify-between items-center">
+      <img class="w-16 m-1 h-9" (click)="back()" src="../../../assets/game/buttons/seta-voltar.png">
+      <div class="flex items-center relative justify-items-center">
+        <img class="h-7" src="/assets/game/header/diamantes-fundo.png">
+        <span class="left-8 absolute text-sky-500 font-extrabold">{{diamante}}</span>
+      </div>
+      <div class="flex items-center relative justify-items-center">
+        <img class="h-7" src="/assets/game/header/moedas-fundo.png">
+        <span class="left-8 absolute text-sky-500 font-extrabold">{{moeda}}</span>
+      </div>
+      <img class="w-20 m-1 h-9" src="/assets/game/header/botao-rank.png">
+    </div>
     <app-perfil></app-perfil>
-    <div class="flex flex-col">
-      <div>
-        <ion-button class="w-20 rounded-none">todos</ion-button>
-        <ion-button class="w-20 rounded-none">mineiro</ion-button>
-        <ion-button class="w-20 rounded-none">paulista</ion-button>
-        <ion-button class="w-20 rounded-none">torneio</ion-button>
+    <div class="flex justify-center">
+      <div class="flex flex-col max-w-sm">
+        <div class="grid grid-cols-4 grid-rows-1 mx-1">
+          <button
+            class="w-24 h-7 rounded-none bg-zinc-800 border border-cyan-50/25 border-solid text-[#8b8b5c] text-[0.8rem]">TODOS</button>
+          <button
+            class="w-24 h-7 rounded-none bg-zinc-800 border border-cyan-50/25 border-solid text-[#8b8b5c] text-[0.8rem]">MINEIRO</button>
+          <button
+            class="w-24 h-7 rounded-none bg-zinc-800 border border-cyan-50/25 border-solid text-[#8b8b5c] text-[0.8rem]">PAULISTA</button>
+          <button
+            class="w-24 h-7 rounded-none bg-zinc-800 border border-cyan-50/25 border-solid text-[#8b8b5c] text-[0.8rem]">TORNEIO</button>
+        </div>
+        <div class="grid grid-cols-4 grid-rows-1 mx-1">
+          <button
+            class="w-24 h-7 rounded-none bg-zinc-800 border border-cyan-50/25 border-solid text-[#8b8b5c] text-[0.8rem]">TODOS</button>
+          <button
+            class="w-24 h-7 rounded-none bg-zinc-800 border border-cyan-50/25 border-solid text-[#8b8b5c] text-[0.8rem]">1X1</button>
+          <button
+            class="w-24 h-7 rounded-none bg-zinc-800 border border-cyan-50/25 border-solid text-[#8b8b5c] text-[0.8rem]">2X2</button>
+          <div
+            class="w-24 h-7 rounded-none bg-zinc-800 border border-cyan-50/25 border-solid text-[#8b8b5c] checkboxMesas grid grid-cols-2">
+            <div class="w-8"><input type="checkbox" class="w-6 h-6"> </div>
+            <div class="w-16 mt-1 -ml-5">Não exibir mesas vazias</div>
+          </div>
+        </div>
+        <div class="grid grid-cols-4 grid-rows-1 mx-1">
+          <button
+            class="w-24 h-7 rounded-none bg-zinc-800 border text-[#8b8b5c] border-solid text-[0.8rem]">TODOS</button>
+          <button
+            class="w-24 h-7 rounded-none bg-zinc-800 border text-[#8b8b5c] border-solid text-[0.8rem]">SUJO</button>
+          <button
+            class="w-24 h-7 rounded-none bg-zinc-800 border text-[#8b8b5c] border-solid text-[0.8rem]">LIMPO</button>
+          <div
+            class="w-24 h-7 rounded-none bg-zinc-800 border border-cyan-50/25 border-solid text-[#8b8b5c] checkboxMesas grid grid-cols-2">
+            <div class="w-8"><input type="checkbox" class="w-6 h-6"> </div>
+            <div class="w-16 mt-1 -ml-5">Não exibir mesas cheias</div>
+          </div>
+        </div>
       </div>
-      <div>
-        <ion-button class="w-20 rounded-none">todos</ion-button>
-        <ion-button class="w-20 rounded-none">1x1</ion-button>
-        <ion-button class="w-20 rounded-none">2x2</ion-button>
-      </div>
-      <div>
-        <ion-button>todos</ion-button>
-        <ion-button>sujo</ion-button>
-        <ion-button>limpo</ion-button>
-      </div>
-    </div>
-    <div class="scroll-smooth hover:scroll-auto h-22 mt-10">
-        <app-mesa></app-mesa>
-    </div>
 
     </div>
+    <cdk-virtual-scroll-viewport itemSize="56" class="h-2/3 w-full mt-2">
+      <div class="flex justify-center">
+        <app-mesas></app-mesas>
+      </div>
+    </cdk-virtual-scroll-viewport>
+  </div>
 </ion-content>

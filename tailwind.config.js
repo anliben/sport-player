@@ -10,7 +10,11 @@ module.exports = {
         diamante: "url('/assets/game/game/fundo-loja.png')",
         mesa_part_truco: "url('/assets/game/partidaTruco/mesa-fundo.png')",
         mesa: "url('/assets/game/partidaTruco/mesa-fundo.png')",
-        fundo_roleta: 'url("/assets/game/game/fundo-roleta.png")',
+        fundo_roleta: 'url("/assets/game/roleta/fundo-roleta.png")',
+        mesa_torneio:
+          'url("/assets/game/truco8/modalidades/mesa-torneio-fundo.png")',
+        mesa_cashgame:
+          'url("/assets/game/truco8/modalidades/mesa-cashgame-fundo.png")',
       },
       fontFamily: {
         vag: ["Vag-Round", "sans-serif"],

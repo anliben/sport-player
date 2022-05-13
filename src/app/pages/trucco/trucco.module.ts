@@ -15,8 +15,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
     FormsModule,
     IonicModule,
     TruccoPageRoutingModule,
-    SharedModule
+    SharedModule,
   ],
-  declarations: []
+  declarations: [],
+  exports: [],
 })
 export class TruccoPageModule {}

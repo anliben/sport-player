@@ -80,19 +80,11 @@
             <hr class="h-0.5 w-7/12 max-w-full ml-20 border-amber-100/25 border-solid" />
 
             <div *ngIf="type === 'alterartelefone'">
-              <ion-row>
                 <h3 class="ml-20 my-0.5 text-[0.7rem] text-[#8b8b5c]">TELEFONE ATUAL:</h3>
-                <ion-item color="default" class="h-3.5 w-32 mt-1 -ml-3">
-                  <input class="text-xs h-3.5  bg-zinc-900/90" placeholder="(11) 99999-9999">
-                </ion-item>
-              </ion-row>
+                  <input class="text-[0.6rem] h-3.5 ml-20 -mt-2 w-36 bg-zinc-900/90" placeholder="(11) 99999-9999">
               <hr class="h-0.5 w-7/12 max-w-full ml-20 border-amber-100/25 border-solid" />
-              <ion-row>
                 <h3 class="ml-20 my-0.5 text-[0.7rem] text-[#8b8b5c]">NOVO TELEFONE:</h3>
-                <ion-item color="default" class="h-3.5 w-32 mt-1 -ml-3">
-                  <input class="text-xs h-3.5 w-36 bg-zinc-900/90" placeholder="(11) 99999-9999">
-                </ion-item>
-              </ion-row>
+                  <input class="text-[0.6rem] h-3.5 ml-20 -mt-2 w-36 bg-zinc-900/90" placeholder="(11) 99999-9999">
               <hr class="h-0.5 w-7/12 max-w-full ml-20 border-amber-100/25 border-solid" />
               <img class="h-5 mx-auto rounded-xl object-cover" src="../../../../assets/game/buttons/botao-salvar.png">
             </div>
@@ -101,24 +93,16 @@
           <div class="place-items-center ">
             <ion-row class="group" (click)="select('alteraremail')">
               <h3 class="ml-20 mr-7 my-0.5 text-[0.7rem] text-[#8b8b5c]">ALTERAR EMAIL</h3>
-              <img class="h-3 ml-16 mt-1 group-hover:rotate-90"
+              <img class="h-3 ml-16 mt-1 group-before:rotate-90"
                 src="../../../../assets/game/partidaTruco/config/seta.png">
             </ion-row>
             <hr class="h-0.5 w-7/12 max-w-full ml-20 border-amber-100/25 border-solid" />
             <div *ngIf="type === 'alteraremail'">
-              <ion-row>
-                <h3 class="ml-20 my-0.5 text-[0.7rem] text-[#8b8b5c]">EMAIL ATUAL:</h3>
-                <ion-item color="default" class="h-3.5 w-40 mt-1">
-                  <input class="text-xs h-3.5 w-40 bg-zinc-900/90" placeholder="">
-                </ion-item>
-              </ion-row>
+              <h3 class="ml-20 my-0.5 text-[0.7rem] text-[#8b8b5c]">EMAIL ATUAL:</h3>
+                  <input class="text-[0.6rem] h-3.5 ml-20 -mt-2 w-36 bg-zinc-900/90" placeholder="">
               <hr class="h-0.5 w-7/12 max-w-full ml-20 border-amber-100/25 border-solid" />
-              <ion-row>
-                <h3 class="ml-20 my-0.5 text-[0.7rem] text-[#8b8b5c]">NOVO EMAIL:</h3>
-                <ion-item color="default" class="h-3.5 w-40 mt-1 ml-1">
-                  <input class="text-xs h-3.5 w-40 bg-zinc-900/90" placeholder="">
-                </ion-item>
-              </ion-row>
+              <h3 class="ml-20 my-0.5 text-[0.7rem] text-[#8b8b5c]">NOVO EMAIL:</h3>
+              <input class="text-[0.6rem] h-3.5 ml-20 -mt-2 w-36 bg-zinc-900/90" placeholder="">
               <hr class="h-0.5 w-7/12 max-w-full ml-20 border-amber-100/25 border-solid" />
               <img class="h-5 mx-auto rounded-xl" src="../../../../assets/game/buttons/botao-salvar.png">
             </div>

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { PlayerIdService } from 'src/app/services/player-id.service';
 import { WebSocketService } from 'src/app/services/web-socket.service';
 
 @Component({
@@ -10,16 +11,47 @@ export class AvatarMesaComponent implements OnInit {
   @Input() avatar: string;
   @Input() cartas: string;
   @Input() nome: string;
-  @Input() joined: boolean = false;
   @Input() cardDirection: string = 'left';
   @Input() eu: boolean = false; // prop eu para aprecer minhas cartas.
   @Input() cards: object[] = [];
+  @Input() cardsRival: object[];
+  joined: boolean = true;
 
-  constructor() {}
+  players = []
+  position = ''
+  username = '';
 
-  ngOnInit() {}
+  constructor(
+    private WebSocket: WebSocketService,
+    private playerIdService: PlayerIdService,
+  ) {}
+
+  ngOnInit() {
+  }
 
   onClickLog(i) {
+    this.WebSocket.emit('jogarCarta', {jogador: this.playerIdService.getNome(), carta: i, room: '1'});
     console.log('Click event: ', i);
+  }
+  joinedRoom(){
+    this.joined = true;
+  }
+
+  generatePlayers() {
+    let posicoes = ['top', 'bottom', 'left', 'right'];
+    for (let i = 0; i < 100; i++) {
+      let indexPosicoes = Math.floor(Math.random() * posicoes.length);
+      this.players.push({
+        username: 'joao ' + i,
+        src: '/assets/game/game/homem.png',
+        posicao: posicoes[indexPosicoes],
+        room: '1',
+        friend: '',
+        rival1: '',
+        rival2: '',
+        mao: '',
+        id: this.playerIdService.getId()
+      });
+    }
   }
 }

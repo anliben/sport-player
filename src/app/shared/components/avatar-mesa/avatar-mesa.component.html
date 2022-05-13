@@ -2,10 +2,10 @@
   class="flex items-center customSm"
   [ngClass]="{ 'flex-row-reverse ': cardDirection === 'left' }"
 >
-  <figure *ngIf="!joined" class="flex flex-col items-center cursor-pointer">
+  <figure (click)="joinedRoom()" *ngIf="joined" class="flex flex-col items-center cursor-pointer">
     <img
       class="w-12 h-12 rounded-full border-solid border-[1px] border-[#eec26f]"
-      src="/assets/game/partidaTruco/perfil-foto-exemplo.png"
+      [src]="avatar"
       lorem="avatar"
     />
 
@@ -18,10 +18,10 @@
     </div>
   </figure>
 
-  <ng-template #costa>
-    <div class="absolute">
+  <ng-template  #costa>
+    <div *ngIf="joined" class="absolute">
       <div
-        *ngFor="let item of [1, 2, 3]; let i = index"
+        *ngFor="let item of cardsRival; let i = index"
         [ngClass]="{
           'right-[2.5rem]': cardDirection === 'left',
           'left-10': cardDirection === 'right',
@@ -60,6 +60,6 @@
   </div>
 </div>
 
-<figure *ngIf="joined" class="cursor-pointer w-7 h-2 flex flex-col">
+<figure (click)="joinedRoom()" *ngIf="!joined" class="cursor-pointer w-7 h-2 flex flex-col">
   <img class="" src="/assets/game/partidaTruco/botao-entrar-mesa.png" />
 </figure>

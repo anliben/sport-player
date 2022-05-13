@@ -104,8 +104,7 @@
           class="flex grow basis-1/4 max-h-1/4 flex-col items-center justify-between"
         >
           <app-avatar-mesa
-            (click)="enterRoom()"
-            [joined]="j3"
+          [cardsRival]="cardsRivalTop"
             [nome]="namej3"
             cartas="/assets/game/cartas/4paus.png"
             [avatar]="avatar3"
@@ -153,8 +152,7 @@
           <div>
             <app-tampa-p class="relative top-0 bg-white left-12"></app-tampa-p>
             <app-avatar-mesa
-              (click)="enterRoom()"
-              [joined]="j2"
+              [cardsRival]="cardsRivalTop"
               [nome]="namej2"
               cartas="/assets/game/cartas/4paus.png"
               avatar="/assets/game/partidaTruco/perfil-foto-exemplo.png"
@@ -176,8 +174,7 @@
             <app-tampa-p class="relative top-0 bg-white right-4"></app-tampa-p>
             <app-avatar-mesa
               cardDirection="right"
-              (click)="enterRoom()"
-              [joined]="j4"
+              [cardsRival]="cardsRivalRight"
               [nome]="namej4"
               cartas="/assets/game/cartas/4paus.png"
               [avatar]="avatar4"
@@ -218,12 +215,11 @@
             <app-avatar-mesa
               eu="true"
               cardDirection="right"
-              (click)="enterRoom()"
-              [joined]="j1"
               [nome]="namej1"
               cartas="/assets/game/cartas/4paus.png"
               [avatar]="avatar1"
               [cards]="exampleCards"
+              [cardsRival]="cardsRival"
             ></app-avatar-mesa>
           </div>
         </div>

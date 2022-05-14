@@ -1,12 +1,17 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { RegisterComponent } from './auth/register/register.component';
+import { LoginComponent } from './auth/login/login.component';
 
 const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
       import('./pages/home/home.module').then((m) => m.HomePageModule),
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: 'home',
@@ -27,6 +32,7 @@ const routes: Routes = [
     path: 'poker',
     loadChildren: () => import('./pages/poker/poker.module').then( m => m.PokerPageModule)
   }
+
 ];
 @NgModule({
   imports: [

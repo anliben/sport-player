@@ -24,6 +24,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MesaPageModule } from './pages/mesa/mesa.module';
 import { TruccoPage } from './pages/trucco/trucco.page';
 import { PokerPage } from './pages/poker/poker.page';
+import { LoginComponent } from './auth/login/login.component';
 
 
 export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
@@ -37,7 +38,8 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
     StorePage,
     TruccoPage,
     ConfigPage,
-    PokerPage
+    PokerPage,
+    LoginComponent
   ],
   
   imports: [

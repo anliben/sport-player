@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { MesaPageRoutingModule } from './mesa-routing.module';
 
 import { SharedModule } from 'src/app/shared/shared.module';
-import { TampaPComponent } from './components/tampa-p/tampa-p.component';
+import { TampaPComponent } from '../../shared/components/tampa-p/tampa-p.component';
 
 @NgModule({
   imports: [

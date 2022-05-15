@@ -1,5 +1,5 @@
 <div class="grid grid-cols-2 justify-between">
-  <div *ngFor="let item of mesasData">
+  <div *ngFor="let item of mesasData" (click)="navigateMatch(item)">
     <div class="w-44 flex flex-col items-center m-1">
       <div
         [ngClass]="{
@@ -53,19 +53,26 @@
         </div>
 
         <div
-          [ngClass]="{ 'top-2': item.tableType === 'cashgame' }"
-          class="flex items-center relative"
+          [ngClass]="{ 'top-[0.65rem]': item.tableType === 'cashgame' }"
+          class="flex items-center relative top-[0.1rem]"
         >
-          <span class="bg-black/40 rounded-full h-5 px-3 text-[0.7rem]">{{
-            item.playersDistribution
-          }}</span>
-          <span
-            class="bg-black/40 rounded-full text-center align-middle h-5 px-3 text-[0.7rem] ml-1"
-            >{{ item.gameMode }}</span
+          <div
+            class="flex items-center justify-center bg-black/40 rounded-full px-3 py-0.5 ml-1"
           >
+            <span class="text-white text-[0.7rem]">{{
+              item.playersDistribution
+            }}</span>
+          </div>
+
+          <div
+            class="flex items-center justify-center bg-black/40 rounded-full px-3 py-0.5 ml-1"
+          >
+            <span class="text-white text-[0.7rem]">{{ item.gameMode }}</span>
+          </div>
         </div>
 
         <div
+          [ngClass]="{ 'relative top-2': item.tableType === 'cashgame' }"
           class="flex items-center bg-black/40 rounded-full h-5 px-2 text-[0.7rem] m-1"
         >
           <img class="h-4" src="/assets/game/truco8/icone-pessoa.png" alt="" />
@@ -74,14 +81,15 @@
         </div>
 
         <div
+          [ngClass]="{ 'relative top-2': item.tableType === 'cashgame' }"
           class="flex items-center bg-gradient-to-b from-[#00f33f] to-[#006e05] py-1 px-2 rounded-full"
         >
-          <span class="text-[0.6rem]">BUY: {{ item.buy }}</span>
+          <span class="text-white text-[0.6rem]">BUY: {{ item.buy }}</span>
           <img src="../../../../assets/game/game/moeda.png" class="h-4 ml-1" />
         </div>
       </div>
       <div
-        class="bg-[#414141] border-solid border-2 border-[#5c5c5c] w-full rounded-full flex items-center justify-center"
+        class="bg-[#414141] border-solid border-[1px] border-[#5c5c5c] w-full rounded-full flex items-center justify-center"
       >
         <span
           *ngIf="item.tableType !== 'torneio' && item.status === 'LIVRE'"

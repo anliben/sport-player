@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { PlayerIdService } from 'src/app/services/player-id.service';
 import { WebSocketService } from 'src/app/services/web-socket.service';
 import { ConfiguracaoJogoModalComponent } from 'src/app/shared/components/configuracao-jogo-modal/configuracao-jogo-modal.component';
 
-interface viraInterface{
+interface viraInterface {
   naipe: string;
   numero: string;
 }
@@ -15,6 +16,7 @@ interface viraInterface{
 })
 export class MesaPage implements OnInit {
   tableType: string = 'cashgame';
+  tableData: object = null;
 
   isModalOpen: boolean = false;
 
@@ -26,9 +28,9 @@ export class MesaPage implements OnInit {
   j2: boolean = false;
   j3: boolean = false;
   j4: boolean = false;
-  cardsRivalTop: Array<any>
-  cardsRivalLeft: Array<any>
-  cardsRivalRight: Array<any>
+  cardsRivalTop: Array<any>;
+  cardsRivalLeft: Array<any>;
+  cardsRivalRight: Array<any>;
 
   namej1: string = '';
   namej2: string = '';
@@ -58,7 +60,7 @@ export class MesaPage implements OnInit {
   // -> espectadores
   spectorsCount: string | number = '----';
   // -> cartas de exemplo
-  exampleCards: object[]/*  = [
+  exampleCards: object[]; /*  = [
     {
       naipe: 'paus',
       numero: '1',
@@ -74,55 +76,57 @@ export class MesaPage implements OnInit {
   ]; */
   // -> carta vira (A que fica por baixo da carta de costa em baixo do jackpot!!)
   cardVira = {};
-  count: number = 0
+  count: number = 0;
 
   constructor(
     private WebSocket: WebSocketService,
     private modalController: ModalController,
-    private playerIdService: PlayerIdService
-  ) {}
-
+    private playerIdService: PlayerIdService,
+    private activatedRoute: Router
+  ) {
+    this.tableData =
+      this.activatedRoute.getCurrentNavigation().extras.state.data;
+  }
   ngOnInit() {
-
     this.WebSocket.listen('espectador').subscribe((data: any) => {
       window.alert('Espectador: ' + data.espectador);
-    })
-    
+    });
+
     this.generatePlayers();
     // pegar elemento aleatorio do array de players
     // this.playerIdService.setId(this.players[Math.floor(Math.random() * this.players.length)].username);
-    this.nome = this.players[Math.floor(Math.random() * this.players.length)].username;
+    this.nome =
+      this.players[Math.floor(Math.random() * this.players.length)].username;
     console.log(this.nome);
     this.playerIdService.setNome(this.nome);
     this.WebSocket.emit('join_room', { room: '1' });
 
-   this.WebSocket.listen('playerId').subscribe((data: any) => {
-     console.log('playerId: ', data.id);
-   })
+    this.WebSocket.listen('playerId').subscribe((data: any) => {
+      console.log('playerId: ', data.id);
+    });
 
-   this.WebSocket.listen('jogarCarta').subscribe((data: any) => {
-     console.log('jogarCarta: ', data);
-     let carta = {
+    this.WebSocket.listen('jogarCarta').subscribe((data: any) => {
+      console.log('jogarCarta: ', data);
+      let carta = {
         naipe: data.naipe,
         numero: data.numero,
-     }
-     if(data.jogador == this.nome){
-       this.exampleCards.splice(this.exampleCards.indexOf(carta), 1);
-       console.log(this.exampleCards);
+      };
+      if (data.jogador == this.nome) {
+        this.exampleCards.splice(this.exampleCards.indexOf(carta), 1);
+        console.log(this.exampleCards);
       }
-      if(data.jogador == this.namej3){
+      if (data.jogador == this.namej3) {
         this.cardsRivalTop.splice(this.cardsRivalTop.indexOf(carta), 1);
       }
-      if(data.jogador == this.namej2){
+      if (data.jogador == this.namej2) {
         this.cardsRivalLeft.splice(this.cardsRivalLeft.indexOf(carta), 1);
       }
-      if(data.jogador == this.namej4){
+      if (data.jogador == this.namej4) {
         this.cardsRivalRight.splice(this.cardsRivalRight.indexOf(carta), 1);
       }
-       
-   })
+    });
 
-    let id = this.playerIdService.getId()
+    let id = this.playerIdService.getId();
 
     this.WebSocket.emit('insertPlayer', {
       id: id,
@@ -135,43 +139,41 @@ export class MesaPage implements OnInit {
 
     // escutar players na sala
     this.WebSocket.listen('findPlayers').subscribe((data: any) => {
-
       this.cardVira = data.vira[0];
       let arrs = ['left', 'right'];
-      data.jogadores.forEach((player: any)=> {
-        console.log((player));
-        if(player.friend === this.nome){
+      data.jogadores.forEach((player: any) => {
+        console.log(player);
+        if (player.friend === this.nome) {
           console.log('é meu amigo');
-          player.posicao = 'top'
+          player.posicao = 'top';
           this.j3 = true;
           this.avatar3 = player.src;
           this.namej3 = player.username;
-          this.cardsRivalTop = [1,2,3];
+          this.cardsRivalTop = [1, 2, 3];
         }
-        if(player.username == this.nome){
+        if (player.username == this.nome) {
           console.log('eu');
-          player.posicao = 'bottom'
+          player.posicao = 'bottom';
           this.j1 = true;
           this.avatar1 = player.src;
           this.namej1 = player.username;
           this.exampleCards = player.mao;
-        }else{
+        } else {
           if (arrs[0] === 'left') {
             player.posicao = arrs[0];
             this.j2 = true;
             this.avatar2 = player.src;
             this.namej2 = player.username;
             arrs.shift();
-            this.cardsRivalLeft = [1,2,3];
+            this.cardsRivalLeft = [1, 2, 3];
           }
           player.posicao = arrs[0];
           this.j4 = true;
           this.avatar4 = player.src;
           this.namej4 = player.username;
-          this.cardsRivalRight = [1,2,3];
+          this.cardsRivalRight = [1, 2, 3];
         }
       });
-
     });
   }
 
@@ -202,7 +204,7 @@ export class MesaPage implements OnInit {
         rival1: '',
         rival2: '',
         mao: '',
-        id: this.playerIdService.getId()
+        id: this.playerIdService.getId(),
       });
     }
   }

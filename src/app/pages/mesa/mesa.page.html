@@ -104,7 +104,7 @@
           class="flex grow basis-1/4 max-h-1/4 flex-col items-center justify-between"
         >
           <app-avatar-mesa
-          [cardsRival]="cardsRivalTop"
+            [cardsRival]="cardsRivalTop"
             [nome]="namej3"
             cartas="/assets/game/cartas/4paus.png"
             [avatar]="avatar3"
@@ -114,14 +114,14 @@
           <app-tampa-p class="relative -top-4 left-8"></app-tampa-p>
 
           <div class="flex flex-col justify-center items-center">
-            <!-- {{tableType}} -->
+            <!-- {{tableData.tableType}} -->
             <span
-              *ngIf="tableType === 'cashgame'"
+              *ngIf="tableData.tableType === 'cashgame'"
               class="block text-black opacity-50 text-[1rem]"
               >{{"mesa.cashgame" | translate }}</span
             >
             <span
-              *ngIf="tableType === 'torneio'"
+              *ngIf="tableData.tableType === 'torneio'"
               class="block text-black opacity-60 text-[1rem]"
               >{{ "mesa.tournament" | translate }}</span
             >
@@ -190,12 +190,12 @@
 
           <div class="flex flex-col items-center">
             <span
-              *ngIf="tableType === 'cashgame'"
+              *ngIf="tableData.tableType === 'cashgame'"
               class="block text-white opacity-60 text-[0.6rem]"
               >{{"mesa.cashgame" | translate }}</span
             >
             <span
-              *ngIf="tableType === 'torneio'"
+              *ngIf="tableData.tableType === 'torneio'"
               class="block text-white opacity-60 text-[0.6rem]"
               >{{"mesa.tournament" | translate }}</span
             >

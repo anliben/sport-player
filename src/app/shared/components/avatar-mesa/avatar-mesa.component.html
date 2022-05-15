@@ -30,8 +30,7 @@
           'left-[3rem]': cardDirection === 'right' && i === 1,
           'left-[3.5rem]': cardDirection === 'right' && i === 2
         }"
-        class="absolute -top-8 w-8 h-12 rounded-sm"
-      >
+        class="absolute -top-8 w-8 h-12 rounded-sm">
         <img
           class="h-full w-full"
           src="/assets/game/partidaTruco/costas-das-cartas.png"
@@ -49,8 +48,7 @@
         'left-[6rem]': cardDirection === 'right' && i === 2
       }"
       class="absolute -top-8 w-8 h-12 rounded-sm"
-      (click)="onClickLog(item)"
-    >
+      (click)="onClickLog(item)">
       <app-carta-baralho
         class="cursor-pointer transition-transform hover:absolute hover:-translate-y-1"
         [naipe]="item.naipe"
@@ -59,7 +57,6 @@
     </div>
   </div>
 </div>
-
 <figure (click)="joinedRoom()" *ngIf="!joined" class="cursor-pointer w-7 h-2 flex flex-col">
   <img class="" src="/assets/game/partidaTruco/botao-entrar-mesa.png" />
 </figure>

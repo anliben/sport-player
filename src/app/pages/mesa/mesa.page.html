@@ -36,19 +36,21 @@
         >
           <span
             class="relative top-[0.4rem] text-[#8b8b5c] font-vag text-[1.6rem]"
-            >6</span
+            >{{pontosNos}}</span
           >
         </div>
-      </div>
-
+      </div> 
       <div class="flex">
+
         <div
           class="w-14 h-[3.5rem] relative top-[0.3rem] flex justify-center items-center bg-[url('/assets/game/partidaTruco/eles.png')] bg-contain bg-no-repeat"
         >
           <span
+
             class="relative top-[0.1rem] text-[#8b8b5c] font-vag text-[1.6rem]"
-            >5</span
+            >{{pontosEles}}</span
           >
+
         </div>
         <div class="flex flex-col relative top-5 ml-1">
           <div
@@ -65,29 +67,27 @@
           ></div>
         </div>
       </div>
-
       <div
         class="ml-4 w-14 h-[3.5rem] mr-1 bg-center flex justify-center items-center bg-[url('/assets/game/partidaTruco/valor-da-rodada.png')] bg-contain bg-no-repeat"
       >
         <span
           class="relative top-[0.4rem] text-[#8b8b5c] font-vag text-[1.6rem]"
-          >1</span
-        >
+          >{{rodadas}}</span>
       </div>
+      
     </div>
-
     <img
       (click)="presentConfigGameModal()"
       class="cursor-pointer h-12 relative left-3"
       src="/assets/game/partidaTruco/informacoes.png"
     />
   </section>
-
   <!-- <ion-modal [isOpen]="isModalOpen">
     <ng-template>
       <h1>Ola Mundo</h1>
       <button (click)="menu()">fechar</button>
     </ng-template>
+
   </ion-modal> -->
 
   <section class="flex justify-center h-[70%]">

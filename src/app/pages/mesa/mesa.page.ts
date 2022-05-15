@@ -75,6 +75,9 @@ export class MesaPage implements OnInit {
   // -> carta vira (A que fica por baixo da carta de costa em baixo do jackpot!!)
   cardVira = {};
   count: number = 0
+  pontosNos: number = 0;
+  pontosEles: number = 0;
+  rodadas: number = 0;
 
   constructor(
     private WebSocket: WebSocketService,
@@ -83,29 +86,38 @@ export class MesaPage implements OnInit {
   ) {}
 
   ngOnInit() {
-
-    this.WebSocket.listen('espectador').subscribe((data: any) => {
-      window.alert('Espectador: ' + data.espectador);
-    })
     
     this.generatePlayers();
     // pegar elemento aleatorio do array de players
     // this.playerIdService.setId(this.players[Math.floor(Math.random() * this.players.length)].username);
     this.nome = this.players[Math.floor(Math.random() * this.players.length)].username;
-    console.log(this.nome);
     this.playerIdService.setNome(this.nome);
-    this.WebSocket.emit('join_room', { room: '1' });
-
+    
    this.WebSocket.listen('playerId').subscribe((data: any) => {
-     console.log('playerId: ', data.id);
+   })
+
+   this.WebSocket.listen('rodada').subscribe((data: any) => {
+      data.jogadores.forEach( (element: any)=> {
+        this.rodadas = element.rodadas;
+        if(element.username == this.nome){
+          this.pontosNos = element.pontos;
+          //this.exampleCards = element.mao;
+        }else if(element.friend == this.nome){
+          //this.cardsRivalTop = element.mao;
+        }
+        else{
+          this.pontosEles = element.pontos;
+          return
+        }
+      });
    })
 
    this.WebSocket.listen('jogarCarta').subscribe((data: any) => {
-     console.log('jogarCarta: ', data);
      let carta = {
         naipe: data.naipe,
         numero: data.numero,
      }
+
      if(data.jogador == this.nome){
        this.exampleCards.splice(this.exampleCards.indexOf(carta), 1);
        console.log(this.exampleCards);
@@ -119,7 +131,7 @@ export class MesaPage implements OnInit {
       if(data.jogador == this.namej4){
         this.cardsRivalRight.splice(this.cardsRivalRight.indexOf(carta), 1);
       }
-       
+      
    })
 
     let id = this.playerIdService.getId()
@@ -135,13 +147,11 @@ export class MesaPage implements OnInit {
 
     // escutar players na sala
     this.WebSocket.listen('findPlayers').subscribe((data: any) => {
-
       this.cardVira = data.vira[0];
+      this.playerIdService.setManilha(data.manilha);
       let arrs = ['left', 'right'];
       data.jogadores.forEach((player: any)=> {
-        console.log((player));
         if(player.friend === this.nome){
-          console.log('é meu amigo');
           player.posicao = 'top'
           this.j3 = true;
           this.avatar3 = player.src;
@@ -149,7 +159,6 @@ export class MesaPage implements OnInit {
           this.cardsRivalTop = [1,2,3];
         }
         if(player.username == this.nome){
-          console.log('eu');
           player.posicao = 'bottom'
           this.j1 = true;
           this.avatar1 = player.src;

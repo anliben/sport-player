@@ -20,17 +20,24 @@ export class AvatarMesaComponent implements OnInit {
   players = []
   position = ''
   username = '';
+  count = 0;
 
   constructor(
     private WebSocket: WebSocketService,
     private playerIdService: PlayerIdService,
   ) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   onClickLog(i) {
-    this.WebSocket.emit('jogarCarta', {jogador: this.playerIdService.getNome(), carta: i, room: '1'});
+    this.count += 1;
+    this.WebSocket.emit('jogarCarta', {
+      jogador: this.playerIdService.getNome(),
+      carta: i,
+      room: '1',
+      count: this.count,
+      manilha: this.playerIdService.getManilha()
+    });
     console.log('Click event: ', i);
   }
   joinedRoom(){

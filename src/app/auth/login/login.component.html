@@ -1,0 +1,63 @@
+<ion-content>
+  <div class="bg-[url('/assets/game/auth/fundo-auth.png')] h-full p-0 m-0 bg-cover bg-no-repeat">
+    
+    <div class="">
+      <img class="h-52 mx-auto pt-20" src="/assets/icon/logotype-with-text.png">
+    </div>
+    <form [formGroup]="formLogin" class="flex justify-center">
+      <div class="w-2/3">
+        <ion-item color="transparent" class="relative rounded-sm bg-[#303030] h-12 mt-8" lines="full">
+          <img class="h-5 pr-2" src="/assets/icon/conta-icone.png">
+          <ion-input 
+          name="user"
+          formControlName="user"
+          color="transparent" 
+          class="h-12 rounded-sm" 
+          type="text" 
+          placeholder="Email" 
+          required
+          >
+        </ion-input>
+        </ion-item>
+        <ion-item color="transparent" class="relative rounded-sm bg-[#303030] h-12 mt-1" lines="full">
+          <img class="h-5 pr-2" src="/assets/icon/conta-icone.png">
+          <ion-input 
+          name = "password"
+          formControlName="password"
+          color="transparent" 
+          class="h-12 rounded-sm" 
+          type="text" 
+          placeholder="Password" 
+          required></ion-input>
+        </ion-item>
+        <ion-row>
+          <ion-col>
+            <div class="flex justify-center">
+              <ion-button 
+              (click)="login()"
+              color="transparent" 
+              class="bg-[#26a50d] h-8 w-28 my-3 rounded-lg text-[#ebe8e8] font-vag text-[1rem]"
+              >Entrar
+              </ion-button>
+            </div>
+            <div class="flex justify-center">
+              <ion-button 
+              (click)="register()"
+              color="transparent" 
+              class="bg-[#dfa425] h-8 w-32 rounded-lg text-[#080808] font-vag"
+              >Registrar
+              </ion-button>
+            </div>
+          </ion-col>
+        </ion-row>
+      </div>
+    </form>
+    <div class="w-full flex justify-center mt-24 ">
+      <a [routerLink]="['/forgot-password']" class="font-vag text-[#8b8b5c]">Esqueceu a senha?</a>
+    </div>
+    <div class="flex justify-center text-[0.6rem] w-full">
+      TERMOS E SERVICOS & POLITICA DE PRIVACIDADE
+    </div>
+
+  </div>
+</ion-content>

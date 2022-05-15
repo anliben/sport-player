@@ -1,23 +1,33 @@
 <div class="flex justify-between items-center">
-  <!-- <ion-button>
-      <ion-icon name="arrow-back-outline" class="text-4xl text-primary"></ion-icon>
-    </ion-button> -->
-  <div *ngIf="backButton !== false">
-    <div (click)="back()">
-      <ion-icon name="arrow-back-outline" class="text-4xl text-primary"></ion-icon>
-      <!-- <ion-back-button icon="arrrow-back-outline"></ion-back-button> -->
-    </div>
+  <div
+    *ngIf="voltarBtn; else btnVip"
+    class="transition ease-in-out delay-150 hover:scale-110 duration-300"
+  >
+    <img
+      (click)="back()"
+      src="../../../../assets/game/buttons/seta-voltar.png"
+      class="cursor-pointer h-8"
+    />
   </div>
 
+  <ng-template #btnVip>
+    <img
+      class="m-1 h-7 cursor-pointer"
+      src="/assets/game/header/botao-vip.png"
+    />
+  </ng-template>
 
-  <img class="w-20 m-1 h-9" src="/assets/game/header/botao-vip.png">
   <div class="flex items-center relative justify-items-center">
-    <img class="h-7" src="/assets/game/header/diamantes-fundo.png">
-    <span class="left-8 absolute text-sky-500 font-extrabold">{{diamante}}</span>
+    <img class="h-7" src="/assets/game/header/diamantes-fundo.png" />
+    <span class="left-8 absolute text-[#23bee2] font-vag">{{ diamante }}</span>
   </div>
+
   <div class="flex items-center relative justify-items-center">
-    <img class="h-7" src="/assets/game/header/moedas-fundo.png">
-    <span class="left-8 absolute text-sky-500 font-extrabold">{{moeda}}</span>
+    <img class="h-7" src="/assets/game/header/moedas-fundo.png" />
+    <span class="left-8 absolute text-[#fde870] font-vag">{{ moeda }}</span>
   </div>
-  <img class="w-20 m-1 h-9" src="/assets/game/header/botao-rank.png">
+  <img
+    class="cursor-pointer m-1 h-8 transition ease-in-out delay-150 hover:scale-110 duration-300"
+    src="/assets/game/header/botao-rank.png"
+  />
 </div>

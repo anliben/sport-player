@@ -8,22 +8,16 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  @Input() moeda: number;
-  @Input() diamante: number;
+  @Input() moeda: number = 125;
+  @Input() diamante: number = 456;
 
-  backButton = true
+  @Input() voltarBtn: boolean = false;
 
-  constructor(
-    private navCtrl: NavController,
-    private router: Router
-  ) { }
+  constructor(private navCtrl: NavController, private router: Router) {}
 
-  ngOnInit() {
-    if (this.router.url === '/')
-      this.backButton = false
-  }
+  ngOnInit() {}
 
   back() {
-    this.navCtrl.back()
+    this.navCtrl.back();
   }
 }

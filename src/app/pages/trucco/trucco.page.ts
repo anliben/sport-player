@@ -11,13 +11,11 @@ import { NavController } from '@ionic/angular';
 export class TruccoPage implements OnInit {
   diamante = 9999;
   moeda = 9999;
-  constructor( private router : Router) { }
+  constructor(private router: Router) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-  back(){
+  back() {
     this.router.navigate(['']);
   }
-
 }

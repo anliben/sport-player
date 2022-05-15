@@ -16,11 +16,12 @@ import { HomePage } from './pages/home/home.page';
 import { MesaPage } from './pages/mesa/mesa.page';
 import { StorePage } from './pages/home/store/store.page';
 import { ConfigPage } from './pages/home/config/config.page';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MesaPageModule } from './pages/mesa/mesa.module';
 import { TruccoPage } from './pages/trucco/trucco.page';
 import { PokerPage } from './pages/poker/poker.page';
+import { LoginComponent } from './auth/login/login.component';
 
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/compat/database';
@@ -48,7 +49,8 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
     StorePage,
     TruccoPage,
     ConfigPage,
-    PokerPage
+    PokerPage,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -66,10 +68,11 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
     SharedModule,
     FormsModule,
     MesaPageModule,
-    ScrollingModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    ScrollingModule, 
+    ReactiveFormsModule
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },

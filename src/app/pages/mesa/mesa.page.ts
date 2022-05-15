@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { PlayerIdService } from 'src/app/services/player-id.service';
 import { WebSocketService } from 'src/app/services/web-socket.service';
 import { ConfiguracaoJogoModalComponent } from 'src/app/shared/components/configuracao-jogo-modal/configuracao-jogo-modal.component';
 
-interface viraInterface{
+interface viraInterface {
   naipe: string;
   numero: string;
 }
@@ -15,6 +16,7 @@ interface viraInterface{
 })
 export class MesaPage implements OnInit {
   tableType: string = 'cashgame';
+  tableData: object = null;
 
   isModalOpen: boolean = false;
 
@@ -26,9 +28,9 @@ export class MesaPage implements OnInit {
   j2: boolean = false;
   j3: boolean = false;
   j4: boolean = false;
-  cardsRivalTop: Array<any>
-  cardsRivalLeft: Array<any>
-  cardsRivalRight: Array<any>
+  cardsRivalTop: Array<any>;
+  cardsRivalLeft: Array<any>;
+  cardsRivalRight: Array<any>;
 
   namej1: string = '';
   namej2: string = '';
@@ -58,7 +60,7 @@ export class MesaPage implements OnInit {
   // -> espectadores
   spectorsCount: string | number = '----';
   // -> cartas de exemplo
-  exampleCards: object[]/*  = [
+  exampleCards: object[]; /*  = [
     {
       naipe: 'paus',
       numero: '1',
@@ -82,9 +84,12 @@ export class MesaPage implements OnInit {
   constructor(
     private WebSocket: WebSocketService,
     private modalController: ModalController,
-    private playerIdService: PlayerIdService
-  ) {}
-
+    private playerIdService: PlayerIdService,
+    private activatedRoute: Router
+  ) {
+    this.tableData =
+      this.activatedRoute.getCurrentNavigation().extras.state.data;
+  }
   ngOnInit() {
     
     this.generatePlayers();
@@ -122,19 +127,19 @@ export class MesaPage implements OnInit {
        this.exampleCards.splice(this.exampleCards.indexOf(carta), 1);
        console.log(this.exampleCards);
       }
-      if(data.jogador == this.namej3){
+      if (data.jogador == this.namej3) {
         this.cardsRivalTop.splice(this.cardsRivalTop.indexOf(carta), 1);
       }
-      if(data.jogador == this.namej2){
+      if (data.jogador == this.namej2) {
         this.cardsRivalLeft.splice(this.cardsRivalLeft.indexOf(carta), 1);
       }
-      if(data.jogador == this.namej4){
+      if (data.jogador == this.namej4) {
         this.cardsRivalRight.splice(this.cardsRivalRight.indexOf(carta), 1);
       }
       
    })
 
-    let id = this.playerIdService.getId()
+    let id = this.playerIdService.getId();
 
     this.WebSocket.emit('insertPlayer', {
       id: id,
@@ -156,7 +161,7 @@ export class MesaPage implements OnInit {
           this.j3 = true;
           this.avatar3 = player.src;
           this.namej3 = player.username;
-          this.cardsRivalTop = [1,2,3];
+          this.cardsRivalTop = [1, 2, 3];
         }
         if(player.username == this.nome){
           player.posicao = 'bottom'
@@ -164,23 +169,22 @@ export class MesaPage implements OnInit {
           this.avatar1 = player.src;
           this.namej1 = player.username;
           this.exampleCards = player.mao;
-        }else{
+        } else {
           if (arrs[0] === 'left') {
             player.posicao = arrs[0];
             this.j2 = true;
             this.avatar2 = player.src;
             this.namej2 = player.username;
             arrs.shift();
-            this.cardsRivalLeft = [1,2,3];
+            this.cardsRivalLeft = [1, 2, 3];
           }
           player.posicao = arrs[0];
           this.j4 = true;
           this.avatar4 = player.src;
           this.namej4 = player.username;
-          this.cardsRivalRight = [1,2,3];
+          this.cardsRivalRight = [1, 2, 3];
         }
       });
-
     });
   }
 
@@ -211,7 +215,7 @@ export class MesaPage implements OnInit {
         rival1: '',
         rival2: '',
         mao: '',
-        id: this.playerIdService.getId()
+        id: this.playerIdService.getId(),
       });
     }
   }

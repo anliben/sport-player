@@ -81,7 +81,7 @@ export class MesasComponent implements OnInit {
       update_at: '2022-01-01T00:00:00.000Z',
       create_at: '2022-01-01T00:00:00.000Z',
       status: 'LIVRE',
-      gameMode: 'limpo',
+      gameMode: 'sujo',
       rules: 'paulista',
     },
 

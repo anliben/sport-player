@@ -53,8 +53,8 @@
         </div>
 
         <div
-          [ngClass]="{ 'top-2': item.tableType === 'cashgame' }"
-          class="flex items-center relative"
+          [ngClass]="{ 'top-[0.65rem]': item.tableType === 'cashgame' }"
+          class="flex items-center relative top-[0.1rem]"
         >
           <span class="bg-black/40 rounded-full h-5 px-3 text-[0.7rem]">{{
             item.playersDistribution
@@ -66,6 +66,7 @@
         </div>
 
         <div
+          [ngClass]="{ 'relative top-2': item.tableType === 'cashgame' }"
           class="flex items-center bg-black/40 rounded-full h-5 px-2 text-[0.7rem] m-1"
         >
           <img class="h-4" src="/assets/game/truco8/icone-pessoa.png" alt="" />
@@ -74,6 +75,7 @@
         </div>
 
         <div
+          [ngClass]="{ 'relative top-2': item.tableType === 'cashgame' }"
           class="flex items-center bg-gradient-to-b from-[#00f33f] to-[#006e05] py-1 px-2 rounded-full"
         >
           <span class="text-[0.6rem]">BUY: {{ item.buy }}</span>

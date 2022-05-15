@@ -1,4 +1,30 @@
+import { HttpUrlEncodingCodec } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import {
+  ActivatedRoute,
+  ActivatedRouteSnapshot,
+  Router,
+} from '@angular/router';
+
+interface MesaInterface {
+  id: 1;
+  name: string;
+  tableType: string;
+  awardTotal: string | number;
+  jackpot: string | number;
+  buy: string | number;
+  reBuy: false;
+  playersDistribution: string;
+  AreSpectatorsAllowed: boolean;
+  spectators: any;
+  start_date: string;
+  start_time: string;
+  update_at: string;
+  create_at: string;
+  status: string;
+  gameMode: string;
+  rules: string;
+}
 
 @Component({
   selector: 'app-mesas',
@@ -6,7 +32,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mesas.component.scss'],
 })
 export class MesasComponent implements OnInit {
-  mesasData: object[] = [
+  code = new HttpUrlEncodingCodec();
+  mesasData: MesaInterface[] = [
     {
       id: 1,
       name: 'Mesa 1',
@@ -106,7 +133,15 @@ export class MesasComponent implements OnInit {
     },
   ];
 
-  constructor() {}
+  constructor(private router: Router, private activateRouter: ActivatedRoute) {}
+
+  navigateMatch(data: MesaInterface) {
+    // console.log(this.code.encodeKey(JSON.stringify(data)));
+    // let url = JSON.stringify(data);
+    this.router.navigate(['/mesa'], {
+      state: { data },
+    });
+  }
 
   ngOnInit() {}
 }

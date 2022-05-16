@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
+import { VerifyComponent } from './auth/verify/verify.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,10 @@ const routes: Routes = [
   {
     path: 'poker',
     loadChildren: () => import('./pages/poker/poker.module').then( m => m.PokerPageModule)
+  },
+  {
+    path: 'verify',
+    component: VerifyComponent
   }
 
 ];

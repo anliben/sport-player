@@ -9,7 +9,7 @@ import {io} from 'socket.io-client';
 export class WebSocketService {
 
   socket: any;
-  readonly uri: string = 'http://192.168.1.102:3000'
+  readonly uri: string = 'https://2c08-192-141-84-196.sa.ngrok.io'
 
   constructor() {
     this.socket = io(this.uri);

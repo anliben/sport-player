@@ -15,7 +15,7 @@ export class AvatarMesaComponent implements OnInit {
   @Input() eu: boolean = false; // prop eu para aprecer minhas cartas.
   @Input() cards: object[] = [];
   @Input() cardsRival: object[];
-  joined: boolean = true;
+  @Input() joined: boolean;
 
   players = []
   position = ''
@@ -29,9 +29,9 @@ export class AvatarMesaComponent implements OnInit {
 
   ngOnInit() {}
 
-  onClickLog(i) {
+  async onClickLog(i) {
     this.count += 1;
-    this.WebSocket.emit('jogarCarta', {
+    await this.WebSocket.emit('jogarCarta', {
       jogador: this.playerIdService.getNome(),
       carta: i,
       room: '1',

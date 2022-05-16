@@ -31,8 +31,11 @@ const routes: Routes = [
   {
     path: 'poker',
     loadChildren: () => import('./pages/poker/poker.module').then( m => m.PokerPageModule)
+  },
+  {
+    path: '**',
+    redirectTo: 'home',
   }
-
 ];
 @NgModule({
   imports: [

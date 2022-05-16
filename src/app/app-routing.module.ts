@@ -11,12 +11,7 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    component: LoginComponent
-  },
-  {
-    path: 'home',
-    loadChildren: () =>
-      import('./pages/home/home.module').then((m) => m.HomePageModule),
+    component: LoginComponent,
   },
   {
     path: 'mesa',
@@ -30,9 +25,9 @@ const routes: Routes = [
   },
   {
     path: 'poker',
-    loadChildren: () => import('./pages/poker/poker.module').then( m => m.PokerPageModule)
-  }
-
+    loadChildren: () =>
+      import('./pages/poker/poker.module').then((m) => m.PokerPageModule),
+  },
 ];
 @NgModule({
   imports: [

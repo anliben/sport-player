@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ConfigPage } from './config/config.page';
 
@@ -8,16 +8,66 @@ import { StorePage } from './store/store.page';
 const routes: Routes = [
   {
     path: '',
-    component: HomePage
+    component: HomePage,
+    children: [
+      {
+        path: 'store',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('./store/store.module').then((m) => m.StorePageModule),
+          },
+        ],
+      },
+      {
+        path: 'play',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              // import('./home.module').then((m) => m.HomePageModule),
+              // import('./store/store.module').then((m) => m.StorePageModule),
+              import('./play/play.module').then((m) => m.PlayPageModule),
+          },
+        ],
+      },
+      {
+        path: 'config',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('./config/config.module').then((m) => m.ConfigPageModule),
+            // import('./store/store.module').then((m) => m.StorePageModule),
+          },
+        ],
+      },
+      {
+        path: '',
+        redirectTo: '/play',
+        pathMatch: 'full',
+      },
+    ],
   },
   {
-    path: 'config',
-    component: ConfigPage
+    path: '',
+    redirectTo: '/play',
+    pathMatch: 'full',
   },
-  {
-    path: 'store',
-    component: StorePage
-  }
+
+  // {
+  //   path: '',
+  //   component: HomePage,
+  // },
+  // {
+  //   path: 'config',
+  //   component: ConfigPage,
+  // },
+  // {
+  //   path: 'store',
+  //   component: StorePage,
+  // },
 ];
 
 @NgModule({

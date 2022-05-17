@@ -1,0 +1,28 @@
+// ion-tabs {
+$back: #101012;
+$border-width: 0.15rem;
+
+ion-tab-bar {
+  --background: transparent;
+  background: linear-gradient(
+    180deg,
+    rgba(56, 54, 68, 1) 21%,
+    rgba(41, 42, 47, 1) 51%,
+    rgba(30, 30, 33, 1) 100%
+  );
+}
+
+ion-tab-button {
+  --padding-bottom: 10px;
+  --padding-top: 10px;
+  &:nth-last-of-type(2) {
+    border-left-width: $border-width;
+    border-right-width: $border-width;
+    border-style: solid;
+    border-color: $back;
+  }
+
+  &.tab-selected {
+    background-color: $back;
+  }
+}

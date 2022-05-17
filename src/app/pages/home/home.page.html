@@ -1,39 +1,47 @@
-<!-- <ion-content>
-  <div class="bg-background-home h-full p-0 m-0 bg-cover bg-no-repeat z-0">
-    <app-header moeda="55" diamante="20"></app-header>
-    <app-perfil></app-perfil>
-    <div class="flex flex-col items-center justify-center z-50">
-      <img class="w-42 h-52 mb-8" src="/assets/game/game/clube.png" />
-      <div class="bg-black z-30" (click)="changeScreen('trucco')">
-        <img class="w-38 h-16" src="/assets/game/game/truco.png" />
-      </div>
-
-      <div class="bg-black z-30" (click)="changeScreen('poker')">
-        <img class="w-38 h-16" src="/assets/game/game/poker.png" />
-      </div>
-
-      <div class="bg-black z-30" (click)="changeScreen('poker')">
-        <img class="w-38 h-16" src="/assets/game/game/futebol.png" />
-      </div>
-    </div>
-  </div>
-</ion-content> -->
-
-<ion-tabs>
+<ion-tabs class="tab-container" (ionTabsWillChange)="selectedTab($event)">
   <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="store">
-      <ion-icon name="cart-outline"></ion-icon>
-      <ion-label>{{ "home.tab.store" | translate }}</ion-label>
+    <ion-tab-button tab="store" mode="md">
+      <div class="flex items-center w-full" #store>
+        <img src="../../../assets/game/game/loja.png" class="h-10 m-auto" />
+        <img
+          src="../../../assets/game/partidaTruco/seta-direita.png"
+          class="h-3"
+          #seta
+        />
+      </div>
+      <!-- <ion-icon name="cart-outline"></ion-icon>
+      <ion-label>{{ "home.tab.store" | translate }}</ion-label> -->
     </ion-tab-button>
 
-    <ion-tab-button tab="play">
-      <ion-icon name="play"></ion-icon>
-      <ion-label>{{ "home.tab.play" | translate }}</ion-label>
+    <ion-tab-button tab="play" select="play" mode="md">
+      <div class="flex items-center justify-between w-full" #play>
+        <img
+          src="../../../assets/game/partidaTruco/seta-direita.png"
+          class="h-3 rotate-180"
+          #seta
+        />
+        <img src="../../../assets/game/game/jogar.png" class="h-10" />
+        <img
+          src="../../../assets/game/partidaTruco/seta-direita.png"
+          class="h-3"
+          #seta
+        />
+      </div>
+      <!-- <ion-icon name="play"></ion-icon>
+        <ion-label>{{ "home.tab.play" | translate }}</ion-label> -->
     </ion-tab-button>
 
-    <ion-tab-button tab="config">
-      <ion-icon name="settings"></ion-icon>
-      <ion-label>{{ "home.tab.config" | translate }}</ion-label>
+    <ion-tab-button tab="config" mode="md">
+      <div class="flex items-center w-full" #config>
+        <img
+          src="../../../assets/game/partidaTruco/seta-direita.png"
+          class="h-3 rotate-180"
+          #seta
+        />
+        <img src="../../../assets/game/game/config.png" class="h-10 m-auto" />
+      </div>
+      <!-- <ion-icon name="settings"></ion-icon>
+      <ion-label>{{ "home.tab.config" | translate }}</ion-label> -->
     </ion-tab-button>
   </ion-tab-bar>
 </ion-tabs>

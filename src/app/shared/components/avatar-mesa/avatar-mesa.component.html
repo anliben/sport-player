@@ -1,12 +1,17 @@
 <div
-  class="flex items-center customSm"
+  *ngIf="joined"
+  class="flex items-center relative customSm bg-green-700 w-full h-full"
   [ngClass]="{ 'flex-row-reverse ': cardDirection === 'left' }"
 >
-  <figure (click)="joinedRoom()" *ngIf="joined" class="flex flex-col items-center cursor-pointer">
+  <!-- AVATAR DO CARINHA -->
+  <figure
+    (click)="joinedRoom()"
+    *ngIf="joined"
+    class="flex flex-col items-center cursor-pointer"
+  >
     <img
-      class="w-12 h-12 rounded-full border-solid border-[1px] border-[#eec26f]"
+      class="w-12 h-12 absolute rounded-full border-solid border-[1px] border-[#eec26f]"
       [src]="avatar"
-      lorem="avatar"
     />
 
     <div
@@ -18,7 +23,7 @@
     </div>
   </figure>
 
-  <ng-template  #costa>
+  <ng-template #costa>
     <div *ngIf="joined" class="absolute">
       <div
         *ngFor="let item of cardsRival; let i = index"
@@ -30,7 +35,8 @@
           'left-[3rem]': cardDirection === 'right' && i === 1,
           'left-[3.5rem]': cardDirection === 'right' && i === 2
         }"
-        class="absolute -top-8 w-8 h-12 rounded-sm">
+        class="absolute -top-8 w-8 h-12 rounded-sm"
+      >
         <img
           class="h-full w-full"
           src="/assets/game/partidaTruco/costas-das-cartas.png"
@@ -48,7 +54,8 @@
         'left-[6rem]': cardDirection === 'right' && i === 2
       }"
       class="absolute -top-8 w-8 h-12 rounded-sm"
-      (click)="onClickLog(item)">
+      (click)="onClickLog(item)"
+    >
       <app-carta-baralho
         class="cursor-pointer transition-transform hover:absolute hover:-translate-y-1"
         [naipe]="item.naipe"
@@ -57,6 +64,11 @@
     </div>
   </div>
 </div>
-<figure (click)="joinedRoom()" *ngIf="!joined" class="cursor-pointer w-7 h-2 flex flex-col">
+
+<figure
+  *ngIf="!joined"
+  (click)="joinedRoom()"
+  class="cursor-pointer w-7 h-2 flex flex-col bg-green-800 justify-center items-center"
+>
   <img class="" src="/assets/game/partidaTruco/botao-entrar-mesa.png" />
 </figure>

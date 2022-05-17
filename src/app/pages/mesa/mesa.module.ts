@@ -18,7 +18,7 @@ import { Cashgame2x2Page } from './cashgame2x2/cashgame2x2.page';
     MesaPageRoutingModule,
     SharedModule,
   ],
-  declarations: [TampaPComponent],
-  exports: [TampaPComponent],
+  declarations: [],
+  exports: [],
 })
 export class MesaPageModule {}

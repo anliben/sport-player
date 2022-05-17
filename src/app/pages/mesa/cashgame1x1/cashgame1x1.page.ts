@@ -93,13 +93,56 @@ export class Cashgame1x1Page implements OnInit {
     
     let id = this.playerIdService.getId();
 
-    this.WebSocket.emit('insertPlayerx1', {
+    this.WebSocket.emit('addPlayerCashGameX1', {
       id: id,
       username: this.nome,
       posicao: 'right',
       room: '1',
       src: '/assets/game/game/homem.png',
+      request: 'addPlayer'
     });
+
+    this.WebSocket.listen('rodada').subscribe((data: any) => {
+      console.log(data);
+      
+      data.jogadores.forEach( (element: any)=> {
+        this.rodadas = element.rodadas;
+        if(element.username == this.nome){
+          this.pontosNos = element.pontos;
+        }else{
+          this.pontosEles = element.pontos;
+        }
+      });
+   })
+   
+   this.WebSocket.listen('novaMao').subscribe((data: any) => {
+     console.log(data);
+     
+    data.jogadores.forEach((player) => {
+      if (player.username == this.nome) {
+        this.exampleCards = player.mao;
+      }else{
+        this.cardsRivalTop = [1,2,3]
+      }
+    });
+  })
+    this.WebSocket.listen('jogarCarta').subscribe((data: any) => {
+      let carta = {
+         naipe: data.naipe,
+         numero: data.numero,
+         index: data.index
+      }
+ 
+      if(data.jogador == this.nome){
+        this.exampleCards.splice(carta.index, 1);
+        this.bottomCardNaipe = carta.naipe;
+       this.bottomCardNumber = carta.numero;
+       } else {
+        this.cardsRivalTop.splice(this.cardsRivalTop.indexOf(carta), 1);
+        this.topCardNaipe = carta.naipe;
+        this.topCardNumber = carta.numero;
+      }
+    })
 
     this.WebSocket.listen('findPlayersx1').subscribe((data: any) => {
       this.cardVira = data.vira[0];
@@ -109,7 +152,6 @@ export class Cashgame1x1Page implements OnInit {
       data.jogadores.forEach((player: any)=> {
 
         console.log(player);
-        
         
         if(player.username == this.nome){
           player.posicao = 'bottom'
@@ -127,7 +169,6 @@ export class Cashgame1x1Page implements OnInit {
           }
       });
     });
-
   }
   generatePlayers() {
     let posicoes = ['top', 'bottom', 'left', 'right'];

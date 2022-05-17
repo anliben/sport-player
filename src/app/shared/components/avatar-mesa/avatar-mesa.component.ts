@@ -31,14 +31,14 @@ export class AvatarMesaComponent implements OnInit {
 
   async onClickLog(i) {
     this.count += 1;
-    await this.WebSocket.emit('jogarCarta', {
+    await this.WebSocket.emit('cartaPlayerCashGameX1', {
       jogador: this.playerIdService.getNome(),
       carta: i,
       room: '1',
       count: this.count,
-      manilha: this.playerIdService.getManilha()
+      manilha: this.playerIdService.getManilha(),
+      request: 'jogarCarta'
     });
-    console.log('Click event: ', i);
   }
   joinedRoom(){
     this.joined = true;

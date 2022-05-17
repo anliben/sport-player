@@ -17,8 +17,8 @@ import { MesasComponent } from './components/mesas/mesas.component';
     CartaBaralhoComponent,
     JackpotComponent,
     ConfiguracaoJogoModalComponent,
-    MesasComponent
-    ],
+    MesasComponent,
+  ],
   imports: [CommonModule, IonicModule.forRoot()],
   exports: [
     CommonModule,
@@ -28,7 +28,7 @@ import { MesasComponent } from './components/mesas/mesas.component';
     JackpotComponent,
     ConfiguracaoJogoModalComponent,
     CartaBaralhoComponent,
-    MesasComponent
+    MesasComponent,
     ],
 })
 export class SharedModule {}

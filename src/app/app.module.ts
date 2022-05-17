@@ -26,6 +26,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/compat/database';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { VerifyComponent } from './auth/verify/verify.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyBz6Tn9WSVpHKgJqMBs5o6bpW3FvwpOVwQ",
@@ -50,7 +51,8 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
     TruccoPage,
     ConfigPage,
     PokerPage,
-    LoginComponent
+    LoginComponent,
+    VerifyComponent
   ],
   imports: [
     BrowserModule,

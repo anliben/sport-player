@@ -15,6 +15,7 @@ module.exports = {
           'url("/assets/game/truco8/modalidades/mesa-torneio-fundo.png")',
         mesa_cashgame:
           'url("/assets/game/truco8/modalidades/mesa-cashgame-fundo.png")',
+        fundo_clube: 'url("/assets/icon/fundo-clube.png")'
       },
       fontFamily: {
         vag: ["Vag-Round", "sans-serif"],

@@ -8,6 +8,7 @@ import { CartaBaralhoComponent } from './components/carta-baralho/carta-baralho.
 import { JackpotComponent } from './components/jackpot/jackpot.component';
 import { ConfiguracaoJogoModalComponent } from './components/configuracao-jogo-modal/configuracao-jogo-modal.component';
 import { MesasComponent } from './components/mesas/mesas.component';
+import { TampaPComponent } from './components/tampa-p/tampa-p.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { MesasComponent } from './components/mesas/mesas.component';
     JackpotComponent,
     ConfiguracaoJogoModalComponent,
     MesasComponent,
+    TampaPComponent,
   ],
   imports: [CommonModule, IonicModule.forRoot()],
   exports: [
@@ -29,6 +31,7 @@ import { MesasComponent } from './components/mesas/mesas.component';
     ConfiguracaoJogoModalComponent,
     CartaBaralhoComponent,
     MesasComponent,
-    ],
+    TampaPComponent,
+  ],
 })
 export class SharedModule {}

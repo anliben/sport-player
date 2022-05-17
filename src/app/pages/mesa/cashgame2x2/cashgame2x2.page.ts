@@ -91,8 +91,6 @@ export class Cashgame2x2Page implements OnInit {
 
   ngOnInit() {
     this.generatePlayers();
-    // pegar elemento aleatorio do array de players
-    // this.playerIdService.setId(this.players[Math.floor(Math.random() * this.players.length)].username);
     this.nome = this.players[Math.floor(Math.random() * this.players.length)].username;
     this.playerIdService.setNome(this.nome);
 

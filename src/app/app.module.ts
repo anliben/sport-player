@@ -24,7 +24,10 @@ import { PokerPage } from './pages/poker/poker.page';
 import { LoginComponent } from './auth/login/login.component';
 
 import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/compat/database';
+import {
+  AngularFireDatabaseModule,
+  AngularFireDatabase,
+} from '@angular/fire/compat/database';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { VerifyComponent } from './auth/verify/verify.component';
 import { Cashgame2x2Page } from './pages/mesa/cashgame2x2/cashgame2x2.page';
@@ -35,16 +38,17 @@ import { Torneio2x2Page } from './pages/mesa/torneio2x2/torneio2x2.page';
 import { Cashgame1x1PageModule } from './pages/mesa/cashgame1x1/cashgame1x1.module';
 import { Torneio1x1PageModule } from './pages/mesa/torneio1x1/torneio1x1.module';
 import { Torneio2x2PageModule } from './pages/mesa/torneio2x2/torneio2x2.module';
+import { SuperTabsModule } from '@ionic-super-tabs/angular';
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyBz6Tn9WSVpHKgJqMBs5o6bpW3FvwpOVwQ",
-  authDomain: "sport-player-e6850.firebaseapp.com",
-  databaseURL: "https://sport-player-e6850-default-rtdb.firebaseio.com",
-  projectId: "sport-player-e6850",
-  storageBucket: "sport-player-e6850.appspot.com",
-  messagingSenderId: "327499355483",
-  appId: "1:327499355483:web:695d5ffdfd998350ce767e",
-  measurementId: "G-09SNC100S8"
+  apiKey: 'AIzaSyBz6Tn9WSVpHKgJqMBs5o6bpW3FvwpOVwQ',
+  authDomain: 'sport-player-e6850.firebaseapp.com',
+  databaseURL: 'https://sport-player-e6850-default-rtdb.firebaseio.com',
+  projectId: 'sport-player-e6850',
+  storageBucket: 'sport-player-e6850.appspot.com',
+  messagingSenderId: '327499355483',
+  appId: '1:327499355483:web:695d5ffdfd998350ce767e',
+  measurementId: 'G-09SNC100S8',
 };
 
 export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
@@ -64,7 +68,7 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
     Cashgame2x2Page,
     Cashgame1x1Page,
     Torneio1x1Page,
-    Torneio2x2Page
+    Torneio2x2Page,
   ],
   imports: [
     BrowserModule,
@@ -84,9 +88,9 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    ScrollingModule, 
+    ScrollingModule,
     ReactiveFormsModule,
-   
+    SuperTabsModule.forRoot(),
     ScrollingModule,
     ReactiveFormsModule
   ],

@@ -15,8 +15,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     FormsModule,
     IonicModule,
     Cashgame1x1PageRoutingModule,
-    SharedModule
+    SharedModule,
   ],
-  declarations: [Cashgame1x1Page]
+  declarations: [],
 })
 export class Cashgame1x1PageModule {}

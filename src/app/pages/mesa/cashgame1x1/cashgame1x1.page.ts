@@ -46,6 +46,8 @@ export class Cashgame1x1Page implements OnInit {
   countPlayer = 0;
   joined: boolean = false;
 
+  cards = [{ naipe: 'copas', numero: 7 }]; // teste
+
   leftAnimation: boolean = false;
   topAnimation: boolean = false;
   rightAnimation: boolean = false;
@@ -56,7 +58,6 @@ export class Cashgame1x1Page implements OnInit {
 
   topCardNumber = 0;
   topCardNaipe = 0;
-  
   leftCardNumber = 0;
   leftCardNaipe = 0;
 
@@ -70,7 +71,7 @@ export class Cashgame1x1Page implements OnInit {
   exampleCards: object[];
   // -> carta vira (A que fica por baixo da carta de costa em baixo do jackpot!!)
   cardVira = {};
-  count: number = 0
+  count: number = 0;
   pontosNos: number = 0;
   pontosEles: number = 0;
   rodadas: number = 0;
@@ -80,7 +81,7 @@ export class Cashgame1x1Page implements OnInit {
     private WebSocket: WebSocketService,
     private modalController: ModalController,
     private playerIdService: PlayerIdService,
-    private activatedRoute: Router,
+    private activatedRoute: Router
   ) {
     this.tableData =
       this.activatedRoute.getCurrentNavigation().extras.state.data;
@@ -88,9 +89,10 @@ export class Cashgame1x1Page implements OnInit {
 
   ngOnInit() {
     this.generatePlayers();
-    this.nome = this.players[Math.floor(Math.random() * this.players.length)].username;
+    this.nome =
+      this.players[Math.floor(Math.random() * this.players.length)].username;
     this.playerIdService.setNome(this.nome);
-    
+
     let id = this.playerIdService.getId();
 
     this.WebSocket.emit('addPlayerCashGameX1', {
@@ -149,24 +151,22 @@ export class Cashgame1x1Page implements OnInit {
       this.playerIdService.setManilha(data.manilha);
       this.playerIdService.setVira(this.cardVira);
 
-      data.jogadores.forEach((player: any)=> {
-
+      data.jogadores.forEach((player: any) => {
         console.log(player);
-        
-        if(player.username == this.nome){
-          player.posicao = 'bottom'
+        if (player.username == this.nome) {
+          player.posicao = 'bottom';
           this.j1 = true;
           this.avatar1 = player.src;
           this.namej1 = player.username;
           this.exampleCards = player.mao;
           console.log(player.mao);
-        } else{
-            this.j3 = true;
-            player.posicao = 'top'
-            this.avatar3 = player.src;
-            this.namej3 = player.username;
-            this.cardsRivalTop = [1, 2, 3];
-          }
+        } else {
+          this.j3 = true;
+          player.posicao = 'top';
+          this.avatar3 = player.src;
+          this.namej3 = player.username;
+          this.cardsRivalTop = [1, 2, 3];
+        }
       });
     });
   }
@@ -187,6 +187,4 @@ export class Cashgame1x1Page implements OnInit {
       });
     }
   }
-  
-
 }

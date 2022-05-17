@@ -1,3 +1,57 @@
 <ion-content>
-  <span>LOREMEM</span>
+  <div
+    class="bg-[url('/assets/game/partidaTruco/fundo.png')] bg-cover bg-no-repeat w-full h-full"
+  >
+    <div class="flex justify-between items-center p-1">
+      <img
+        (click)="back()"
+        class="cursor-pointer h-8 transition ease-in-out delay-150 hover:scale-110 duration-300"
+        src="../../../assets/game/buttons/seta-voltar.png"
+        alt="seta voltar"
+      />
+      <div class="flex">
+        <img
+          class="cursor-pointer h-6 mr-2 transition ease-in-out delay-150 hover:scale-110 duration-300"
+          src="../../../assets/game/truco8/mensagem.png"
+        />
+        <img
+          class="cursor-pointer h-6 transition ease-in-out delay-150 hover:scale-110 duration-300"
+          src="../../../assets/icon/suporte-com-txt.png"
+        />
+      </div>
+    </div>
+
+    <super-tabs>
+      <super-tabs-toolbar slot="top">
+        <super-tab-button>
+          <ion-label>Perfil</ion-label>
+        </super-tab-button>
+        <super-tab-button>
+          <ion-label>Truco</ion-label>
+        </super-tab-button>
+        <super-tab-button>
+          <ion-label>Poker</ion-label>
+        </super-tab-button>
+        <super-tab-button>
+          <ion-label>Futebol</ion-label>
+        </super-tab-button>
+      </super-tabs-toolbar>
+
+      <super-tabs-container>
+        <super-tab>
+          <ion-content> Page #1kk </ion-content>
+        </super-tab>
+
+        <super-tab>
+          <ion-content> Page #2kk </ion-content>
+        </super-tab>
+        <super-tab>
+          <ion-content> Page #3kkkkd </ion-content>
+        </super-tab>
+        <super-tab>
+          <ion-content> Em breve </ion-content>
+        </super-tab>
+      </super-tabs-container>
+    </super-tabs>
+  </div>
 </ion-content>

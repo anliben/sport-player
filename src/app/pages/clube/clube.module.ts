@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { ClubePageRoutingModule } from './clube-routing.module';
 
 import { ClubePage } from './clube.page';
+import { SuperTabsModule } from '@ionic-super-tabs/angular';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ClubePageRoutingModule
+    ClubePageRoutingModule,
+    SuperTabsModule,
   ],
-  declarations: [ClubePage]
+  declarations: [ClubePage],
 })
 export class ClubePageModule {}

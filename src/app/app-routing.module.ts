@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
 import { VerifyComponent } from './auth/verify/verify.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 const routes: Routes = [
   {
@@ -67,6 +68,10 @@ const routes: Routes = [
       import('./pages/clube/clube.module').then((m) => m.ClubePageModule),
   },
   {
+    path: 'register',
+    component: RegisterComponent
+  },
+  {
     path: '**',
     redirectTo: 'home',
   },
@@ -77,4 +82,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

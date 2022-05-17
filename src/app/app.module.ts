@@ -16,7 +16,7 @@ import { HomePage } from './pages/home/home.page';
 import { MesaPage } from './pages/mesa/mesa.page';
 import { StorePage } from './pages/home/store/store.page';
 import { ConfigPage } from './pages/home/config/config.page';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MesaPageModule } from './pages/mesa/mesa.module';
 import { TruccoPage } from './pages/trucco/trucco.page';
@@ -84,7 +84,6 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
     }),
     AppRoutingModule,
     SharedModule,
-    FormsModule,
     MesaPageModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
@@ -92,6 +91,8 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
     ScrollingModule,
     ReactiveFormsModule,
     SuperTabsModule.forRoot(),
+    ScrollingModule,
+    ReactiveFormsModule
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },

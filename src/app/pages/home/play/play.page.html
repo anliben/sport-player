@@ -2,8 +2,12 @@
   <div class="bg-background-home h-full p-0 m-0 bg-cover bg-no-repeat z-0">
     <app-header moeda="55" diamante="20"></app-header>
     <app-perfil></app-perfil>
-    <div class="flex flex-col items-center justify-center z-50">
-      <img class="w-42 h-52 mb-8" src="/assets/game/game/clube.png" />
+    <div class="flex flex-col items-center justify-center mt-2">
+      <img
+        class="cursor-pointer w-42 h-52 mb-8"
+        src="/assets/game/game/clube.png"
+      />
+
       <div class="bg-black z-30" (click)="changeScreen('trucco')">
         <img class="w-38 h-16" src="/assets/game/game/truco.png" />
       </div>

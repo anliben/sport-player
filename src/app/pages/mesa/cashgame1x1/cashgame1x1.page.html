@@ -154,51 +154,46 @@
           <div>
             <app-tampa-p class="relative top-0 bg-white left-12"></app-tampa-p>
             <app-avatar-mesa
-            [cardsRival]="cardsRivalTop"
-            [nome]="namej2"
-            [joined]="avatar2"
-            cartas="/assets/game/cartas/4paus.png"
-            avatar="/assets/game/partidaTruco/perfil-foto-exemplo.png"
+              [cardsRival]="cardsRivalTop"
+              [nome]="namej2"
+              [joined]="avatar2"
+              cartas="/assets/game/cartas/4paus.png"
+              avatar="/assets/game/partidaTruco/perfil-foto-exemplo.png"
             ></app-avatar-mesa>
           </div>
 
-          <div class="flex bg-gray-500">
+          <div class="flex">
             <div class="w-8 h-14 rotate-90">
-              <!-- *ngIf="!leftCardNaipe == 0 || !leftCardNumber == 0" -->
               <app-carta-baralho
+                *ngIf="!leftCardNaipe == 0 || !leftCardNumber == 0"
                 [naipe]="leftCardNaipe"
                 [numero]="leftCardNumber"
-                ></app-carta-baralho>
-              </div>
-              <div class="w-14 customSm"></div>
+              ></app-carta-baralho>
+            </div>
+            <div class="w-14 customSm"></div>
 
-              <div class="w-8 h-14 -rotate-90">
-                <!-- *ngIf="!rightCardNaipe == 0 || !rightCardNumber == 0" -->
-                <app-carta-baralho
+            <div class="w-8 h-14 -rotate-90">
+              <app-carta-baralho
+                *ngIf="!rightCardNaipe == 0 || !rightCardNumber == 0"
                 [naipe]="rightCardNaipe"
                 [numero]="rightCardNumber"
-                ></app-carta-baralho>
+              ></app-carta-baralho>
             </div>
           </div>
 
           <div>
-            <app-tampa-p
-            class="relative bottom-4 bg-white right-7 z-10"
-            ></app-tampa-p>
-
+            <app-tampa-p class="relative top-0 bg-white right-4"></app-tampa-p>
             <app-avatar-mesa
-              [joined]="avatar4"
               cardDirection="right"
+              [cardsRival]="cardsRivalRight"
               [nome]="namej4"
               cartas="/assets/game/cartas/4paus.png"
               [avatar]="avatar4"
+              [joined]="avatar4"
               [cards]="exampleCards"
-              [cardsRival]="cardsRival"
             ></app-avatar-mesa>
-
           </div>
         </div>
-      </div>
 
         <div class="flex grow basis-1/4 items-center justify-between flex-col">
           <div class="w-8 h-14">
@@ -221,14 +216,14 @@
               >{{"mesa.tournament" | translate }}</span
             >
             <span class="block text-white opacity-60 text-[0.6rem]">
-              {{tableData.gameMode}}
+              Limpo
             </span>
 
             <span class="block text-white opacity-60 text-[0.6rem]">
-              Id: {{tableData.id}}
+              Id: 4568
             </span>
             <span class="block text-white opacity-60 text-[0.6rem]">
-              entrada: {{tableData.buy}}
+              entrada: 600
             </span>
           </div>
           <div>
@@ -248,7 +243,7 @@
       </div>
     </div>
     <img
-      class="cursor-pointer invisible h-10 self-end transition ease-in-out delay-150 hover:scale-110 duration-300"
+      class="cursor-pointer h-10 self-end transition ease-in-out delay-150 hover:scale-110 duration-300"
       src="/assets/game/partidaTruco/sinal-secreto.png"
     />
   </section>

@@ -39,18 +39,15 @@
             >{{pontosNos}}</span
           >
         </div>
-      </div> 
+      </div>
       <div class="flex">
-
         <div
           class="w-14 h-[3.5rem] relative top-[0.3rem] flex justify-center items-center bg-[url('/assets/game/partidaTruco/eles.png')] bg-contain bg-no-repeat"
         >
           <span
-
             class="relative top-[0.1rem] text-[#8b8b5c] font-vag text-[1.6rem]"
             >{{pontosEles}}</span
           >
-
         </div>
         <div class="flex flex-col relative top-5 ml-1">
           <div
@@ -72,9 +69,9 @@
       >
         <span
           class="relative top-[0.4rem] text-[#8b8b5c] font-vag text-[1.6rem]"
-          >{{rodadas}}</span>
+          >{{rodadas}}</span
+        >
       </div>
-      
     </div>
     <img
       (click)="presentConfigGameModal()"
@@ -131,9 +128,7 @@
           <app-jackpot></app-jackpot>
 
           <!-- cardVirada -->
-          <div class="flex w-full"
-          *nfIf="cardVira.naipe"
-          >
+          <div class="flex w-full" *ngIf="cardVira.naipe">
             <div class="relative w-8 h-14 rotate-90 z-10">
               <img
                 class="h-full w-full rounded-sm"
@@ -147,7 +142,11 @@
             ></app-carta-baralho>
           </div>
           <div class="w-8 h-14 rotate-180">
-            <app-carta-baralho *ngIf="!topCardNaipe == 0 || !topCardNumber == 0" [naipe]="topCardNaipe" [numero]="topCardNumber"></app-carta-baralho>
+            <app-carta-baralho
+              *ngIf="!topCardNaipe == 0 || !topCardNumber == 0"
+              [naipe]="topCardNaipe"
+              [numero]="topCardNumber"
+            ></app-carta-baralho>
           </div>
         </div>
 
@@ -165,12 +164,20 @@
 
           <div class="flex">
             <div class="w-8 h-14 rotate-90">
-              <app-carta-baralho *ngIf="!leftCardNaipe == 0 || !leftCardNumber == 0" [naipe]="leftCardNaipe" [numero]="leftCardNumber"></app-carta-baralho>
+              <app-carta-baralho
+                *ngIf="!leftCardNaipe == 0 || !leftCardNumber == 0"
+                [naipe]="leftCardNaipe"
+                [numero]="leftCardNumber"
+              ></app-carta-baralho>
             </div>
             <div class="w-14 customSm"></div>
 
             <div class="w-8 h-14 -rotate-90">
-              <app-carta-baralho *ngIf="!rightCardNaipe == 0 || !rightCardNumber == 0" [naipe]="rightCardNaipe" [numero]="rightCardNumber"></app-carta-baralho>
+              <app-carta-baralho
+                *ngIf="!rightCardNaipe == 0 || !rightCardNumber == 0"
+                [naipe]="rightCardNaipe"
+                [numero]="rightCardNumber"
+              ></app-carta-baralho>
             </div>
           </div>
 
@@ -190,7 +197,11 @@
 
         <div class="flex grow basis-1/4 items-center justify-between flex-col">
           <div class="w-8 h-14">
-            <app-carta-baralho *ngIf="!bottomCardNaipe == 0 || !bottomCardNumber == 0" [naipe]="bottomCardNaipe" [numero]="bottomCardNumber"></app-carta-baralho>
+            <app-carta-baralho
+              *ngIf="!bottomCardNaipe == 0 || !bottomCardNumber == 0"
+              [naipe]="bottomCardNaipe"
+              [numero]="bottomCardNumber"
+            ></app-carta-baralho>
           </div>
 
           <div class="flex flex-col items-center">

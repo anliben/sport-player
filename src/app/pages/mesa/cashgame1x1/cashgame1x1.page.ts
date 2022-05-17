@@ -46,7 +46,7 @@ export class Cashgame1x1Page implements OnInit {
   countPlayer = 0;
   joined: boolean = false;
 
-  cards = [{ naipe: 'copas', numero: 7 }];
+  cards = [{ naipe: 'copas', numero: 7 }]; // teste
 
   leftAnimation: boolean = false;
   topAnimation: boolean = false;
@@ -58,7 +58,6 @@ export class Cashgame1x1Page implements OnInit {
 
   topCardNumber = 0;
   topCardNaipe = 0;
-
   leftCardNumber = 0;
   leftCardNaipe = 0;
 

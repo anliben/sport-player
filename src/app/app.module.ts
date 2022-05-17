@@ -27,6 +27,14 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/compat/database';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { VerifyComponent } from './auth/verify/verify.component';
+import { Cashgame2x2Page } from './pages/mesa/cashgame2x2/cashgame2x2.page';
+import { Cashgame2x2PageModule } from './pages/mesa/cashgame2x2/cashgame2x2.module';
+import { Cashgame1x1Page } from './pages/mesa/cashgame1x1/cashgame1x1.page';
+import { Torneio1x1Page } from './pages/mesa/torneio1x1/torneio1x1.page';
+import { Torneio2x2Page } from './pages/mesa/torneio2x2/torneio2x2.page';
+import { Cashgame1x1PageModule } from './pages/mesa/cashgame1x1/cashgame1x1.module';
+import { Torneio1x1PageModule } from './pages/mesa/torneio1x1/torneio1x1.module';
+import { Torneio2x2PageModule } from './pages/mesa/torneio2x2/torneio2x2.module';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyBz6Tn9WSVpHKgJqMBs5o6bpW3FvwpOVwQ",
@@ -52,7 +60,11 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
     ConfigPage,
     PokerPage,
     LoginComponent,
-    VerifyComponent
+    VerifyComponent,
+    Cashgame2x2Page,
+    Cashgame1x1Page,
+    Torneio1x1Page,
+    Torneio2x2Page
   ],
   imports: [
     BrowserModule,
@@ -74,7 +86,8 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     ScrollingModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule,
+   
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },

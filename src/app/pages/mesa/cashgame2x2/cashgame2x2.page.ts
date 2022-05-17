@@ -6,16 +6,12 @@ import { PlayerService } from 'src/app/services/player.service';
 import { WebSocketService } from 'src/app/services/web-socket.service';
 import { ConfiguracaoJogoModalComponent } from 'src/app/shared/components/configuracao-jogo-modal/configuracao-jogo-modal.component';
 
-interface viraInterface {
-  naipe: string;
-  numero: string;
-}
 @Component({
-  selector: 'app-mesa',
-  templateUrl: './mesa.page.html',
-  styleUrls: ['./mesa.page.scss'],
+  selector: 'app-cashgame2x2',
+  templateUrl: './cashgame2x2.page.html',
+  styleUrls: ['./cashgame2x2.page.scss'],
 })
-export class MesaPage implements OnInit {
+export class Cashgame2x2Page implements OnInit {
   tableType: string = 'cashgame';
   tableData: object = null;
 

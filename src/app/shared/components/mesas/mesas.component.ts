@@ -55,6 +55,25 @@ export class MesasComponent implements OnInit {
     },
     {
       id: 1,
+      name: 'Mesa 10',
+      tableType: 'cashgame',
+      awardTotal: '1000',
+      jackpot: null,
+      buy: '1000',
+      reBuy: false,
+      playersDistribution: '2x2',
+      AreSpectatorsAllowed: true,
+      spectators: [],
+      start_date: '2022-01-01T00:00:00.000Z',
+      start_time: '2022-01-01T00:00:00.000Z',
+      update_at: '2022-01-01T00:00:00.000Z',
+      create_at: '2022-01-01T00:00:00.000Z',
+      status: 'LIVRE',
+      gameMode: 'limpo',
+      rules: 'paulista',
+    },
+    {
+      id: 1,
       name: 'Mesa 1',
       tableType: 'torneio',
       awardTotal: '100',
@@ -136,11 +155,12 @@ export class MesasComponent implements OnInit {
   constructor(private router: Router, private activateRouter: ActivatedRoute) {}
 
   navigateMatch(data: MesaInterface) {
-    // console.log(this.code.encodeKey(JSON.stringify(data)));
-    // let url = JSON.stringify(data);
-    this.router.navigate(['/mesa'], {
-      state: { data },
-    });
+      let url = data.tableType+data.playersDistribution
+      console.log(url);
+      
+      this.router.navigate([`/${url}`], {
+        state: { data },
+      });
   }
 
   ngOnInit() {}

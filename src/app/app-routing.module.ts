@@ -14,6 +14,22 @@ const routes: Routes = [
     component: LoginComponent,
   },
   {
+    path: 'cashgame2x2',
+    loadChildren: () => import('./pages/mesa/cashgame2x2/cashgame2x2.module').then(m => m.Cashgame2x2PageModule),
+  },
+  {
+    path: 'cashgame1x1',
+    loadChildren: () => import('./pages/mesa/cashgame1x1/cashgame1x1.module').then(m => m.Cashgame1x1PageModule),
+  },
+  {
+    path: 'torneio1x1',
+    loadChildren: () => import('./pages/mesa/torneio1x1/torneio1x1.module').then(m => m.Torneio1x1PageModule),
+  },
+  {
+    path: 'torneio2x2',
+    loadChildren: () => import('./pages/mesa/torneio2x2/torneio2x2.module').then(m => m.Torneio2x2PageModule),
+  },
+  {
     path: 'mesa',
     loadChildren: () =>
       import('./pages/mesa/mesa.module').then((m) => m.MesaPageModule),
@@ -33,6 +49,7 @@ const routes: Routes = [
     path: 'verify',
     component: VerifyComponent
   },
+  {
     path: '**',
     redirectTo: 'home',
   }

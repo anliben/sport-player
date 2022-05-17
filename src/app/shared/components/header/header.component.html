@@ -12,20 +12,27 @@
 
   <ng-template #btnVip>
     <img
-      class="m-1 h-7 cursor-pointer"
+      class="m-1 h-7 cursor-pointer transition ease-in-out delay-150 hover:scale-110 duration-300"
       src="/assets/game/header/botao-vip.png"
     />
   </ng-template>
 
-  <div class="flex items-center relative justify-items-center">
-    <img class="h-7" src="/assets/game/header/diamantes-fundo.png" />
+  <div
+    (click)="navigateStore()"
+    class="cursor-pointer flex items-center relative justify-items-center"
+  >
+    <img class="h-6" src="/assets/game/header/diamantes-fundo.png" />
     <span class="left-8 absolute text-[#23bee2] font-vag">{{ diamante }}</span>
   </div>
 
-  <div class="flex items-center relative justify-items-center">
-    <img class="h-7" src="/assets/game/header/moedas-fundo.png" />
+  <div
+    (click)="navigateStore()"
+    class="cursor-pointer flex items-center relative justify-items-center"
+  >
+    <img class="h-6" src="/assets/game/header/moedas-fundo.png" />
     <span class="left-8 absolute text-[#fde870] font-vag">{{ moeda }}</span>
   </div>
+
   <img
     class="cursor-pointer m-1 h-8 transition ease-in-out delay-150 hover:scale-110 duration-300"
     src="/assets/game/header/botao-rank.png"

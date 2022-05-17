@@ -20,4 +20,6 @@ export class HeaderComponent implements OnInit {
   back() {
     this.navCtrl.back();
   }
+
+  navigateStore = () => this.router.navigate(['/store']);
 }

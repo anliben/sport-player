@@ -1,3 +1,84 @@
-<p>
-  register works!
-</p>
+<div class="bg-background-home h-full p-0 m-0 bg-cover bg-no-repeat z-0">
+  <div class="flex justify-center mt-10">
+    <img src="../../assets/icon/logotype-with-text.png" alt="">
+  </div>
+  <form [formGroup]="registerForm" class="flex justify-center">
+    <div class="w-2/3">
+      <ion-item color="transparent" class="relative rounded-sm bg-[#303030] h-12 mt-1" lines="full">
+        <ion-label color="light">Nome</ion-label>
+        <ion-input type="text" formControlName="name" class="h-10 rounded-sm text-[0.8rem]" color="transparent"
+          required></ion-input>
+
+      </ion-item>
+      <ion-item color="transparent" class="relative rounded-sm bg-[#303030] h-12 mt-1" lines="full">
+        <ion-label color="light">Email</ion-label>
+        <ion-input 
+        type="text" 
+        formControlName="email" class="h-10 rounded-sm text-[0.8rem]" color="transparent"
+        required
+        ></ion-input>
+
+      </ion-item>
+
+      <ion-item color="transparent" class="relative rounded-sm bg-[#303030] h-12 mt-1" lines="full">
+        <ion-label color="light">Senha</ion-label>
+        <ion-input
+        name="password"
+        formControlName="password"
+        class="h-10 rounded-sm text-[0.8rem]" 
+        color="transparent" 
+        minlength="2"
+        [type]="ocultaPassword ? 'text' : 'password'"
+        required
+        >
+        </ion-input>
+        <button
+          (click)="viewPassword()"
+          ion-button
+          item-right
+        >
+        <ion-icon
+          class="mt-1"
+          [name]="ocultaPassword ? 'eye-off' : 'eye'"
+        >
+        </ion-icon>
+        </button>  
+      </ion-item>
+
+      
+      <ion-item color="transparent" class="relative rounded-sm bg-[#303030] h-12 mt-1" lines="full">
+        <ion-label color="light">Confirmar senha</ion-label>
+        <ion-input
+        name="passwordConfirm"
+        formControlName="passwordConfirm"
+        class="h-10 rounded-sm text-[0.8rem]" 
+        color="transparent" 
+        minlength="2"
+        [type]="ocultaPassword ? 'text' : 'password'"
+        required
+        >
+        </ion-input>
+        <button
+          (click)="viewPassword()"
+          ion-button
+          item-right
+        >
+        <ion-icon
+          class="mt-1"
+          [name]="ocultaPassword ? 'eye-off' : 'eye'"
+        >
+        </ion-icon>
+        </button>  
+      </ion-item>
+    </div>
+  </form>
+
+  <div class="flex justify-center">
+    <ion-button 
+    (click)="signUp()"
+    color="transparent" 
+    class="bg-gradient-to-b from-[#e0b54d] to-[#83511e] h-8 w-32 rounded-lg text-[#080808] font-vag"
+    >Registrar
+    </ion-button>
+  </div>
+</div>

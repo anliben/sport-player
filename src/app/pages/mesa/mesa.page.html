@@ -109,6 +109,7 @@
             cartas="/assets/game/cartas/4paus.png"
             [avatar]="avatar3"
             [cards]="exampleCards"
+            [joined]="avatar3"
           ></app-avatar-mesa>
 
           <app-tampa-p class="relative -top-4 left-8"></app-tampa-p>
@@ -130,7 +131,9 @@
           <app-jackpot></app-jackpot>
 
           <!-- cardVirada -->
-          <div class="flex w-full">
+          <div class="flex w-full"
+          *nfIf="cardVira.naipe"
+          >
             <div class="relative w-8 h-14 rotate-90 z-10">
               <img
                 class="h-full w-full rounded-sm"
@@ -144,7 +147,7 @@
             ></app-carta-baralho>
           </div>
           <div class="w-8 h-14 rotate-180">
-            <app-carta-baralho naipe="copas" numero="7"></app-carta-baralho>
+            <app-carta-baralho *ngIf="!topCardNaipe == 0 || !topCardNumber == 0" [naipe]="topCardNaipe" [numero]="topCardNumber"></app-carta-baralho>
           </div>
         </div>
 
@@ -154,6 +157,7 @@
             <app-avatar-mesa
               [cardsRival]="cardsRivalTop"
               [nome]="namej2"
+              [joined]="avatar2"
               cartas="/assets/game/cartas/4paus.png"
               avatar="/assets/game/partidaTruco/perfil-foto-exemplo.png"
             ></app-avatar-mesa>
@@ -161,12 +165,12 @@
 
           <div class="flex">
             <div class="w-8 h-14 rotate-90">
-              <app-carta-baralho naipe="copas" numero="7"></app-carta-baralho>
+              <app-carta-baralho *ngIf="!leftCardNaipe == 0 || !leftCardNumber == 0" [naipe]="leftCardNaipe" [numero]="leftCardNumber"></app-carta-baralho>
             </div>
             <div class="w-14 customSm"></div>
 
             <div class="w-8 h-14 -rotate-90">
-              <app-carta-baralho naipe="copas" numero="7"></app-carta-baralho>
+              <app-carta-baralho *ngIf="!rightCardNaipe == 0 || !rightCardNumber == 0" [naipe]="rightCardNaipe" [numero]="rightCardNumber"></app-carta-baralho>
             </div>
           </div>
 
@@ -178,6 +182,7 @@
               [nome]="namej4"
               cartas="/assets/game/cartas/4paus.png"
               [avatar]="avatar4"
+              [joined]="avatar4"
               [cards]="exampleCards"
             ></app-avatar-mesa>
           </div>
@@ -185,7 +190,7 @@
 
         <div class="flex grow basis-1/4 items-center justify-between flex-col">
           <div class="w-8 h-14">
-            <app-carta-baralho naipe="copas" numero="7"></app-carta-baralho>
+            <app-carta-baralho *ngIf="!bottomCardNaipe == 0 || !bottomCardNumber == 0" [naipe]="bottomCardNaipe" [numero]="bottomCardNumber"></app-carta-baralho>
           </div>
 
           <div class="flex flex-col items-center">
@@ -214,6 +219,7 @@
             <app-tampa-p class="relative -top-1 bg-white right-1"></app-tampa-p>
             <app-avatar-mesa
               eu="true"
+              [joined]="avatar1"
               cardDirection="right"
               [nome]="namej1"
               cartas="/assets/game/cartas/4paus.png"

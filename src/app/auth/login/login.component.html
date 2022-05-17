@@ -7,36 +7,52 @@
     <form [formGroup]="formLogin" class="flex justify-center">
       <div class="w-2/3">
         <ion-item color="transparent" class="relative rounded-sm bg-[#303030] h-12 mt-8" lines="full">
-          <img class="h-5 pr-2" src="/assets/icon/conta-icone.png">
+          <img class="h-4 pr-2 -mt-1" src="/assets/icon/conta-icone.png">
           <ion-input 
           name="user"
           formControlName="user"
           color="transparent" 
-          class="h-12 rounded-sm" 
+          class="h-10 rounded-sm text-[0.8rem]" 
           type="text" 
-          placeholder="Email" 
+          placeholder="Email ou Usuario" 
           required
+          
           >
-        </ion-input>
+          </ion-input>
         </ion-item>
         <ion-item color="transparent" class="relative rounded-sm bg-[#303030] h-12 mt-1" lines="full">
-          <img class="h-5 pr-2" src="/assets/icon/conta-icone.png">
-          <ion-input 
-          name = "password"
+          <img class="h-4 pr-2 -mt-1" src="/assets/icon/conta-icone.png">
+          <ion-input
+          name="password"
           formControlName="password"
+          class="h-10 rounded-sm text-[0.8rem]" 
           color="transparent" 
-          class="h-12 rounded-sm" 
-          type="text" 
-          placeholder="Password" 
-          required></ion-input>
+          minlength="2"
+          [type]="ocultaPassword ? 'text' : 'password'"
+          placeholder="Digite a senha"
+          required
+          >
+          </ion-input>
+          <button
+            (click)="viewPassword()"
+            ion-button
+            item-right
+          >
+          <ion-icon
+            class="mt-1"
+            [name]="ocultaPassword ? 'eye-off' : 'eye'"
+          >
+          </ion-icon>
+          </button>  
         </ion-item>
+        
         <ion-row>
           <ion-col>
             <div class="flex justify-center">
               <ion-button 
               (click)="login()"
               color="transparent" 
-              class="bg-[#26a50d] h-8 w-28 my-3 rounded-lg text-[#ebe8e8] font-vag text-[1rem]"
+              class="bg-gradient-to-b from-[#009454] to-[#004307] h-8 w-28 my-3 rounded-lg text-[#ebe8e8] font-vag text-[0.9rem]"
               >Entrar
               </ion-button>
             </div>
@@ -44,7 +60,7 @@
               <ion-button 
               (click)="register()"
               color="transparent" 
-              class="bg-[#dfa425] h-8 w-32 rounded-lg text-[#080808] font-vag"
+              class="bg-gradient-to-b from-[#e0b54d] to-[#83511e] h-8 w-32 rounded-lg text-[#080808] font-vag"
               >Registrar
               </ion-button>
             </div>
@@ -52,7 +68,7 @@
         </ion-row>
       </div>
     </form>
-    <div class="w-full flex justify-center mt-24 ">
+    <div class="w-full flex justify-center mt-24 bottom-0">
       <a [routerLink]="['/forgot-password']" class="font-vag text-[#8b8b5c]">Esqueceu a senha?</a>
     </div>
     <div class="flex justify-center text-[0.6rem] w-full">

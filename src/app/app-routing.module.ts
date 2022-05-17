@@ -35,8 +35,10 @@ const routes: Routes = [
   {
     path: 'verify',
     component: VerifyComponent
+  },
+    path: '**',
+    redirectTo: 'home',
   }
-
 ];
 @NgModule({
   imports: [

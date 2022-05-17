@@ -8,6 +8,7 @@ export class PlayerIdService {
   id: string;
   nome: string;
   manilha: string;
+  vira: any;
   constructor() { }
   setId(id: string){
     this.id = id;
@@ -18,4 +19,6 @@ export class PlayerIdService {
   getNome(){ return this.nome }
   setManilha( manilha: any ){ this.manilha = manilha; }
   getManilha(){ return this.manilha; }
+  setVira(vira) { this.vira = vira; }
+  getVira(){ return this.vira; }
 }

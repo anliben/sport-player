@@ -82,6 +82,10 @@ const routes: Routes = [
   {
     path: '**',
     redirectTo: 'home',
+  },
+  {
+    path: 'em-breve',
+    loadChildren: () => import('./pages/em-breve/em-breve.module').then( m => m.EmBrevePageModule)
   }
 ];
 @NgModule({

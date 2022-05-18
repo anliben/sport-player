@@ -10,21 +10,21 @@ import { WebSocketService } from 'src/app/services/web-socket.service';
 export class AvatarMesaComponent implements OnInit {
   @Input() avatar: string;
   @Input() cartas: string;
-  @Input() nome: string;
+  nome: string = 'rodopo'; // colocar o decolator @input
   @Input() cardDirection: string = 'left';
   @Input() eu: boolean = false; // prop eu para aprecer minhas cartas.
   @Input() cards: object[] = [];
   @Input() cardsRival: object[];
   @Input() joined: boolean;
 
-  players = []
-  position = ''
+  players = [];
+  position = '';
   username = '';
   count = 0;
 
   constructor(
     private WebSocket: WebSocketService,
-    private playerIdService: PlayerIdService,
+    private playerIdService: PlayerIdService
   ) {}
 
   ngOnInit() {}
@@ -37,10 +37,10 @@ export class AvatarMesaComponent implements OnInit {
       room: '1',
       count: this.count,
       manilha: this.playerIdService.getManilha(),
-      request: 'jogarCarta'
+      request: 'jogarCarta',
     });
   }
-  joinedRoom(){
+  joinedRoom() {
     this.joined = true;
   }
 
@@ -57,7 +57,7 @@ export class AvatarMesaComponent implements OnInit {
         rival1: '',
         rival2: '',
         mao: '',
-        id: this.playerIdService.getId()
+        id: this.playerIdService.getId(),
       });
     }
   }

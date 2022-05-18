@@ -1,5 +1,10 @@
+:root {
+  --background: green;
+}
+
 super-tabs-toolbar {
   --st-indicator-color: transparent;
+  --super-tabs-toolbar-background: yellow;
   background: var(--primaryLinearGradient);
 
   ion-label {
@@ -11,4 +16,9 @@ super-tabs-toolbar {
   .active {
     background-color: rgba(0, 0, 0, 0.30196078431372547);
   }
+}
+
+uper-tabs-container {
+  --background: green;
+  background-color: red;
 }

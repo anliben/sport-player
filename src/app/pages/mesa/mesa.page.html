@@ -93,12 +93,12 @@
       src="/assets/game/partidaTruco/convidar-amigos.png"
     />
 
-    <div class="w-[100%] h-full">
+    <div class="w-[100%] h-full items-center">
       <div
         class="bg-mesa bg-center m-auto bg-[length:100%_100%] max-w-xs bg-no-repeat w-full h-full flex flex-col justify-between items-center"
       >
         <div
-          class="flex grow basis-1/4 max-h-1/4 flex-col items-center justify-between"
+          class="flex grow basis-1/4 bg-orange-300 max-h-1/4 flex-col items-center justify-between"
         >
           <app-avatar-mesa
             [cardsRival]="cardsRivalTop"
@@ -142,8 +142,8 @@
             ></app-carta-baralho>
           </div>
           <div class="w-8 h-14 rotate-180">
+            <!-- *ngIf="!topCardNaipe == 0 || !topCardNumber == 0" -->
             <app-carta-baralho
-              *ngIf="!topCardNaipe == 0 || !topCardNumber == 0"
               [naipe]="topCardNaipe"
               [numero]="topCardNumber"
             ></app-carta-baralho>
@@ -151,8 +151,8 @@
         </div>
 
         <div class="flex justify-between items-center w-full">
-          <div>
-            <app-tampa-p class="relative top-0 bg-white left-12"></app-tampa-p>
+          <div class="h-10 bg-gray-300 relative justify-end items-end">
+            <app-tampa-p class="absolute top-0 bg-white right-0"></app-tampa-p>
             <app-avatar-mesa
               [cardsRival]="cardsRivalTop"
               [nome]="namej2"
@@ -164,8 +164,8 @@
 
           <div class="flex">
             <div class="w-8 h-14 rotate-90">
+              <!-- *ngIf="!leftCardNaipe == 0 || !leftCardNumber == 0" -->
               <app-carta-baralho
-                *ngIf="!leftCardNaipe == 0 || !leftCardNumber == 0"
                 [naipe]="leftCardNaipe"
                 [numero]="leftCardNumber"
               ></app-carta-baralho>
@@ -173,16 +173,16 @@
             <div class="w-14 customSm"></div>
 
             <div class="w-8 h-14 -rotate-90">
+              <!-- *ngIf="!rightCardNaipe == 0 || !rightCardNumber == 0" -->
               <app-carta-baralho
-                *ngIf="!rightCardNaipe == 0 || !rightCardNumber == 0"
                 [naipe]="rightCardNaipe"
                 [numero]="rightCardNumber"
               ></app-carta-baralho>
             </div>
           </div>
 
-          <div>
-            <app-tampa-p class="relative top-0 bg-white right-4"></app-tampa-p>
+          <div class="bg-slate-500">
+            <app-tampa-p class="absolute top-0 bg-white right-4"></app-tampa-p>
             <app-avatar-mesa
               cardDirection="right"
               [cardsRival]="cardsRivalRight"
@@ -197,8 +197,8 @@
 
         <div class="flex grow basis-1/4 items-center justify-between flex-col">
           <div class="w-8 h-14">
+            <!-- *ngIf="!bottomCardNaipe == 0 || !bottomCardNumber == 0" -->
             <app-carta-baralho
-              *ngIf="!bottomCardNaipe == 0 || !bottomCardNumber == 0"
               [naipe]="bottomCardNaipe"
               [numero]="bottomCardNumber"
             ></app-carta-baralho>
@@ -216,14 +216,14 @@
               >{{"mesa.tournament" | translate }}</span
             >
             <span class="block text-white opacity-60 text-[0.6rem]">
-              {{tableData.gameMode}}
+              {{tableData.gameMode || 'unknown'}}
             </span>
 
             <span class="block text-white opacity-60 text-[0.6rem]">
-              Id: {{tableData.id}}
+              Id: {{tableData.id || 'unknown'}}
             </span>
             <span class="block text-white opacity-60 text-[0.6rem]">
-              entrada: {{tableData.buy}}
+              entrada: {{tableData.buy || 'unknown'}}
             </span>
           </div>
           <div>

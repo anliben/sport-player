@@ -135,6 +135,8 @@
                 src="/assets/game/partidaTruco/costas-das-cartas.png"
               />
             </div>
+            <span>lorememem</span>
+            *ngIf="!topCardNaipe == 0 || !topCardNumber == 0"
             <app-carta-baralho
               class="relative right-8 top-5 -rotate-180"
               [naipe]="cardVira.naipe"

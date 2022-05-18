@@ -1,79 +1,98 @@
 <ion-content>
-  <div class="bg-[url('/assets/game/auth/fundo-auth.png')] h-full p-0 m-0 bg-cover bg-no-repeat">
-    
-    <div class="">
-      <img class="h-52 mx-auto pt-20" src="/assets/icon/logotype-with-text.png">
-    </div>
-    <form [formGroup]="formLogin" class="flex justify-center">
-      <div class="w-2/3">
-        <ion-item color="transparent" class="relative rounded-sm bg-[#303030] h-12 mt-8" lines="full">
-          <img class="h-4 pr-2 -mt-1" src="/assets/icon/conta-icone.png">
-          <ion-input 
-          name="user"
-          formControlName="user"
-          color="transparent" 
-          class="h-10 rounded-sm text-[0.8rem]" 
-          type="text" 
-          placeholder="Email ou Usuario" 
-          required
-          
-          >
-          </ion-input>
-        </ion-item>
-        <ion-item color="transparent" class="relative rounded-sm bg-[#303030] h-12 mt-1" lines="full">
-          <img class="h-4 pr-2 -mt-1" src="/assets/icon/conta-icone.png">
-          <ion-input
-          name="password"
-          formControlName="password"
-          class="h-10 rounded-sm text-[0.8rem]" 
-          color="transparent" 
-          minlength="2"
-          [type]="ocultaPassword ? 'text' : 'password'"
-          placeholder="Digite a senha"
-          required
-          >
-          </ion-input>
-          <button
-            (click)="viewPassword()"
-            ion-button
-            item-right
-          >
-          <ion-icon
-            class="mt-1"
-            [name]="ocultaPassword ? 'eye-off' : 'eye'"
-          >
-          </ion-icon>
-          </button>  
-        </ion-item>
-        
-        <ion-row>
-          <ion-col>
-            <div class="flex justify-center">
-              <ion-button 
-              (click)="login()"
-              color="transparent" 
-              class="bg-gradient-to-b from-[#009454] to-[#004307] h-8 w-28 my-3 rounded-lg text-[#ebe8e8] font-vag text-[0.9rem]"
-              >Entrar
-              </ion-button>
-            </div>
-            <div class="flex justify-center">
-              <ion-button 
-              (click)="register()"
-              color="transparent" 
-              class="bg-gradient-to-b from-[#e0b54d] to-[#83511e] h-8 w-32 rounded-lg text-[#080808] font-vag"
-              >Registrar
-              </ion-button>
-            </div>
-          </ion-col>
-        </ion-row>
-      </div>
-    </form>
-    <div class="w-full flex justify-center mt-24 bottom-0">
-      <a [routerLink]="['/forgot-password']" class="font-vag text-[#8b8b5c]">Esqueceu a senha?</a>
-    </div>
-    <div class="flex justify-center text-[0.6rem] w-full">
-      TERMOS E SERVICOS & POLITICA DE PRIVACIDADE
-    </div>
+  <div
+    class="bg-[url('/assets/game/auth/fundo-auth.png')] h-full p-0 m-0 bg-cover bg-no-repeat flex flex-col justify-between"
+  >
+    <section>
+      <img
+        class="h-52 mx-auto pt-20"
+        src="/assets/icon/logotype-with-text.png"
+      />
 
+      <form [formGroup]="formLogin" class="flex justify-center">
+        <div class="w-2/3">
+          <ion-item
+            color="transparent"
+            class="relative rounded-sm mt-8 flex items-center"
+            lines="full"
+            autofocus="true"
+          >
+            <ion-icon name="person" class="h-5 pr-1 text-primary"></ion-icon>
+            <!-- <img class="h-4 pr-2 -mt-1" src="/assets/icon/conta-icone.png" /> -->
+            <ion-input
+              name="user"
+              formControlName="user"
+              color="transparent"
+              class="h-10 rounded-sm text-[1rem] font-vag text-primary gorw"
+              type="text"
+              placeholder="EMAIL"
+              required
+            >
+            </ion-input>
+          </ion-item>
+          <ion-item
+            color="red"
+            class="relative rounded-sm mt-1 flex items-center"
+            lines="full"
+          >
+            <ion-icon
+              name="lock-closed"
+              class="h-5 pr-1 text-primary"
+            ></ion-icon>
+            <!-- <img class="h-4 pr-2 -mt-1" src="/assets/icon/conta-icone.png" /> -->
+            <ion-input
+              name="password"
+              formControlName="password"
+              class="h-10 rounded-sm text-[1rem] font-vag"
+              color="transparent"
+              minlength="2"
+              [type]="ocultaPassword ? 'text' : 'password'"
+              placeholder="SENHA"
+              required
+            >
+            </ion-input>
+            <ion-icon
+              (click)="viewPassword()"
+              class="h-5 text-[#A5752F]"
+              [name]="ocultaPassword ? 'eye-off' : 'eye'"
+            >
+            </ion-icon>
+          </ion-item>
+
+          <ion-row>
+            <ion-col>
+              <div class="flex justify-center">
+                <ion-button
+                  (click)="login()"
+                  color="transparent"
+                  class="bg-gradient-to-b from-[#009454] to-[#004307] h-8 w-28 mt-5 mb-2 rounded-lg text-[#ebe8e8] font-vag text-[0.9rem]"
+                  >Entrar
+                </ion-button>
+              </div>
+              <div class="flex justify-center">
+                <ion-button
+                  (click)="register()"
+                  color="transparent"
+                  class="bg-gradient-to-b from-[#e0b54d] to-[#83511e] h-8 w-32 rounded-lg text-[#080808] font-vag"
+                  >Registrar
+                </ion-button>
+              </div>
+            </ion-col>
+          </ion-row>
+        </div>
+      </form>
+    </section>
+    <footer>
+      <div class="w-full flex justify-center mt-2 bottom-0">
+        <a [routerLink]="['/forgot-password']" class="font-vag text-[#8b8b5c]"
+          >Esqueceu a senha?</a
+        >
+      </div>
+      <div class="flex justify-center text-[0.6rem] w-full mb-28">
+        <span class="m-2">
+          <a href="#">TERMOS E SERVIÇOS</a> &
+          <a href="#">POLITICA DE PRIVACIDADE</a></span
+        >
+      </div>
+    </footer>
   </div>
 </ion-content>

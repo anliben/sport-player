@@ -72,9 +72,17 @@ const routes: Routes = [
     component: RegisterComponent
   },
   {
+    path: 'disconnected',
+    loadChildren: () => import('./pages/disconnected/disconnected.module').then( m => m.DisconnectedPageModule)
+  },
+  {
+    path: 'painel-jogador',
+    loadChildren: () => import('./pages/painel-jogador/painel-jogador.module').then( m => m.PainelJogadorPageModule)
+  },
+  {
     path: '**',
     redirectTo: 'home',
-  },
+  }
 ];
 @NgModule({
   imports: [

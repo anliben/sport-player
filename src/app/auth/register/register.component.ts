@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-register',
@@ -8,21 +10,22 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
 
-  registerForm: FormGroup
+  formRegister:FormGroup;
   ocultaPassword: boolean;
 
   constructor(
-    private fb: FormBuilder
+    private router: Router,
+    private formBuilder : FormBuilder, 
+    private alertController: AlertController 
   ) { 
 
   }
 
   ngOnInit() {
-    this.registerForm = this.fb.group({
+    this.formRegister = this.formBuilder.group({
       name: ['', Validators.required],
       email: ['', Validators.required],
       password: ['', Validators.required],
-      passwordConfirm: ['', Validators.required]
     })
   }
 
@@ -32,12 +35,10 @@ export class RegisterComponent implements OnInit {
 
   async signUp(){
 
-    let {name, email} = this.registerForm.getRawValue();
-    console.log("🚀 ~ file: register.component.ts ~ line 37 ~ RegisterComponent ~ signUp ~ name", name)
-    console.log("🚀 ~ file: register.component.ts ~ line 35 ~ RegisterComponent ~ signUp ~ email", email)
-    console.log(this.registerForm.value)
-    // console.log("🚀 ~ file: register.component.ts ~ line 30 ~ RegisterComponent ~ registerForm", this.registerForm.value)    const name = this.registerForm.controls['name'].value
-
-    // console.log("🚀 ~ file: register.component.ts ~ line 29 ~ RegisterComponent ~ onSubmit ~ name", name)
+    let {name, email, password} = this.formRegister.getRawValue();
+    console.log(name);
+    console.log(email);
+    console.log(password);
+ 
   }
 }

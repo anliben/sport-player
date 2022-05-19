@@ -8,11 +8,22 @@ import { NavController } from '@ionic/angular';
 })
 export class PainelJogadorPage implements OnInit {
   moeda = 10;
+  infoDados = false;
+  infoRakeoooo = false;
+  infoRakeccc = false;
+  infoRakecc = false;
+  infoRakeConvidado = false;
+  infoRakeBack = false;
+
   constructor(private navController: NavController) { }
 
   ngOnInit() {
   }
-
+ 
+  clickinfoRakeoooo(){
+    this.infoRakeoooo = !this.infoRakeoooo;
+    console.log(this.infoRakeoooo);   
+  }
   back() {
     this.navController.back();
   }

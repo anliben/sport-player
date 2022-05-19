@@ -16,7 +16,7 @@ import { HomePage } from './pages/home/home.page';
 import { MesaPage } from './pages/mesa/mesa.page';
 import { StorePage } from './pages/home/store/store.page';
 import { ConfigPage } from './pages/home/config/config.page';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MesaPageModule } from './pages/mesa/mesa.module';
 import { TruccoPage } from './pages/trucco/trucco.page';
@@ -39,6 +39,7 @@ import { Cashgame1x1PageModule } from './pages/mesa/cashgame1x1/cashgame1x1.modu
 import { Torneio1x1PageModule } from './pages/mesa/torneio1x1/torneio1x1.module';
 import { Torneio2x2PageModule } from './pages/mesa/torneio2x2/torneio2x2.module';
 import { SuperTabsModule } from '@ionic-super-tabs/angular';
+import { RegisterComponent } from './auth/register/register.component';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyBz6Tn9WSVpHKgJqMBs5o6bpW3FvwpOVwQ',
@@ -63,6 +64,7 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
     TruccoPage,
     ConfigPage,
     PokerPage,
+    RegisterComponent,
     LoginComponent,
     VerifyComponent,
     Cashgame2x2Page,
@@ -92,6 +94,7 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
     ReactiveFormsModule,
     SuperTabsModule.forRoot(),
     ScrollingModule,
+    FormsModule,
     ReactiveFormsModule
   ],
   providers: [

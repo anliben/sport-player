@@ -9,11 +9,17 @@
           class="cursor-pointer h-8 m-2"
         />
         <h2 class="text-center text-[#8b8b5c]"> DADOS </h2>
-        <img 
-          class="cursor-pointer h-8 m-2"
-          src="/assets/game/perfil/informacao.png"
-        />
-    </div>
+        <div>
+          <img 
+            (click)="infoDados = !infoDados"
+            class="cursor-pointer h-8 m-2"
+            src="/assets/game/perfil/informacao.png"
+          />
+        </div>
+      </div>
+      <div *ngIf="infoDados === true" class="absolute right-0 mr-8 -mt-3 w-28 h-10 bg-zinc-700" >
+        <h1>Exemplo</h1>
+      </div>
     <div class="w-5/6 mx-auto h-36 border-solid border-b border-r border-l border-amber-200/50 ">
       <div class="grid grid-cols-1">
         <img class="h-8 mx-auto my-1 mt-4" src="/assets/game/painelJogador/RELATORIO.png">
@@ -21,7 +27,7 @@
         <img class="h-8 mx-auto my-1" src="/assets/game/painelJogador/lista-convidados.png">
       </div>
     </div>
-    <div class="w-5/6 h-2/3 h-1 mx-auto mt-2 border-solid border-b border-r border-l border-amber-200/50 ">
+    <div class="w-5/6 h-2/3 mx-auto mt-2 border-solid border-b border-r border-l border-amber-200/50 ">
       <div class="flex justify-center">
         <div
           class="cursor-pointer flex items-center relative justify-items-center mt-2"
@@ -33,8 +39,11 @@
       </div>
       <div class="mt-2 flex justify-center" >
         <ion-row class="w-72">
-          <span class="text-[0.6rem] text-[#8b8b5c] mx-1 my-1 ">RAKEBACK</span>
-          <img class="h-4" src="/assets/game/perfil/informacao.png">
+          <span class="text-[0.6rem] text-[#8b8b5c] mx-1 my-1">RAKEBACK</span>
+          <img class="h-4" (click)="infoRakeBack = !infoRakeBack" src="/assets/game/perfil/informacao.png">
+          <div *ngIf="infoRakeBack === true" class="absolute ml-24 w-28 h-10 bg-zinc-700" >
+            <h1>Exemplo</h1>
+          </div>
         </ion-row>
       </div>
       <div class="w-72 h-5 flex mx-auto">
@@ -79,7 +88,10 @@
       <div class="mt-2 flex justify-center" >
         <ion-row class="w-72">
           <span class="text-[0.6rem] text-[#8b8b5c] mx-1 my-1 ">RAKECONVIDADO</span>
-          <img class="h-4" src="/assets/game/perfil/informacao.png">
+          <img class="h-4" (click)="infoRakeConvidado = !infoRakeConvidado" src="/assets/game/perfil/informacao.png">
+          <div *ngIf="infoRakeConvidado === true" class="absolute ml-36 w-28 h-10 bg-zinc-700" >
+            <h1>Exemplo</h1>
+          </div>
         </ion-row>
       </div>
       <div class="w-72 h-5 flex mx-auto">
@@ -124,7 +136,10 @@
       <div class="mt-2 flex justify-center" >
         <ion-row class="w-72">
           <span class="text-[0.6rem] text-[#8b8b5c] mx-1 my-1 ">RAKECC</span>
-          <img class="h-4" src="/assets/game/perfil/informacao.png">
+          <img class="h-4" (click)="infoRakecc = !infoRakecc" src="/assets/game/perfil/informacao.png">
+          <div *ngIf="infoRakecc === true" class="absolute ml-20 w-28 h-10 bg-zinc-700" >
+            <h1>Exemplo</h1>
+          </div>
         </ion-row>
       </div>
       <div class="w-72 h-5 flex mx-auto">
@@ -169,7 +184,12 @@
       <div class="mt-2 flex justify-center" >
         <ion-row class="w-72">
           <span class="text-[0.6rem] text-[#8b8b5c] mx-1 my-1 ">RAKECCC</span>
-          <img class="h-4" src="/assets/game/perfil/informacao.png">
+          <img class="h-4" (click)="infoRakeccc = !infoRakeccc" src="/assets/game/perfil/informacao.png">
+          
+            <div *ngIf="infoRakeccc === true" class="absolute ml-24 w-28 h-10 bg-zinc-700" >
+              <h1>Exemplo</h1>
+            </div>
+          
         </ion-row>
       </div>
       <div class="w-72 h-5 flex mx-auto">
@@ -214,7 +234,16 @@
       <div class="mt-2 flex justify-center" >
         <ion-row class="w-72">
           <span class="text-[0.6rem] text-[#8b8b5c] mx-1 my-1 ">RAKEOOOO</span>
-          <img class="h-4" src="/assets/game/perfil/informacao.png">
+          <img class="h-4" (click)="infoRakeoooo = !infoRakeoooo" src="/assets/game/perfil/informacao.png">
+          <ion-popover [isOpen]="infoRakeoooo">
+            <ng-template>
+              <ion-content class="mt-24">
+                <div class=" ">
+                  <h1>Exemplo</h1>
+                </div>
+              </ion-content>
+            </ng-template>
+          </ion-popover>
         </ion-row>
       </div>
       <div class="w-72 h-5 flex mx-auto">
@@ -253,9 +282,11 @@
           >
             -
           </button>
+          
         </div>
       </div>
-
+      
+     
     </div>
   </div>
 </ion-content>

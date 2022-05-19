@@ -151,6 +151,19 @@
         </div>
 
         <div class="flex justify-between items-center w-full">
+          <div class="bg-slate-500 h-7">
+            <app-tampa-p class="absolute top-0 bg-white right-4"></app-tampa-p>
+            <app-avatar-mesa
+              cardDirection="right"
+              [cardsRival]="cardsRivalRight"
+              [nome]="namej4"
+              cartas="/assets/game/cartas/4paus.png"
+              [avatar]="avatar4"
+              [joined]="avatar4"
+              [cards]="exampleCards"
+            ></app-avatar-mesa>
+          </div>
+
           <div class="h-10 bg-gray-300 relative justify-end items-end">
             <app-tampa-p class="absolute top-0 bg-white right-0"></app-tampa-p>
             <app-avatar-mesa
@@ -181,7 +194,7 @@
             </div>
           </div>
 
-          <div class="bg-slate-500">
+          <div class="bg-slate-500 h-7">
             <app-tampa-p class="absolute top-0 bg-white right-4"></app-tampa-p>
             <app-avatar-mesa
               cardDirection="right"

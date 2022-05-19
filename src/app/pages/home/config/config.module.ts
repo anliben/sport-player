@@ -12,7 +12,7 @@ import { ConfigPageRoutingModule } from './config-routing.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    ConfigPageRoutingModule
+    ConfigPageRoutingModule,
   ],
   declarations: []
 })

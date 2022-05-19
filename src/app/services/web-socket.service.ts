@@ -9,7 +9,7 @@ import {io} from 'socket.io-client';
 export class WebSocketService {
 
   socket: any;
-  readonly uri: string = 'http://192.168.1.102:3000'
+  readonly uri: string = 'http://127.0.0.1:3000'
 
   constructor() {
     this.socket = io(this.uri);
@@ -26,5 +26,5 @@ export class WebSocketService {
   emit(eventName: string, data: any){
     this.socket.emit(eventName, data)
   }
-  
+
 }

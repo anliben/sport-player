@@ -208,18 +208,6 @@ table {
   text-transform: uppercase;
 }
 
-// Adicionar as variaveis de cores aqui para ser usadas globalmente
-:root {
-  --primary: #8b8b5c;
-  --primaryLinearGradient: linear-gradient(
-    180deg,
-    rgba(56, 54, 68, 1) 21%,
-    rgba(41, 42, 47, 1) 51%,
-    rgba(30, 30, 33, 1) 100%
-  );
-  --back: #101012;
-}
-
 .my-custom-class {
   color: red;
 }

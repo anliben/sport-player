@@ -10,12 +10,14 @@ import { WebSocketService } from 'src/app/services/web-socket.service';
 export class AvatarMesaComponent implements OnInit {
   @Input() avatar: string;
   @Input() cartas: string;
-  nome: string = 'rodopo'; // colocar o decolator @input
+  @Input() nome: string; // colocar o decolator @input
   @Input() cardDirection: string = 'left';
   @Input() eu: boolean = false; // prop eu para aprecer minhas cartas.
   @Input() cards: object[] = [];
   @Input() cardsRival: object[];
   @Input() joined: boolean;
+  @Input() avatarClass: string;
+  @Input() tampaPClass: string;
 
   players = [];
   position = '';
@@ -26,6 +28,14 @@ export class AvatarMesaComponent implements OnInit {
     private WebSocket: WebSocketService,
     private playerIdService: PlayerIdService
   ) {}
+
+  applyCustomClass(e: any) {
+    if (e) {
+      return {
+        [e.toString()]: e !== undefined,
+      };
+    }
+  }
 
   ngOnInit() {}
 

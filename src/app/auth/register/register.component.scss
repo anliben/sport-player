@@ -1,0 +1,15 @@
+ion-item {
+    // border-bottom: 1px solid #fdfaa5;
+    --min-height: 2.3rem;
+    --highlight-color-focused: blue;
+    --color: #fdfaa5;
+    ion-input {
+      text-transform: none;
+      caret-color: var(--primary);
+      --placeholder-color: var(--primary);
+      --placeholder-opacity: 1;
+      --ion-color-base: var(--primary);
+      --color: var(--primary);
+    }
+  }
+  

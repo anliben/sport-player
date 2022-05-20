@@ -16,6 +16,8 @@ export class AvatarMesaComponent implements OnInit {
   @Input() cards: object[] = [];
   @Input() cardsRival: object[];
   @Input() joined: boolean;
+  @Input() avatarClass: string;
+  @Input() tampaPClass: string;
 
   players = [];
   position = '';
@@ -26,6 +28,14 @@ export class AvatarMesaComponent implements OnInit {
     private WebSocket: WebSocketService,
     private playerIdService: PlayerIdService
   ) {}
+
+  applyCustomClass(e: any) {
+    if (e) {
+      return {
+        [e.toString()]: e !== undefined,
+      };
+    }
+  }
 
   ngOnInit() {}
 

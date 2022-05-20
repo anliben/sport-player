@@ -208,8 +208,19 @@ table {
   text-transform: uppercase;
 }
 
-.my-custom-class {
-  color: red;
+ion-modal {
+  &.custom-class-modal-pattern {
+    --height: 100%;
+    --width: 80%;
+    --max-width: 400px;
+    --border-radius: 3px;
+    --border-width: 1px;
+    --border-style: solid;
+    --border-color: var(--primary);
+  }
+  &.modal-h20-height {
+    --height: 16.5%;
+  }
 }
 
 .text-vag {

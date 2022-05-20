@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { PlayerIdService } from 'src/app/services/player-id.service';
 import { WebSocketService } from 'src/app/services/web-socket.service';
+import { ConfiguracaoJogoModalComponent } from 'src/app/shared/components/configuracao-jogo-modal/configuracao-jogo-modal.component';
+import { CashgameServicesService } from './cashgame-services.service';
 
 @Component({
   selector: 'app-cashgame1x1',
@@ -81,32 +83,18 @@ export class Cashgame1x1Page implements OnInit {
     private WebSocket: WebSocketService,
     private modalController: ModalController,
     private playerIdService: PlayerIdService,
-    private activatedRoute: Router
+    private activatedRoute: Router,
+    private CashGameService: CashgameServicesService
   ) {
-    this.tableData =
-      this.activatedRoute.getCurrentNavigation().extras.state.data;
+    this.tableData = this.CashGameService.tableData
+    this.nome = this.CashGameService.nome;
   }
 
   ngOnInit() {
-    this.generatePlayers();
-    this.nome =
-      this.players[Math.floor(Math.random() * this.players.length)].username;
-    this.playerIdService.setNome(this.nome);
-
-    let id = this.playerIdService.getId();
-
-    this.WebSocket.emit('addPlayerCashGameX1', {
-      id: id,
-      username: this.nome,
-      posicao: 'right',
-      room: '1',
-      src: '/assets/game/game/homem.png',
-      request: 'addPlayer'
-    });
-
+    this.CashGameService.addPlayer()
     this.WebSocket.listen('rodada').subscribe((data: any) => {
       console.log(data);
-      
+
       data.jogadores.forEach( (element: any)=> {
         this.rodadas = element.rodadas;
         if(element.username == this.nome){
@@ -116,10 +104,10 @@ export class Cashgame1x1Page implements OnInit {
         }
       });
    })
-   
+
    this.WebSocket.listen('novaMao').subscribe((data: any) => {
      console.log(data);
-     
+
     data.jogadores.forEach((player) => {
       if (player.username == this.nome) {
         this.exampleCards = player.mao;
@@ -134,7 +122,7 @@ export class Cashgame1x1Page implements OnInit {
          numero: data.numero,
          index: data.index
       }
- 
+
       if(data.jogador == this.nome){
         this.exampleCards.splice(carta.index, 1);
         this.bottomCardNaipe = carta.naipe;
@@ -152,7 +140,7 @@ export class Cashgame1x1Page implements OnInit {
       this.playerIdService.setVira(this.cardVira);
 
       data.jogadores.forEach((player: any) => {
-        console.log(player);
+        console.log(player.username, this.nome);
         if (player.username == this.nome) {
           player.posicao = 'bottom';
           this.j1 = true;
@@ -186,5 +174,16 @@ export class Cashgame1x1Page implements OnInit {
         id: this.playerIdService.getId(),
       });
     }
+  }
+
+  async presentConfigGameModal() {
+    const modal = await this.modalController.create({
+      component: ConfiguracaoJogoModalComponent,
+      showBackdrop: true,
+      cssClass: 'my-custom-class',
+      backdropDismiss: true,
+      animated: false,
+    });
+    return await modal.present();
   }
 }

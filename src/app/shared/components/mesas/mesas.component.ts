@@ -157,13 +157,13 @@ export class MesasComponent implements OnInit {
   navigateMatch(data: MesaInterface) {
     let url = data.tableType + data.playersDistribution;
     console.log(url);
-
-    this.router.navigate([`/mesa`, { dados: JSON.stringify(data) }]);
-
+  /*
+      this.router.navigate([`/mesa`, { dados: JSON.stringify(data) }]);
+ */
     //correnta
-    // this.router.navigate([`/mesa`], {
-    //   state: { data },
-    // });
+    this.router.navigate([`${url}`], {
+      state: { data },
+    });
   }
 
   ngOnInit() {}

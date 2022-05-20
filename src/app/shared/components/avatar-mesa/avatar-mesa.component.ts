@@ -40,6 +40,8 @@ export class AvatarMesaComponent implements OnInit {
   ngOnInit() {}
 
   async onClickLog(i) {
+    console.log(i);
+
     this.count += 1;
     await this.WebSocket.emit('cartaPlayerCashGameX1', {
       jogador: this.playerIdService.getNome(),

@@ -21,17 +21,15 @@ export class CashgameServicesService {
     private playerIdService: PlayerIdService,
     private activatedRoute: Router,
   ) {
-    this.tableData =
-      this.activatedRoute.getCurrentNavigation().extras.state.data;
-
+    this.tableData = this.activatedRoute.getCurrentNavigation().extras.state.data;
+    this.generatePlayers()
+    this.nome = this.players[Math.floor(Math.random() * this.players.length)].username;
+    this.playerIdService.setNome(this.nome);
   }
 
   // emit add player
   addPlayer() {
-    this.generatePlayers()
-    this.nome = this.players[Math.floor(Math.random() * this.players.length)].username;
-    this.playerIdService.setNome(this.nome);
-    console.log(this.nome);
+
 
     let id = this.playerIdService.getId();
 

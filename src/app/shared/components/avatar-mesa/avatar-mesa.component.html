@@ -1,25 +1,32 @@
 <div
-  class="flex items-center"
+  class="flex items-center w-7 h-7"
   [ngClass]="{ 'flex-row-reverse ': cardDirection === 'left' }"
 >
   <!-- AVATAR DO CARINHA -->
   <figure
     (click)="joinedRoom()"
     *ngIf="joined"
-    class="flex flex-col items-center cursor-pointer"
+    [ngClass]="applyCustomClass(avatarClass)"
+    class="flex absolute cursor-pointer"
   >
-    <img
-      class="w-12 h-12 rounded-full border-solid border-[1px] border-[#eec26f]"
-      src="../../../../assets/game/partidaTruco/perfil-foto-exemplo.png"
-    />
-    <!-- [src]="avatar" -->
+    <app-tampa-p
+      [ngClass]="applyCustomClass(tampaPClass)"
+      class="cursor-default absolute z-10"
+    ></app-tampa-p>
+    <div class="w-12 h-12">
+      <img
+        class="w-12 h-12 rounded-full border-solid border-[1px] border-[#eec26f]"
+        src="../../../../assets/game/partidaTruco/perfil-foto-exemplo.png"
+      />
+      <!-- [src]="avatar" -->
 
-    <div
-      class="flex relative bottom-2 justify-center items-center rounded-md border-solid border-[0.5px] border-[#eec26f] bg-[#272727] py-0.5 px-1.5"
-    >
-      <figcaption class="text-white text-[0.4rem]">
-        <!-- {{ nome.length > 4 ? nome.substring(0, 4) + "..." : nome }} -->
-      </figcaption>
+      <div
+        class="flex relative bottom-2 justify-center items-center rounded-md border-solid border-[0.5px] border-[#eec26f] bg-[#272727] py-0.5 px-1.5"
+      >
+        <figcaption class="text-white text-[0.4rem]">
+          {{ nome.length > 4 ? nome.substring(0, 4) + "..." : nome }}
+        </figcaption>
+      </div>
     </div>
   </figure>
 
@@ -67,7 +74,7 @@
   <figure
     *ngIf="!joined"
     (click)="joinedRoom()"
-    class="cursor-pointer w-7 h-2 flex flex-col bg-green-800 justify-center items-center"
+    class="cursor-pointer w-7 h-7 relative flex flex-col justify-center items-center"
   >
     <img class="" src="/assets/game/partidaTruco/botao-entrar-mesa.png" />
   </figure>

@@ -86,7 +86,11 @@ const routes: Routes = [
   {
     path: 'em-breve',
     loadChildren: () => import('./pages/em-breve/em-breve.module').then( m => m.EmBrevePageModule)
+  },  {
+    path: 'suporte-modal',
+    loadChildren: () => import('./shared/components/modais/suporte-modal/suporte-modal.module').then( m => m.SuporteModalPageModule)
   }
+
 ];
 @NgModule({
   imports: [

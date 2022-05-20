@@ -1,98 +1,103 @@
 <ion-content>
-  <div class="bg-[url('/assets/game/auth/fundo-auth.png')] h-full p-0 m-0 bg-cover bg-no-repeat">
-    
-    <div class="">
-      <img class="h-52 mx-auto pt-20" src="/assets/icon/logotype-with-text.png">
-    </div>
+  <div
+    class="bg-[url('/assets/game/auth/fundo-auth.png')] h-full p-0 m-0 bg-cover bg-no-repeat flex flex-col justify-between"
+  >
+  <section>
+
+    <img class="h-52 mx-auto pt-20" src="/assets/icon/logotype-with-text.png">
+
     <form [formGroup]="formRegister" class="flex justify-center">
-      <div class="w-2/3 ml-3">
-        <ion-item
-        color="red"
-        class="relative rounded-sm mt-5 flex items-center pl-2"
-        lines="full"
+    <div class="w-2/3 ml-3">
+      <ion-item
+      color="red"
+      class="relative rounded-sm mt-5 flex items-center pl-2"
+      lines="full"
+    >
+      <ion-icon name="person" class="h-5 pr-1 text-primary"></ion-icon>
+
+      <ion-input
+        name="name"
+        formControlName="name"
+        type="text"
+        class="h-10 rounded-sm text-[1rem] font-vag text-primary"
+        color="transparent"
+        minlength="2"
+        placeholder="NOME DE USUARIO"
+        required
       >
-        <ion-icon name="person" class="h-5 pr-1 text-primary"></ion-icon>
-
-        <ion-input
-          name="name"
-          formControlName="name"
-          type="text"
-          class="h-10 rounded-sm text-[1rem] font-vag text-primary"
-          color="transparent"
-          minlength="2"
-          placeholder="NOME DE USUARIO"
-          required
+      </ion-input>
+    </ion-item>
+      <ion-item
+          color="red"
+          class="relative rounded-sm mt-1 flex items-center pl-2"
+          lines="full"
         >
-        </ion-input>
-      </ion-item>
-        <ion-item
-            color="red"
-            class="relative rounded-sm mt-1 flex items-center pl-2"
-            lines="full"
+          <ion-icon
+            name="mail"
+            class="h-5 pr-1 text-primary"
+          ></ion-icon>
+          <ion-input
+            name="email"
+            formControlName="email"
+            type="text"
+            class="h-10 rounded-sm text-[1rem] font-vag"
+            color="transparent"
+            minlength="2"
+            placeholder="E-MAIL"
+            required
           >
-            <ion-icon
-              name="mail-outline"
-              class="h-5 pr-1 text-primary"
-            ></ion-icon>
-            <ion-input
-              name="email"
-              formControlName="email"
-              type="text"
-              class="h-10 rounded-sm text-[1rem] font-vag"
-              color="transparent"
-              minlength="2"
-              placeholder="E-MAIL"
-              required
-            >
-            </ion-input>
-          </ion-item>
-        <ion-item
-            color="red"
-            class="relative rounded-sm mt-1 flex items-center pl-2"
-            lines="full"
+          </ion-input>
+        </ion-item>
+      <ion-item
+          color="red"
+          class="relative rounded-sm mt-1 flex items-center pl-2"
+          lines="full"
+        >
+          <ion-icon
+            name="lock-closed"
+            class="h-5 pr-1 text-primary"
+          ></ion-icon>
+          <ion-input
+            name="password"
+            formControlName="password"
+            class="h-10 rounded-sm text-[1rem] font-vag"
+            color="transparent"
+            minlength="2"
+            [type]="ocultaPassword ? 'text' : 'password'"
+            placeholder="SENHA"
+            required
           >
-            <ion-icon
-              name="lock-closed"
-              class="h-5 pr-1 text-primary"
-            ></ion-icon>
-            <ion-input
-              name="password"
-              formControlName="password"
-              class="h-10 rounded-sm text-[1rem] font-vag"
-              color="transparent"
-              minlength="2"
-              [type]="ocultaPassword ? 'text' : 'password'"
-              placeholder="SENHA"
-              required
-            >
-            </ion-input>
-            <ion-icon
-              (click)="viewPassword()"
-              class="h-5 text-[#A5752F]"
-              [name]="ocultaPassword ? 'eye-off' : 'eye'"
-            >
-            </ion-icon>
-          </ion-item>
-          <p class="font-vag text-[0.7rem] text-primary mt-2">Ao clicar em registrar você concorda e aceita nossos termos de serviços e nossa política de privacidade</p>
-          <ion-row>
-            <ion-col>
-              <div class="flex justify-center">
-                <ion-button 
-                (click)="signUp()"
-                color="transparent" 
-                class="bg-gradient-to-b from-[#009454] to-[#004307] h-8 w-28 my-3 -ml-2 rounded-lg text-[#ebe8e8] font-vag text-[1rem]"
-                >REGISTRAR
-              </ion-button>
-            </div>
-          </ion-col>
-        </ion-row>
-
-      </div>
-    </form>
-    <div class="w-full flex justify-center mt-24 bottom-0">
-      <span class="font-vag mr-1">Tem uma conta?</span>
-      <a [routerLink]="['/login']" class="font-vag text-[#8b8b5c]">Conecte-se Agora</a>
+          </ion-input>
+          <ion-icon
+            (click)="viewPassword()"
+            class="h-5 text-[#A5752F]"
+            [name]="ocultaPassword ? 'eye-off' : 'eye'"
+          >
+          </ion-icon>
+        </ion-item>
+        <p class="font-vag text-[0.7rem] text-primary mt-2">Ao clicar em registrar você concorda e aceita nossos termos de serviços e nossa política de privacidade</p>
+        <ion-row>
+          <ion-col>
+            <div class="flex justify-center">
+              <ion-button 
+              (click)="signUp()"
+              color="transparent" 
+              class="bg-gradient-to-b from-[#009454] to-[#004307] h-8 w-28 my-3 -ml-2 rounded-lg text-[#ebe8e8] font-vag text-[1rem]"
+              >REGISTRAR
+            </ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
     </div>
-
+  </form>
+  </section>
+    <footer>
+      <div class="w-full flex justify-center mt-2 mb-28 bottom-0">
+        <span class="font-vag mr-1">Tem uma conta?</span>
+        <a [routerLink]="['/login']" class="font-vag text-[#8b8b5c]"
+          >Conecte-se Agora</a
+        >
+      </div>
+    </footer>
   </div>
 </ion-content>

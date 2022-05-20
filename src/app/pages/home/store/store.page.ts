@@ -8,7 +8,6 @@ import { IonInfiniteScroll } from '@ionic/angular';
   styleUrls: ['./store.page.scss'],
 })
 export class StorePage implements OnInit {
-  @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
   storeItens: any [] = [
     
       {

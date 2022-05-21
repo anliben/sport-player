@@ -223,6 +223,20 @@ ion-modal {
   }
 }
 
+ion-modal {
+  &.custom-class-modal {
+    --height: 100%;
+    --width: 80%;
+    --max-width: 400px;
+    --border-radius: 3px;
+    --border-width: 1px;
+    --border-style: solid;
+    --border-color: var(--primary);
+  }
+  &.modal-h40-height {
+    --height: 65%;
+  }
+}
 .text-vag {
   font-family: "Vag-Round";
   // color: #ffffb3;

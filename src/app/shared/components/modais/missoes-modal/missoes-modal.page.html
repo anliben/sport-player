@@ -1,0 +1,36 @@
+<ion-content class="h-30">
+  <div
+    class="flex justify-between items-center border-b-2 border-solid border-primary p-1"
+  >
+    <div class="flex grow justify-center">
+      <span class="text-primary font-vag">MISSÕES</span>
+    </div>
+    <img
+      src="../../../../../assets/game/partidaTruco/botao-fechar.png"
+      class="h-6 rounded-md cursor-pointer active:scale-110 duration-300"
+    />
+  </div>
+  <div *ngFor="let missao of missoes">
+    <div class="w-[90%] mx-auto mt-2 h-[50px] border-solid border border-amber-200/50">
+      <ion-row class="flex justify-between">
+        <div class="w-[60%] h-[50px] flex items-center">
+          <h2 class="text-primary ml-2 text-[0.8rem]">{{missao.name}}</h2>
+        </div>
+        <div class=" right-0 mr-2 mt-2 w-15">
+          <img class="h-6 right-0 mr-2 " src="/assets/game/missao/recompensa-fundo.png">
+          <div class="h-1.5 mt-1 w-14 ml-[7px] bg-primary text-center rounded-xl">
+            <h2 class="text-[0.4rem] text-gray-900 ">{{missao.status}}</h2>
+          </div>
+          <img *ngIf="missao.status === 'complete'" class="relative h-3 -mt-[29px] ml-[26px]" src="/assets/game/missao/resgatado.png">
+          <div *ngIf="missao.status === 'resgatar'" class="relative h-3 -mt-[30px] ml-7">
+            <ion-row>
+              <h2  class=" text-gray-900 -ml-2 mr-1 ">{{missao.premio}}</h2>
+              <img class="h-3.5 mt-[1px]" src="/assets/icon/fichaSp.png">
+            </ion-row>
+          </div>
+        </div>
+      </ion-row>
+    </div>
+
+  </div>
+

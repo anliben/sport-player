@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NavController } from '@ionic/angular';
+import { ModalController, NavController } from '@ionic/angular';
+import { VipModalPage } from '../modais/vip-modal/vip-modal.page';
 
 @Component({
   selector: 'app-header',
@@ -13,7 +14,11 @@ export class HeaderComponent implements OnInit {
 
   @Input() voltarBtn: boolean = false;
 
-  constructor(private navCtrl: NavController, private router: Router) {}
+  constructor(
+    private navCtrl: NavController, 
+    private router: Router,
+    private modalCtrl: ModalController
+    ) {}
 
   ngOnInit() {}
 
@@ -22,4 +27,13 @@ export class HeaderComponent implements OnInit {
   }
 
   navigateStore = () => this.router.navigate(['/store']);
+
+  async showVipModal(){
+    const modal = await this.modalCtrl.create({
+      component: VipModalPage,
+      cssClass: 'custom-class-modal modal-h40-height',
+    });
+    
+    return await modal.present();
+  }
 }

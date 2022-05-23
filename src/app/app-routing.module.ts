@@ -93,6 +93,10 @@ const routes: Routes = [
   {
     path: 'missoes-modal',
     loadChildren: () => import('./shared/components/modais/missoes-modal/missoes-modal.module').then( m => m.MissoesModalPageModule)
+  },
+  {
+    path: 'vip-modal',
+    loadChildren: () => import('./shared/components/modais/vip-modal/vip-modal.module').then( m => m.VipModalPageModule)
   }
 
 ];

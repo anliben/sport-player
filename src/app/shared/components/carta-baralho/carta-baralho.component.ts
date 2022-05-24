@@ -30,7 +30,7 @@ export class CartaBaralhoComponent implements OnInit {
       12: 'J',
       11: 'Q',
     };
-    return symbols[this.numero] ? symbols[this.numero] : 'X';
+    return symbols[this.numero] ? symbols[this.numero] : this.numero.toString();
   }
 
   ngOnInit(): void {}

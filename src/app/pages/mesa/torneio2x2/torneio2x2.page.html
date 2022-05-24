@@ -4,6 +4,320 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content> </ion-content>
 
-</ion-content>
+<script>
+  // <div class="p-3 flex flex-col bg-background h-screen justify-between">
+  //   <section class="flex items-center justify-between">
+  //     <div class="flex items-center justify-center">
+  //       <img
+  //         class="cursor-pointer h-8"
+  //         src="/assets/game/partidaTruco/config.png"
+  //       />
+  //       <div
+  //         class="bg-[url('/assets/game/partidaTruco/espectadores.png')] h-9 w-16 bg-contain bg-no-repeat"
+  //       >
+  //         <span
+  //           class="absolute left-[4.2rem] top-[2.1rem] text-[#8b8b5c] font-vag"
+  //           >{{spectorsCount}}</span
+  //         >
+  //       </div>
+  //     </div>
+
+  //     <div class="flex justify-center items-center">
+  //       <div class="flex">
+  //         <div class="flex flex-col relative top-5 mr-1">
+  //           <div
+  //             [ngClass]="{'bg-[#8b8b5c]': false}"
+  //             class="bg-[#3d3c3c] border-solid border-[0.8px] border-[#8b8b5c] rounded-full w-[0.6rem] h-[0.6rem]"
+  //           ></div>
+  //           <div
+  //             [ngClass]="{'bg-[#8b8b5c]': false}"
+  //             class="bg-[#3d3c3c] mt-[2px] mb-[2px] border-solid border-[0.8px] border-[#8b8b5c] rounded-full w-[0.6rem] h-[0.6rem]"
+  //           ></div>
+  //           <div
+  //             [ngClass]="{'bg-[#ffffb3]': true}"
+  //             class="bg-[#3d3c3c] border-solid border-[0.8px] border-[#8b8b5c] rounded-full w-[0.6rem] h-[0.6rem]"
+  //           ></div>
+  //         </div>
+  //         <div
+  //           class="w-14 h-[3.5rem] mr-1 flex justify-center items-center bg-[url('/assets/game/partidaTruco/nos.png')] bg-contain bg-no-repeat"
+  //         >
+  //           <span
+  //             class="relative top-[0.4rem] text-[#8b8b5c] font-vag text-[1.6rem]"
+  //             >{{pontosNos}}</span
+  //           >
+  //         </div>
+  //       </div>
+  //       <div class="flex">
+  //         <div
+  //           class="w-14 h-[3.5rem] relative top-[0.3rem] flex justify-center items-center bg-[url('/assets/game/partidaTruco/eles.png')] bg-contain bg-no-repeat"
+  //         >
+  //           <span
+  //             class="relative top-[0.1rem] text-[#8b8b5c] font-vag text-[1.6rem]"
+  //             >{{pontosEles}}</span
+  //           >
+  //         </div>
+  //         <div class="flex flex-col relative top-5 ml-1">
+  //           <div
+  //             [ngClass]="{'bg-[#8b8b5c]': false}"
+  //             class="bg-[#3d3c3c] border-solid border-[0.8px] border-[#8b8b5c] rounded-full w-[0.6rem] h-[0.6rem]"
+  //           ></div>
+  //           <div
+  //             [ngClass]="{'bg-[#8b8b5c]': false}"
+  //             class="bg-[#3d3c3c] mt-[2px] mb-[2px] border-solid border-[0.8px] border-[#8b8b5c] rounded-full w-[0.6rem] h-[0.6rem]"
+  //           ></div>
+  //           <div
+  //             [ngClass]="{'bg-red-400': true}"
+  //             class="bg-[#3d3c3c] border-solid border-[0.8px] border-[#8b8b5c] rounded-full w-[0.6rem] h-[0.6rem]"
+  //           ></div>
+  //         </div>
+  //       </div>
+  //       <div
+  //         class="ml-4 w-14 h-[3.5rem] mr-1 bg-center flex justify-center items-center bg-[url('/assets/game/partidaTruco/valor-da-rodada.png')] bg-contain bg-no-repeat"
+  //       >
+  //         <span
+  //           class="relative top-[0.4rem] text-[#8b8b5c] font-vag text-[1.6rem]"
+  //           >{{rodadas}}</span
+  //         >
+  //       </div>
+  //     </div>
+  //     <img
+  //       (click)="presentConfigGameModal()"
+  //       class="cursor-pointer h-12 relative left-3"
+  //       src="/assets/game/partidaTruco/informacoes.png"
+  //     />
+  //   </section>
+  //   <!-- <ion-modal [isOpen]="isModalOpen">
+  //     <ng-template>
+  //       <h1>Ola Mundo</h1>
+  //       <button (click)="menu()">fechar</button>
+  //     </ng-template>
+
+  //   </ion-modal> -->
+
+  //   <section class="flex justify-center h-[70%]">
+  //     <img
+  //       class="cursor-pointer h-10 self-end transition ease-in-out delay-150 hover:scale-110 duration-300"
+  //       src="/assets/game/partidaTruco/convidar-amigos.png"
+  //     />
+
+  //     <div class="w-[100%] h-full items-center">
+  //       <div
+  //         class="bg-mesa bg-center m-auto bg-[length:100%_100%] max-w-xs bg-no-repeat w-full h-full flex flex-col justify-between items-center"
+  //       >
+  //         <div
+  //           class="flex grow basis-1/4 max-h-1/4 flex-col items-center justify-between"
+  //         >
+  //           <div class="h-7 relative mt-[4%] flex justify-center">
+  //             <app-avatar-mesa
+  //               avatarClass="-top-4 -left-3"
+  //               tampaPClass="-bottom-6 -right-4"
+  //               cardDirection="right"
+  //               [cardsRival]="cardsRivalRight"
+  //               [nome]="namej1"
+  //               cartas="/assets/game/cartas/4paus.png"
+  //               [avatar]="avatar1"
+  //               [joined]="avatar1"
+  //               [cards]="exampleCards"
+  //             ></app-avatar-mesa>
+  //           </div>
+
+  //           <div class="flex flex-col justify-center items-center">
+  //             <!-- {{tableData.tableType}} -->
+  //             <span
+  //               *ngIf="tableData.tableType === 'cashgame'"
+  //               class="block text-black opacity-50 text-[1rem]"
+  //               >{{"mesa.cashgame" | translate }}</span
+  //             >
+  //             <span
+  //               *ngIf="tableData.tableType === 'torneio'"
+  //               class="block text-black opacity-60 text-[1rem]"
+  //               >{{ "mesa.tournament" | translate }}</span
+  //             >
+  //           </div>
+
+  //           <app-jackpot></app-jackpot>
+
+  //           <!-- cardVirada -->
+  //           <div class="flex w-full" *ngIf="cardVira.naipe">
+  //             <div class="relative w-8 h-14 rotate-90 z-10">
+  //               <img
+  //                 class="h-full w-full rounded-sm"
+  //                 src="/assets/game/partidaTruco/costas-das-cartas.png"
+  //               />
+  //             </div>
+  //             <app-carta-baralho
+  //               class="relative right-8 top-5 -rotate-180"
+  //               [naipe]="cardVira.naipe"
+  //               [numero]="cardVira.numero"
+  //             ></app-carta-baralho>
+  //           </div>
+  //           <div class="w-8 h-14 rotate-180 mr-1.5">
+  //             <!-- *ngIf="!topCardNaipe == 0 || !topCardNumber == 0" -->
+  //             <app-carta-baralho
+  //               [naipe]="topCardNaipe"
+  //               [numero]="topCardNumber"
+  //             ></app-carta-baralho>
+  //           </div>
+  //         </div>
+
+  //         <div class="flex justify-between items-center w-full">
+  //           <div class="h-7 relative ml-[2%] grow flex justify-start">
+  //             <app-avatar-mesa
+  //               avatarClass="-bottom-2 -left-2"
+  //               tampaPClass="-top-3 -right-2"
+  //               cardDirection="right"
+  //               [cardsRival]="cardsRivalRight"
+  //               [nome]="namej2"
+  //               cartas="/assets/game/cartas/4paus.png"
+  //               [avatar]="avatar2"
+  //               [joined]="avatar2"
+  //               [cards]="exampleCards"
+  //             ></app-avatar-mesa>
+  //           </div>
+  //           <div class="flex items-center justify-center">
+  //             <div class="w-8 h-14 rotate-90">
+  //               <!-- *ngIf="!leftCardNaipe == 0 || !leftCardNumber == 0" -->
+  //               <app-carta-baralho
+  //                 [naipe]="leftCardNaipe"
+  //                 [numero]="leftCardNumber"
+  //               ></app-carta-baralho>
+  //             </div>
+  //             <!-- ESPAÇO NO CENTRO -->
+  //             <div class="w-14"></div>
+  //             <!-- ESPAÇO NO CENTRO -->
+
+  //             <div class="w-8 h-14 -rotate-90">
+  //               <!-- *ngIf="!rightCardNaipe == 0 || !rightCardNumber == 0" -->
+  //               <app-carta-baralho
+  //                 [naipe]="rightCardNaipe"
+  //                 [numero]="rightCardNumber"
+  //               ></app-carta-baralho>
+  //             </div>
+  //           </div>
+
+  //           <div class="h-7 relative mr-[4%] grow flex justify-end">
+  //             <app-avatar-mesa
+  //               avatarClass="-right-3"
+  //               tampaPClass="-top-3 -left-2"
+  //               cardDirection="right"
+  //               [cardsRival]="cardsRivalRight"
+  //               [nome]="namej4"
+  //               cartas="/assets/game/cartas/4paus.png"
+  //               [avatar]="avatar4"
+  //               [joined]="avatar4"
+  //               [cards]="exampleCards"
+  //             ></app-avatar-mesa>
+  //           </div>
+  //         </div>
+
+  //         <div class="flex grow basis-1/4 items-center justify-between flex-col">
+  //           <div class="w-8 h-14">
+  //             <!-- *ngIf="!bottomCardNaipe == 0 || !bottomCardNumber == 0" -->
+  //             <app-carta-baralho
+  //               [naipe]="bottomCardNaipe"
+  //               [numero]="bottomCardNumber"
+  //             ></app-carta-baralho>
+  //           </div>
+
+  //           <div class="flex flex-col items-center">
+  //             <span
+  //               *ngIf="tableData.tableType === 'cashgame'"
+  //               class="block text-white opacity-60 text-[0.6rem]"
+  //               >{{"mesa.cashgame" | translate }}</span
+  //             >
+  //             <span
+  //               *ngIf="tableData.tableType === 'torneio'"
+  //               class="block text-white opacity-60 text-[0.6rem]"
+  //               >{{"mesa.tournament" | translate }}</span
+  //             >
+  //             <span class="block text-white opacity-60 text-[0.6rem]">
+  //               {{tableData.gameMode || 'unknown'}}
+  //             </span>
+
+  //             <span class="block text-white opacity-60 text-[0.6rem]">
+  //               Id: {{tableData.id || 'unknown'}}
+  //             </span>
+  //             <span class="block text-white opacity-60 text-[0.6rem]">
+  //               entrada: {{tableData.buy || 'unknown'}}
+  //             </span>
+  //           </div>
+  //           <div class="h-7 w-5 relative mb-[4%] flex justify-center mt-2">
+  //             <app-avatar-mesa
+  //               [eu]="true"
+  //               avatarClass="bottom-2 -left-3"
+  //               tampaPClass="-top-3 -left-2"
+  //               cardDirection="right"
+  //               [cardsRival]="cardsRivalRight"
+  //               [nome]="namej1"
+  //               cartas="/assets/game/cartas/4paus.png"
+  //               [avatar]="avatar1"
+  //               [joined]="avatar1"
+  //               [cards]="exampleCards"
+  //             ></app-avatar-mesa>
+  //           </div>
+  //         </div>
+  //       </div>
+  //     </div>
+  //     <img
+  //       class="cursor-pointer h-10 self-end transition ease-in-out delay-150 hover:scale-110 duration-300"
+  //       src="/assets/game/partidaTruco/sinal-secreto.png"
+  //     />
+  //   </section>
+
+  //   <section>
+  //     <section class="flex items-center flex-col">
+  //       <img
+  //         class="cursor-pointer h-8 w-32"
+  //         src="/assets/game/partidaTruco/truco_part_truco.png"
+  //       />
+
+  //       <div class="flex justify-center mt-3">
+  //         <img
+  //           class="cursor-pointer h-8"
+  //           src="/assets/game/partidaTruco/CORRER.png"
+  //         />
+  //         <img
+  //           class="cursor-pointer h-8 ml-3 mr-3"
+  //           src="/assets/game/partidaTruco/ACEITAR.png"
+  //         />
+  //         <img
+  //           class="cursor-pointer h-8"
+  //           src="../../../assets/game/partidaTruco/AUMENTAR.png"
+  //         />
+  //       </div>
+  //     </section>
+
+  //     <section>
+  //       <div class="flex justify-between mt-1">
+  //         <img
+  //           class="cursor-pointer h-8"
+  //           src="/assets/game/partidaTruco/historico-de-maos.png"
+  //         />
+
+  //         <div class="flex items-center">
+  //           <!-- <img
+  //             class="h-6 ml-2 mr-2"
+  //             src="../../../assets/game/partidaTruco/lista-de-espera.png"
+  //           /> -->
+  //           <div
+  //             class="h-6 w-20 bg-contain bg-no-repeat ml-2 mr-2 bg-[url('/assets/game/partidaTruco/lista-de-espera.png')]"
+  //           >
+  //             <span class="font-vag text-[#8b8b5c] relative left-14">0</span>
+  //           </div>
+
+  //           <img
+  //             class="cursor-pointer h-8 ml-2 mr-2"
+  //             src="../../../assets/game/partidaTruco/MICROFONE.png"
+  //           />
+  //           <img
+  //             class="cursor-pointer h-8"
+  //             src="/assets/game/partidaTruco/CHAT.png"
+  //           />
+  //         </div>
+  //       </div>
+  //     </section>
+  //   </section>
+  // </div>
+</script>

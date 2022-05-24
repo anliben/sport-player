@@ -79,13 +79,6 @@
       src="/assets/game/partidaTruco/informacoes.png"
     />
   </section>
-  <!-- <ion-modal [isOpen]="isModalOpen">
-    <ng-template>
-      <h1>Ola Mundo</h1>
-      <button (click)="menu()">fechar</button>
-    </ng-template>
-
-  </ion-modal> -->
 
   <section class="flex justify-center h-[70%]">
     <img
@@ -109,7 +102,7 @@
               [nome]="namej1"
               cartas="/assets/game/cartas/4paus.png"
               [avatar]="avatar1"
-              [joined]="avatar1 ? true : false"
+              [joined]="!!avatar1"
               [cards]="exampleCards"
             ></app-avatar-mesa>
           </div>
@@ -141,10 +134,10 @@
             <app-carta-baralho
               class="relative right-8 top-5 -rotate-180"
               [naipe]="cardVira.naipe"
-              [numero]="cardVira.numero"
+              [numero]="cardVira.numero.toString()"
             ></app-carta-baralho>
           </div>
-          <div class="w-8 h-14 rotate-180 mr-1.5">
+          <div class="w-8 h-14 rotate-180">
             <!-- *ngIf="!topCardNaipe == 0 || !topCardNumber == 0" -->
             <app-carta-baralho
               [naipe]="topCardNaipe"
@@ -153,53 +146,10 @@
           </div>
         </div>
 
-        <div class="flex justify-between items-center w-full">
-          <div class="h-7 relative ml-[2%] grow flex justify-start">
-            <app-avatar-mesa
-              avatarClass="-bottom-2 -left-2"
-              tampaPClass="-top-3 -right-2"
-              cardDirection="right"
-              [cardsRival]="cardsRivalRight"
-              [nome]="namej2"
-              cartas="/assets/game/cartas/4paus.png"
-              [avatar]="avatar2"
-              [joined]="avatar2"
-              [cards]="exampleCards"
-            ></app-avatar-mesa>
-          </div>
+        <!-- CENTRO -->
+        <div class="flex justify-center items-center w-full">
           <div class="flex items-center justify-center">
-            <div class="w-8 h-14 rotate-90">
-              <!-- *ngIf="!leftCardNaipe == 0 || !leftCardNumber == 0" -->
-              <app-carta-baralho
-                [naipe]="leftCardNaipe"
-                [numero]="leftCardNumber"
-              ></app-carta-baralho>
-            </div>
-            <!-- ESPAÇO NO CENTRO -->
-            <div class="w-14"></div>
-            <!-- ESPAÇO NO CENTRO -->
-
-            <div class="w-8 h-14 -rotate-90">
-              <!-- *ngIf="!rightCardNaipe == 0 || !rightCardNumber == 0" -->
-              <app-carta-baralho
-                [naipe]="rightCardNaipe"
-                [numero]="rightCardNumber"
-              ></app-carta-baralho>
-            </div>
-          </div>
-
-          <div class="h-7 relative mr-[4%] grow flex justify-end">
-            <app-avatar-mesa
-              avatarClass="-right-3"
-              tampaPClass="-top-3 -left-2"
-              cardDirection="right"
-              [cardsRival]="cardsRivalRight"
-              [nome]="namej4"
-              cartas="/assets/game/cartas/4paus.png"
-              [avatar]="avatar4"
-              [joined]="avatar4"
-              [cards]="exampleCards"
-            ></app-avatar-mesa>
+            <div class="w-14 h-8"></div>
           </div>
         </div>
 
@@ -244,7 +194,7 @@
               [nome]="namej1"
               cartas="/assets/game/cartas/4paus.png"
               [avatar]="avatar1"
-              [joined]="avatar1 ? true : false"
+              [joined]="!!avatar1"
               [cards]="exampleCards"
             ></app-avatar-mesa>
           </div>
@@ -252,7 +202,7 @@
       </div>
     </div>
     <img
-      class="cursor-pointer h-10 self-end transition ease-in-out delay-150 hover:scale-110 duration-300"
+      class="invisible cursor-pointer h-10 self-end transition ease-in-out delay-75 active:scale-110 duration-200"
       src="/assets/game/partidaTruco/sinal-secreto.png"
     />
   </section>
@@ -265,7 +215,11 @@
         (click)="truco()"
       />
 
-      <div [class.request-truco-false]="!trucco" [class.request-truco-true]="trucco" class="flex justify-center mt-3">
+      <div
+        [class.request-truco-false]="!trucco"
+        [class.request-truco-true]="trucco"
+        class="flex justify-center mt-3"
+      >
         <img
           class="cursor-pointer h-8 animate-pulse"
           src="/assets/game/partidaTruco/CORRER.png"

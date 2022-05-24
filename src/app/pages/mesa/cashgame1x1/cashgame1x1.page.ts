@@ -203,7 +203,7 @@ export class Cashgame1x1Page implements OnInit {
   async showInviteFriendsModal(): Promise<void> {
     console.log('showInviteFriendsModal');
 
-    const modal = await this.modalCtrl.create({
+    const modal = await this.modalController.create({
       component: ConvidarAmigosModalPage,
       cssClass: 'custom-class-modal-pattern modal-h20-height',
     });

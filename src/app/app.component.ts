@@ -11,14 +11,14 @@ export class AppComponent implements OnInit {
   constructor(
     public translate: TranslateService
     ) { }
-    
+
     ngOnInit(): void {
     this._initTranslate();
   }
-  
+
   private _initTranslate(): void {
     if (this.translate.getBrowserLang() !== undefined) {
-      let tr: any = this.translate.getBrowserLang()?.toString();
+      const tr: any = this.translate.getBrowserLang()?.toString();
       this.translate.use(tr);
     } else {
       this.translate.use('pt');

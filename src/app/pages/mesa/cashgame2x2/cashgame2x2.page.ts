@@ -12,53 +12,53 @@ import { ConfiguracaoJogoModalComponent } from 'src/app/shared/components/config
   styleUrls: ['./cashgame2x2.page.scss'],
 })
 export class Cashgame2x2Page implements OnInit {
-  tableType: string = 'cashgame';
+  tableType = 'cashgame';
   tableData: object = null;
 
-  isModalOpen: boolean = false;
+  isModalOpen = false;
 
-  joinedRoomTop: boolean = false;
-  joinedRoomBottom: boolean = false;
-  joinedRoomLeft: boolean = false;
-  joinedRoomRight: boolean = false;
-  j1: boolean = false;
-  j2: boolean = false;
-  j3: boolean = false;
-  j4: boolean = false;
+  joinedRoomTop = false;
+  joinedRoomBottom = false;
+  joinedRoomLeft = false;
+  joinedRoomRight = false;
+  j1 = false;
+  j2 = false;
+  j3 = false;
+  j4 = false;
   cardsRivalTop: Array<any>;
   cardsRivalLeft: Array<any>;
   cardsRivalRight: Array<any>;
 
-  namej1: string = '';
-  namej2: string = '';
-  namej3: string = '';
-  namej4: string = '';
+  namej1 = '';
+  namej2 = '';
+  namej3 = '';
+  namej4 = '';
 
-  avatar1: string = '';
-  avatar2: string = '';
-  avatar3: string = '';
-  avatar4: string = '';
+  avatar1 = '';
+  avatar2 = '';
+  avatar3 = '';
+  avatar4 = '';
 
-  maxPlayer: number = 0;
+  maxPlayer = 0;
 
   nome = '';
   position = '';
 
   players = [];
   countPlayer = 0;
-  joined: boolean = false;
+  joined = false;
 
-  leftAnimation: boolean = false;
-  topAnimation: boolean = false;
-  rightAnimation: boolean = false;
-  bottomAnimation: boolean = true;
+  leftAnimation = false;
+  topAnimation = false;
+  rightAnimation = false;
+  bottomAnimation = true;
 
   bottomCardNumber = 0;
   bottomCardNaipe = 0;
 
   topCardNumber = 0;
   topCardNaipe = 0;
-  
+
   leftCardNumber = 0;
   leftCardNaipe = 0;
 
@@ -72,11 +72,11 @@ export class Cashgame2x2Page implements OnInit {
   exampleCards: object[];
   // -> carta vira (A que fica por baixo da carta de costa em baixo do jackpot!!)
   cardVira = {};
-  count: number = 0
-  pontosNos: number = 0;
-  pontosEles: number = 0;
-  rodadas: number = 0;
-  friend: string = '';
+  count = 0;
+  pontosNos = 0;
+  pontosEles = 0;
+  rodadas = 0;
+  friend = '';
 
 
   constructor(
@@ -100,8 +100,8 @@ export class Cashgame2x2Page implements OnInit {
           this.exampleCards = player.mao;
         }
       });
-    })
-    
+    });
+
    this.WebSocket.listen('rodada').subscribe((data: any) => {
       data.jogadores.forEach( (element: any)=> {
         this.rodadas = element.rodadas;
@@ -113,21 +113,21 @@ export class Cashgame2x2Page implements OnInit {
         }
         else{
           this.pontosEles = element.pontos;
-          return
+          return;
         }
       });
-   })
+   });
 
    this.WebSocket.listen('jogarCarta').subscribe((data: any) => {
-     let carta = {
+     const carta = {
         naipe: data.naipe,
         numero: data.numero,
         index: data.index
-     }
-     let arrs = ['left', 'right'];
+     };
+     const arrs = ['left', 'right'];
 
      console.log(data);
-     
+
 
      if(data.jogador == this.nome){
        this.exampleCards.splice(carta.index, 1);
@@ -143,16 +143,16 @@ export class Cashgame2x2Page implements OnInit {
         this.cardsRivalLeft.splice(this.cardsRivalLeft.indexOf(carta), 1);
         this.leftCardNaipe = carta.naipe;
         this.leftCardNumber = carta.numero;
-        return}
+        return;}
         this.cardsRivalRight.splice(this.cardsRivalRight.indexOf(carta), 1);
         this.rightCardNaipe = carta.naipe;
         this.rightCardNumber = carta.numero;
-   })
+   });
 
-    let id = this.playerIdService.getId();
+    const id = this.playerIdService.getId();
 
     this.WebSocket.emit('insertPlayer', {
-      id: id,
+      id,
       username: this.nome,
       posicao: 'right',
       room: '1',
@@ -161,15 +161,15 @@ export class Cashgame2x2Page implements OnInit {
     //this.WebSocket.emit('updateUsers', { 'room': '1' })
 
     // escutar players na sala
-   
+
     this.WebSocket.listen('findPlayers').subscribe((data: any) => {
       this.cardVira = data.vira[0];
       this.playerIdService.setManilha(data.manilha);
       this.playerIdService.setVira(this.cardVira);
-      let arrs = ['left', 'right'];
+      const arrs = ['left', 'right'];
       data.jogadores.forEach((player: any)=> {
         if(player.friend === this.nome){
-          player.posicao = 'top'
+          player.posicao = 'top';
           this.friend = player.username;
           this.j3 = true;
           this.avatar3 = player.src;
@@ -177,13 +177,13 @@ export class Cashgame2x2Page implements OnInit {
           this.cardsRivalTop = [1, 2, 3];
         }
         if(player.username == this.nome){
-          player.posicao = 'bottom'
+          player.posicao = 'bottom';
           this.j1 = true;
           this.avatar1 = player.src;
           this.namej1 = player.username;
           this.exampleCards = player.mao;
           console.log(player.mao);
-          
+
         } else {
           if (arrs[0] === 'left') {
             player.posicao = arrs[0];
@@ -215,9 +215,9 @@ export class Cashgame2x2Page implements OnInit {
   }
 
   generatePlayers() {
-    let posicoes = ['top', 'bottom', 'left', 'right'];
+    const posicoes = ['top', 'bottom', 'left', 'right'];
     for (let i = 0; i < 100; i++) {
-      let indexPosicoes = Math.floor(Math.random() * posicoes.length);
+      const indexPosicoes = Math.floor(Math.random() * posicoes.length);
       this.players.push({
         username: 'joao ' + i,
         src: '/assets/game/game/homem.png',

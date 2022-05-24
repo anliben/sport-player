@@ -10,14 +10,14 @@ import { AlertController } from '@ionic/angular';
 })
 export class RegisterComponent implements OnInit {
 
-  formRegister:FormGroup;
+  formRegister: FormGroup;
   ocultaPassword: boolean;
 
   constructor(
     private router: Router,
-    private formBuilder : FormBuilder, 
-    private alertController: AlertController 
-  ) { 
+    private formBuilder: FormBuilder,
+    private alertController: AlertController
+  ) {
 
   }
 
@@ -26,7 +26,7 @@ export class RegisterComponent implements OnInit {
       name: ['', Validators.required],
       email: ['', Validators.required],
       password: ['', Validators.required],
-    })
+    });
   }
 
   viewPassword(){
@@ -35,10 +35,10 @@ export class RegisterComponent implements OnInit {
 
   async signUp(){
 
-    let {name, email, password} = this.formRegister.getRawValue();
+    const {name, email, password} = this.formRegister.getRawValue();
     console.log(name);
     console.log(email);
     console.log(password);
- 
+
   }
 }

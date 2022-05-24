@@ -15,8 +15,8 @@ describe('PlayerService', () => {
   });
 
   it('listar todos os player', () => {
-    let players = service.getPlayer()
+    const players = service.getPlayer();
     console.log(players);
-    
-  })
+
+  });
 });

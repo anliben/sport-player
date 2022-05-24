@@ -16,46 +16,46 @@ interface viraInterface {
   styleUrls: ['./mesa.page.scss'],
 })
 export class MesaPage implements OnInit {
-  tableType: string = 'cashgame';
+  tableType = 'cashgame';
   tableData: object = null;
 
-  isModalOpen: boolean = false;
+  isModalOpen = false;
 
-  joinedRoomTop: boolean = false;
-  joinedRoomBottom: boolean = false;
-  joinedRoomLeft: boolean = false;
-  joinedRoomRight: boolean = false;
-  j1: boolean = false;
-  j2: boolean = false;
-  j3: boolean = false;
-  j4: boolean = false;
+  joinedRoomTop = false;
+  joinedRoomBottom = false;
+  joinedRoomLeft = false;
+  joinedRoomRight = false;
+  j1 = false;
+  j2 = false;
+  j3 = false;
+  j4 = false;
   cardsRivalTop: Array<any>;
   cardsRivalLeft: Array<any>;
   cardsRivalRight: Array<any>;
 
-  namej1: string = '';
-  namej2: string = '';
-  namej3: string = '';
-  namej4: string = '';
+  namej1 = '';
+  namej2 = '';
+  namej3 = '';
+  namej4 = '';
 
-  avatar1: string = '';
-  avatar2: string = '';
-  avatar3: string = '';
-  avatar4: string = '';
+  avatar1 = '';
+  avatar2 = '';
+  avatar3 = '';
+  avatar4 = '';
 
-  maxPlayer: number = 0;
+  maxPlayer = 0;
 
   nome = '';
   position = '';
 
   players = [];
   countPlayer = 0;
-  joined: boolean = false;
+  joined = false;
 
-  leftAnimation: boolean = false;
-  topAnimation: boolean = false;
-  rightAnimation: boolean = false;
-  bottomAnimation: boolean = true;
+  leftAnimation = false;
+  topAnimation = false;
+  rightAnimation = false;
+  bottomAnimation = true;
 
   bottomCardNumber = 0;
   bottomCardNaipe = 0;
@@ -76,11 +76,11 @@ export class MesaPage implements OnInit {
   exampleCards: object[];
   // -> carta vira (A que fica por baixo da carta de costa em baixo do jackpot!!)
   cardVira = {};
-  count: number = 0;
-  pontosNos: number = 0;
-  pontosEles: number = 0;
-  rodadas: number = 0;
-  friend: string = '';
+  count = 0;
+  pontosNos = 0;
+  pontosEles = 0;
+  rodadas = 0;
+  friend = '';
 
   constructor(
     private WebSocket: WebSocketService,
@@ -93,7 +93,7 @@ export class MesaPage implements OnInit {
 
     // OBS: solução temporaria para testes
     this.tableData = this.activatedRoute.params.subscribe((params) => {
-      this.tableData = JSON.parse(params['dados']);
+      this.tableData = JSON.parse(params.dados);
     });
   }
 
@@ -129,12 +129,12 @@ export class MesaPage implements OnInit {
     });
 
     this.WebSocket.listen('jogarCarta').subscribe((data: any) => {
-      let carta = {
+      const carta = {
         naipe: data.naipe,
         numero: data.numero,
         index: data.index,
       };
-      let arrs = ['left', 'right'];
+      const arrs = ['left', 'right'];
 
       console.log(data);
 
@@ -159,10 +159,10 @@ export class MesaPage implements OnInit {
       this.rightCardNumber = carta.numero;
     });
 
-    let id = this.playerIdService.getId();
+    const id = this.playerIdService.getId();
 
     this.WebSocket.emit('insertPlayer', {
-      id: id,
+      id,
       username: this.nome,
       posicao: 'right',
       room: '1',
@@ -176,7 +176,7 @@ export class MesaPage implements OnInit {
       this.cardVira = data.vira[0];
       this.playerIdService.setManilha(data.manilha);
       this.playerIdService.setVira(this.cardVira);
-      let arrs = ['left', 'right'];
+      const arrs = ['left', 'right'];
       data.jogadores.forEach((player: any) => {
         if (player.friend === this.nome) {
           player.posicao = 'top';
@@ -224,9 +224,9 @@ export class MesaPage implements OnInit {
   }
 
   generatePlayers() {
-    let posicoes = ['top', 'bottom', 'left', 'right'];
+    const posicoes = ['top', 'bottom', 'left', 'right'];
     for (let i = 0; i < 100; i++) {
-      let indexPosicoes = Math.floor(Math.random() * posicoes.length);
+      const indexPosicoes = Math.floor(Math.random() * posicoes.length);
       this.players.push({
         username: 'joao ' + i,
         src: '/assets/game/game/homem.png',

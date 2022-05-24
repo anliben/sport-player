@@ -19,10 +19,10 @@ export class PainelJogadorPage implements OnInit {
 
   ngOnInit() {
   }
- 
+
   clickinfoRakeoooo(){
     this.infoRakeoooo = !this.infoRakeoooo;
-    console.log(this.infoRakeoooo);   
+    console.log(this.infoRakeoooo);
   }
   back() {
     this.navController.back();

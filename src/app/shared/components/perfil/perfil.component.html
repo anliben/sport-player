@@ -29,15 +29,17 @@
 
     <div class="flex justify-center items-center relative bottom-5">
       <img
-        class="cursor-pointer transition ease-in-out delay-150 hover:scale-110 duration-300 h-5"
+        class="cursor-pointer transition ease-in-out delay-150 active:scale-110 duration-300 h-5"
         src="/assets/game/truco8/mensagem.png"
       />
       <img
-        class="cursor-pointer transition ease-in-out delay-150 hover:scale-110 duration-300 h-7 m-2"
+      (click)="showMissaoModal()"
+        class="cursor-pointer transition ease-in-out delay-150 active:scale-110 duration-300 h-7 m-2"
         src="/assets/game/truco8/missao.png"
       />
       <img
-        class="cursor-pointer transition ease-in-out delay-150 hover:scale-110 duration-300 h-7 mr-5"
+        (click)="showSuporteModal()"
+        class="cursor-pointer transition ease-in-out delay-150 active:scale-110 duration-300 h-7 mr-5"
         src="/assets/game/truco8/suporte.png"
       />
     </div>

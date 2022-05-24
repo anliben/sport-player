@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class PlayerIdService {
-  
+
   id: string;
   nome: string;
   manilha: string;
@@ -14,9 +14,9 @@ export class PlayerIdService {
     this.id = id;
     localStorage.setItem('id', id);
   }
-  getId(){ return this.id }
-  setNome( nome: string ){ this.nome = nome }
-  getNome(){ return this.nome }
+  getId(){ return this.id; }
+  setNome( nome: string ){ this.nome = nome; }
+  getNome(){ return this.nome; }
   setManilha( manilha: any ){ this.manilha = manilha; }
   getManilha(){ return this.manilha; }
   setVira(vira) { this.vira = vira; }

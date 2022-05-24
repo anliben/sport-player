@@ -40,6 +40,7 @@ import { Torneio1x1PageModule } from './pages/mesa/torneio1x1/torneio1x1.module'
 import { Torneio2x2PageModule } from './pages/mesa/torneio2x2/torneio2x2.module';
 import { SuperTabsModule } from '@ionic-super-tabs/angular';
 import { RegisterComponent } from './auth/register/register.component';
+import { ClubePage } from './pages/clube/clube.page';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyBz6Tn9WSVpHKgJqMBs5o6bpW3FvwpOVwQ',
@@ -93,7 +94,6 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
     ScrollingModule,
     ReactiveFormsModule,
     SuperTabsModule.forRoot(),
-    ScrollingModule,
     FormsModule,
     ReactiveFormsModule
   ],

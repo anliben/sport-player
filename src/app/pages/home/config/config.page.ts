@@ -10,7 +10,7 @@ export class ConfigPage implements OnInit {
   formAlterEmail: FormGroup;
   formAlterPhone: FormGroup;
   formAlterPassword: FormGroup;
-  brightness: number = 100;
+  brightness = 100;
   type = '';
   constructor( private fb: FormBuilder) { }
 
@@ -18,18 +18,18 @@ export class ConfigPage implements OnInit {
     this.formAlterPhone = this.fb.group({
       phoneAtual: [''],
       newPhone: ['']
-    })
+    });
     this.formAlterEmail = this.fb.group({
       emailAtual: [''],
       newEmail: ['']
-    })
+    });
     this.formAlterPassword = this.fb.group({
       passwordAtual: [''],
       newPassword: [''],
       confirmedPassword: ['']
-    })
+    });
   }
-  
+
   selectTypeConfig(type){
     if(this.type !== type){
       this.type = type;
@@ -39,22 +39,22 @@ export class ConfigPage implements OnInit {
   }
 
   savePhone(){
-    let { phoneAtual, newPhone } = this.formAlterPhone.getRawValue();
-    console.log(phoneAtual)
-    console.log(newPhone)
+    const { phoneAtual, newPhone } = this.formAlterPhone.getRawValue();
+    console.log(phoneAtual);
+    console.log(newPhone);
   }
 
   saveEmail(){
-    let { emailAtual, newEmail} = this.formAlterEmail.getRawValue();
+    const { emailAtual, newEmail} = this.formAlterEmail.getRawValue();
     console.log(emailAtual);
     console.log(newEmail);
   }
 
   savePassword(){
-    let { passwordAtual, newPassword, confirmedPassword} = this.formAlterPassword.getRawValue();
+    const { passwordAtual, newPassword, confirmedPassword} = this.formAlterPassword.getRawValue();
     console.log(passwordAtual);
     console.log(newPassword);
-    console.log(confirmedPassword);    
+    console.log(confirmedPassword);
   }
 
 }

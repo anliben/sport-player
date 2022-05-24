@@ -8,7 +8,7 @@ const routes: Routes = [
     path: '',
     component: MesaPage
   },
- 
+
   {
     path: 'cashgame1x1',
     loadChildren: () => import('./cashgame1x1/cashgame1x1.module').then( m => m.Cashgame1x1PageModule)

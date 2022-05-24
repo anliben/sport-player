@@ -1,0 +1,8 @@
+ion-content {
+  --background: var(--modal-background);
+}
+.teste {
+  &:active {
+    background-color: red;
+  }
+}

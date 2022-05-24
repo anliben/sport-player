@@ -77,7 +77,7 @@
       src="../../../../assets/game/loja/botao-sortear.png"
     />
 
-    <cdk-virtual-scroll-viewport itemSize="56" class="h-2/4 sm:h-2/4 w-full">
+    <cdk-virtual-scroll-viewport itemSize="60" class="h-2/4 sm:h-2/4 w-full">
       <div class="flex justify-center mb-6">
         <div class="grid grid-cols-3 gap-3">
           <div *ngFor="let storeItem of storeItens">
@@ -87,7 +87,7 @@
                 src="../../../../assets/game/loja/sortido-item.png"
               />
               <div
-                *ngIf="storeItem.type != 'emoji'"
+                *ngIf="storeItem.type !== 'emoji'"
                 class="absolute bottom-0 h-24 w-20 left-1/4"
               >
                 <img class="h-11" src="{{storeItem.imgItem}}" />

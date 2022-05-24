@@ -6,7 +6,7 @@
         <div
           class="bg-[url('/assets/game/game/homem.png')] bg-black z-20 rounded-full border border-amber-100/50 border-solid w-14 h-14 bg-no-repeat bg-contain">
         </div>
-        <div class="flex flex-col">
+        <div class="flex flex-col ">
           <figure class="w-44 mt-2 relative right-5">
             <img src="/assets/game/truco8/fundo-info-Jogador.png" />
             <span
@@ -18,12 +18,12 @@
             <span class="absolute bottom-0 left-6 mb-0.5 text-[#fdfca7] text-xs">LEVEL</span>
           </figure>
         </div>
-        <div class="flex">
-          <div class="mt-1 ml-2 right-0">
+        <div class="pl-[5%]">
+          <div class="mt-1 ml-2">
             <img src="/assets/game/perfil/fundo-fichas.png" class="h-7"> 
             <ion-row class="mt-2">
               <img src="/assets/game/perfil/adicionar.png" class="h-5 mr-2 cursor-pointer transition ease-in-out hover:scale-110">
-              <img src="/assets/game/perfil/sacar.png" class="h-5 cursor-pointer transition ease-in-out hover:scale-110">
+              <img (click)="showSaqueModal()" src="/assets/game/perfil/sacar.png" class="h-5 cursor-pointer transition ease-in-out hover:scale-110">
             </ion-row>
           </div>
         </div>

@@ -31,7 +31,7 @@ export class HeaderComponent implements OnInit {
   async showVipModal(){
     const modal = await this.modalCtrl.create({
       component: VipModalPage,
-      cssClass: 'custom-class-modal modal-h40-height',
+      cssClass: 'custom-class-modal-vip modal-height-vip',
     });
     
     return await modal.present();

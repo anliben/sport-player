@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { SaqueModalComponent } from '../../../shared/components/modais/saque-modal/saque-modal.component';
 
 @Component({
   selector: 'app-perfil-jogador',
@@ -89,8 +91,17 @@ export class PerfilJogadorComponent implements OnInit {
   
 ];
 
-  constructor() { }
+  constructor(private modalController: ModalController) { }
 
   ngOnInit() {}
+
+  async showSaqueModal(){
+    const modal = await this.modalController.create({
+      component: SaqueModalComponent,
+      cssClass: 'custom-class-modal-saque modal-height-saque',
+    });
+    
+    return await modal.present();
+  }
 
 }

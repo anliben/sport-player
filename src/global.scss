@@ -222,9 +222,8 @@ ion-modal {
     --height: 16.5%;
   }
 }
-
 ion-modal {
-  &.custom-class-modal {
+  &.custom-class-modal-missoes {
     --height: 100%;
     --width: 80%;
     --max-width: 400px;
@@ -233,8 +232,36 @@ ion-modal {
     --border-style: solid;
     --border-color: var(--primary);
   }
-  &.modal-h40-height {
-    --height: 65%;
+  &.modal-height-missoes {
+    --height: 430px;
+  }
+}
+ion-modal {
+  &.custom-class-modal-vip {
+    --height: 100%;
+    --width: 80%;
+    --max-width: 400px;
+    --border-radius: 3px;
+    --border-width: 1px;
+    --border-style: solid;
+    --border-color: var(--primary);
+  }
+  &.modal-height-vip {
+    --height: 430px;
+  }
+}
+ion-modal {
+  &.custom-class-modal-saque {
+    --height: 100%;
+    --width: 80%;
+    --max-width: 400px;
+    --border-radius: 3px;
+    --border-width: 1px;
+    --border-style: solid;
+    --border-color: var(--primary);
+  }
+  &.modal-height-saque {
+    --height: 260px;
   }
 }
 .text-vag {

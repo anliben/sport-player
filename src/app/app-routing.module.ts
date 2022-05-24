@@ -77,7 +77,7 @@ const routes: Routes = [
   },
   {
     path: 'painel-jogador',
-    loadChildren: () => import('./pages/painel-jogador/painel-jogador.module').then( m => m.PainelJogadorPageModule)
+    loadChildren: () => import('./pages/clube/painel-jogador/painel-jogador.module').then( m => m.PainelJogadorPageModule)
   },
   {
     path: '**',
@@ -86,18 +86,12 @@ const routes: Routes = [
   {
     path: 'em-breve',
     loadChildren: () => import('./pages/em-breve/em-breve.module').then( m => m.EmBrevePageModule)
-  },  {
+  },
+  {
     path: 'suporte-modal',
     loadChildren: () => import('./shared/components/modais/suporte-modal/suporte-modal.module').then( m => m.SuporteModalPageModule)
-  },
-  {
-    path: 'missoes-modal',
-    loadChildren: () => import('./shared/components/modais/missoes-modal/missoes-modal.module').then( m => m.MissoesModalPageModule)
-  },
-  {
-    path: 'vip-modal',
-    loadChildren: () => import('./shared/components/modais/vip-modal/vip-modal.module').then( m => m.VipModalPageModule)
   }
+
 
 ];
 @NgModule({

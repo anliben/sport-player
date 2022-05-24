@@ -6,8 +6,8 @@ import { PlayerIdService } from 'src/app/services/player-id.service';
 import { ScoreService } from 'src/app/services/score.service';
 import {
   WebSocketService,
-  wWebSocketService,
 } from 'src/app/services/web-socket.service';
+
 import { ConfiguracaoJogoModalComponent } from 'src/app/shared/components/configuracao-jogo-modal/configuracao-jogo-modal.component';
 import { ConvidarAmigosModalPage } from 'src/app/shared/components/modais/convidar-amigos-modal/convidar-amigos-modal.page';
 import { CashgameServicesService } from './cashgame-services.service';

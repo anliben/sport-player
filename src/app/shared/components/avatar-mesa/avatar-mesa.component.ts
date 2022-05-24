@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { PlayerIdService } from 'src/app/services/player-id.service';
-import { wService } from 'src/app/services/web-socket.service';
+import { WebSocketService } from 'src/app/services/web-socket.service';
 
 @Component({
   selector: 'app-avatar-mesa',

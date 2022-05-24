@@ -6,8 +6,8 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./carta-baralho.component.scss'],
 })
 export class CartaBaralhoComponent implements OnInit {
-  @Input() naipe: string;
-  @Input() numero: string;
+  @Input() naipe: string | number;
+  @Input() numero: string | number;
   symbol: string;
   naipes: object;
 

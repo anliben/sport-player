@@ -79,13 +79,6 @@
       src="/assets/game/partidaTruco/informacoes.png"
     />
   </section>
-  <!-- <ion-modal [isOpen]="isModalOpen">
-    <ng-template>
-      <h1>Ola Mundo</h1>
-      <button (click)="menu()">fechar</button>
-    </ng-template>
-
-  </ion-modal> -->
 
   <section class="flex justify-center h-[70%]">
     <img
@@ -93,23 +86,26 @@
       src="/assets/game/partidaTruco/convidar-amigos.png"
     />
 
-    <div class="w-[100%] h-full">
+    <div class="w-[100%] h-full items-center">
       <div
         class="bg-mesa bg-center m-auto bg-[length:100%_100%] max-w-xs bg-no-repeat w-full h-full flex flex-col justify-between items-center"
       >
         <div
           class="flex grow basis-1/4 max-h-1/4 flex-col items-center justify-between"
         >
-          <app-avatar-mesa
-            [cardsRival]="cardsRivalTop"
-            [nome]="namej3"
-            cartas="/assets/game/cartas/4paus.png"
-            [avatar]="avatar3"
-            [cards]="exampleCards"
-            [joined]="avatar3"
-          ></app-avatar-mesa>
-
-          <app-tampa-p class="relative -top-4 left-8"></app-tampa-p>
+          <div class="h-7 relative mt-[4%] flex justify-center">
+            <app-avatar-mesa
+              avatarClass="-top-4 -left-3"
+              tampaPClass="-bottom-6 -right-4"
+              cardDirection="right"
+              [cardsRival]="cardsRivalRight"
+              [nome]="namej1"
+              cartas="/assets/game/cartas/4paus.png"
+              [avatar]="avatar1"
+              [joined]="!!avatar1"
+              [cards]="exampleCards"
+            ></app-avatar-mesa>
+          </div>
 
           <div class="flex flex-col justify-center items-center">
             <!-- {{tableData.tableType}} -->
@@ -141,9 +137,9 @@
               [numero]="cardVira.numero"
             ></app-carta-baralho>
           </div>
-          <div class="w-8 h-14 rotate-180">
+          <div class="w-8 h-14 rotate-180 mr-1.5">
+            <!-- *ngIf="!topCardNaipe == 0 || !topCardNumber == 0" -->
             <app-carta-baralho
-              *ngIf="!topCardNaipe == 0 || !topCardNumber == 0"
               [naipe]="topCardNaipe"
               [numero]="topCardNumber"
             ></app-carta-baralho>
@@ -151,45 +147,50 @@
         </div>
 
         <div class="flex justify-between items-center w-full">
-          <div>
-            <app-tampa-p class="relative top-0 bg-white left-12"></app-tampa-p>
+          <div class="h-7 relative ml-[2%] grow flex justify-start">
             <app-avatar-mesa
-              [cardsRival]="cardsRivalTop"
+              avatarClass="-bottom-2 -left-2"
+              tampaPClass="-top-3 -right-2"
+              cardDirection="right"
+              [cardsRival]="cardsRivalRight"
               [nome]="namej2"
-              [joined]="avatar2"
               cartas="/assets/game/cartas/4paus.png"
-              avatar="/assets/game/partidaTruco/perfil-foto-exemplo.png"
+              [avatar]="avatar2"
+              [joined]="!!avatar2"
+              [cards]="exampleCards"
             ></app-avatar-mesa>
           </div>
-
-          <div class="flex">
+          <div class="flex items-center justify-center">
             <div class="w-8 h-14 rotate-90">
+              <!-- *ngIf="!leftCardNaipe == 0 || !leftCardNumber == 0" -->
               <app-carta-baralho
-                *ngIf="!leftCardNaipe == 0 || !leftCardNumber == 0"
                 [naipe]="leftCardNaipe"
                 [numero]="leftCardNumber"
               ></app-carta-baralho>
             </div>
-            <div class="w-14 customSm"></div>
+            <!-- ESPAÇO NO CENTRO -->
+            <div class="w-14"></div>
+            <!-- ESPAÇO NO CENTRO -->
 
             <div class="w-8 h-14 -rotate-90">
+              <!-- *ngIf="!rightCardNaipe == 0 || !rightCardNumber == 0" -->
               <app-carta-baralho
-                *ngIf="!rightCardNaipe == 0 || !rightCardNumber == 0"
                 [naipe]="rightCardNaipe"
                 [numero]="rightCardNumber"
               ></app-carta-baralho>
             </div>
           </div>
 
-          <div>
-            <app-tampa-p class="relative top-0 bg-white right-4"></app-tampa-p>
+          <div class="h-7 relative mr-[4%] grow flex justify-end">
             <app-avatar-mesa
+              avatarClass="-right-3"
+              tampaPClass="-top-3 -left-2"
               cardDirection="right"
               [cardsRival]="cardsRivalRight"
               [nome]="namej4"
               cartas="/assets/game/cartas/4paus.png"
               [avatar]="avatar4"
-              [joined]="avatar4"
+              [joined]="!!avatar4"
               [cards]="exampleCards"
             ></app-avatar-mesa>
           </div>
@@ -197,8 +198,8 @@
 
         <div class="flex grow basis-1/4 items-center justify-between flex-col">
           <div class="w-8 h-14">
+            <!-- *ngIf="!bottomCardNaipe == 0 || !bottomCardNumber == 0" -->
             <app-carta-baralho
-              *ngIf="!bottomCardNaipe == 0 || !bottomCardNumber == 0"
               [naipe]="bottomCardNaipe"
               [numero]="bottomCardNumber"
             ></app-carta-baralho>
@@ -216,27 +217,28 @@
               >{{"mesa.tournament" | translate }}</span
             >
             <span class="block text-white opacity-60 text-[0.6rem]">
-              Limpo
+              {{tableData.gameMode || 'unknown'}}
             </span>
 
             <span class="block text-white opacity-60 text-[0.6rem]">
-              Id: 4568
+              Id: {{tableData.id || 'unknown'}}
             </span>
             <span class="block text-white opacity-60 text-[0.6rem]">
-              entrada: 600
+              entrada: {{tableData.buy || 'unknown'}}
             </span>
           </div>
-          <div>
-            <app-tampa-p class="relative -top-1 bg-white right-1"></app-tampa-p>
+          <div class="h-7 w-5 relative mb-[4%] flex justify-center mt-2">
             <app-avatar-mesa
-              eu="true"
-              [joined]="avatar1"
+              [eu]="true"
+              avatarClass="bottom-2 -left-3"
+              tampaPClass="-top-3 -left-2"
               cardDirection="right"
+              [cardsRival]="cardsRivalRight"
               [nome]="namej1"
               cartas="/assets/game/cartas/4paus.png"
               [avatar]="avatar1"
+              [joined]="!!avatar1"
               [cards]="exampleCards"
-              [cardsRival]="cardsRival"
             ></app-avatar-mesa>
           </div>
         </div>
@@ -280,9 +282,9 @@
 
         <div class="flex items-center">
           <!-- <img
-            class="h-6 ml-2 mr-2"
-            src="../../../assets/game/partidaTruco/lista-de-espera.png"
-          /> -->
+              class="h-6 ml-2 mr-2"
+              src="../../../assets/game/partidaTruco/lista-de-espera.png"
+            /> -->
           <div
             class="h-6 w-20 bg-contain bg-no-repeat ml-2 mr-2 bg-[url('/assets/game/partidaTruco/lista-de-espera.png')]"
           >

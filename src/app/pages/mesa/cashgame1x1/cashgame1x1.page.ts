@@ -6,6 +6,7 @@ import { PlayerIdService } from 'src/app/services/player-id.service';
 import { ScoreService } from 'src/app/services/score.service';
 import { WebSocketService } from 'src/app/services/web-socket.service';
 import { ConfiguracaoJogoModalComponent } from 'src/app/shared/components/configuracao-jogo-modal/configuracao-jogo-modal.component';
+import { ConvidarAmigosModalPage } from 'src/app/shared/components/modais/convidar-amigos-modal/convidar-amigos-modal.page';
 import { CashgameServicesService } from './cashgame-services.service';
 
 @Component({
@@ -78,7 +79,7 @@ export class Cashgame1x1Page implements OnInit {
   // -> carta vira (A que fica por baixo da carta de costa em baixo do jackpot!!)
   cardVira = {
     numero: 0,
-    naipe: ''
+    naipe: '',
   };
   count = 0;
   pontosNos = 0;
@@ -92,7 +93,8 @@ export class Cashgame1x1Page implements OnInit {
     private playerIdService: PlayerIdService,
     private activatedRoute: Router,
     private CashGameService: CashgameServicesService,
-    private scoreService: ScoreService
+    private scoreService: ScoreService,
+    private modalCtrl: ModalController
   ) {
     this.tableData = this.CashGameService.tableData;
     this.nome = this.CashGameService.nome;
@@ -140,7 +142,7 @@ export class Cashgame1x1Page implements OnInit {
       const carta = {
         naipe: data.naipe,
         numero: data.numero,
-        index: data.index
+        index: data.index,
       };
 
       if (data.jogador == this.nome) {
@@ -196,11 +198,21 @@ export class Cashgame1x1Page implements OnInit {
     }
   }
 
+  async showInviteFriendsModal(): Promise<void> {
+    console.log('showInviteFriendsModal');
+
+    const modal = await this.modalCtrl.create({
+      component: ConvidarAmigosModalPage,
+      cssClass: 'custom-class-modal-pattern modal-h20-height',
+    });
+    return await modal.present();
+  }
+
   async presentConfigGameModal() {
     const modal = await this.modalController.create({
       component: ConfiguracaoJogoModalComponent,
       showBackdrop: true,
-      cssClass: 'my-custom-class',
+      cssClass: 'custom-class-modal-pattern',
       backdropDismiss: true,
       animated: false,
     });

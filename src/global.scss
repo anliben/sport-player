@@ -219,7 +219,10 @@ ion-modal {
     --border-color: var(--primary);
   }
   &.modal-h20-height {
-    --height: 16.5%;
+    --height: 20%;
+  }
+  &.modal-h30-height {
+    --height: 30%;
   }
 }
 ion-modal {

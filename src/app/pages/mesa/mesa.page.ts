@@ -6,10 +6,7 @@ import { PlayerService } from 'src/app/services/player.service';
 import { WebSocketService } from 'src/app/services/web-socket.service';
 import { ConfiguracaoJogoModalComponent } from 'src/app/shared/components/configuracao-jogo-modal/configuracao-jogo-modal.component';
 
-interface viraInterface {
-  naipe: string;
-  numero: string;
-}
+
 @Component({
   selector: 'app-mesa',
   templateUrl: './mesa.page.html',
@@ -83,7 +80,7 @@ export class MesaPage implements OnInit {
   friend = '';
 
   constructor(
-    private WebSocket: WebSocketService,
+    private webSocket: WebSocketService,
     private modalController: ModalController,
     private playerIdService: PlayerIdService,
     private activatedRoute: ActivatedRoute
@@ -105,7 +102,7 @@ export class MesaPage implements OnInit {
       this.players[Math.floor(Math.random() * this.players.length)].username;
     this.playerIdService.setNome(this.nome);
 
-    this.WebSocket.listen('novaMao').subscribe((data: any) => {
+    this.webSocket.listen('novaMao').subscribe((data: any) => {
       data.jogadores.forEach((player) => {
         if (player.username === player.nome) {
           this.exampleCards = player.mao;
@@ -113,13 +110,13 @@ export class MesaPage implements OnInit {
       });
     });
 
-    this.WebSocket.listen('rodada').subscribe((data: any) => {
+    this.webSocket.listen('rodada').subscribe((data: any) => {
       data.jogadores.forEach((element: any) => {
         this.rodadas = element.rodadas;
-        if (element.username == this.nome) {
+        if (element.username === this.nome) {
           this.pontosNos = element.pontos;
           //this.exampleCards = element.mao;
-        } else if (element.friend == this.nome) {
+        } else if (element.friend === this.nome) {
           //this.cardsRivalTop = element.mao;
         } else {
           this.pontosEles = element.pontos;
@@ -128,7 +125,7 @@ export class MesaPage implements OnInit {
       });
     });
 
-    this.WebSocket.listen('jogarCarta').subscribe((data: any) => {
+    this.webSocket.listen('jogarCarta').subscribe((data: any) => {
       const carta = {
         naipe: data.naipe,
         numero: data.numero,
@@ -138,17 +135,17 @@ export class MesaPage implements OnInit {
 
       console.log(data);
 
-      if (data.jogador == this.nome) {
+      if (data.jogador === this.nome) {
         this.exampleCards.splice(carta.index, 1);
         this.bottomCardNaipe = carta.naipe;
         this.bottomCardNumber = carta.numero;
         console.log(this.exampleCards);
-      } else if (data.jogador == this.friend) {
+      } else if (data.jogador === this.friend) {
         this.cardsRivalTop.splice(this.cardsRivalTop.indexOf(carta), 1);
         this.topCardNaipe = carta.naipe;
         this.topCardNumber = carta.numero;
       }
-      if (data.jogador == this.namej2) {
+      if (data.jogador === this.namej2) {
         this.cardsRivalLeft.splice(this.cardsRivalLeft.indexOf(carta), 1);
         this.leftCardNaipe = carta.naipe;
         this.leftCardNumber = carta.numero;
@@ -161,18 +158,18 @@ export class MesaPage implements OnInit {
 
     const id = this.playerIdService.getId();
 
-    this.WebSocket.emit('insertPlayer', {
+    this.webSocket.emit('insertPlayer', {
       id,
       username: this.nome,
       posicao: 'right',
       room: '1',
       src: '/assets/game/game/homem.png',
     });
-    //this.WebSocket.emit('updateUsers', { 'room': '1' })
+    //this.webSocket.emit('updateUsers', { 'room': '1' })
 
     // escutar players na sala
 
-    this.WebSocket.listen('findPlayers').subscribe((data: any) => {
+    this.webSocket.listen('findPlayers').subscribe((data: any) => {
       this.cardVira = data.vira[0];
       this.playerIdService.setManilha(data.manilha);
       this.playerIdService.setVira(this.cardVira);
@@ -186,7 +183,7 @@ export class MesaPage implements OnInit {
           this.namej3 = player.username;
           this.cardsRivalTop = [1, 2, 3];
         }
-        if (player.username == this.nome) {
+        if (player.username === this.nome) {
           player.posicao = 'bottom';
           this.j1 = true;
           this.avatar1 = player.src;

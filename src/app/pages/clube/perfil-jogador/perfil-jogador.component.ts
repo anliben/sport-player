@@ -100,7 +100,6 @@ export class PerfilJogadorComponent implements OnInit {
       component: SaqueModalComponent,
       cssClass: 'custom-class-modal-saque modal-height-saque',
     });
-    
     return await modal.present();
   }
 

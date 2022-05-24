@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { SuporteModalPage } from '../modais/suporte-modal/suporte-modal.page';
-import { MissoesModalPage } from '../modais/missoes-modal/missoes-modal.page';
+import { MissoesModalComponent } from '../modais/missoes-modal/missoes-modal.component';
 
 @Component({
   selector: 'app-perfil',
@@ -24,8 +24,8 @@ export class PerfilComponent implements OnInit {
 
   async showMissaoModal(){
     const modal = await this.modalCtrl.create({
-      component: MissoesModalPage,
-      cssClass: 'custom-class-modal modal-h40-height',
+      component: MissoesModalComponent,
+      cssClass: 'custom-class-modal-missoes modal-height-missoes',
     });
     
     return await modal.present();

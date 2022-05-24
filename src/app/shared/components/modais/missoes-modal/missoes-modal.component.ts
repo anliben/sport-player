@@ -3,11 +3,11 @@ import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-missoes-modal',
-  templateUrl: './missoes-modal.page.html',
-  styleUrls: ['./missoes-modal.page.scss'],
+  templateUrl: './missoes-modal.component.html',
+  styleUrls: ['./missoes-modal.component.scss'],
 })
-export class MissoesModalPage implements OnInit {
-  missoes = [
+export class MissoesModalComponent implements OnInit {
+  missoes: any[] = [
     {
       "id": 1,
       "name": "Primeiro Login",

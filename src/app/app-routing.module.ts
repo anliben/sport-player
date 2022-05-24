@@ -90,7 +90,11 @@ const routes: Routes = [
   {
     path: 'suporte-modal',
     loadChildren: () => import('./shared/components/modais/suporte-modal/suporte-modal.module').then( m => m.SuporteModalPageModule)
+  },  {
+    path: 'convidar-amigos-modal',
+    loadChildren: () => import('./shared/components/modais/convidar-amigos-modal/convidar-amigos-modal.module').then( m => m.ConvidarAmigosModalPageModule)
   }
+
 
 
 ];

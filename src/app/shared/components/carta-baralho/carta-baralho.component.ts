@@ -12,6 +12,7 @@ export class CartaBaralhoComponent implements OnInit {
   naipes: object;
 
   constructor() {}
+  ngOnInit() {}
 
   getNaipeSrc() {
     this.naipes = {
@@ -32,6 +33,4 @@ export class CartaBaralhoComponent implements OnInit {
     };
     return symbols[this.numero] ? symbols[this.numero] : this.numero.toString();
   }
-
-  ngOnInit(): void {}
 }

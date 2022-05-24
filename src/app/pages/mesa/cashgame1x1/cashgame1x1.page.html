@@ -82,7 +82,8 @@
 
   <section class="flex justify-center h-[70%]">
     <img
-      class="cursor-pointer h-10 self-end transition ease-in-out delay-150 hover:scale-110 duration-300"
+      (click)="showInviteFriendsModal()"
+      class="cursor-pointer h-10 self-end transition ease-in-out delay-150 active:scale-110 duration-300"
       src="/assets/game/partidaTruco/convidar-amigos.png"
     />
 
@@ -201,6 +202,7 @@
         </div>
       </div>
     </div>
+
     <img
       class="invisible cursor-pointer h-10 self-end transition ease-in-out delay-75 active:scale-110 duration-200"
       src="/assets/game/partidaTruco/sinal-secreto.png"

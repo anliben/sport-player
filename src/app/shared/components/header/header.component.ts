@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
   @Input() voltarBtn = false;
 
   constructor(
-    private navCtrl: NavController, 
+    private navCtrl: NavController,
     private router: Router,
     private modalCtrl: ModalController
     ) {}
@@ -33,7 +33,6 @@ export class HeaderComponent implements OnInit {
       component: VipModalPage,
       cssClass: 'custom-class-modal-vip modal-height-vip',
     });
-    
     return await modal.present();
   }
 }

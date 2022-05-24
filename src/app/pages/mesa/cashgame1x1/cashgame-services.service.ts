@@ -17,7 +17,7 @@ export class CashgameServicesService {
 
 
   constructor(
-    private WebSocket: WebSocketService,
+    private webSocket: WebSocketService,
     private playerIdService: PlayerIdService,
     private activatedRoute: Router,
   ) {
@@ -29,11 +29,9 @@ export class CashgameServicesService {
 
   // emit add player
   addPlayer() {
-
-
     const id = this.playerIdService.getId();
 
-    this.WebSocket.emit('addPlayerCashGameX1', {
+    this.webSocket.emit('addPlayerCashGameX1', {
       id,
       username: this.nome,
       posicao: 'right',
@@ -49,7 +47,7 @@ export class CashgameServicesService {
 
     data.jogadores.forEach((element: any) => {
       this.rodadas = element.rodadas;
-      if (element.username == this.nome) {
+      if (element.username === this.nome) {
         this.pontosNos = element.pontos;
       } else {
         this.pontosEles = element.pontos;

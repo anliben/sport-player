@@ -13,10 +13,10 @@ export class AppComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-    this._initTranslate();
+    this.initTranslate();
   }
 
-  private _initTranslate(): void {
+  private initTranslate(): void {
     if (this.translate.getBrowserLang() !== undefined) {
       const tr: any = this.translate.getBrowserLang()?.toString();
       this.translate.use(tr);

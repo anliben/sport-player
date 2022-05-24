@@ -25,12 +25,12 @@ import { SaqueModalComponent } from './components/modais/saque-modal/saque-modal
     TampaPComponent,
     MissoesModalComponent,
     SaqueModalComponent,
-    
+
   ],
   imports: [
-    CommonModule, 
-    IonicModule.forRoot(), 
-    FormsModule, 
+    CommonModule,
+    IonicModule.forRoot(),
+    FormsModule,
     ReactiveFormsModule
   ],
   exports: [

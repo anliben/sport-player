@@ -53,9 +53,8 @@ export const firebaseConfig = {
   measurementId: 'G-09SNC100S8',
 };
 
-export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
-}
+export const createTranslateLoader = (http: HttpClient): TranslateHttpLoader => new TranslateHttpLoader(http, './assets/i18n/', '.json');
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -104,4 +103,6 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
   ],
   bootstrap: [AppComponent],
 })
+
+
 export class AppModule {}

@@ -10,24 +10,24 @@ import { AlertController } from '@ionic/angular';
 })
 export class LoginComponent implements OnInit {
 
-  formLogin:FormGroup;
+  formLogin: FormGroup;
   ocultaPassword: boolean;
 
   constructor(
-    private formBuilder : FormBuilder, 
-    private router : Router, 
-    private alertController: AlertController 
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private alertController: AlertController
     ) { }
 
   ngOnInit() {
     this.formLogin = this.formBuilder.group({
       user: ['', Validators.required],
       password: ['', Validators.required]
-    })
+    });
   }
 
   login(){
-    let {user, password} = this.formLogin.getRawValue();
+    const {user, password} = this.formLogin.getRawValue();
     if (this.formLogin.invalid || password != 'admin' || user != 'admin'){
       this.presentAlert();
     }else if(user ==='admin' && password ==='admin'){
@@ -57,5 +57,5 @@ export class LoginComponent implements OnInit {
     const { role } = await alert.onDidDismiss();
     console.log('onDidDismiss resolved with role', role);
   }
-  
+
 }

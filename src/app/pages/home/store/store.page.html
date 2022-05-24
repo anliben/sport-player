@@ -87,7 +87,7 @@
                 src="../../../../assets/game/loja/sortido-item.png"
               />
               <div
-                *ngIf="storeItem.type != 'emoji'"
+                *ngIf="storeItem.type !== 'emoji'"
                 class="absolute bottom-0 h-24 w-20 left-1/4"
               >
                 <img class="h-11" src="{{storeItem.imgItem}}" />

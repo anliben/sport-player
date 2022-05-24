@@ -18,7 +18,7 @@ export class PerfilComponent implements OnInit {
       component: SuporteModalPage,
       cssClass: 'custom-class-modal-pattern modal-h20-height',
     });
-    
+
     return await modal.present();
   }
 
@@ -27,7 +27,7 @@ export class PerfilComponent implements OnInit {
       component: MissoesModalComponent,
       cssClass: 'custom-class-modal-missoes modal-height-missoes',
     });
-    
+
     return await modal.present();
   }
 }

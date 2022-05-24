@@ -9,42 +9,42 @@ import { ModalController } from '@ionic/angular';
 export class MissoesModalComponent implements OnInit {
   missoes: any[] = [
     {
-      "id": 1,
-      "name": "Primeiro Login",
-      "premio": "2",
-      "status": "complete"
+      id: 1,
+      name: 'Primeiro Login',
+      premio: '2',
+      status: 'complete'
     },
     {
-      "id": 2,
-      "name": "Alterar Nick",
-      "premio": "2",
-      "status": "resgatar"
+      id: 2,
+      name: 'Alterar Nick',
+      premio: '2',
+      status: 'resgatar'
     },
     {
-      "id": 2,
-      "name": "Jogar uma vez",
-      "premio": "2",
-      "status": "resgatar"
+      id: 2,
+      name: 'Jogar uma vez',
+      premio: '2',
+      status: 'resgatar'
     },
     {
-      "id": 2,
-      "name": "Verificar Conta",
-      "premio": "2",
-      "status": "resgatar"
+      id: 2,
+      name: 'Verificar Conta',
+      premio: '2',
+      status: 'resgatar'
     },
     {
-      "id": 2,
-      "name": "Verificar Conta",
-      "premio": "2",
-      "status": "resgatar"
+      id: 2,
+      name: 'Verificar Conta',
+      premio: '2',
+      status: 'resgatar'
     },
     {
-      "id": 2,
-      "name": "Associar-se a um clube",
-      "premio": "2",
-      "status": "resgatar"
+      id: 2,
+      name: 'Associar-se a um clube',
+      premio: '2',
+      status: 'resgatar'
     }
-  ]
+  ];
   constructor(private modalController: ModalController) { }
 
   ngOnInit() {

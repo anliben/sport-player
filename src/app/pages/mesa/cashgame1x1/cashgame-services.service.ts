@@ -22,7 +22,7 @@ export class CashgameServicesService {
     private activatedRoute: Router,
   ) {
     this.tableData = this.activatedRoute.getCurrentNavigation().extras.state.data;
-    this.generatePlayers()
+    this.generatePlayers();
     this.nome = this.players[Math.floor(Math.random() * this.players.length)].username;
     this.playerIdService.setNome(this.nome);
   }
@@ -31,10 +31,10 @@ export class CashgameServicesService {
   addPlayer() {
 
 
-    let id = this.playerIdService.getId();
+    const id = this.playerIdService.getId();
 
     this.WebSocket.emit('addPlayerCashGameX1', {
-      id: id,
+      id,
       username: this.nome,
       posicao: 'right',
       room: '1',
@@ -59,9 +59,9 @@ export class CashgameServicesService {
   }
 
   generatePlayers() {
-    let posicoes = ['top', 'bottom', 'left', 'right'];
+    const posicoes = ['top', 'bottom', 'left', 'right'];
     for (let i = 0; i < 100; i++) {
-      let indexPosicoes = Math.floor(Math.random() * posicoes.length);
+      const indexPosicoes = Math.floor(Math.random() * posicoes.length);
       this.players.push({
         username: 'joao ' + i,
         src: '/assets/game/game/homem.png',

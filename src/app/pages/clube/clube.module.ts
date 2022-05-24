@@ -13,7 +13,7 @@ import { PerfilJogadorComponent } from './perfil-jogador/perfil-jogador.componen
 import { ScrollingModule } from '@angular/cdk/scrolling';
 
 @NgModule({
-  
+
   imports: [
     CommonModule,
     FormsModule,

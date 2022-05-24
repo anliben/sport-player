@@ -11,8 +11,8 @@ export class AvatarMesaComponent implements OnInit {
   @Input() avatar: string;
   @Input() cartas: string;
   @Input() nome: string; // colocar o decolator @input
-  @Input() cardDirection: string = 'left';
-  @Input() eu: boolean = false; // prop eu para aprecer minhas cartas.
+  @Input() cardDirection = 'left';
+  @Input() eu = false; // prop eu para aprecer minhas cartas.
   @Input() cards: object[] = [];
   @Input() cardsRival: object[];
   @Input() joined: boolean;
@@ -49,7 +49,7 @@ export class AvatarMesaComponent implements OnInit {
       room: '1',
       count: this.count,
       manilha: this.playerIdService.getManilha(),
-      request: 'jogarCarta',
+      request: 'jogarCarta'
     });
   }
   joinedRoom() {
@@ -57,9 +57,9 @@ export class AvatarMesaComponent implements OnInit {
   }
 
   generatePlayers() {
-    let posicoes = ['top', 'bottom', 'left', 'right'];
+    const posicoes = ['top', 'bottom', 'left', 'right'];
     for (let i = 0; i < 100; i++) {
-      let indexPosicoes = Math.floor(Math.random() * posicoes.length);
+      const indexPosicoes = Math.floor(Math.random() * posicoes.length);
       this.players.push({
         username: 'joao ' + i,
         src: '/assets/game/game/homem.png',

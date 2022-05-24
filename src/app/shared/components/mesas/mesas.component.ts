@@ -155,7 +155,7 @@ export class MesasComponent implements OnInit {
   constructor(private router: Router, private activateRouter: ActivatedRoute) {}
 
   navigateMatch(data: MesaInterface) {
-    let url = data.tableType + data.playersDistribution;
+    const url = data.tableType + data.playersDistribution;
     console.log(url);
   /*
       this.router.navigate([`/mesa`, { dados: JSON.stringify(data) }]);

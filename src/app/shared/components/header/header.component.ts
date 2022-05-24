@@ -9,10 +9,10 @@ import { VipModalPage } from '../modais/vip-modal/vip-modal.page';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  @Input() moeda: number = 125;
-  @Input() diamante: number = 456;
+  @Input() moeda = 125;
+  @Input() diamante = 456;
 
-  @Input() voltarBtn: boolean = false;
+  @Input() voltarBtn = false;
 
   constructor(
     private navCtrl: NavController, 

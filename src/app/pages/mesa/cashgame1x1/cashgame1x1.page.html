@@ -109,7 +109,7 @@
               [nome]="namej1"
               cartas="/assets/game/cartas/4paus.png"
               [avatar]="avatar1"
-              [joined]="avatar1"
+              [joined]="avatar1 ? true : false"
               [cards]="exampleCards"
             ></app-avatar-mesa>
           </div>
@@ -244,7 +244,7 @@
               [nome]="namej1"
               cartas="/assets/game/cartas/4paus.png"
               [avatar]="avatar1"
-              [joined]="avatar1"
+              [joined]="avatar1 ? true : false"
               [cards]="exampleCards"
             ></app-avatar-mesa>
           </div>
@@ -262,20 +262,24 @@
       <img
         class="cursor-pointer h-8 w-32"
         src="/assets/game/partidaTruco/truco_part_truco.png"
+        (click)="truco()"
       />
 
-      <div class="flex justify-center mt-3">
+      <div [class.request-truco-false]="!trucco" [class.request-truco-true]="trucco" class="flex justify-center mt-3">
         <img
-          class="cursor-pointer h-8"
+          class="cursor-pointer h-8 animate-pulse"
           src="/assets/game/partidaTruco/CORRER.png"
+          (click)="escape()"
         />
         <img
-          class="cursor-pointer h-8 ml-3 mr-3"
+          class="cursor-pointer h-8 ml-3 mr-3 animate-pulse"
           src="/assets/game/partidaTruco/ACEITAR.png"
+          (click)="accept()"
         />
         <img
-          class="cursor-pointer h-8"
+          class="cursor-pointer h-8 animate-pulse"
           src="../../../assets/game/partidaTruco/AUMENTAR.png"
+          (click)="increaseScore()"
         />
       </div>
     </section>

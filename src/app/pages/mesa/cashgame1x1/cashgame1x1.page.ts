@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
+import { MesaInterface } from 'src/app/interfaces/mesa-interface';
 import { PlayerIdService } from 'src/app/services/player-id.service';
+import { ScoreService } from 'src/app/services/score.service';
 import { WebSocketService } from 'src/app/services/web-socket.service';
 import { ConfiguracaoJogoModalComponent } from 'src/app/shared/components/configuracao-jogo-modal/configuracao-jogo-modal.component';
 import { CashgameServicesService } from './cashgame-services.service';
@@ -12,48 +14,50 @@ import { CashgameServicesService } from './cashgame-services.service';
   styleUrls: ['./cashgame1x1.page.scss'],
 })
 export class Cashgame1x1Page implements OnInit {
-  tableType: string = 'cashgame';
-  tableData: object = null;
+  tableType = 'cashgame';
+  tableData: MesaInterface = null;
 
-  isModalOpen: boolean = false;
+  isModalOpen = false;
 
-  joinedRoomTop: boolean = false;
-  joinedRoomBottom: boolean = false;
-  joinedRoomLeft: boolean = false;
-  joinedRoomRight: boolean = false;
-  j1: boolean = false;
-  j2: boolean = false;
-  j3: boolean = false;
-  j4: boolean = false;
+  joinedRoomTop = false;
+  joinedRoomBottom = false;
+  joinedRoomLeft = false;
+  joinedRoomRight = false;
+  j1 = false;
+  j2 = false;
+  j3 = false;
+  j4 = false;
   cardsRivalTop: Array<any>;
   cardsRivalLeft: Array<any>;
   cardsRivalRight: Array<any>;
 
-  namej1: string = '';
-  namej2: string = '';
-  namej3: string = '';
-  namej4: string = '';
+  namej1 = '';
+  namej2 = '';
+  namej3 = '';
+  namej4 = '';
 
-  avatar1: string = '';
-  avatar2: string = '';
-  avatar3: string = '';
-  avatar4: string = '';
+  avatar1 = '';
+  avatar2 = '';
+  avatar3 = '';
+  avatar4 = '';
 
-  maxPlayer: number = 0;
+  maxPlayer = 0;
 
   nome = '';
   position = '';
 
   players = [];
   countPlayer = 0;
-  joined: boolean = false;
+  joined = false;
 
   cards = [{ naipe: 'copas', numero: 7 }]; // teste
 
-  leftAnimation: boolean = false;
-  topAnimation: boolean = false;
-  rightAnimation: boolean = false;
-  bottomAnimation: boolean = true;
+  leftAnimation = false;
+  topAnimation = false;
+  rightAnimation = false;
+  bottomAnimation = true;
+
+  trucco = false;
 
   bottomCardNumber = 0;
   bottomCardNaipe = 0;
@@ -72,67 +76,83 @@ export class Cashgame1x1Page implements OnInit {
   // -> cartas de exemplo
   exampleCards: object[];
   // -> carta vira (A que fica por baixo da carta de costa em baixo do jackpot!!)
-  cardVira = {};
-  count: number = 0;
-  pontosNos: number = 0;
-  pontosEles: number = 0;
-  rodadas: number = 0;
-  friend: string = '';
+  cardVira = {
+    numero: 0,
+    naipe: ''
+  };
+  count = 0;
+  pontosNos = 0;
+  pontosEles = 0;
+  rodadas = 0;
+  friend = '';
 
   constructor(
     private WebSocket: WebSocketService,
     private modalController: ModalController,
     private playerIdService: PlayerIdService,
     private activatedRoute: Router,
-    private CashGameService: CashgameServicesService
+    private CashGameService: CashgameServicesService,
+    private scoreService: ScoreService
   ) {
-    this.tableData = this.CashGameService.tableData
+    this.tableData = this.CashGameService.tableData;
     this.nome = this.CashGameService.nome;
   }
 
   ngOnInit() {
-    this.CashGameService.addPlayer()
+    this.CashGameService.addPlayer();
     this.WebSocket.listen('rodada').subscribe((data: any) => {
       console.log(data);
 
-      data.jogadores.forEach( (element: any)=> {
+      data.jogadores.forEach((element: any) => {
         this.rodadas = element.rodadas;
-        if(element.username == this.nome){
+        if (element.username == this.nome) {
           this.pontosNos = element.pontos;
-        }else{
+        } else {
           this.pontosEles = element.pontos;
         }
       });
-   })
+    });
 
-   this.WebSocket.listen('novaMao').subscribe((data: any) => {
-     console.log(data);
-
-    data.jogadores.forEach((player) => {
-      if (player.username == this.nome) {
-        this.exampleCards = player.mao;
-      }else{
-        this.cardsRivalTop = [1,2,3]
+    this.WebSocket.listen('truco').subscribe((data: any) => {
+      if (data.jogador !== this.nome) {
+        this.trucco = true;
       }
     });
-  })
-    this.WebSocket.listen('jogarCarta').subscribe((data: any) => {
-      let carta = {
-         naipe: data.naipe,
-         numero: data.numero,
-         index: data.index
-      }
 
-      if(data.jogador == this.nome){
+    this.WebSocket.listen('increase').subscribe((data: any) => {
+      if (data.jogador !== this.nome) {
+        this.trucco = true;
+      }
+    });
+
+    this.WebSocket.listen('novaMao').subscribe((data: any) => {
+      console.log(data);
+
+      data.jogadores.forEach((player) => {
+        if (player.username == this.nome) {
+          this.exampleCards = player.mao;
+        } else {
+          this.cardsRivalTop = [1, 2, 3];
+        }
+      });
+    });
+    this.WebSocket.listen('jogarCarta').subscribe((data: any) => {
+      const carta = {
+        naipe: data.naipe,
+        numero: data.numero,
+        index: data.index
+      };
+
+      if (data.jogador == this.nome) {
         this.exampleCards.splice(carta.index, 1);
         this.bottomCardNaipe = carta.naipe;
-       this.bottomCardNumber = carta.numero;
-       } else {
+        this.bottomCardNumber = carta.numero;
+      } else {
         this.cardsRivalTop.splice(this.cardsRivalTop.indexOf(carta), 1);
         this.topCardNaipe = carta.naipe;
         this.topCardNumber = carta.numero;
       }
-    })
+    });
 
     this.WebSocket.listen('findPlayersx1').subscribe((data: any) => {
       this.cardVira = data.vira[0];
@@ -159,9 +179,9 @@ export class Cashgame1x1Page implements OnInit {
     });
   }
   generatePlayers() {
-    let posicoes = ['top', 'bottom', 'left', 'right'];
+    const posicoes = ['top', 'bottom', 'left', 'right'];
     for (let i = 0; i < 100; i++) {
-      let indexPosicoes = Math.floor(Math.random() * posicoes.length);
+      const indexPosicoes = Math.floor(Math.random() * posicoes.length);
       this.players.push({
         username: 'joao ' + i,
         src: '/assets/game/game/homem.png',
@@ -185,5 +205,21 @@ export class Cashgame1x1Page implements OnInit {
       animated: false,
     });
     return await modal.present();
+  }
+
+  async truco() {
+    this.scoreService.truco();
+  }
+  async escape() {
+    this.scoreService.escape();
+    this.trucco = false;
+  }
+  async accept() {
+    this.scoreService.accept();
+    this.trucco = false;
+  }
+  async increaseScore() {
+    this.scoreService.increaseScore();
+    this.trucco = false;
   }
 }

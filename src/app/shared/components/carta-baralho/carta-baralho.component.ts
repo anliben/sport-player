@@ -8,10 +8,12 @@ import { Component, Input, OnInit } from '@angular/core';
 export class CartaBaralhoComponent implements OnInit {
   @Input() naipe: string;
   @Input() numero: string;
-
+  symbol: string;
   naipes: object;
 
-  private getNaipeSrc() {
+  constructor() {}
+
+  getNaipeSrc() {
     this.naipes = {
       paus: '../../../assets/game/naipes/paus.png',
       ouros: '../../../assets/game/naipes/ouros.png',
@@ -21,7 +23,15 @@ export class CartaBaralhoComponent implements OnInit {
     return this.naipes[this.naipe] ? this.naipes[this.naipe] : '';
   }
 
-  constructor() {}
+  getSymbolCard(): string {
+    const symbols: object = {
+      1: 'A',
+      13: 'K',
+      12: 'J',
+      11: 'Q',
+    };
+    return symbols[this.numero] ? symbols[this.numero] : 'X';
+  }
 
-  ngOnInit() {}
+  ngOnInit(): void {}
 }

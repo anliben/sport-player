@@ -224,8 +224,9 @@ export class Cashgame2x2Page implements OnInit, OnDestroy {
   async showSecretSignModal() {
     this.secretSignModal = await this.modalController.create({
       component: SinalSecretoModalPage,
-      cssClass: 'my-custom-modal-small-css',
+      cssClass: 'custom-modal-sinal-secreto',
       animated: false,
+      showBackdrop: false,
     });
     return await this.secretSignModal.present();
   }

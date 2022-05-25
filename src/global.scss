@@ -208,64 +208,80 @@ table {
   text-transform: uppercase;
 }
 
-ion-modal {
-  &.custom-class-modal-pattern {
-    --height: 100%;
-    --width: 80%;
-    --max-width: 400px;
-    --border-radius: 3px;
-    --border-width: 1px;
-    --border-style: solid;
-    --border-color: var(--primary);
-  }
-  &.modal-h20-height {
-    --height: 20%;
-  }
-  &.modal-h30-height {
-    --height: 30%;
-  }
-}
-ion-modal {
-  &.custom-class-modal-missoes {
-    --height: 100%;
-    --width: 80%;
-    --max-width: 400px;
-    --border-radius: 3px;
-    --border-width: 1px;
-    --border-style: solid;
-    --border-color: var(--primary);
-  }
-  &.modal-height-missoes {
-    --height: 430px;
+.my-custom-modal-small-css {
+  align-items: flex-end; // Y
+  justify-content: flex-end; // X
+  &::part(content) {
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 9.3rem;
+    width: 50%;
+    max-width: 230px;
+    height: 25%;
+    border-radius: 4px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--primary);
   }
 }
-ion-modal {
-  &.custom-class-modal-vip {
-    --height: 100%;
-    --width: 80%;
-    --max-width: 400px;
-    --border-radius: 3px;
-    --border-width: 1px;
-    --border-style: solid;
-    --border-color: var(--primary);
-  }
-  &.modal-height-vip {
-    --height: 430px;
-  }
+
+.modal-teste,
+div.modal-wrapper,
+div.modal-shadow {
+  left: 1;
+  --width: 50%;
+  --height: 50%;
 }
-ion-modal {
-  &.custom-class-modal-saque {
-    --height: 100%;
-    --width: 80%;
-    --max-width: 400px;
-    --border-radius: 3px;
-    --border-width: 1px;
-    --border-style: solid;
-    --border-color: var(--primary);
-  }
-  &.modal-height-saque {
-    --height: 260px;
-  }
+.custom-class-modal-pattern {
+  --height: 100%;
+  --width: 80%;
+  --max-width: 400px;
+  --border-radius: 3px;
+  --border-width: 1px;
+  --border-style: solid;
+  --border-color: var(--primary);
+}
+.modal-h20-height {
+  --height: 20%;
+}
+.modal-w50-width {
+  --width: 50%;
+}
+.custom-class-modal-missoes {
+  --height: 100%;
+  --width: 80%;
+  --max-width: 400px;
+  --border-radius: 3px;
+  --border-width: 1px;
+  --border-style: solid;
+  --border-color: var(--primary);
+}
+.modal-height-missoes {
+  --height: 430px;
+}
+.custom-class-modal-vip {
+  --height: 100%;
+  --width: 80%;
+  --max-width: 400px;
+  --border-radius: 3px;
+  --border-width: 1px;
+  --border-style: solid;
+  --border-color: var(--primary);
+}
+.modal-height-vip {
+  --height: 430px;
+}
+.custom-class-modal-saque {
+  --height: 100%;
+  --width: 80%;
+  --max-width: 400px;
+  --border-radius: 3px;
+  --border-width: 1px;
+  --border-style: solid;
+  --border-color: var(--primary);
+}
+.modal-height-saque {
+  --height: 260px;
 }
 .text-vag {
   font-family: "Vag-Round";

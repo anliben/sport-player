@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { MesaInterface } from 'src/app/interfaces/mesa-interface';
@@ -6,13 +6,15 @@ import { PlayerIdService } from 'src/app/services/player-id.service';
 import { PlayerService } from 'src/app/services/player.service';
 import { WebSocketService } from 'src/app/services/web-socket.service';
 import { ConfiguracaoJogoModalComponent } from 'src/app/shared/components/configuracao-jogo-modal/configuracao-jogo-modal.component';
+import { ConvidarAmigosModalPage } from 'src/app/shared/components/modais/convidar-amigos-modal/convidar-amigos-modal.page';
+import { SinalSecretoModalPage } from 'src/app/shared/components/modais/sinal-secreto-modal/sinal-secreto-modal.page';
 
 @Component({
   selector: 'app-cashgame2x2',
   templateUrl: './cashgame2x2.page.html',
   styleUrls: ['./cashgame2x2.page.scss'],
 })
-export class Cashgame2x2Page implements OnInit {
+export class Cashgame2x2Page implements OnInit, OnDestroy {
   tableType = 'cashgame';
   tableData: MesaInterface = null;
 
@@ -81,6 +83,13 @@ export class Cashgame2x2Page implements OnInit {
   pontosEles = 0;
   rodadas = 0;
   friend = '';
+
+  showModalTruco = false;
+  timer = 5;
+  partner = 'denied';
+
+  /**Modal */
+  secretSignModal: HTMLIonModalElement;
 
   constructor(
     private webSocket: WebSocketService,
@@ -205,6 +214,30 @@ export class Cashgame2x2Page implements OnInit {
     });
   }
 
+  ngOnDestroy() {
+    // quando o componente for destruído ele fechará o modal.
+    if (this.secretSignModal) {
+      this.secretSignModal.dismiss();
+    }
+  }
+
+  async showSecretSignModal() {
+    this.secretSignModal = await this.modalController.create({
+      component: SinalSecretoModalPage,
+      cssClass: 'my-custom-modal-small-css',
+      animated: false,
+    });
+    return await this.secretSignModal.present();
+  }
+
+  async showInviteFriendsModal() {
+    const modal = await this.modalController.create({
+      component: ConvidarAmigosModalPage,
+      cssClass: 'custom-class-modal-pattern modal-h20-height',
+    });
+    return await modal.present();
+  }
+
   async presentConfigGameModal() {
     const modal = await this.modalController.create({
       component: ConfiguracaoJogoModalComponent,
@@ -232,5 +265,8 @@ export class Cashgame2x2Page implements OnInit {
         id: this.playerIdService.getId(),
       });
     }
+  }
+  click() {
+    this.showModalTruco = !this.showModalTruco;
   }
 }

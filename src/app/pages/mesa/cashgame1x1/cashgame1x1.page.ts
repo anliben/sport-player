@@ -89,6 +89,8 @@ export class Cashgame1x1Page implements OnInit {
   pontosEles = 0;
   rodadas = 0;
   friend = '';
+  
+  timer:number = 5;
 
   constructor(
     private webSocket: WebSocketService,

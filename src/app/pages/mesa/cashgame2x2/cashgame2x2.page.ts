@@ -82,6 +82,10 @@ export class Cashgame2x2Page implements OnInit {
   rodadas = 0;
   friend = '';
 
+  showModalTruco:boolean = false;
+  timer:number = 5;
+  partner:string = 'denied';
+  
   constructor(
     private webSocket: WebSocketService,
     private modalController: ModalController,
@@ -232,5 +236,8 @@ export class Cashgame2x2Page implements OnInit {
         id: this.playerIdService.getId(),
       });
     }
+  }
+  click(){
+    this.showModalTruco = !this.showModalTruco;    
   }
 }

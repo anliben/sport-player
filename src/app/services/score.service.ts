@@ -17,9 +17,11 @@ export class ScoreService {
   addScore(score: number) {
     this.score += score;
   }
+
   getScore(){
     return this.score;
   }
+
   truco(){
     console.log('truco');
     this.score = 3;

@@ -4,9 +4,7 @@ import { ModalController } from '@ionic/angular';
 import { MesaInterface } from 'src/app/interfaces/mesa-interface';
 import { PlayerIdService } from 'src/app/services/player-id.service';
 import { ScoreService } from 'src/app/services/score.service';
-import {
-  WebSocketService,
-} from 'src/app/services/web-socket.service';
+import { WebSocketService } from 'src/app/services/web-socket.service';
 
 import { ConfiguracaoJogoModalComponent } from 'src/app/shared/components/configuracao-jogo-modal/configuracao-jogo-modal.component';
 import { ConvidarAmigosModalPage } from 'src/app/shared/components/modais/convidar-amigos-modal/convidar-amigos-modal.page';
@@ -89,8 +87,8 @@ export class Cashgame1x1Page implements OnInit {
   pontosEles = 0;
   rodadas = 0;
   friend = '';
-  
-  timer:number = 5;
+
+  timer = 5;
 
   constructor(
     private webSocket: WebSocketService,
@@ -202,9 +200,7 @@ export class Cashgame1x1Page implements OnInit {
     }
   }
 
-  async showInviteFriendsModal(): Promise<void> {
-    console.log('showInviteFriendsModal');
-
+  async showInviteFriendsModal() {
     const modal = await this.modalController.create({
       component: ConvidarAmigosModalPage,
       cssClass: 'custom-class-modal-pattern modal-h20-height',

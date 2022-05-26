@@ -5,7 +5,9 @@ import { MesaInterface } from 'src/app/interfaces/mesa-interface';
 import { PlayerIdService } from 'src/app/services/player-id.service';
 import { ScoreService } from 'src/app/services/score.service';
 import { WebSocketService } from 'src/app/services/web-socket.service';
+
 import { ConfiguracaoJogoModalComponent } from 'src/app/shared/components/configuracao-jogo-modal/configuracao-jogo-modal.component';
+import { ConvidarAmigosModalPage } from 'src/app/shared/components/modais/convidar-amigos-modal/convidar-amigos-modal.page';
 import { CashgameServicesService } from './cashgame-services.service';
 
 @Component({
@@ -78,7 +80,7 @@ export class Cashgame1x1Page implements OnInit {
   // -> carta vira (A que fica por baixo da carta de costa em baixo do jackpot!!)
   cardVira = {
     numero: 0,
-    naipe: ''
+    naipe: '',
   };
   count = 0;
   pontosNos = 0;
@@ -86,26 +88,28 @@ export class Cashgame1x1Page implements OnInit {
   rodadas = 0;
   friend = '';
 
+  timer = 5;
+
   constructor(
-    private WebSocket: WebSocketService,
+    private webSocket: WebSocketService,
     private modalController: ModalController,
     private playerIdService: PlayerIdService,
     private activatedRoute: Router,
-    private CashGameService: CashgameServicesService,
+    private cashGameService: CashgameServicesService,
     private scoreService: ScoreService
   ) {
-    this.tableData = this.CashGameService.tableData;
-    this.nome = this.CashGameService.nome;
+    this.tableData = this.cashGameService.tableData;
+    this.nome = this.cashGameService.nome;
   }
 
   ngOnInit() {
-    this.CashGameService.addPlayer();
-    this.WebSocket.listen('rodada').subscribe((data: any) => {
+    this.cashGameService.addPlayer();
+    this.webSocket.listen('rodada').subscribe((data: any) => {
       console.log(data);
 
       data.jogadores.forEach((element: any) => {
         this.rodadas = element.rodadas;
-        if (element.username == this.nome) {
+        if (element.username === this.nome) {
           this.pontosNos = element.pontos;
         } else {
           this.pontosEles = element.pontos;
@@ -113,37 +117,37 @@ export class Cashgame1x1Page implements OnInit {
       });
     });
 
-    this.WebSocket.listen('truco').subscribe((data: any) => {
+    this.webSocket.listen('truco').subscribe((data: any) => {
       if (data.jogador !== this.nome) {
         this.trucco = true;
       }
     });
 
-    this.WebSocket.listen('increase').subscribe((data: any) => {
+    this.webSocket.listen('increase').subscribe((data: any) => {
       if (data.jogador !== this.nome) {
         this.trucco = true;
       }
     });
 
-    this.WebSocket.listen('novaMao').subscribe((data: any) => {
+    this.webSocket.listen('novaMao').subscribe((data: any) => {
       console.log(data);
 
       data.jogadores.forEach((player) => {
-        if (player.username == this.nome) {
+        if (player.username === this.nome) {
           this.exampleCards = player.mao;
         } else {
           this.cardsRivalTop = [1, 2, 3];
         }
       });
     });
-    this.WebSocket.listen('jogarCarta').subscribe((data: any) => {
+    this.webSocket.listen('jogarCarta').subscribe((data: any) => {
       const carta = {
         naipe: data.naipe,
         numero: data.numero,
-        index: data.index
+        index: data.index,
       };
 
-      if (data.jogador == this.nome) {
+      if (data.jogador === this.nome) {
         this.exampleCards.splice(carta.index, 1);
         this.bottomCardNaipe = carta.naipe;
         this.bottomCardNumber = carta.numero;
@@ -154,14 +158,14 @@ export class Cashgame1x1Page implements OnInit {
       }
     });
 
-    this.WebSocket.listen('findPlayersx1').subscribe((data: any) => {
+    this.webSocket.listen('findPlayersx1').subscribe((data: any) => {
       this.cardVira = data.vira[0];
       this.playerIdService.setManilha(data.manilha);
       this.playerIdService.setVira(this.cardVira);
 
       data.jogadores.forEach((player: any) => {
         console.log(player.username, this.nome);
-        if (player.username == this.nome) {
+        if (player.username === this.nome) {
           player.posicao = 'bottom';
           this.j1 = true;
           this.avatar1 = player.src;
@@ -196,11 +200,19 @@ export class Cashgame1x1Page implements OnInit {
     }
   }
 
+  async showInviteFriendsModal() {
+    const modal = await this.modalController.create({
+      component: ConvidarAmigosModalPage,
+      cssClass: 'custom-class-modal-pattern modal-h20-height',
+    });
+    return await modal.present();
+  }
+
   async presentConfigGameModal() {
     const modal = await this.modalController.create({
       component: ConfiguracaoJogoModalComponent,
       showBackdrop: true,
-      cssClass: 'my-custom-class',
+      cssClass: 'custom-class-modal-pattern',
       backdropDismiss: true,
       animated: false,
     });

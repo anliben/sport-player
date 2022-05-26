@@ -25,7 +25,7 @@ export class AvatarMesaComponent implements OnInit {
   count = 0;
 
   constructor(
-    private WebSocket: WebSocketService,
+    private webSocket: WebSocketService,
     private playerIdService: PlayerIdService
   ) {}
 
@@ -43,7 +43,7 @@ export class AvatarMesaComponent implements OnInit {
     console.log(i);
 
     this.count += 1;
-    await this.WebSocket.emit('cartaPlayerCashGameX1', {
+    await this.webSocket.emit('cartaPlayerCashGameX1', {
       jogador: this.playerIdService.getNome(),
       carta: i,
       room: '1',

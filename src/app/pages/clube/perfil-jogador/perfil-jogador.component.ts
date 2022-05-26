@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { SaqueModalComponent } from '../../../shared/components/modais/saque-modal/saque-modal.component';
+import { AdicionarFichasModalComponent } from '../../../shared/components/modais/adicionar-fichas-modal/adicionar-fichas-modal.component';
 
 @Component({
   selector: 'app-perfil-jogador',
@@ -100,7 +101,13 @@ export class PerfilJogadorComponent implements OnInit {
       component: SaqueModalComponent,
       cssClass: 'custom-class-modal-saque modal-height-saque',
     });
-    
+    return await modal.present();
+  }
+  async showAdicionarFichasModal(){
+    const modal = await this.modalController.create({
+      component: AdicionarFichasModalComponent,
+      cssClass: 'custom-class-modal-pattern modal-h20-height',
+    });
     return await modal.present();
   }
 

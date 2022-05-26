@@ -8,13 +8,13 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
-  constructor() {}
-
-  ngOnInit() {}
-
   @ViewChild('play') playElemnt: any;
   @ViewChild('store') storeElemnt: any;
   @ViewChild('config') configElemnt: any;
+
+
+  constructor() {}
+  ngOnInit() {}
 
   elemntHidden(e: any, idx1: number, idx2?: number) {
     e.nativeElement.childNodes[idx1].style.visibility = 'hidden';
@@ -42,10 +42,3 @@ export class HomePage implements OnInit {
     }
   }
 }
-
-// this.playElemnt.nativeElement.childNodes[0].classList.add(
-//   'animate-bounce'
-// );
-// this.playElemnt.nativeElement.childNodes[2].classList.add(
-//   'animate-bounce'
-// );

@@ -12,6 +12,7 @@ import { MesasComponent } from './components/mesas/mesas.component';
 import { TampaPComponent } from './components/tampa-p/tampa-p.component';
 import { MissoesModalComponent } from './components/modais/missoes-modal/missoes-modal.component';
 import { SaqueModalComponent } from './components/modais/saque-modal/saque-modal.component';
+import { AdicionarFichasModalComponent } from './components/modais/adicionar-fichas-modal/adicionar-fichas-modal.component';
 
 @NgModule({
   declarations: [
@@ -25,12 +26,12 @@ import { SaqueModalComponent } from './components/modais/saque-modal/saque-modal
     TampaPComponent,
     MissoesModalComponent,
     SaqueModalComponent,
-    
+    AdicionarFichasModalComponent
   ],
   imports: [
-    CommonModule, 
-    IonicModule.forRoot(), 
-    FormsModule, 
+    CommonModule,
+    IonicModule.forRoot(),
+    FormsModule,
     ReactiveFormsModule
   ],
   exports: [

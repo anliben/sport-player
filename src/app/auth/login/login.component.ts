@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
 
   login(){
     const {user, password} = this.formLogin.getRawValue();
-    if (this.formLogin.invalid || password != 'admin' || user != 'admin'){
+    if (this.formLogin.invalid || password !== 'admin' || user !== 'admin'){
       this.presentAlert();
     }else if(user ==='admin' && password ==='admin'){
       console.log(user);

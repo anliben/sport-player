@@ -14,7 +14,7 @@ export class HomePage implements OnInit {
 
 
   constructor() {}
-  ngOnInit() {}
+  ngOnInit() { }
 
   elemntHidden(e: any, idx1: number, idx2?: number) {
     e.nativeElement.childNodes[idx1].style.visibility = 'hidden';

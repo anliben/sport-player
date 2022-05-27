@@ -6,7 +6,7 @@ import { PlayerIdService } from 'src/app/services/player-id.service';
 import { ScoreService } from 'src/app/services/score.service';
 import { WebSocketService } from 'src/app/services/web-socket.service';
 
-import { ConfiguracaoJogoModalComponent } from 'src/app/shared/components/configuracao-jogo-modal/configuracao-jogo-modal.component';
+import { ConfiguracaoJogoModalComponent } from 'src/app/shared/components/modais/configuracao-jogo-modal/configuracao-jogo-modal.component';
 import { ConvidarAmigosModalPage } from 'src/app/shared/components/modais/convidar-amigos-modal/convidar-amigos-modal.page';
 import { CashgameServicesService } from './cashgame-services.service';
 
@@ -89,6 +89,9 @@ export class Cashgame1x1Page implements OnInit {
   friend = '';
 
   timer = 5;
+
+  /**Modal */
+  configGameModal: HTMLIonModalElement;
 
   constructor(
     private webSocket: WebSocketService,
@@ -206,6 +209,15 @@ export class Cashgame1x1Page implements OnInit {
       cssClass: 'custom-class-modal-pattern modal-h20-height',
     });
     return await modal.present();
+  }
+
+  async showConfigGameModal() {
+    this.configGameModal = await this.modalController.create({
+      component: ConfiguracaoJogoModalComponent,
+      cssClass: 'custom-modal-configuracao-jogo',
+      animated: false,
+    });
+    return await this.configGameModal.present();
   }
 
   async presentConfigGameModal() {

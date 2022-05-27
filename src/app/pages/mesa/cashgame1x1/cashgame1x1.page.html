@@ -2,6 +2,7 @@
   <section class="flex items-center justify-between">
     <div class="flex items-center justify-center">
       <img
+        (click)="showConfigGameModal()"
         class="cursor-pointer h-8"
         src="/assets/game/partidaTruco/config.png"
       />
@@ -222,24 +223,27 @@
         [class.request-truco-true]="trucco"
         class="flex justify-center mt-3"
       >
-      <ng-container 
-      >
-      <div
-          class="fixed top-[0] z-[11] w-[95%] h-[130px] border border-solid bg-[#222222] border-primary mt-[300px]">
+        <ng-container>
+          <div
+            class="fixed top-[0] z-[11] w-[95%] h-[130px] border border-solid bg-[#222222] border-primary mt-[300px]"
+          >
             <div class="flex justify-around">
-              <span class="text-primary text-[1.5rem] ml-[90px] sm:ml-[200px]">TRUCO !!!</span>
-              <span class="text-primary text-[1.5rem] ">{{timer}}</span>
+              <span class="text-primary text-[1.5rem] ml-[90px] sm:ml-[200px]"
+                >TRUCO !!!</span
+              >
+              <span class="text-primary text-[1.5rem]">{{timer}}</span>
             </div>
+            <div class="flex justify-center"></div>
             <div class="flex justify-center">
-            </div>
-            <div class="flex justify-center">
-              <span class="text-primary text-[0.8rem] mb-2">O Tiago esta pedindo truco</span>
+              <span class="text-primary text-[0.8rem] mb-2"
+                >O Tiago esta pedindo truco</span
+              >
             </div>
             <div class="flex justify-center">
               <img
-              class="cursor-pointer h-10 animate-pulse"
-              src="/assets/game/partidaTruco/CORRER.png"
-              (click)="escape()"
+                class="cursor-pointer h-10 animate-pulse"
+                src="/assets/game/partidaTruco/CORRER.png"
+                (click)="escape()"
               />
               <img
                 class="cursor-pointer h-10 ml-3 mr-3 animate-pulse"
@@ -252,8 +256,8 @@
                 (click)="increaseScore()"
               />
             </div>
-        </div>
-      </ng-container>
+          </div>
+        </ng-container>
       </div>
     </section>
 

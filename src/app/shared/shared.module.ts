@@ -15,6 +15,8 @@ import { SaqueModalComponent } from './components/modais/saque-modal/saque-modal
 import { ConfigJogoItemComponent } from './components/config-jogo-item/config-jogo-item.component';
 import { AdicionarFichasModalComponent } from './components/modais/adicionar-fichas-modal/adicionar-fichas-modal.component';
 import { PagamentoModalComponent } from './components/modais/pagamento-modal/pagamento-modal.component';
+import { AmigosModalComponent } from './components/modais/amigos-modal/amigos-modal.component';
+import { AmigosSolicilatoesComponent } from './components/modais/amigos-solicilatoes/amigos-solicilatoes.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { PagamentoModalComponent } from './components/modais/pagamento-modal/pag
     AdicionarFichasModalComponent,
     PagamentoModalComponent,
     ConfigJogoItemComponent,
+    AmigosModalComponent,
+    AmigosSolicilatoesComponent
   ],
   imports: [
     CommonModule,

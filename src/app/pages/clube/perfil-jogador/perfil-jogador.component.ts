@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { SaqueModalComponent } from '../../../shared/components/modais/saque-modal/saque-modal.component';
 import { AdicionarFichasModalComponent } from '../../../shared/components/modais/adicionar-fichas-modal/adicionar-fichas-modal.component';
+import { AmigosModalComponent } from '../../../shared/components/modais/amigos-modal/amigos-modal.component';
 
 @Component({
   selector: 'app-perfil-jogador',
@@ -110,5 +111,11 @@ export class PerfilJogadorComponent implements OnInit {
     });
     return await modal.present();
   }
-
+  async showFriensModal() {
+    const modal = await this.modalController.create({
+      component: AmigosModalComponent,
+      cssClass: 'custom-class-modal-pattern modal-height-amigos',
+    });
+    return await modal.present();
+  }
 }

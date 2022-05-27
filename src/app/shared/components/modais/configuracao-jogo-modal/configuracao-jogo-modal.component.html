@@ -1,0 +1,83 @@
+<ion-content>
+  <div class="pt-5 px-3 pb-1 bg-[#171716]">
+    <span class="text-primary text-[0.5rem]">VERSÃO 1.0.0</span>
+  </div>
+  <div class="flex grow flex-col pl-3">
+    <app-config-jogo-item
+      titleItem="regras do jogo"
+      srcImg="../../../../../assets/game/partidaTruco/config/regras.png"
+    >
+      <img
+        src="../../../../../assets/game/partidaTruco/config/seta.png"
+        class="h-3 mr-3"
+      />
+    </app-config-jogo-item>
+
+    <app-config-jogo-item
+      titleItem="som"
+      srcImg="../../../../../assets/game/partidaTruco/config/volume-icone.png"
+    >
+      <div class="flex w-[60%] mr-2">
+        <!-- create slider -->
+        <ion-range
+          min="0"
+          max="100"
+          mode="ios"
+          [(ngModel)]="volume"
+          (ionChange)="setVolume()"
+        ></ion-range>
+      </div>
+    </app-config-jogo-item>
+
+    <app-config-jogo-item
+      titleItem="silenciar aúdio"
+      srcImg="../../../../../assets/game/partidaTruco/config/audio-icone.png"
+    >
+      <ion-toggle mode="ios"></ion-toggle>
+    </app-config-jogo-item>
+
+    <app-config-jogo-item
+      titleItem="vibrar"
+      srcImg="../../../../../assets/game/partidaTruco/config/vibrar-icone.png"
+    >
+      <ion-toggle mode="ios"></ion-toggle>
+    </app-config-jogo-item>
+
+    <app-config-jogo-item
+      titleItem="silenciar chat"
+      srcImg="../../../../../assets/game/partidaTruco/CHAT.png"
+    >
+      <ion-toggle mode="ios"></ion-toggle>
+    </app-config-jogo-item>
+
+    <app-config-jogo-item
+      titleItem="vip"
+      srcImg="../../../../../assets/game/partidaTruco/config/icone-vip.png"
+    >
+      <img
+        src="../../../../../assets/game/partidaTruco/config/seta.png"
+        class="h-3 mr-3"
+      />
+    </app-config-jogo-item>
+
+    <app-config-jogo-item
+      titleItem="loja"
+      srcImg="../../../../../assets/game/partidaTruco/config/loja-icone.png"
+    >
+      <img
+        src="../../../../../assets/game/partidaTruco/config/seta.png"
+        class="h-3 mr-3"
+      />
+    </app-config-jogo-item>
+
+    <app-config-jogo-item
+      titleItem="sair"
+      srcImg="../../../../../assets/game/partidaTruco/config/icone-sair.png"
+    >
+      <img
+        src="../../../../../assets/game/partidaTruco/config/seta.png"
+        class="h-3 mr-3"
+      />
+    </app-config-jogo-item>
+  </div>
+</ion-content>

@@ -1,5 +1,5 @@
 <div class="bg-[#242424] h-full">
-  <div class="flex justify-between items-center border-b-2 border-solid border-primary p-1">
+  <div class="flex justify-between items-center border-b border-solid border-primary p-1">
     <div class="flex grow justify-center">
       <span class="text-primary ml-4">Adicionar Ficha</span>
     </div>
@@ -12,7 +12,7 @@
     </div>
     <div class="w-16 h-5 border-b-2 border-solid border-primary">
       <ion-input name="password" class="h-5 rounded-sm text-[0.8rem] font-vag pr-1" color="transparent"
-        placeholder="Ex: 200" (ngModel)="valueReal">
+        placeholder="Ex: 200" [(ngModel)]="quantityFiles">
       </ion-input>
     </div>
   </div>
@@ -20,6 +20,7 @@
     <p>Valor correspondente em R$ {{valueReal}}</p>
   </div>
   <div>
-    <img class="h-8 my-2 mx-auto cursor-pointer transition ease-in-out hover:scale-110" src="/assets/game/perfil/adicionar.png">
+    <img (click)="showPagamentoModal()" class="h-8 my-2 mx-auto cursor-pointer transition ease-in-out hover:scale-110"
+      src="/assets/game/perfil/adicionar.png">
   </div>
 </div>

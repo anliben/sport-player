@@ -292,6 +292,18 @@ div.modal-shadow {
 .modal-height-saque {
   --height: 260px;
 }
+.custom-class-modal-pagamento {
+  --height: 100%;
+  --width: 300px;
+  --max-width: 400px;
+  --border-radius: 3px;
+  --border-width: 1px;
+  --border-style: solid;
+  --border-color: var(--primary);
+}
+.modal-height-pagamento {
+  --height: 500px;
+}
 .text-vag {
   font-family: "Vag-Round";
   // color: #ffffb3;

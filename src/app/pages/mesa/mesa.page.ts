@@ -4,8 +4,7 @@ import { ModalController, NavParams } from '@ionic/angular';
 import { PlayerIdService } from 'src/app/services/player-id.service';
 import { PlayerService } from 'src/app/services/player.service';
 import { WebSocketService } from 'src/app/services/web-socket.service';
-import { ConfiguracaoJogoModalComponent } from 'src/app/shared/components/configuracao-jogo-modal/configuracao-jogo-modal.component';
-
+import { ConfiguracaoJogoModalComponent } from 'src/app/shared/components/modais/configuracao-jogo-modal/configuracao-jogo-modal.component';
 
 @Component({
   selector: 'app-mesa',

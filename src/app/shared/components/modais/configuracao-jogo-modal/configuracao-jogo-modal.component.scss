@@ -1,0 +1,37 @@
+ion-content {
+  --background: var(--modal-background);
+}
+ion-toggle {
+  height: 1.3rem;
+  width: 2.5rem;
+  margin-right: 0.5rem;
+  --background: #181917;
+  --background-checked: #181917;
+  border: 1px solid var(--primary);
+  border-radius: var(--border-radius);
+
+  --handle-background: var(--primary);
+  --handle-background-checked: var(--primary);
+
+  --handle-height: 1.2rem;
+  --handle-width: 1rem;
+}
+// customize css ion-range
+ion-range {
+  --bar-background: #181917;
+  --bar-background-active: transparent;
+  --bar-height: 1px;
+  --height: 1.3rem;
+  --bar-border-radius: 2rem;
+  --bar-border-color: var(--primary);
+
+  --knob-background: var(--primary);
+  --knob-size: 1rem;
+
+  height: 1.3rem;
+  border: 1px solid var(--primary);
+  border-radius: 2rem;
+  background-color: #181917;
+  padding-right: 11px;
+  padding-left: 11px;
+}

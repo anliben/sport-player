@@ -5,7 +5,7 @@ import { MesaInterface } from 'src/app/interfaces/mesa-interface';
 import { PlayerIdService } from 'src/app/services/player-id.service';
 import { PlayerService } from 'src/app/services/player.service';
 import { WebSocketService } from 'src/app/services/web-socket.service';
-import { ConfiguracaoJogoModalComponent } from 'src/app/shared/components/configuracao-jogo-modal/configuracao-jogo-modal.component';
+import { ConfiguracaoJogoModalComponent } from 'src/app/shared/components/modais/configuracao-jogo-modal/configuracao-jogo-modal.component';
 import { ConvidarAmigosModalPage } from 'src/app/shared/components/modais/convidar-amigos-modal/convidar-amigos-modal.page';
 import { SinalSecretoModalPage } from 'src/app/shared/components/modais/sinal-secreto-modal/sinal-secreto-modal.page';
 
@@ -90,6 +90,8 @@ export class Cashgame2x2Page implements OnInit, OnDestroy {
 
   /**Modal */
   secretSignModal: HTMLIonModalElement;
+  inviteFriendsModal: HTMLIonModalElement;
+  configGameModal: HTMLIonModalElement;
 
   constructor(
     private webSocket: WebSocketService,
@@ -216,8 +218,14 @@ export class Cashgame2x2Page implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     // quando o componente for destruído ele fechará o modal.
-    if (this.secretSignModal) {
+    if (
+      this.secretSignModal ||
+      this.secretSignModal ||
+      this.inviteFriendsModal
+    ) {
       this.secretSignModal.dismiss();
+      this.inviteFriendsModal.dismiss();
+      this.configGameModal.dismiss();
     }
   }
 
@@ -232,22 +240,20 @@ export class Cashgame2x2Page implements OnInit, OnDestroy {
   }
 
   async showInviteFriendsModal() {
-    const modal = await this.modalController.create({
+    this.inviteFriendsModal = await this.modalController.create({
       component: ConvidarAmigosModalPage,
       cssClass: 'custom-class-modal-pattern modal-h20-height',
     });
-    return await modal.present();
+    return await this.inviteFriendsModal.present();
   }
 
-  async presentConfigGameModal() {
-    const modal = await this.modalController.create({
+  async showConfigGameModal() {
+    this.configGameModal = await this.modalController.create({
       component: ConfiguracaoJogoModalComponent,
-      showBackdrop: true,
-      cssClass: 'my-custom-class',
-      backdropDismiss: true,
+      cssClass: 'custom-modal-configuracao-jogo',
       animated: false,
     });
-    return await modal.present();
+    return await this.configGameModal.present();
   }
 
   generatePlayers() {

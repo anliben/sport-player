@@ -2,6 +2,7 @@
   <section class="flex items-center justify-between">
     <div class="flex items-center justify-center">
       <img
+        (click)="showConfigGameModal()"
         class="cursor-pointer h-8"
         src="/assets/game/partidaTruco/config.png"
       />
@@ -74,7 +75,6 @@
       </div>
     </div>
     <img
-      (click)="presentConfigGameModal()"
       class="cursor-pointer h-12 relative left-3"
       src="/assets/game/partidaTruco/informacoes.png"
     />
@@ -260,38 +260,46 @@
         src="/assets/game/partidaTruco/truco_part_truco.png"
       />
 
-      <div
-        *ngIf="showModalTruco === true"
-        class="flex justify-center mt-3"
-      >
-      <ng-container 
-      >
-      <div
-          class="fixed top-[0] z-[11] w-[95%] h-[130px] border border-solid bg-[#222222] border-primary mt-[300px]">
+      <div *ngIf="showModalTruco === true" class="flex justify-center mt-3">
+        <ng-container>
+          <div
+            class="fixed top-[0] z-[11] w-[95%] h-[130px] border border-solid bg-[#222222] border-primary mt-[300px]"
+          >
             <div class="flex justify-around">
               <div class="mt-2 -ml-2">
                 <ion-row *ngIf="partner === 'accept'">
-                  <div class="h-5 w-5 rounded-full bg-green-600 border border-solid border-primary"></div>
-                  <span class="text-[0.5rem] text-primary ml-0.5"> Parceiro <br/> Aceitou</span>
+                  <div
+                    class="h-5 w-5 rounded-full bg-green-600 border border-solid border-primary"
+                  ></div>
+                  <span class="text-[0.5rem] text-primary ml-0.5">
+                    Parceiro <br />
+                    Aceitou</span
+                  >
                 </ion-row>
                 <ion-row *ngIf="partner === 'denied'">
-                  <div class="h-5 w-5 rounded-full bg-red-600 border border-solid border-primary"></div>
-                  <span class="text-[0.5rem] text-primary ml-0.5"> Parceiro <br/> Correu</span>
+                  <div
+                    class="h-5 w-5 rounded-full bg-red-600 border border-solid border-primary"
+                  ></div>
+                  <span class="text-[0.5rem] text-primary ml-0.5">
+                    Parceiro <br />
+                    Correu</span
+                  >
                 </ion-row>
               </div>
               <span class="text-primary text-[1.5rem] -ml-6">TRUCO !!!</span>
-              <span class="text-primary text-[1.5rem] ">{{timer}}</span>
+              <span class="text-primary text-[1.5rem]">{{timer}}</span>
             </div>
+            <div class="flex justify-center"></div>
             <div class="flex justify-center">
-            </div>
-            <div class="flex justify-center">
-              <span class="text-primary text-[0.8rem] my-2">O Tiago esta pedindo truco</span>
+              <span class="text-primary text-[0.8rem] my-2"
+                >O Tiago esta pedindo truco</span
+              >
             </div>
             <div class="flex justify-center">
               <img
-              class="cursor-pointer h-10 animate-pulse"
-              src="/assets/game/partidaTruco/CORRER.png"
-              (click)="escape()"
+                class="cursor-pointer h-10 animate-pulse"
+                src="/assets/game/partidaTruco/CORRER.png"
+                (click)="escape()"
               />
               <img
                 class="cursor-pointer h-10 ml-3 mr-3 animate-pulse"
@@ -304,8 +312,8 @@
                 (click)="increaseScore()"
               />
             </div>
-        </div>
-      </ng-container>
+          </div>
+        </ng-container>
       </div>
     </section>
 

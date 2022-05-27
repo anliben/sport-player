@@ -29,7 +29,7 @@ import { PagamentoModalComponent } from './components/modais/pagamento-modal/pag
     MissoesModalComponent,
     SaqueModalComponent,
     AdicionarFichasModalComponent,
-    PagamentoModalComponent
+    PagamentoModalComponent,
     ConfigJogoItemComponent,
   ],
   imports: [

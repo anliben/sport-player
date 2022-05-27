@@ -13,6 +13,7 @@ import { TampaPComponent } from './components/tampa-p/tampa-p.component';
 import { MissoesModalComponent } from './components/modais/missoes-modal/missoes-modal.component';
 import { SaqueModalComponent } from './components/modais/saque-modal/saque-modal.component';
 import { AdicionarFichasModalComponent } from './components/modais/adicionar-fichas-modal/adicionar-fichas-modal.component';
+import { PagamentoModalComponent } from './components/modais/pagamento-modal/pagamento-modal.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AdicionarFichasModalComponent } from './components/modais/adicionar-fic
     TampaPComponent,
     MissoesModalComponent,
     SaqueModalComponent,
-    AdicionarFichasModalComponent
+    AdicionarFichasModalComponent,
+    PagamentoModalComponent
   ],
   imports: [
     CommonModule,

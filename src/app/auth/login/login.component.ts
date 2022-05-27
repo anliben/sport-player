@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertController } from '@ionic/angular';
+import { LoginService } from './login.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private loginService: LoginService
     ) { }
 
   ngOnInit() {
@@ -28,12 +30,14 @@ export class LoginComponent implements OnInit {
 
   login(){
     const {user, password} = this.formLogin.getRawValue();
-    if (this.formLogin.invalid || password !== 'admin' || user !== 'admin'){
+    if (this.formLogin.invalid){
       this.presentAlert();
-    }else if(user ==='admin' && password ==='admin'){
-      console.log(user);
-      console.log(password);
-      this.router.navigate(['home']);
+
+    }else {
+      this.loginService.login(user, password).subscribe((data: any) => {
+        console.log(data);
+        this.router.navigate(['/']);
+      } )
     }
   }
 

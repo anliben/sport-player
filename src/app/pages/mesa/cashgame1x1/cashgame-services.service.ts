@@ -73,4 +73,12 @@ export class CashgameServicesService {
       });
     }
   }
+
+  disconect(){
+    this.webSocket.emit('removePlayerCashGameX1', {
+      username: this.nome,
+      room: '1',
+      request: 'disconnect'
+    });
+  }
 }

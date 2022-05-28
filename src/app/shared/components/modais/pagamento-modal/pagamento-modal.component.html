@@ -1,0 +1,70 @@
+<div class="bg-[#242424] h-full">
+  <div class="flex justify-between items-center border-b border-solid border-primary p-1">
+    <div class="flex grow justify-center">
+      <span class="text-primary ml-4 text-[0.8rem] mt-0.5">Ordem de Pagamento</span>
+    </div>
+    <img (click)="back();" src="../../../../../assets/game/partidaTruco/botao-fechar.png"
+      class="h-6 rounded-md cursor-pointer active:scale-110 duration-300" />
+  </div>
+  <div class="w-[90%] mx-auto mt-2 h-[25px] border-solid border border-amber-200/50">
+    <div class="text-primary text-[0.7rem] flex justify-center mt-1">
+      <span>Valor a adicionar</span>
+    </div>
+  </div>
+  <div class="w-[90%] mx-auto h-[20px] border-solid border-b border-r border-l border-amber-200/50">
+    <div class="text-primary text-[0.8rem] flex justify-center">
+      <span>R$ {{valueReal}} </span>
+    </div>
+  </div>
+  <div class="flex justify-center">
+    <div class="w-[44%] h-[35px] mt-1.5 ml-4 border-solid border border-amber-200/50">
+      <div class="w-[100px] mx-auto text-primary text-[0.7rem] flex justify-center text-center">
+        <span>Data de criação</span>
+      </div>
+    </div>
+    <div class="w-[44%] mx-auto mr-4 h-[35px] mt-1.5 border-solid border border-amber-200/50">
+      <div class="text-primary text-[0.7rem] my-2.5 flex justify-center text-center">
+        <span>Tempo</span>
+      </div>
+    </div>
+  </div>
+  <div class="flex justify-center">
+    <div class="w-[44%] h-[35px] ml-4 border-solid border-b border-r border-l border-amber-200/50">
+      <div class="text-primary text-[0.8rem] mt-1 flex justify-center leading-3">
+        <span class="text-center">{{date}}</span>
+      </div>
+    </div>
+    <div class="w-[44%] mx-auto mr-4 h-[35px] border-solid border-b border-r border-l border-amber-200/50">
+      <div class="text-primary text-[0.8rem] my-2 flex justify-center">
+        <span>{{time}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="w-[90%] mx-auto mt-2 h-[25px] border-solid border border-amber-200/50">
+    <div class="text-primary text-[0.7rem] flex justify-center mt-1">
+      <span>Identificação do pagamento</span>
+    </div>
+  </div>
+  <div class="w-[90%] mx-auto h-[18px] border-solid border-b border-r border-l border-amber-200/50">
+    <div class="text-primary text-[0.5rem] pt-[3px] flex justify-center">
+      <span>MercadoPagoSportPlayer</span>
+    </div>
+  </div>
+  <div class="w-[90%] mx-auto mt-2 h-[25px] border-solid border border-amber-200/50">
+    <div class="text-primary text-[0.7rem] flex justify-center mt-1">
+      <span>Código Pix</span>
+    </div>
+  </div>
+  <div class="w-[90%] mx-auto h-[65px] border-solid border-b border-r border-l border-amber-200/50">
+    <div class="w-[90%] mx-auto mt-0.5 text-primary text-[0.5rem] text-center">
+      <span>{{pixCode}}</span>
+    </div>
+  </div>
+  <div class="mt-2">
+    <img class="mx-auto h-32" src="/assets/game/perfil/qrcode.png">
+  </div>
+  <div class="flex justify-center mt-3">
+    <img class="h-[27px] rounded-lg mr-1.5" src="/assets/game/perfil/copiar-codigo.png">
+    <img class="h-[27px] rounded-lg" src="/assets/game/perfil/ja-pago.png">
+  </div>
+</div>

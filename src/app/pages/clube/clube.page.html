@@ -4,17 +4,18 @@
   <div class="flex justify-between items-center p-1">
     <img
       (click)="back()"
-      class="cursor-pointer h-8 transition ease-in-out delay-150 hover:scale-110 duration-300"
+      class="cursor-pointer h-8 active:scale-110 duration-300"
       src="../../../assets/game/buttons/seta-voltar.png"
       alt="seta voltar"
     />
     <div class="flex">
       <img
-        class="cursor-pointer h-6 mr-2 transition ease-in-out delay-150 hover:scale-110 duration-300"
+        class="cursor-pointer h-6 mr-2 active:scale-110 duration-300"
         src="../../../assets/game/truco8/mensagem.png"
       />
       <img
-        class="cursor-pointer h-6 transition ease-in-out delay-150 hover:scale-110 duration-300"
+        (click)="showSuporteModal()"
+        class="cursor-pointer h-6 active:scale-110 duration-300"
         src="../../../assets/icon/suporte-com-txt.png"
       />
     </div>

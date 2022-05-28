@@ -4,6 +4,7 @@ import { SaqueModalComponent } from '../../../shared/components/modais/saque-mod
 import { AdicionarFichasModalComponent } from '../../../shared/components/modais/adicionar-fichas-modal/adicionar-fichas-modal.component';
 // eslint-disable-next-line max-len
 import { ConfirmarCompraItemModalComponent } from 'src/app/shared/components/modais/confirmar-compra-item-modal/confirmar-compra-item-modal.component';
+import { AmigosModalComponent } from '../../../shared/components/modais/amigos-modal/amigos-modal.component';
 
 @Component({
   selector: 'app-perfil-jogador',
@@ -104,6 +105,7 @@ export class PerfilJogadorComponent implements OnInit {
     });
     return await modal.present();
   }
+
   async showAdicionarFichasModal() {
     const modal = await this.modalController.create({
       component: AdicionarFichasModalComponent,
@@ -111,6 +113,7 @@ export class PerfilJogadorComponent implements OnInit {
     });
     return await modal.present();
   }
+
   async showConfirmBuyItemModal(itemStore: any) {
     this.confirmBuyItemModal = await this.modalController.create({
       component: ConfirmarCompraItemModalComponent,
@@ -122,5 +125,13 @@ export class PerfilJogadorComponent implements OnInit {
     });
 
     return this.confirmBuyItemModal.present();
+  }
+
+  async showFriensModal() {
+    const modal = await this.modalController.create({
+      component: AmigosModalComponent,
+      cssClass: 'custom-class-modal-pattern modal-height-amigos',
+    });
+    return await modal.present();
   }
 }

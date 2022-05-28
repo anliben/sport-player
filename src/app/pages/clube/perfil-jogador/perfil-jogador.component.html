@@ -3,12 +3,12 @@
     class="bg-[url('/assets/game/game/fundo-loja.png')] bg-cover bg-no-repeat w-full h-full"
   >
     <header>
-      <div class="flex flex-row">
-        <div
-          class="bg-[url('/assets/game/game/homem.png')] bg-black z-20 rounded-full border border-amber-100/50 border-solid w-14 h-14 bg-no-repeat bg-contain"
-        ></div>
-        <div class="flex flex-col">
-          <figure class="w-44 mt-2 relative right-5">
+      <div class="flex justify-between">
+        <div class="flex flex-col pr-2">
+          <div
+            class="bg-[url('/assets/game/game/homem.png')] absolute bg-black z-20 rounded-full border border-amber-100/50 border-solid w-14 h-14 bg-no-repeat bg-contain"
+          ></div>
+          <figure class="w-44 mt-2 ml-16 relative right-5">
             <img src="/assets/game/truco8/fundo-info-Jogador.png" />
             <span
               class="absolute left-6 top-0 -mt-0.5 text-[#fdfca7] font-medium uppercase text-xs leading-6"
@@ -19,14 +19,14 @@
               >ID: 1223</span
             >
           </figure>
-          <figure class="w-32 relative right-5">
+          <figure class="w-32 ml-16 relative right-5">
             <img src="/assets/game/truco8/fundo-info-Jogador.png " />
             <span class="absolute bottom-0 left-6 mb-0.5 text-[#fdfca7] text-xs"
               >LEVEL</span
             >
           </figure>
         </div>
-        <div class="pl-[5%]">
+        <div class="pr-[5%]">
           <div class="mt-1 ml-2">
             <img src="/assets/game/perfil/fundo-fichas.png" class="h-7" />
             <ion-row class="mt-2">
@@ -53,6 +53,7 @@
         src="/assets/game/perfil/painel-do-jogador.png"
       />
       <img
+        (click)="showFriensModal()"
         class="h-[1.3rem] mt-3 object-cover"
         src="/assets/game/perfil/amigos.png"
       />

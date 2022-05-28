@@ -11,6 +11,7 @@ import { ConvidarAmigosModalPage } from 'src/app/shared/components/modais/convid
 // eslint-disable-next-line max-len
 import { CGDetalhesJogoModalComponent } from 'src/app/shared/components/modais/detalhes-jogo-cashgame-modal/detalhes-jogo-cashgame-modal.component';
 import { CashgameServicesService } from './cashgame-services.service';
+import { interval, timer } from 'rxjs';
 
 @Component({
   selector: 'app-cashgame1x1',
@@ -62,6 +63,7 @@ export class Cashgame1x1Page implements OnInit {
   bottomAnimation = true;
 
   trucco = false;
+  truccoMe = false;
 
   bottomCardNumber = 0;
   bottomCardNaipe = 0;
@@ -91,6 +93,14 @@ export class Cashgame1x1Page implements OnInit {
   friend = '';
 
   timer = 5;
+  message: string;
+  action: string;
+  messageMe: string = 'Aguardando resposta';
+
+  acceptTruco: boolean = false;
+  unsubscribeForTime = false;
+
+  timingObs = (t) => interval(t);
 
   /**Modal */
   configGameModal: HTMLIonModalElement;
@@ -109,12 +119,14 @@ export class Cashgame1x1Page implements OnInit {
   }
 
   ngOnInit() {
+
     this.cashGameService.addPlayer();
     this.webSocket.listen('rodada').subscribe((data: any) => {
       console.log(data);
 
       data.jogadores.forEach((element: any) => {
         this.rodadas = element.rodadas;
+        console.log(element);
         if (element.username === this.nome) {
           this.pontosNos = element.pontos;
         } else {
@@ -124,15 +136,52 @@ export class Cashgame1x1Page implements OnInit {
     });
 
     this.webSocket.listen('truco').subscribe((data: any) => {
+      this.timer = 5
+      this.acceptTruco = false
+      this.timingTrucco(1000);
+      this.messageMe = 'Aguardando resposta';
+      this.action = 'TRUCO!!!'
       if (data.jogador !== this.nome) {
         this.trucco = true;
+        this.message = `${data.jogador} pediu truco`;
+      } else {
+        this.truccoMe = true;
       }
+
     });
 
     this.webSocket.listen('increase').subscribe((data: any) => {
+      this.action = 'AUMENTOU!!!'
+      this.timingTrucco(1000)
+      this.timer = 5
+      this.acceptTruco = false
+      if (data.jogador !== this.nome) {
+        this.truccoMe = true;
+        this.messageMe = `${data.jogador} aumentou`;
+      }
+      this.trucco = true;
+      this.message = 'aguardando resposta';
+    });
+
+    this.webSocket.listen('escape').subscribe((data: any) => {
+      this.action = 'ESCAPOU!!!'
+
       if (data.jogador !== this.nome) {
         this.trucco = true;
+        this.messageMe = `${data.jogador} escapou`;
       }
+      this.trucco = false;
+      this.timingTrucoForMe()
+    });
+
+    this.webSocket.listen('accept').subscribe((data: any) => {
+      this.action = 'ACEITOU!!!'
+
+      this.messageMe = `${data.jogador} aceitou`;
+      this.acceptTruco = true
+      this.trucco = false;
+      this.timingTrucoForMe()
+
     });
 
     this.webSocket.listen('novaMao').subscribe((data: any) => {
@@ -146,6 +195,7 @@ export class Cashgame1x1Page implements OnInit {
         }
       });
     });
+
     this.webSocket.listen('jogarCarta').subscribe((data: any) => {
       const carta = {
         naipe: data.naipe,
@@ -188,6 +238,51 @@ export class Cashgame1x1Page implements OnInit {
       });
     });
   }
+
+  ngOnDestroy() {
+    console.log('destroy');
+
+    this.cashGameService.disconect();
+  }
+  ionViewDidLeave() {
+    console.log('leave');
+    this.cashGameService.disconect();
+  }
+  ionViewWillLeave() {
+    console.log('leave');
+    this.cashGameService.disconect();
+  }
+
+
+  async timingTrucco(t) {
+
+    let times = await interval(t)
+
+    let waiting = times.subscribe(async () => {
+      this.timer--;
+      if (this.acceptTruco === true) {
+        waiting.unsubscribe()
+      }
+      if (this.timer === 0 && this.acceptTruco === false) {
+        this.escape()
+        waiting.unsubscribe()
+      }
+    })
+  }
+
+  timingTrucoForMe() {
+    let times = interval(1000)
+    let count = 0;
+
+    let waiting = times.subscribe(() => {
+      if (count === 1) {
+        this.truccoMe = false;
+        waiting.unsubscribe()
+      }
+      count++;
+    })
+  }
+
   generatePlayers() {
     const posicoes = ['top', 'bottom', 'left', 'right'];
     for (let i = 0; i < 100; i++) {
@@ -241,14 +336,11 @@ export class Cashgame1x1Page implements OnInit {
   }
   async escape() {
     this.scoreService.escape();
-    this.trucco = false;
   }
   async accept() {
     this.scoreService.accept();
-    this.trucco = false;
   }
   async increaseScore() {
     this.scoreService.increaseScore();
-    this.trucco = false;
   }
 }

@@ -7,6 +7,9 @@ import { PlayerService } from 'src/app/services/player.service';
 import { WebSocketService } from 'src/app/services/web-socket.service';
 import { ConfiguracaoJogoModalComponent } from 'src/app/shared/components/modais/configuracao-jogo-modal/configuracao-jogo-modal.component';
 import { ConvidarAmigosModalPage } from 'src/app/shared/components/modais/convidar-amigos-modal/convidar-amigos-modal.page';
+// eslint-disable-next-line max-len
+import { CGDetalhesJogoModalComponent } from 'src/app/shared/components/modais/detalhes-jogo-cashgame-modal/detalhes-jogo-cashgame-modal.component';
+import { HistoricoMaosModalComponent } from 'src/app/shared/components/modais/historico-maos-modal/historico-maos-modal.component';
 import { SinalSecretoModalPage } from 'src/app/shared/components/modais/sinal-secreto-modal/sinal-secreto-modal.page';
 
 @Component({
@@ -92,6 +95,8 @@ export class Cashgame2x2Page implements OnInit, OnDestroy {
   secretSignModal: HTMLIonModalElement;
   inviteFriendsModal: HTMLIonModalElement;
   configGameModal: HTMLIonModalElement;
+  handHistory: HTMLIonModalElement;
+  detailGame: HTMLIonModalElement;
 
   constructor(
     private webSocket: WebSocketService,
@@ -254,6 +259,30 @@ export class Cashgame2x2Page implements OnInit, OnDestroy {
       animated: false,
     });
     return await this.configGameModal.present();
+  }
+
+  async showHandHistory() {
+    this.handHistory = await this.modalController.create({
+      component: HistoricoMaosModalComponent,
+      cssClass: 'custom-modal-historico-maos',
+      componentProps: {
+        playersDistribution: this.tableData.playersDistribution,
+      },
+    });
+    return await this.handHistory.present();
+  }
+
+  async showDetailGame() {
+    this.detailGame = await this.modalController.create({
+      component: CGDetalhesJogoModalComponent,
+      cssClass: 'custom-modal-detalhes-jogo',
+      componentProps: {
+        playersDistribution: this.tableData.playersDistribution,
+        buyMatch: this.tableData.buy,
+        awardTotal: this.tableData.awardTotal,
+      },
+    });
+    return await this.detailGame.present();
   }
 
   generatePlayers() {

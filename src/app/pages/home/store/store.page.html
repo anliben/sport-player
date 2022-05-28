@@ -1,147 +1,149 @@
+<!-- <div class="bg-background-home h-full p-0 m-0 bg-cover bg-no-repeat"> -->
+<ion-header>
+  <app-header></app-header>
+</ion-header>
 <ion-content>
-  <div class="bg-background-home h-full p-0 m-0 bg-cover bg-no-repeat">
-    <app-header moeda="55" diamante="20"></app-header>
-    <div class="flex justify-center my-4 mx-2">
-      <img
-        class="h-6 object-cover"
-        src="../../../../assets/game/game/sorte-di-ria.png"
-      />
-    </div>
-    <div class="flex justify-center">
-      <ion-row>
-        <div class="h-14 w-14 relative flex my-auto m-0.5">
-          <img
-            class="h-14 w-14"
-            src="../../../../assets/game/loja/sortido-item.png"
-          />
-          <div class="absolute left-1 bottom-1">
-            <img
-              class="h-12 w-12 object-cover"
-              src=".../../../../assets/game/loja/interrogacao.png"
-            />
-          </div>
-        </div>
-        <div class="h-16 w-16 relative flex my-auto m-0.2">
-          <img
-            class="h-16 w-16"
-            src="../../../../assets/game/loja/sortido-item.png"
-          />
-          <div class="absolute left-1 bottom-1">
-            <img
-              class="h-14 w-14 object-cover"
-              src=".../../../../assets/game/loja/interrogacao.png"
-            />
-          </div>
-        </div>
-        <div class="h-20 w-20 relative flex my-auto m-1">
-          <img
-            class="h-20 w-20"
-            src="../../../../assets/game/loja/sortido-item.png"
-          />
-          <div class="absolute left-1 bottom-1">
-            <img
-              class="h-16 w-16 m-1 object-cover"
-              src=".../../../../assets/game/loja/interrogacao.png"
-            />
-          </div>
-        </div>
-        <div class="h-16 w-16 relative flex my-auto m-0.2">
-          <img
-            class="h-16 w-16"
-            src="../../../../assets/game/loja/sortido-item.png"
-          />
-          <div class="absolute left-1 bottom-1">
-            <img
-              class="h-14 w-14 object-cover"
-              src=".../../../../assets/game/loja/interrogacao.png"
-            />
-          </div>
-        </div>
-        <div class="h-14 w-14 relative flex my-auto m-0.5">
-          <img
-            class="h-14 w-14"
-            src="../../../../assets/game/loja/sortido-item.png"
-          />
-          <div class="absolute left-1 bottom-1">
-            <img
-              class="h-12 w-12 object-cover"
-              src=".../../../../assets/game/loja/interrogacao.png"
-            />
-          </div>
-        </div>
-      </ion-row>
-    </div>
-
+  <div class="flex justify-center my-4 mx-2">
     <img
-      class="h-8 w-36 my-6 mx-auto m-2 object-cover rounded-xl"
-      src="../../../../assets/game/loja/botao-sortear.png"
+      class="h-6 object-cover"
+      src="../../../../assets/game/game/sorte-di-ria.png"
     />
+  </div>
+  <div class="flex justify-center">
+    <ion-row>
+      <div class="h-14 w-14 relative flex my-auto m-0.5">
+        <img
+          class="h-14 w-14"
+          src="../../../../assets/game/loja/sortido-item.png"
+        />
+        <div class="absolute left-1 bottom-1">
+          <img
+            class="h-12 w-12 object-cover"
+            src=".../../../../assets/game/loja/interrogacao.png"
+          />
+        </div>
+      </div>
+      <div class="h-16 w-16 relative flex my-auto m-0.2">
+        <img
+          class="h-16 w-16"
+          src="../../../../assets/game/loja/sortido-item.png"
+        />
+        <div class="absolute left-1 bottom-1">
+          <img
+            class="h-14 w-14 object-cover"
+            src=".../../../../assets/game/loja/interrogacao.png"
+          />
+        </div>
+      </div>
+      <div class="h-20 w-20 relative flex my-auto m-1">
+        <img
+          class="h-20 w-20"
+          src="../../../../assets/game/loja/sortido-item.png"
+        />
+        <div class="absolute left-1 bottom-1">
+          <img
+            class="h-16 w-16 m-1 object-cover"
+            src=".../../../../assets/game/loja/interrogacao.png"
+          />
+        </div>
+      </div>
+      <div class="h-16 w-16 relative flex my-auto m-0.2">
+        <img
+          class="h-16 w-16"
+          src="../../../../assets/game/loja/sortido-item.png"
+        />
+        <div class="absolute left-1 bottom-1">
+          <img
+            class="h-14 w-14 object-cover"
+            src=".../../../../assets/game/loja/interrogacao.png"
+          />
+        </div>
+      </div>
+      <div class="h-14 w-14 relative flex my-auto m-0.5">
+        <img
+          class="h-14 w-14"
+          src="../../../../assets/game/loja/sortido-item.png"
+        />
+        <div class="absolute left-1 bottom-1">
+          <img
+            class="h-12 w-12 object-cover"
+            src=".../../../../assets/game/loja/interrogacao.png"
+          />
+        </div>
+      </div>
+    </ion-row>
+  </div>
 
-    <cdk-virtual-scroll-viewport itemSize="60" class="h-2/4 sm:h-2/4 w-full">
-      <div class="flex justify-center mb-6">
-        <div class="grid grid-cols-3 gap-3">
-          <div *ngFor="let storeItem of storeItens">
-            <div class="h-28 w-24 relative">
+  <img
+    class="h-8 w-36 my-6 mx-auto m-2 object-cover rounded-xl"
+    src="../../../../assets/game/loja/botao-sortear.png"
+  />
+
+  <!-- <cdk-virtual-scroll-viewport itemSize="60" class="h-2/4 sm:h-2/4 w-full"> -->
+  <div class="flex justify-center mb-6">
+    <div class="grid grid-cols-3 gap-3">
+      <div
+        class="cursor-pointer active:scale-110 duration-300"
+        *ngFor="let storeItem of storeItens"
+        (click)="showConfirmBuyItemModal(storeItem)"
+      >
+        <div class="h-28 w-24 relative">
+          <img
+            class="h-28 w-24"
+            src="../../../../assets/game/loja/sortido-item.png"
+          />
+          <div
+            *ngIf="storeItem.type !== 'emoji'"
+            class="absolute bottom-0 h-24 w-20 left-1/4"
+          >
+            <img class="h-11" src="{{storeItem.imgItem}}" />
+          </div>
+          <div
+            *ngIf="storeItem.type === 'emoji'"
+            class="absolute bottom-0 h-28 w-24 left-1/4"
+          >
+            <img class="h-14 my-4 -ml-1" src="{{storeItem.imgItem}}" />
+          </div>
+          <div
+            *ngIf="storeItem.type === 'diamante'"
+            class="h-8 w-full -mt-11 text-center"
+          >
+            <h3 class="text-[#23bee2] text-[1rem]">{{storeItem.quantity}}</h3>
+          </div>
+          <div
+            *ngIf="storeItem.type === 'moeda'"
+            class="h-8 w-full -mt-11 text-center"
+          >
+            <h3 class="text-[#fde870] text-[1rem]">{{storeItem.quantity}}</h3>
+          </div>
+          <div class="absolute bottom-0">
+            <img
+              class="h-6"
+              src="../../../../assets/game/loja/loja-preco-quadr.png"
+            />
+            <div *ngIf="storeItem.typePayments === 'reais'">
+              <h3
+                class="absolute bottom-0 mx-3 my-0.5 text-[0.9rem] text-[#8b8b5c]"
+              >
+                R$ {{storeItem.price}}
+              </h3>
+            </div>
+            <div *ngIf="storeItem.typePayments === 'diamante'">
+              <h3
+                class="absolute bottom-0 mx-3 right-1/4 my-0.5 text-[0.8rem] text-[#fde870]"
+              >
+                {{storeItem.price}}
+              </h3>
               <img
-                class="h-28 w-24"
-                src="../../../../assets/game/loja/sortido-item.png"
+                class="absolute h-3.5 w-4 bottom-0 left-2/3 my-1"
+                src="/assets/game/game/diamente.png"
               />
-              <div
-                *ngIf="storeItem.type !== 'emoji'"
-                class="absolute bottom-0 h-24 w-20 left-1/4"
-              >
-                <img class="h-11" src="{{storeItem.imgItem}}" />
-              </div>
-              <div
-                *ngIf="storeItem.type === 'emoji'"
-                class="absolute bottom-0 h-28 w-24 left-1/4"
-              >
-                <img class="h-14 my-4 -ml-1" src="{{storeItem.imgItem}}" />
-              </div>
-              <div
-                *ngIf="storeItem.type === 'diamante'"
-                class="h-8 w-full -mt-11 text-center"
-              >
-                <h3 class="text-[#23bee2] text-[1rem]">
-                  {{storeItem.quantity}}
-                </h3>
-              </div>
-              <div
-                *ngIf="storeItem.type === 'moeda'"
-                class="h-8 w-full -mt-11 text-center"
-              >
-                <h3 class="text-[#fde870] text-[1rem]">
-                  {{storeItem.quantity}}
-                </h3>
-              </div>
-              <div class="absolute bottom-0">
-                <img
-                  class="h-6"
-                  src="../../../../assets/game/loja/loja-preco-quadr.png"
-                />
-                <div *ngIf="storeItem.typePayments === 'reais'">
-                  <h3
-                    class="absolute bottom-0 mx-3 my-0.5 text-[0.9rem] text-[#8b8b5c]"
-                  >
-                    R$ {{storeItem.price}}
-                  </h3>
-                </div>
-                <div *ngIf="storeItem.typePayments === 'diamante'">
-                  <h3
-                    class="absolute bottom-0 mx-3 right-1/4 my-0.5 text-[0.8rem] text-[#fde870]"
-                  >
-                    {{storeItem.price}}
-                  </h3>
-                  <img
-                    class="absolute h-3.5 w-4 bottom-0 left-2/3 my-1"
-                    src="/assets/game/game/diamente.png"
-                  />
-                </div>
-              </div>
             </div>
           </div>
         </div>
       </div>
-    </cdk-virtual-scroll-viewport>
+    </div>
   </div>
+  <!-- </cdk-virtual-scroll-viewport> -->
 </ion-content>
+<!-- </div> -->

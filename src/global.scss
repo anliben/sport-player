@@ -234,6 +234,48 @@ table {
   }
 }
 
+.custom-modal-historico-maos {
+  align-items: center; // Y
+  justify-content: center; // X
+  &::part(content) {
+    width: 80%;
+    height: 56%;
+    --max-width: 400px;
+    --border-radius: 3px;
+    --border-width: 1px;
+    --border-style: solid;
+    --border-color: var(--primary);
+  }
+}
+
+.custom-modal-detalhes-jogo {
+  align-items: center; // Y
+  justify-content: center; // X
+  &::part(content) {
+    width: 80%;
+    height: 30%;
+    --max-width: 400px;
+    --border-radius: 3px;
+    --border-width: 1px;
+    --border-style: solid;
+    --border-color: var(--primary);
+  }
+}
+
+.custom-modal-confirmar-compra-modal {
+  align-items: center; // Y
+  justify-content: center; // X
+  &::part(content) {
+    width: 70%;
+    height: 25%;
+    --max-width: 300px;
+    --border-radius: 3px;
+    --border-width: 1px;
+    --border-style: solid;
+    --border-color: var(--primary);
+  }
+}
+
 .modal-teste,
 div.modal-wrapper,
 div.modal-shadow {

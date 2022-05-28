@@ -14,6 +14,9 @@ import { MissoesModalComponent } from './components/modais/missoes-modal/missoes
 import { SaqueModalComponent } from './components/modais/saque-modal/saque-modal.component';
 import { ConfigJogoItemComponent } from './components/config-jogo-item/config-jogo-item.component';
 import { AdicionarFichasModalComponent } from './components/modais/adicionar-fichas-modal/adicionar-fichas-modal.component';
+import { HistoricoMaosModalComponent } from './components/modais/historico-maos-modal/historico-maos-modal.component';
+import { CGDetalhesJogoModalComponent } from './components/modais/detalhes-jogo-cashgame-modal/detalhes-jogo-cashgame-modal.component';
+import { ConfirmarCompraItemModalComponent } from './components/modais/confirmar-compra-item-modal/confirmar-compra-item-modal.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,9 @@ import { AdicionarFichasModalComponent } from './components/modais/adicionar-fic
     SaqueModalComponent,
     ConfigJogoItemComponent,
     AdicionarFichasModalComponent,
+    HistoricoMaosModalComponent,
+    CGDetalhesJogoModalComponent,
+    ConfirmarCompraItemModalComponent,
   ],
   imports: [
     CommonModule,

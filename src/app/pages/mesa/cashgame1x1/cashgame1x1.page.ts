@@ -8,6 +8,8 @@ import { WebSocketService } from 'src/app/services/web-socket.service';
 
 import { ConfiguracaoJogoModalComponent } from 'src/app/shared/components/modais/configuracao-jogo-modal/configuracao-jogo-modal.component';
 import { ConvidarAmigosModalPage } from 'src/app/shared/components/modais/convidar-amigos-modal/convidar-amigos-modal.page';
+// eslint-disable-next-line max-len
+import { CGDetalhesJogoModalComponent } from 'src/app/shared/components/modais/detalhes-jogo-cashgame-modal/detalhes-jogo-cashgame-modal.component';
 import { CashgameServicesService } from './cashgame-services.service';
 import { interval, timer } from 'rxjs';
 
@@ -102,6 +104,7 @@ export class Cashgame1x1Page implements OnInit {
 
   /**Modal */
   configGameModal: HTMLIonModalElement;
+  detailGame: HTMLIonModalElement;
 
   constructor(
     private webSocket: WebSocketService,
@@ -315,15 +318,17 @@ export class Cashgame1x1Page implements OnInit {
     return await this.configGameModal.present();
   }
 
-  async presentConfigGameModal() {
-    const modal = await this.modalController.create({
-      component: ConfiguracaoJogoModalComponent,
-      showBackdrop: true,
-      cssClass: 'custom-class-modal-pattern',
-      backdropDismiss: true,
-      animated: false,
+  async showDetailGame() {
+    this.detailGame = await this.modalController.create({
+      component: CGDetalhesJogoModalComponent,
+      cssClass: 'custom-modal-detalhes-jogo',
+      componentProps: {
+        playersDistribution: this.tableData.playersDistribution,
+        buyMatch: this.tableData.buy,
+        awardTotal: this.tableData.awardTotal,
+      },
     });
-    return await modal.present();
+    return await this.detailGame.present();
   }
 
   async truco() {

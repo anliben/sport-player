@@ -1,8 +1,5 @@
 <div class="flex justify-between items-center">
-  <div
-    *ngIf="voltarBtn; else btnVip"
-    class="transition ease-in-out delay-150 hover:scale-110 duration-300"
-  >
+  <div *ngIf="voltarBtn; else btnVip" class="active:scale-110 duration-300">
     <img
       (click)="back()"
       src="../../../../assets/game/buttons/seta-voltar.png"
@@ -13,7 +10,7 @@
   <ng-template #btnVip>
     <img
       (click)="showVipModal()"
-      class="m-1 h-7 cursor-pointer transition ease-in-out delay-150 hover:scale-110 duration-300"
+      class="m-1 h-7 cursor-pointer active:scale-110 duration-300"
       src="/assets/game/header/botao-vip.png"
     />
   </ng-template>
@@ -35,7 +32,7 @@
   </div>
 
   <img
-    class="cursor-pointer m-1 h-8 transition ease-in-out delay-150 hover:scale-110 duration-300"
+    class="cursor-pointer m-1 h-8 active:scale-110 duration-300"
     src="/assets/game/header/botao-rank.png"
   />
 </div>

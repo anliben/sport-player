@@ -3,7 +3,7 @@
     <div class="flex items-center justify-center">
       <img
         (click)="showConfigGameModal()"
-        class="cursor-pointer h-8"
+        class="cursor-pointer h-8 active:scale-110 duration-300"
         src="/assets/game/partidaTruco/config.png"
       />
       <div
@@ -75,7 +75,8 @@
       </div>
     </div>
     <img
-      class="cursor-pointer h-12 relative left-3"
+      (click)="showDetailGame()"
+      class="cursor-pointer h-12 relative left-3 active:scale-110 duration-300"
       src="/assets/game/partidaTruco/informacoes.png"
     />
   </section>
@@ -83,7 +84,7 @@
   <section class="flex justify-center h-[70%]">
     <img
       (click)="showInviteFriendsModal()"
-      class="cursor-pointer h-10 self-end transition ease-in-out delay-150 hover:scale-110 duration-300"
+      class="cursor-pointer h-10 self-end active:scale-110 duration-300"
       src="/assets/game/partidaTruco/convidar-amigos.png"
     />
 
@@ -247,7 +248,7 @@
     </div>
     <img
       (click)="showSecretSignModal()"
-      class="cursor-pointer h-10 self-end transition ease-in-out delay-150 hover:scale-110 duration-300"
+      class="cursor-pointer h-10 self-end active:scale-110 duration-300"
       src="/assets/game/partidaTruco/sinal-secreto.png"
     />
   </section>
@@ -256,7 +257,7 @@
     <section class="flex items-center flex-col">
       <img
         (click)="click()"
-        class="cursor-pointer h-8 w-32"
+        class="cursor-pointer h-8 w-32 active:scale-110 duration-300"
         src="/assets/game/partidaTruco/truco_part_truco.png"
       />
 
@@ -320,6 +321,7 @@
     <section>
       <div class="flex justify-between mt-1">
         <img
+          (click)="showHandHistory()"
           class="cursor-pointer h-8"
           src="/assets/game/partidaTruco/historico-de-maos.png"
         />

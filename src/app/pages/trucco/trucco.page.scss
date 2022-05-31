@@ -13,4 +13,9 @@
     --background: #fff url("/assets/game/game/fundo.png") no-repeat center
       center / cover;
   }
+  ion-item { 
+    font-size: small;
+    --background: rgb(22, 22, 22);
+    height: 35px;
+}
 }

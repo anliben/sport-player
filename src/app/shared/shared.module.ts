@@ -20,6 +20,7 @@ import { ConfirmarCompraItemModalComponent } from './components/modais/confirmar
 import { PagamentoModalComponent } from './components/modais/pagamento-modal/pagamento-modal.component';
 import { AmigosModalComponent } from './components/modais/amigos-modal/amigos-modal.component';
 import { AmigosSolicilatoesComponent } from './components/modais/amigos-solicilatoes/amigos-solicilatoes.component';
+import { ChatJogoModalComponent } from './components/modais/chat-jogo-modal/chat-jogo-modal.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { AmigosSolicilatoesComponent } from './components/modais/amigos-solicila
     ConfigJogoItemComponent,
     AmigosModalComponent,
     AmigosSolicilatoesComponent,
+    ChatJogoModalComponent,
   ],
   imports: [
     CommonModule,

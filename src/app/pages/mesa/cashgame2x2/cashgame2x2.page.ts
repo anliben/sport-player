@@ -5,6 +5,7 @@ import { MesaInterface } from 'src/app/interfaces/mesa-interface';
 import { PlayerIdService } from 'src/app/services/player-id.service';
 import { PlayerService } from 'src/app/services/player.service';
 import { WebSocketService } from 'src/app/services/web-socket.service';
+import { ChatJogoModalComponent } from 'src/app/shared/components/modais/chat-jogo-modal/chat-jogo-modal.component';
 import { ConfiguracaoJogoModalComponent } from 'src/app/shared/components/modais/configuracao-jogo-modal/configuracao-jogo-modal.component';
 import { ConvidarAmigosModalPage } from 'src/app/shared/components/modais/convidar-amigos-modal/convidar-amigos-modal.page';
 // eslint-disable-next-line max-len
@@ -97,6 +98,7 @@ export class Cashgame2x2Page implements OnInit, OnDestroy {
   configGameModal: HTMLIonModalElement;
   handHistory: HTMLIonModalElement;
   detailGame: HTMLIonModalElement;
+  chatGameModal: HTMLIonModalElement;
 
   constructor(
     private webSocket: WebSocketService,
@@ -283,6 +285,14 @@ export class Cashgame2x2Page implements OnInit, OnDestroy {
       },
     });
     return await this.detailGame.present();
+  }
+
+  async showChatGame() {
+    this.chatGameModal = await this.modalController.create({
+      component: ChatJogoModalComponent,
+      cssClass: 'custom-modal-chat-jogo',
+    });
+    return await this.chatGameModal.present();
   }
 
   generatePlayers() {

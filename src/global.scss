@@ -234,6 +234,15 @@ table {
   }
 }
 
+.custom-modal-chat-jogo {
+  align-items: flex-end; // Y
+  justify-content: flex-end; // X
+  &::part(content) {
+    width: 70%;
+    height: 100%;
+  }
+}
+
 .custom-modal-historico-maos {
   align-items: center; // Y
   justify-content: center; // X

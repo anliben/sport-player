@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { SuporteModalPage } from '../modais/suporte-modal/suporte-modal.page';
 import { MissoesModalComponent } from '../modais/missoes-modal/missoes-modal.component';
+import { MensagensRecebidasModalComponent } from '../modais/mensagens-recebidas-modal/mensagens-recebidas-modal.component';
 
 @Component({
   selector: 'app-perfil',
@@ -26,6 +27,14 @@ export class PerfilComponent implements OnInit {
     const modal = await this.modalCtrl.create({
       component: MissoesModalComponent,
       cssClass: 'custom-class-modal-missoes modal-height-missoes',
+    });
+
+    return await modal.present();
+  }
+  async showMessageModal(){
+    const modal = await this.modalCtrl.create({
+      component: MensagensRecebidasModalComponent,
+      cssClass: 'custom-class-modal-missoes modal-height-menssagens',
     });
 
     return await modal.present();

@@ -1,10 +1,11 @@
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { IonicModule } from '@ionic/angular';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { AvatarMesaComponent } from './components/avatar-mesa/avatar-mesa.component';
 import { HeaderComponent } from './components/header/header.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
-import { IonicModule } from '@ionic/angular';
 import { CartaBaralhoComponent } from './components/carta-baralho/carta-baralho.component';
 import { JackpotComponent } from './components/jackpot/jackpot.component';
 import { ConfiguracaoJogoModalComponent } from './components/modais/configuracao-jogo-modal/configuracao-jogo-modal.component';
@@ -21,6 +22,9 @@ import { PagamentoModalComponent } from './components/modais/pagamento-modal/pag
 import { AmigosModalComponent } from './components/modais/amigos-modal/amigos-modal.component';
 import { AmigosSolicilatoesComponent } from './components/modais/amigos-solicilatoes/amigos-solicilatoes.component';
 import { ChatJogoModalComponent } from './components/modais/chat-jogo-modal/chat-jogo-modal.component';
+import { MensagensRecebidasModalComponent } from './components/modais/mensagens-recebidas-modal/mensagens-recebidas-modal.component';
+import { MensagensEnviadasModalComponent } from './components/modais/mensagens-enviadas-modal/mensagens-enviadas-modal.component';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 @NgModule({
   declarations: [
@@ -43,12 +47,15 @@ import { ChatJogoModalComponent } from './components/modais/chat-jogo-modal/chat
     AmigosModalComponent,
     AmigosSolicilatoesComponent,
     ChatJogoModalComponent,
+    MensagensRecebidasModalComponent,
+    MensagensEnviadasModalComponent,
   ],
   imports: [
     CommonModule,
     IonicModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
+    ScrollingModule,
   ],
   exports: [
     CommonModule,

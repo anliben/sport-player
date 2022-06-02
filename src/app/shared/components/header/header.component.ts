@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalController, NavController } from '@ionic/angular';
 import { VipModalPage } from '../modais/vip-modal/vip-modal.page';
+import { RankModalComponent } from '../modais/rank-modal/rank-modal.component';
 
 @Component({
   selector: 'app-header',
@@ -35,4 +36,13 @@ export class HeaderComponent implements OnInit {
     });
     return await modal.present();
   }
+
+  async showRankModal(){
+    const modal = await this.modalCtrl.create({
+      component: RankModalComponent,
+      cssClass: 'custom-class-modal-rank modal-height-vip',
+    });
+    return await modal.present();
+  }
+  
 }

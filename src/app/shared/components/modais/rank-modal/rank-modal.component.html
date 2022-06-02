@@ -1,0 +1,108 @@
+<div class="bg-[#202221] h-full">
+  <div class="flex justify-between items-center border-b border-solid border-primary p-1">
+    <div class="flex grow justify-center">
+      <span class="text-primary text-[1rem]">Rank</span>
+    </div>
+    <img
+      (click)="back()" 
+      src="../../../../../assets/game/partidaTruco/botao-fechar.png"
+      class="h-6 rounded-md cursor-pointer active:scale-110 duration-300" />
+  </div>
+  <div class="flex justify-center">
+    <cdk-virtual-scroll-viewport itemSize="60" class="h-[330px] w-[30%]">
+      <div class="w-[92%] h-[323px] mt-1 ml-[3px] bg-[#202221] flex flex-col border border-solid border-primary">
+        <div *ngFor="let season of seasonDate">
+          <div class="flex justify-center">
+            <div class="h-[105px] w-[94%] border border-solid border-primary mt-1">
+              <div class="h-7 w-full text-center leading-[9px] border-b border-solid border-primary">
+                <span class="text-[0.6rem] text-primary">
+                  {{season.season}}
+                </span>
+                <br/>
+                <span class="text-[0.6rem] text-primary" >
+                  Temporada
+                </span>
+              </div>
+              <div class="ml-1 leading-3">
+                <span class="text-[0.6rem] text-primary">
+                  Inicio:
+                </span>
+                <br/>
+                <span class="text-[0.6rem] text-primary">{{season.start.hour}} {{season.start.date}}</span>
+                <br/>
+                <span class="text-[0.6rem] text-primary">
+                  Fim:
+                </span>
+                <br/>
+                <span class="text-[0.6rem] text-primary">{{season.start.hour}} {{season.start.date}}</span>
+              </div>
+              <div class="h-[24px] w-full hover:bg-[#fee9a7] text-center">
+                <span class="text-[0.6rem] text-primary -mt-1 hover:text-black">( {{season.status}} )</span>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    </cdk-virtual-scroll-viewport>
+    <div class="w-[70%] h-[330px] bg-[#202221] ">
+      <div class="bg-[#161616] h-[290px] mt-1">
+        <div class="flex justify-between h-8">
+          <span class="text-[0.6rem] text-primary pl-1 pt-2">Rank</span>
+          <span class="text-[0.6rem] text-primary pt-2">Jogador</span>
+          <span class="text-[0.6rem] text-primary pr-1 pt-2">Premio</span>
+        </div>
+          <div class="flex justify-between h-8">
+            <div class="pl-2 pt-1.5">
+              <div class="h-3 w-8 bg-black text-center rounded-md">
+                <h5 class="text-[0.5rem] pt-0.5 text-primary">0</h5>
+              </div>
+            </div>
+            <div class="-ml-4">
+              <ion-row>
+                <div class="h-7 w-7 bg-black rounded-full">
+                  <img src="/assets/game/game/homem.png" class="h-7 w-7 mx-auto rounded-full" >
+                </div>
+                <h3 class="text-[0.6rem] pt-1.5 ml-1 text-primary">Roberto</h3>
+              </ion-row>
+            </div>
+            <div>
+              <div class="pr-1 pt-1.5 relative">
+                <img src="/assets/game/game/moeda.png" class="-ml-3 h-4 absolute">
+                <div class="h-4 w-12 bg-black text-center rounded-md">
+                  <h5 class="text-[0.5rem] pt-1 text-[#fde870]">0</h5>
+                </div>
+              </div>
+            </div>        
+          </div>
+        </div>
+      <div class="flex justify-between h-8 pt-1">
+        <div class="pl-2 pt-2">
+          <div class="h-3 w-8 bg-black text-center rounded-md">
+            <h5 class="text-[0.5rem] pt-0.5 text-primary">0</h5>
+          </div>
+        </div>
+        <div class="-ml-7">
+          <ion-row>
+            <div class="h-7 w-7 bg-black rounded-full">
+              <img src="/assets/game/game/homem.png" class="h-7 w-7 mx-auto rounded-full" >
+            </div>
+            <h3 class="text-[0.6rem] pt-2 ml-1 text-primary">Roberto</h3>
+          </ion-row>
+        </div>
+        <div>
+          <div class="pr-1 pt-1.5 relative">
+            <img src="/assets/game/game/moeda.png" class="-ml-3 h-4 absolute">
+            <div class="h-4 w-12 bg-black text-center rounded-md">
+              <h5 class="text-[0.5rem] pt-1 text-[#fde870]">0</h5>
+            </div>
+          </div>
+        </div>
+      </div>    
+    </div>
+  </div>
+  <div class="flex justify-center">
+    <div class="w-[98%] h-[62px] bg-primary flex justify-center">
+      <span class="text-[0.6rem] text-black my-auto">Premiação da temporada</span>
+    </div>
+  </div>
+</div>

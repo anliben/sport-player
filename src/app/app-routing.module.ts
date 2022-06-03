@@ -8,7 +8,6 @@ import { RefreshGuard } from './guards/refresh.guard';
 const routes: Routes = [
   {
     path: '',
-    canLoad: [RefreshGuard],
     loadChildren: () =>
       import('./pages/home/home.module').then((m) => m.HomePageModule),
   },

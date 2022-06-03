@@ -119,7 +119,6 @@ export class Cashgame1x1Page implements OnInit {
   }
 
   ngOnInit() {
-
     this.cashGameService.addPlayer();
     this.webSocket.listen('rodada').subscribe((data: any) => {
       console.log(data);
@@ -136,25 +135,24 @@ export class Cashgame1x1Page implements OnInit {
     });
 
     this.webSocket.listen('truco').subscribe((data: any) => {
-      this.timer = 5
-      this.acceptTruco = false
+      this.timer = 5;
+      this.acceptTruco = false;
       this.timingTrucco(1000);
       this.messageMe = 'Aguardando resposta';
-      this.action = 'TRUCO!!!'
+      this.action = 'TRUCO!!!';
       if (data.jogador !== this.nome) {
         this.trucco = true;
         this.message = `${data.jogador} pediu truco`;
       } else {
         this.truccoMe = true;
       }
-
     });
 
     this.webSocket.listen('increase').subscribe((data: any) => {
-      this.action = 'AUMENTOU!!!'
-      this.timingTrucco(1000)
-      this.timer = 5
-      this.acceptTruco = false
+      this.action = 'AUMENTOU!!!';
+      this.timingTrucco(1000);
+      this.timer = 5;
+      this.acceptTruco = false;
       if (data.jogador !== this.nome) {
         this.truccoMe = true;
         this.messageMe = `${data.jogador} aumentou`;
@@ -164,24 +162,23 @@ export class Cashgame1x1Page implements OnInit {
     });
 
     this.webSocket.listen('escape').subscribe((data: any) => {
-      this.action = 'ESCAPOU!!!'
+      this.action = 'ESCAPOU!!!';
 
       if (data.jogador !== this.nome) {
         this.trucco = true;
         this.messageMe = `${data.jogador} escapou`;
       }
       this.trucco = false;
-      this.timingTrucoForMe()
+      this.timingTrucoForMe();
     });
 
     this.webSocket.listen('accept').subscribe((data: any) => {
-      this.action = 'ACEITOU!!!'
+      this.action = 'ACEITOU!!!';
 
       this.messageMe = `${data.jogador} aceitou`;
-      this.acceptTruco = true
+      this.acceptTruco = true;
       this.trucco = false;
-      this.timingTrucoForMe()
-
+      this.timingTrucoForMe();
     });
 
     this.webSocket.listen('novaMao').subscribe((data: any) => {
@@ -253,34 +250,32 @@ export class Cashgame1x1Page implements OnInit {
     this.cashGameService.disconect();
   }
 
-
   async timingTrucco(t) {
-
-    let times = await interval(t)
+    let times = await interval(t);
 
     let waiting = times.subscribe(async () => {
       this.timer--;
       if (this.acceptTruco === true) {
-        waiting.unsubscribe()
+        waiting.unsubscribe();
       }
       if (this.timer === 0 && this.acceptTruco === false) {
-        this.escape()
-        waiting.unsubscribe()
+        this.escape();
+        waiting.unsubscribe();
       }
-    })
+    });
   }
 
   timingTrucoForMe() {
-    let times = interval(1000)
+    let times = interval(1000);
     let count = 0;
 
     let waiting = times.subscribe(() => {
       if (count === 1) {
         this.truccoMe = false;
-        waiting.unsubscribe()
+        waiting.unsubscribe();
       }
       count++;
-    })
+    });
   }
 
   generatePlayers() {
@@ -307,28 +302,6 @@ export class Cashgame1x1Page implements OnInit {
       cssClass: 'custom-class-modal-pattern modal-h20-height',
     });
     return await modal.present();
-  }
-
-  async showConfigGameModal() {
-    this.configGameModal = await this.modalController.create({
-      component: ConfiguracaoJogoModalComponent,
-      cssClass: 'custom-modal-configuracao-jogo',
-      animated: false,
-    });
-    return await this.configGameModal.present();
-  }
-
-  async showDetailGame() {
-    this.detailGame = await this.modalController.create({
-      component: CGDetalhesJogoModalComponent,
-      cssClass: 'custom-modal-detalhes-jogo',
-      componentProps: {
-        playersDistribution: this.tableData.playersDistribution,
-        buyMatch: this.tableData.buy,
-        awardTotal: this.tableData.awardTotal,
-      },
-    });
-    return await this.detailGame.present();
   }
 
   async truco() {

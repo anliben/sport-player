@@ -21,9 +21,12 @@ import { ConfirmarCompraItemModalComponent } from './components/modais/confirmar
 import { PagamentoModalComponent } from './components/modais/pagamento-modal/pagamento-modal.component';
 import { AmigosModalComponent } from './components/modais/amigos-modal/amigos-modal.component';
 import { AmigosSolicilatoesComponent } from './components/modais/amigos-solicilatoes/amigos-solicilatoes.component';
+import { ChatJogoModalComponent } from './components/modais/chat-jogo-modal/chat-jogo-modal.component';
 import { MensagensRecebidasModalComponent } from './components/modais/mensagens-recebidas-modal/mensagens-recebidas-modal.component';
 import { MensagensEnviadasModalComponent } from './components/modais/mensagens-enviadas-modal/mensagens-enviadas-modal.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { HeaderMesaTrucoComponent } from './components/header-mesa-truco/header-mesa-truco.component';
+import { ChatMensagemComponent } from './components/chat-mensagem/chat-mensagem.component';
 import { RankModalComponent } from './components/modais/rank-modal/rank-modal.component';
 
 @NgModule({
@@ -46,16 +49,19 @@ import { RankModalComponent } from './components/modais/rank-modal/rank-modal.co
     ConfigJogoItemComponent,
     AmigosModalComponent,
     AmigosSolicilatoesComponent,
+    ChatJogoModalComponent,
     MensagensRecebidasModalComponent,
     MensagensEnviadasModalComponent,
-    RankModalComponent
+    HeaderMesaTrucoComponent,
+    ChatMensagemComponent,
+    RankModalComponent,
   ],
   imports: [
     CommonModule,
     IonicModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
-    ScrollingModule
+    ScrollingModule,
   ],
   exports: [
     CommonModule,
@@ -68,6 +74,8 @@ import { RankModalComponent } from './components/modais/rank-modal/rank-modal.co
     MesasComponent,
     TampaPComponent,
     ConfigJogoItemComponent,
+    HeaderMesaTrucoComponent,
+    ChatMensagemComponent,
   ],
 })
 export class SharedModule {}

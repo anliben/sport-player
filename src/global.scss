@@ -234,6 +234,16 @@ table {
   }
 }
 
+.custom-modal-chat-jogo {
+  align-items: flex-end; // Y
+  justify-content: flex-end; // X
+  &::part(content) {
+    background-color: rgba(39, 39, 39, 0.9019607843137255);
+    width: 70%;
+    height: 100%;
+  }
+}
+
 .custom-modal-historico-maos {
   align-items: center; // Y
   justify-content: center; // X
@@ -253,7 +263,7 @@ table {
   justify-content: center; // X
   &::part(content) {
     width: 80%;
-    height: 30%;
+    height: 17rem;
     --max-width: 400px;
     --border-radius: 3px;
     --border-width: 1px;
@@ -267,7 +277,7 @@ table {
   justify-content: center; // X
   &::part(content) {
     width: 70%;
-    height: 25%;
+    height: 13rem;
     --max-width: 300px;
     --border-radius: 3px;
     --border-width: 1px;

@@ -5,6 +5,7 @@ import { MesaInterface } from 'src/app/interfaces/mesa-interface';
 import { PlayerIdService } from 'src/app/services/player-id.service';
 import { PlayerService } from 'src/app/services/player.service';
 import { WebSocketService } from 'src/app/services/web-socket.service';
+import { ChatJogoModalComponent } from 'src/app/shared/components/modais/chat-jogo-modal/chat-jogo-modal.component';
 import { ConfiguracaoJogoModalComponent } from 'src/app/shared/components/modais/configuracao-jogo-modal/configuracao-jogo-modal.component';
 import { ConvidarAmigosModalPage } from 'src/app/shared/components/modais/convidar-amigos-modal/convidar-amigos-modal.page';
 // eslint-disable-next-line max-len
@@ -97,6 +98,7 @@ export class Cashgame2x2Page implements OnInit, OnDestroy {
   configGameModal: HTMLIonModalElement;
   handHistory: HTMLIonModalElement;
   detailGame: HTMLIonModalElement;
+  chatGameModal: HTMLIonModalElement;
 
   constructor(
     private webSocket: WebSocketService,
@@ -252,15 +254,6 @@ export class Cashgame2x2Page implements OnInit, OnDestroy {
     return await this.inviteFriendsModal.present();
   }
 
-  async showConfigGameModal() {
-    this.configGameModal = await this.modalController.create({
-      component: ConfiguracaoJogoModalComponent,
-      cssClass: 'custom-modal-configuracao-jogo',
-      animated: false,
-    });
-    return await this.configGameModal.present();
-  }
-
   async showHandHistory() {
     this.handHistory = await this.modalController.create({
       component: HistoricoMaosModalComponent,
@@ -272,17 +265,14 @@ export class Cashgame2x2Page implements OnInit, OnDestroy {
     return await this.handHistory.present();
   }
 
-  async showDetailGame() {
-    this.detailGame = await this.modalController.create({
-      component: CGDetalhesJogoModalComponent,
-      cssClass: 'custom-modal-detalhes-jogo',
-      componentProps: {
-        playersDistribution: this.tableData.playersDistribution,
-        buyMatch: this.tableData.buy,
-        awardTotal: this.tableData.awardTotal,
-      },
+  async showChatGame() {
+    this.chatGameModal = await this.modalController.create({
+      component: ChatJogoModalComponent,
+      cssClass: 'custom-modal-chat-jogo',
+      showBackdrop: false,
+      animated: false,
     });
-    return await this.detailGame.present();
+    return await this.chatGameModal.present();
   }
 
   generatePlayers() {

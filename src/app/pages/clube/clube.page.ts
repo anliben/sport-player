@@ -14,7 +14,7 @@ export class ClubePage implements OnInit {
   ) {}
 
   back() {
-    this.navCtrl.back();
+    this.navCtrl.navigateBack('/');
   }
 
   ngOnInit() {}

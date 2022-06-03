@@ -21,23 +21,22 @@ export class HeaderComponent implements OnInit {
     private router: Router,
     private modalCtrl: ModalController,
     private storageService: StorageServiceService
-
-    ) {}
+  ) {}
 
   ngOnInit() {
     this.storageService.getItem('player').then((player: any) => {
       this.moeda = player.gold;
       this.diamante = player.diamond;
-    })
+    });
   }
 
   back() {
-    this.navCtrl.back();
+    this.navCtrl.navigateBack('/');
   }
 
   navigateStore = () => this.router.navigate(['/store']);
 
-  async showVipModal(){
+  async showVipModal() {
     const modal = await this.modalCtrl.create({
       component: VipModalPage,
       cssClass: 'custom-class-modal-vip modal-height-vip',
@@ -45,12 +44,11 @@ export class HeaderComponent implements OnInit {
     return await modal.present();
   }
 
-  async showRankModal(){
+  async showRankModal() {
     const modal = await this.modalCtrl.create({
       component: RankModalComponent,
       cssClass: 'custom-class-modal-rank modal-height-vip',
     });
     return await modal.present();
   }
-
 }

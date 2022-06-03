@@ -10,10 +10,13 @@ export class CGDetalhesJogoModalComponent implements OnInit {
   @Input() playersDistribution: string;
   @Input() buyMatch: string;
   @Input() awardTotal: string;
+  awardTotalConverted: number | string;
 
   constructor(private modalController: ModalController) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.awardTotalConverted = this.awardTotal ? +this.awardTotal / 2 : 'Un';
+  }
   closeModal() {
     this.modalController.dismiss();
   }

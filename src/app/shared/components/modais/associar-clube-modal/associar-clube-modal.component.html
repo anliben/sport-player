@@ -21,8 +21,11 @@
       color="transparent"
       placeholder="ID DO CLUBE"
       size="small"
+      autofocus="true"
+      inputmode="text"
     ></ion-input>
     <img
+      (click)="changeScreen('clube')"
       src="../../../../../assets/game/clubeAssociar/entrar.png"
       class="h-7 cursor-pointer active:scale-110 duration-300 my-2"
     />

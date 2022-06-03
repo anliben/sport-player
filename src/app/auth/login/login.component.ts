@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertController } from '@ionic/angular';
 import { LoginService } from './login.service';
+import { StorageServiceService } from 'src/app/services/storage-service.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,9 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private alertController: AlertController,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private storageService: StorageServiceService
+
     ) { }
 
   ngOnInit() {
@@ -35,8 +38,9 @@ export class LoginComponent implements OnInit {
 
     }else {
       this.loginService.login(user, password).subscribe((data: any) => {
-        console.log(data);
-        this.router.navigate(['/']);
+        this.storageService.setItem('player', data).then(() => {
+          this.router.navigate(['/']);
+        })
       } )
     }
   }

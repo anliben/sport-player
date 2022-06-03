@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-vip-modal',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./vip-modal.page.scss'],
 })
 export class VipModalPage implements OnInit {
-
-  constructor() { }
+  constructor(private modalCtrl: ModalController) { }
 
   ngOnInit() {
   }
-
+  
+  dismiss() {
+    this.modalCtrl.dismiss();
+  }
 }

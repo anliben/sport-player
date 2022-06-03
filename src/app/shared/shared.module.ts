@@ -27,6 +27,7 @@ import { MensagensEnviadasModalComponent } from './components/modais/mensagens-e
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { HeaderMesaTrucoComponent } from './components/header-mesa-truco/header-mesa-truco.component';
 import { ChatMensagemComponent } from './components/chat-mensagem/chat-mensagem.component';
+import { RankModalComponent } from './components/modais/rank-modal/rank-modal.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { ChatMensagemComponent } from './components/chat-mensagem/chat-mensagem.
     MensagensEnviadasModalComponent,
     HeaderMesaTrucoComponent,
     ChatMensagemComponent,
+    RankModalComponent,
   ],
   imports: [
     CommonModule,

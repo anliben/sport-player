@@ -8,8 +8,7 @@ import { AmigosModalComponent } from '../amigos-modal/amigos-modal.component';
   styleUrls: ['./amigos-solicilatoes.component.scss'],
 })
 export class AmigosSolicilatoesComponent implements OnInit {
-
-  constructor(private modalController: ModalController) { }
+  constructor(private modalController: ModalController) {}
 
   ngOnInit() {}
 
@@ -18,6 +17,7 @@ export class AmigosSolicilatoesComponent implements OnInit {
     const modal = await this.modalController.create({
       component: AmigosModalComponent,
       cssClass: 'custom-class-modal-pattern modal-height-amigos',
+      animated: false,
     });
     return await modal.present();
   }

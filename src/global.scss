@@ -272,6 +272,31 @@ table {
   }
 }
 
+.custom-modal-associar-clube {
+  align-items: center; // Y
+  justify-content: center; // X
+  &::part(content) {
+    width: 80%;
+    height: 19rem;
+    --background: transparent;
+    background: var(--modal-background);
+    --max-width: 400px;
+    --border-radius: 3px;
+    --border-width: 1px;
+    --border-style: solid;
+    --border-color: var(--primary);
+  }
+}
+
+.popover-maos-premiadas {
+  &::part(content) {
+    width: 15rem;
+    border: 1px solid var(--primary);
+    border-radius: 3px;
+    background: var(--modal-background);
+  }
+}
+
 .custom-modal-confirmar-compra-modal {
   align-items: center; // Y
   justify-content: center; // X

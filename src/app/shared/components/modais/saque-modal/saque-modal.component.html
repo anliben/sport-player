@@ -1,83 +1,120 @@
 <ion-content [scrollX]="false" [scrollY]="false">
   <div class="bg-[#222222] h-full">
-    <div class="flex justify-between items-center border-b-2 border-solid border-primary p-1">
+    <div
+      class="flex justify-between items-center border-b-2 border-solid border-primary p-1"
+    >
       <div class="flex grow justify-center">
         <span class="text-primary ml-4">Sacar</span>
       </div>
-      <img 
-        (click)="back();"
+      <img
+        (click)="back()"
         src="../../../../../assets/game/partidaTruco/botao-fechar.png"
-        class="h-6 rounded-md cursor-pointer active:scale-110 duration-300" />
+        class="h-6 rounded-md cursor-pointer active:scale-110 duration-300"
+      />
     </div>
-    <div  class="flex justify-center pt-2 ">
+    <div class="flex justify-center pt-2">
       <div class="items-center bg-[#242424]">
-        <h2 class="text-[0.8rem] text-primary mt-1 mr-1">Sacar: </h2>
+        <h2 class="text-[0.8rem] text-primary mt-1 mr-1">Sacar:</h2>
       </div>
       <div class="w-16 h-5 border-b-2 border-solid border-primary">
-        <ion-input name="password" class="h-5 rounded-sm text-[0.8rem] font-vag pr-1" color="transparent"
-          placeholder="Ex: 200" (ngModel)="valueReal">
+        <ion-input
+          name="password"
+          class="h-5 rounded-sm text-[0.8rem] font-vag pr-1"
+          color="transparent"
+          placeholder="Ex: 200"
+          (ngModel)="(valueReal)"
+        >
         </ion-input>
       </div>
     </div>
     <div class="text-center flex justify-center my-2">
-      <span class="text-[0.6rem] text-primary flex items-center ml-2">Valor correspondente em R$</span>
-      <span class="text-[0.6rem] text-primary flex items-center ml-2">{{valueReal}}</span>
+      <span class="text-[0.6rem] text-primary flex items-center ml-2"
+        >Valor correspondente em R$</span
+      >
+      <span class="text-[0.6rem] text-primary flex items-center ml-2">{{
+        valueReal
+      }}</span>
     </div>
-    <div class=" flex justify-center ">
+    <div class="flex justify-center">
       <div class="w-[90%] h-[120px] border border-solid border-primary">
-        <div class="text-center h-5 grid grid-cols-1 text-primary text-[0.6rem]">
+        <div
+          class="text-center h-5 grid grid-cols-1 text-primary text-[0.6rem]"
+        >
           <h3 class="text-[0.7rem] pt-1">Pix</h3>
         </div>
         <div class="grid grid-cols-1 text-primary text-[0.6rem] mt-2 ml-1.5">
-          <span class="">Chave Pix: {{keyPix}}</span>
-          <span>Tipo de chave: {{typeKey}}</span>
-          <span>Nome do Titular: {{name}}</span>
-          <span>Cpf do Titular: {{cpf}}</span>
+          <span class="">Chave Pix: {{ keyPix }}</span>
+          <span>Tipo de chave: {{ typeKey }}</span>
+          <span>Nome do Titular: {{ name }}</span>
+          <span>Cpf do Titular: {{ cpf }}</span>
         </div>
-        <img (click)="editAccountData = true"
+        <img
+          (click)="editAccountData = true"
           class="h-5 mx-auto mt-1 rounded-lg cursor-pointer active:scale-110 duration-300"
-          src="/assets/game/perfil/botao-pix-editar.png">
+          src="/assets/game/perfil/botao-pix-editar.png"
+        />
       </div>
     </div>
-    <img class="h-7 mx-auto rounded-lg mt-2 cursor-pointer active:scale-110 duration-300"
-      src="/assets/game/perfil/sacar-ficha.png">
-    <ng-container *ngIf="editAccountData"
-    class="flex justify-between "
-    >
-    <div
-        class="fixed top-[0] z-[11] w-[95%] h-[220px] border border-solid bg-[#222222] border-primary mt-4 ml-[2.5%]">
-        <div class="flex justify-between items-center border-b-2 border-solid border-primary p-1">
+    <img
+      class="h-7 mx-auto rounded-lg mt-2 cursor-pointer active:scale-110 duration-300"
+      src="/assets/game/perfil/sacar-ficha.png"
+    />
+    <ng-container *ngIf="editAccountData" class="flex justify-between">
+      <div
+        class="fixed top-[0] z-[11] w-[95%] h-[220px] border border-solid bg-[#222222] border-primary mt-4 ml-[2.5%]"
+      >
+        <div
+          class="flex justify-between items-center border-b-2 border-solid border-primary p-1"
+        >
           <div class="flex grow justify-center">
             <span class="text-primary ml-4">Editar</span>
           </div>
-          <img 
+          <img
             (click)="cancelEditAccount()"
             src="../../../../../assets/game/partidaTruco/botao-fechar.png"
-            class="h-6 rounded-md cursor-pointer active:scale-110 duration-300" />
+            class="h-6 rounded-md cursor-pointer active:scale-110 duration-300"
+          />
         </div>
         <form [formGroup]="formAccountData">
           <h2 class="text-primary text-center my-1">Pix</h2>
           <ion-row class="flex items-center text-[0.7rem] -mt-1 px-1">
-            <span class=" text-primary">Nome do Titular:</span>
-            <ion-input formControlName="name" class="font-vag h-5 ml-1 border-b border-primary"></ion-input>
+            <span class="text-primary">Nome do Titular:</span>
+            <ion-input
+              formControlName="name"
+              class="font-vag h-5 ml-1 border-b border-primary"
+            ></ion-input>
           </ion-row>
           <ion-row class="flex items-center text-[0.7rem] mt-1 px-1">
-            <span class=" text-primary">Telefone:</span>
-            <ion-input formControlName="phone" 	maxlength="20" type="string" class="font-vag h-5 ml-1 mr-14 border-b border-primary"></ion-input>
+            <span class="text-primary">Telefone:</span>
+            <ion-input
+              formControlName="phone"
+              maxlength="20"
+              type="string"
+              class="font-vag h-5 ml-1 mr-14 border-b border-primary"
+            ></ion-input>
           </ion-row>
           <ion-row class="flex items-center text-[0.7rem] mt-1 px-1">
-            <span class=" text-primary">Cpf:</span>
-            <ion-input formControlName="cpf" class="font-vag h-5 ml-1 mr-14 border-b border-primary" ></ion-input>
+            <span class="text-primary">Cpf:</span>
+            <ion-input
+              formControlName="cpf"
+              class="font-vag h-5 ml-1 mr-14 border-b border-primary"
+            ></ion-input>
           </ion-row>
           <ion-row class="flex items-center text-[0.7rem] mt-1 px-1">
-            <span class=" text-primary">Email:</span>
-            <ion-input formControlName="email" class="font-vag h-5 ml-1 border-b border-primary" ></ion-input>
+            <span class="text-primary">Email:</span>
+            <ion-input
+              formControlName="email"
+              class="font-vag h-5 ml-1 border-b border-primary"
+            ></ion-input>
           </ion-row>
           <ion-row class="flex items-center text-[0.7rem] mt-1.5 px-1">
-            <span class=" text-primary">Tipo de chave:</span>
+            <span class="text-primary">Tipo de chave: Telefone</span>
           </ion-row>
         </form>
-        <img class="h-7 rounded-lg mx-auto my-2 cursor-pointer active:scale-110 duration-300" src="/assets/game/buttons/botao-salvar.png">
+        <img
+          class="h-7 rounded-lg mx-auto my-2 cursor-pointer active:scale-110 duration-300"
+          src="/assets/game/buttons/botao-salvar.png"
+        />
       </div>
       <div class="overlay"></div>
     </ng-container>

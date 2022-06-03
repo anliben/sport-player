@@ -1,0 +1,14 @@
+ion-header,
+ion-content {
+  --background: transparent;
+}
+ion-input {
+  text-transform: none;
+  caret-color: var(--primary);
+  max-height: 2rem;
+  width: 40%;
+  --placeholder-color: var(--primary);
+  --placeholder-opacity: 1;
+  --ion-color-base: var(--primary);
+  --color: var(--primary);
+}

@@ -3,10 +3,12 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
 import { VerifyComponent } from './auth/verify/verify.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { RefreshGuard } from './guards/refresh.guard';
 
 const routes: Routes = [
   {
     path: '',
+    canLoad: [RefreshGuard],
     loadChildren: () =>
       import('./pages/home/home.module').then((m) => m.HomePageModule),
   },

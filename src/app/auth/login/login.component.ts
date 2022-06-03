@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
 
     }else {
       this.loginService.login(user, password).subscribe((data: any) => {
-        this.storageService.setItem('player', data).then(() => {
+        this.storageService.setPlayer(data).then(() => {
           this.router.navigate(['/']);
         })
       } )

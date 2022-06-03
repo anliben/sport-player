@@ -5,6 +5,8 @@ import { AmigosModalComponent } from 'src/app/shared/components/modais/amigos-mo
 // eslint-disable-next-line max-len
 import { ConfirmarCompraItemModalComponent } from 'src/app/shared/components/modais/confirmar-compra-item-modal/confirmar-compra-item-modal.component';
 import { SaqueModalComponent } from 'src/app/shared/components/modais/saque-modal/saque-modal.component';
+import { StorageServiceService } from 'src/app/services/storage-service.service';
+import { ClubeService } from '../clube.service';
 
 @Component({
   selector: 'app-perfil-clube',
@@ -14,91 +16,32 @@ import { SaqueModalComponent } from 'src/app/shared/components/modais/saque-moda
 export class PerfilClubePage implements OnInit {
   moeda = 10;
 
-  storeItens: any[] = [
-    {
-      id: 1,
-      price: 100,
-      type: 'vip',
-      quantity: 30,
-      typePayments: 'fichaSp',
-      item: 'lorem',
-      imgItem: '/assets/game/vip/arte-vip.png',
-    },
-    {
-      id: 2,
-      price: 200,
-      type: 'vip',
-      quantity: 60,
-      typePayments: 'fichaSp',
-      item: 'lorem',
-      imgItem: '/assets/game/vip/arte-vip.png',
-    },
-    {
-      id: 3,
-      price: 300,
-      type: 'vip',
-      quantity: 90,
-      typePayments: 'fichaSp',
-      item: 'lorem',
-      imgItem: '/assets/game/vip/arte-vip.png',
-    },
-    {
-      id: 4,
-      price: 100,
-      type: 'diamante',
-      quantity: 500,
-      typePayments: 'fichaSp',
-      item: 'lorem',
-      imgItem: '/assets/game/game/diamente.png',
-    },
-    {
-      id: 5,
-      price: 200,
-      type: 'diamante',
-      quantity: 1000,
-      typePayments: 'fichaSp',
-      item: 'lorem',
-      imgItem: '/assets/game/game/diamente.png',
-    },
-    {
-      id: 6,
-      price: 300,
-      type: 'diamante',
-      quantity: 2000,
-      typePayments: 'fichaSp',
-      item: 'lorem',
-      imgItem: '/assets/game/game/diamente.png',
-    },
-    {
-      id: 7,
-      price: 100,
-      typePayments: 'fichaSp',
-      type: 'emoji',
-      item: 'lorem',
-      imgItem: '/assets/game/emojis/emoji-legal-eca.png',
-    },
-    {
-      id: 8,
-      price: 100,
-      typePayments: 'fichaSp',
-      type: 'emoji',
-      item: 'lorem',
-      imgItem: '/assets/game/emojis/emoji-sei.png',
-    },
-    {
-      id: 9,
-      price: 100,
-      typePayments: 'fichaSp',
-      type: 'emoji',
-      item: 'lorem',
-      imgItem: '/assets/game/emojis/emoji-sorriso-oculos-sol.png',
-    },
-  ];
+  storeItens: any[] = [];
   confirmBuyItemModal: HTMLIonModalElement;
+  id: number;
+  nickname: string;
+  photo: string;
+  level: number;
 
-  constructor(private modalController: ModalController) {}
+  constructor(
+    private modalController: ModalController,
+    private storageService: StorageServiceService,
+    private clubeService: ClubeService
+    ) {
+    this.storageService.getPlayer().then((player: any) => {
+      this.id = player.id;
+      this.nickname = player.name;
+      this.photo = player.photo ?? '../../../assets/img/avatar.png';
+      this.level = player.level;
+      this.clubeService.getStore().subscribe((store: any) => {
+        this.storeItens = store;
+      })
+    })
+  }
 
-  ngOnInit() {}
+  ngOnInit() {
+
+  }
 
   async showSaqueModal() {
     const modal = await this.modalController.create({

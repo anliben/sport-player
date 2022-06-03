@@ -5,7 +5,23 @@ import { Injectable } from '@angular/core';
 })
 export class StorageServiceService {
 
+  player;
+
   constructor() { }
+
+  setPlayer(player): Promise<void>{
+    return new Promise<void>((resolve, reject) => {
+      resolve(
+        this.player = player
+      );
+    });
+  }
+
+  getPlayer(): Promise<void> {
+    return new Promise<void>((resolve, reject) => {
+      resolve(this.player);
+    });
+  }
 
   setItem(key: string, value: any): Promise<void> {
     return new Promise<void>((resolve, reject) => {
@@ -23,5 +39,9 @@ export class StorageServiceService {
 
   removeItem(key: string) {
     localStorage.removeItem(key);
+  }
+
+  clear() {
+    localStorage.clear();
   }
 }

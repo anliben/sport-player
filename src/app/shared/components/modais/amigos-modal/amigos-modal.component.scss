@@ -15,3 +15,14 @@ ion-input {
   width: 100vw;
   z-index: 10;
 }
+
+.h-full-custom {
+  height: 100%;
+}
+.h-auto-custom {
+  height: auto;
+}
+
+ion-content{
+  --background: rgb(34,34,34);
+}

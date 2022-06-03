@@ -11,46 +11,76 @@
         class="h-6 rounded-md cursor-pointer active:scale-110 duration-300"
       />
     </div>
+    <div *ngIf="showMessage === undefined" >
     <div class="flex justify-center my-3">
       <img 
-        (click)="showMessageModal()"
+      (click)="showMessageModal()" 
         class="h-6 mr-2 active:border border-solid"
         src="/assets/game/mensagens/recebidas.png">
-      <img 
+      <img
         class="h-6 border border-solid" 
         src="/assets/game/mensagens/enviadas.png">
     </div>
     <div class="h-52">
-      <cdk-virtual-scroll-viewport itemSize="60" class="h-[300px] w-full">
-
-      <div class="w-[50%]" *ngFor="let message of messagesRecived">
-        <div class="w-[260px] mx-5 mt-2 h-[25px] border-solid border border-amber-200/50">
-          <div class="text-primary text-[0.6rem] ml-2 mt-1 flex justify-between">
-            <span class="truncate pr-4">{{message.topic}}</span>
-            <img
-              
-              src="../../../../../assets/game/partidaTruco/botao-fechar.png"
-              class="h-5 -mt-1 rounded-md cursor-pointer active:scale-110 duration-300"
-            />
+        <cdk-virtual-scroll-viewport itemSize="60" class="h-[300px] w-full">
+        <div class="w-[50%]" *ngFor="let message of sendedMessages" >
+          <div
+            (click)="viewMessage(message._id)"
+            class="w-[260px] mx-5 mt-2 h-[25px] border-solid border border-amber-200/50">
+            <div class="text-primary text-[0.6rem] ml-2 mt-1 flex justify-between">
+              <span class="truncate pr-4">{{message.topic}}</span>
+              <img
+                src="../../../../../assets/game/partidaTruco/botao-fechar.png"
+                class="h-5 -mt-1 rounded-md cursor-pointer active:scale-110 duration-300"
+              />
+            </div>
+          </div>
+          <div class="w-[260px] mx-5 h-[50px] border-solid border-b border-r border-l border-amber-200/50">
+            <div class="text-primary text-[0.5rem] pt-[3px] flex justify-between">
+              <div class="flex items-center">
+                <div class="mx-1">{{message.date}}</div>
+                <div>{{message.hour}}</div>
+              </div>
+              <div class="mr-1">{{message.sender}}</div>
+            </div>
+            <div class="leading-3 w-[240px] h-[28px] ml-1 mt-1 text-ellipsis overflow-hidden">
+              <span class="text-[0.5rem]">{{message.message}}</span>
+            </div>
           </div>
         </div>
-        <div class="w-[260px] mx-5 h-[50px] border-solid border-b border-r border-l border-amber-200/50">
-          <div class="text-primary text-[0.5rem] pt-[3px] flex justify-between">
-            <div class="flex items-center">
-              <div class="mx-1">{{message.date}}</div>
-              <div>{{message.hour}}</div>
+        </cdk-virtual-scroll-viewport>
+      </div>
+    </div>
+      <div *ngIf="showMessage != undefined" >
+        <div class="w-[50%]">
+          <div
+            class="w-[260px] mx-5 mt-4 h-[25px] border-solid border border-amber-200/50">
+            <div class="text-primary text-[0.6rem] ml-2 mt-1 flex justify-between">
+              <span class="truncate pr-4">{{showMessage.topic}}</span>
+              <img
+                (click)="backMessageList()"
+                src="../../../../../assets/game/partidaTruco/botao-fechar.png"
+                class="h-5 -mt-1 rounded-md cursor-pointer active:scale-110 duration-300"
+              />
             </div>
-            <div class="mr-1">{{message.sender}}</div>
           </div>
-          <div class="leading-3 w-[240px] h-[28px] ml-1 mt-1 text-ellipsis overflow-hidden">
-            <span class="text-[0.5rem]">{{message.message}}</span>
+          <div class="w-[260px] mx-5 h-[340px] border-solid border-b border-r border-l border-amber-200/50">
+            <div class="text-primary text-[0.5rem] pt-[3px] flex justify-between">
+              <div class="flex items-center">
+                <div class="mx-1">{{showMessage.date}}</div>
+                <div>{{showMessage.hour}}</div>
+              </div>
+              <div class="mr-1">{{showMessage.sender}}</div>
+            </div>
+            <div class="leading-3 w-[240px] h-[28px] ml-1 mt-1 text-ellipsis overflow-hidden">
+              <span class="text-[0.5rem]">{{showMessage.message}}</span>
+            </div>
           </div>
         </div>
       </div>
-      </cdk-virtual-scroll-viewport>
-    </div>
-   
-    <div class="w-full flex justify-center mt-[106px] bottom-0">
-      <img src="/assets/game/mensagens/escrever-mensagem.png" class="h-10">
-    </div>
+   <div *ngIf="showMessage === undefined" >
+     <div class="w-full flex justify-center mt-[106px] bottom-0">
+       <img src="/assets/game/mensagens/escrever-mensagem.png" class="h-10">
+     </div>
+   </div>
 </ion-content>

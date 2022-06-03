@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { MensagensRecebidasModalComponent } from '../mensagens-recebidas-modal/mensagens-recebidas-modal.component';
+import { MensagensEnviadasService } from './mensagens-enviadas.service';
 
 @Component({
   selector: 'app-mensagens-enviadas-modal',
@@ -8,27 +9,18 @@ import { MensagensRecebidasModalComponent } from '../mensagens-recebidas-modal/m
   styleUrls: ['./mensagens-enviadas-modal.component.scss'],
 })
 export class MensagensEnviadasModalComponent implements OnInit {
-  messagesRecived: any[] = [
- 
-    {
-      "topic": "Atualizações Teste",
-      "message": "Cardápios personalizado\nGráfico de evolução\nPesquisa de satisfação\nAtendimento",
-      "sender": "ADM",
-      "date": "14-02-2022",
-      "hour": "20:00:00"
-    },
-    {
-      "topic": "Veja novas formas de você jogar o jogo e aprenda a ganhar mais",
-      "message": "Novas Atualizações sobre\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\nXXXXXXXXXXXXXXXXXXXXX\nXXXXXXXXXXX",
-      "sender": "ADM",
-      "date": "14-02-2022",
-      "hour": "20:00:00"
-    }
+  
+  showMessage: any;
+  sendedMessages: any[] = [];
+  
+constructor(private modalController: ModalController, private service: MensagensEnviadasService) { }
 
-]
-constructor(private modalController: ModalController) { }
-
-ngOnInit() {}
+ngOnInit() {
+  this.service.getsendedMessages().subscribe((res)=>{
+    this.sendedMessages = res;
+    console.log(this.sendedMessages);
+  });
+}
 
 async showMessageModal(){
   this.dismiss()
@@ -36,11 +28,27 @@ async showMessageModal(){
     component: MensagensRecebidasModalComponent,
     cssClass: 'custom-class-modal-missoes modal-height-menssagens',
   });
-
   return await modal.present();
 }
 
 dismiss() {
   this.modalController.dismiss();
 }
+
+viewMessage(id){
+  const idMessage = id;
+  this.service.getsendedMessages().subscribe((res)=>{
+    res.forEach((item)=>{        
+      if(item._id === idMessage){
+        this.showMessage = item;
+        console.log(this.showMessage);
+      }
+    })  
+  })
+}
+
+backMessageList(){
+  this.showMessage = undefined;
+}
+
 }

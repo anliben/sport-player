@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { MensagensEnviadasModalComponent } from '../mensagens-enviadas-modal/mensagens-enviadas-modal.component';
+import { MessagensRecebidasService } from './messagens-recebidas.service';
 
 @Component({
   selector: 'app-mensagens-recebidas-modal',
@@ -8,41 +9,19 @@ import { MensagensEnviadasModalComponent } from '../mensagens-enviadas-modal/men
   styleUrls: ['./mensagens-recebidas-modal.component.scss'],
 })
 export class MensagensRecebidasModalComponent implements OnInit {
-  messagesRecived: any[] = [
- 
-      {
-        "topic": "Atualizações Teste",
-        "message": "Cardápios personalizado\nGráfico de evolução\nPesquisa de satisfação\nAtendimento",
-        "sender": "ADM",
-        "date": "14-02-2022",
-        "hour": "20:00:00"
-      },
-      {
-        "topic": "Veja novas formas de você jogar o jogo e aprenda a ganhar mais",
-        "message": "Novas Atualizações sobre\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\nXXXXXXXXXXXXXXXXXXXXX\nXXXXXXXXXXX",
-        "sender": "ADM",
-        "date": "14-02-2022",
-        "hour": "20:00:00"
-      },
-      {
-        "topic": "Veja novas formas de você jogar o jogo e aprenda a ganhar mais",
-        "message": "Novas Atualizações sobre\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\nXXXXXXXXXXXXXXXXXXXXX\nXXXXXXXXXXX",
-        "sender": "ADM",
-        "date": "14-02-2022",
-        "hour": "20:00:00"
-      },
-      {
-        "topic": "Veja novas formas de você jogar o jogo e aprenda a ganhar mais",
-        "message": "Novas Atualizações sobre\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\nXXXXXXXXXXXXXXXXXXXXX\nXXXXXXXXXXX",
-        "sender": "ADM",
-        "date": "14-02-2022",
-        "hour": "20:00:00"
-      }
+  
+  messagesRecived: any[] = [];
+  showMessage: any;
 
-  ]
-  constructor(private modalController: ModalController) { }
+  constructor(private modalController: ModalController, private service: MessagensRecebidasService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.service.getRecivedMessages().subscribe((res)=>{
+      this.messagesRecived = res;
+      console.log(this.messagesRecived);
+    })
+    
+  }
 
   async showSendMessageModal(){
     this.dismiss()
@@ -56,6 +35,22 @@ export class MensagensRecebidasModalComponent implements OnInit {
 
   dismiss() {
     this.modalController.dismiss();
+  }
+
+  viewMessage(id){
+    const idMessage = id;
+    this.service.getRecivedMessages().subscribe((res)=>{
+      res.forEach((item)=>{        
+        if(item._id === idMessage){
+          this.showMessage = item;
+          console.log(this.showMessage);
+        }
+      })  
+    })
+  }
+
+  backMessageList(){
+    this.showMessage = undefined;
   }
 
 }

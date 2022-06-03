@@ -47,32 +47,37 @@
     <div class="w-[70%] h-[330px] bg-[#202221] ">
       <div class="bg-[#161616] h-[290px] mt-1">
         <div class="flex justify-between h-8">
-          <span class="text-[0.6rem] text-primary pl-1 pt-2">Rank</span>
+          <span class="text-[0.6rem] text-primary pl-2 pt-2">Rank</span>
           <span class="text-[0.6rem] text-primary pt-2">Jogador</span>
-          <span class="text-[0.6rem] text-primary pr-1 pt-2">Premio</span>
+          <span class="text-[0.6rem] text-primary pr-3 pt-2">Premio</span>
         </div>
-          <div class="flex justify-between h-8">
-            <div class="pl-2 pt-1.5">
-              <div class="h-3 w-8 bg-black text-center rounded-md">
-                <h5 class="text-[0.5rem] pt-0.5 text-primary">0</h5>
-              </div>
-            </div>
-            <div class="-ml-4">
-              <ion-row>
-                <div class="h-7 w-7 bg-black rounded-full">
-                  <img src="/assets/game/game/homem.png" class="h-7 w-7 mx-auto rounded-full" >
-                </div>
-                <h3 class="text-[0.6rem] pt-1.5 ml-1 text-primary">Roberto</h3>
-              </ion-row>
-            </div>
-            <div>
-              <div class="pr-1 pt-1.5 relative">
-                <img src="/assets/game/game/moeda.png" class="-ml-3 h-4 absolute">
-                <div class="h-4 w-12 bg-black text-center rounded-md">
-                  <h5 class="text-[0.5rem] pt-1 text-[#fde870]">0</h5>
+          <div *ngFor="let rankPlayer of rankPlayers">
+            <div class="grid grid-cols-4 h-8">
+              <div class="pl-2 pt-1.5">
+                <div class="h-3 w-8 bg-black text-center rounded-md">
+                  <h5 class="text-[0.5rem] pt-0.5 text-primary">{{rankPlayer.id}}</h5>
                 </div>
               </div>
-            </div>        
+              <div class="h-7 w-7 bg-black rounded-full">
+                <img src="/assets/game/game/homem.png" class="h-7 w-7 mx-auto rounded-full" >
+              </div>
+              <div class="-ml-8">
+                <ion-row>
+                  <h3 class="text-[0.6rem] pt-2 ml-1 text-primary">{{rankPlayer.name}}</h3>
+                </ion-row>
+              </div>
+              <div>
+                <div class="ml-2 pt-1.5 relative">
+                  <img src="/assets/game/game/moeda.png" class="-ml-3 h-4 absolute">
+                  <div class="h-4 w-12 bg-black text-center rounded-md">
+                    <h5 class="text-[0.5rem] pt-1 text-[#fde870]">{{rankPlayer.award}}</h5>
+                  </div>
+                </div>
+              </div> 
+            </div>
+            <div class="flex justify-center mb-1">
+              <hr class="bg-[#0e0e0e] h-[1px] w-[95%]"/>    
+            </div>
           </div>
         </div>
       <div class="flex justify-between h-8 pt-1">

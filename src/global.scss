@@ -214,7 +214,7 @@ table {
   &::part(content) {
     box-sizing: border-box;
     position: absolute;
-    bottom: 9.3rem;
+    bottom: 21%;
     width: 50%;
     max-width: 230px;
     height: 25%;
@@ -222,6 +222,67 @@ table {
     border-width: 1px;
     border-style: solid;
     border-color: var(--primary);
+  }
+}
+
+.custom-modal-configuracao-jogo {
+  align-items: flex-start; // Y
+  justify-content: flex-start; // X
+  &::part(content) {
+    width: 70%;
+    height: 100%;
+  }
+}
+
+.custom-modal-chat-jogo {
+  align-items: flex-end; // Y
+  justify-content: flex-end; // X
+  &::part(content) {
+    background-color: rgba(39, 39, 39, 0.9019607843137255);
+    width: 70%;
+    height: 100%;
+  }
+}
+
+.custom-modal-historico-maos {
+  align-items: center; // Y
+  justify-content: center; // X
+  &::part(content) {
+    width: 80%;
+    height: 32rem;
+    --max-width: 400px;
+    --border-radius: 3px;
+    --border-width: 1px;
+    --border-style: solid;
+    --border-color: var(--primary);
+  }
+}
+
+.custom-modal-detalhes-jogo {
+  align-items: center; // Y
+  justify-content: center; // X
+  &::part(content) {
+    width: 80%;
+    height: 17rem;
+    --max-width: 400px;
+    --border-radius: 3px;
+    --border-width: 1px;
+    --border-style: solid;
+    --border-color: var(--primary);
+  }
+}
+
+.custom-modal-confirmar-compra-modal {
+  align-items: center; // Y
+  justify-content: center; // X
+  &::part(content) {
+    width: 70%;
+    height: 13rem;
+    --max-width: 300px;
+    --border-radius: 3px;
+    --border-width: 1px;
+    --border-style: solid;
+    --border-color: var(--primary);
   }
 }
 
@@ -280,9 +341,38 @@ div.modal-shadow {
   --border-style: solid;
   --border-color: var(--primary);
 }
+.custom-class-modal-rank {
+  --height: 430px;
+  --width: 90%;
+  --max-width: 400px;
+  --border-radius: 3px;
+  --border-width: 1px;
+  --border-style: solid;
+  --border-color: var(--primary);
+}
 .modal-height-saque {
   --height: 260px;
 }
+.custom-class-modal-pagamento {
+  --height: 100%;
+  --width: 300px;
+  --max-width: 400px;
+  --border-radius: 3px;
+  --border-width: 1px;
+  --border-style: solid;
+  --border-color: var(--primary);
+}
+.modal-height-pagamento {
+  --height: 500px;
+}
+.modal-height-amigos {
+  --height: 180px;
+}
+.modal-height-menssagens {
+  --height: 450px;
+  --width: 300px;
+}
+
 .text-vag {
   font-family: "Vag-Round";
   // color: #ffffb3;

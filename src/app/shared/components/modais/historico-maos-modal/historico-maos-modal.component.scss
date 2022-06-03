@@ -1,0 +1,9 @@
+.fundo {
+  background: var(--modal-background);
+}
+ion-content {
+  --background: var(--modal-background);
+}
+app-carta-baralho {
+  transform: scale(0.8);
+}

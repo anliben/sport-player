@@ -1,83 +1,107 @@
-<div
+<!-- <div
   class="bg-background-home h-screen min-h-screen p-0 m-0 bg-cover bg-no-repeat"
->
-  <app-header [voltarBtn]="true"></app-header>
-  <app-perfil></app-perfil>
-  <div class="flex justify-center">
-    <div class="flex flex-col max-w-sm">
-      <div class="grid grid-cols-4 grid-rows-1 mx-1">
-        <button
-          class="w-24 h-7 rounded-none bg-zinc-800 border border-cyan-50/25 border-solid text-[#8b8b5c] text-[0.8rem]"
-        >
-          TODOS
-        </button>
-        <button
-          class="w-24 h-7 rounded-none bg-zinc-800 border border-cyan-50/25 border-solid text-[#8b8b5c] text-[0.8rem]"
-        >
-          MINEIRO
-        </button>
-        <button
-          class="w-24 h-7 rounded-none bg-zinc-800 border border-cyan-50/25 border-solid text-[#8b8b5c] text-[0.8rem]"
-        >
-          PAULISTA
-        </button>
-        <button
-          class="w-24 h-7 rounded-none bg-zinc-800 border border-cyan-50/25 border-solid text-[#8b8b5c] text-[0.8rem]"
-        >
-          TORNEIO
-        </button>
-      </div>
-      <div class="grid grid-cols-4 grid-rows-1 mx-1">
-        <button
-          class="w-24 h-7 rounded-none bg-zinc-800 border border-cyan-50/25 border-solid text-[#8b8b5c] text-[0.8rem]"
-        >
-          TODOS
-        </button>
-        <button
-          class="w-24 h-7 rounded-none bg-zinc-800 border border-cyan-50/25 border-solid text-[#8b8b5c] text-[0.8rem]"
-        >
-          1X1
-        </button>
-        <button
-          class="w-24 h-7 rounded-none bg-zinc-800 border border-cyan-50/25 border-solid text-[#8b8b5c] text-[0.8rem]"
-        >
-          2X2
-        </button>
-        <div
-          class="w-24 h-7 rounded-none bg-zinc-800 border border-cyan-50/25 border-solid text-[#8b8b5c] checkboxMesas grid grid-cols-2"
-        >
-          <div class="w-8"><input type="checkbox" class="w-6 h-6" /></div>
-          <div class="w-16 mt-1 -ml-5">Não exibir mesas vazias</div>
-        </div>
-      </div>
-      <div class="grid grid-cols-4 grid-rows-1 mx-1">
-        <button
-          class="w-24 h-7 rounded-none bg-zinc-800 border text-[#8b8b5c] border-solid text-[0.8rem]"
-        >
-          TODOS
-        </button>
-        <button
-          class="w-24 h-7 rounded-none bg-zinc-800 border text-[#8b8b5c] border-solid text-[0.8rem]"
-        >
-          SUJO
-        </button>
-        <button
-          class="w-24 h-7 rounded-none bg-zinc-800 border text-[#8b8b5c] border-solid text-[0.8rem]"
-        >
-          LIMPO
-        </button>
-        <div
-          class="w-24 h-7 rounded-none bg-zinc-800 border border-cyan-50/25 border-solid text-[#8b8b5c] checkboxMesas grid grid-cols-2"
-        >
-          <div class="w-8"><input type="checkbox" class="w-6 h-6" /></div>
-          <div class="w-16 mt-1 -ml-5">Não exibir mesas cheias</div>
-        </div>
-      </div>
-    </div>
+> -->
+<ion-header>
+  <app-header *ngIf="!hideHeader" [voltarBtn]="true"></app-header>
+  <!-- <app-perfil></app-perfil> -->
+  <div class="text-center bg-[#161616]">
+    <span class="text-primary text-[0.8rem]">Filtros</span>
   </div>
-  <cdk-virtual-scroll-viewport itemSize="56" class="h-5/6 grow w-full mt-2">
-    <div class="flex justify-center">
-      <app-mesas></app-mesas>
-    </div>
-  </cdk-virtual-scroll-viewport>
-</div>
+  <ion-accordion-group>
+    <ion-accordion value="colors">
+      <ion-item class="text-primary" slot="header">
+        <span class="mb-6">Modalidade</span>
+      </ion-item>
+
+      <ion-row class="bg-[#171717]" slot="content">
+        <ion-item>
+          <ion-button
+            color="transparent"
+            class="bg-gradient-to-b text-[0.6rem] from-[#313131] to-[#1f1f1f] h-7 -mt-3 w-[85px] rounded-md text-primary hover:border border-primary border-solid"
+            >Todos
+          </ion-button>
+        </ion-item>
+        <ion-item class="-ml-3">
+          <ion-button
+            color="transparent"
+            class="bg-gradient-to-b text-[0.6rem] from-[#313131] to-[#1f1f1f] h-7 -mt-3 w-[85px] rounded-md text-primary hover:border border-primary border-solid"
+            >Mineiro
+          </ion-button>
+        </ion-item>
+        <ion-item class="-ml-3">
+          <ion-button
+            color="transparent"
+            class="bg-gradient-to-b text-[0.6rem] from-[#313131] to-[#1f1f1f] h-7 -mt-3 w-[85px] rounded-md text-primary hover:border border-primary border-solid"
+            >Paulista
+          </ion-button>
+        </ion-item>
+      </ion-row>
+    </ion-accordion>
+    <ion-accordion value="shapes">
+      <ion-item class="text-primary" slot="header">
+        <span class="mb-6">Modo de jogo</span>
+      </ion-item>
+
+      <ion-row class="bg-[#171717]" slot="content">
+        <ion-item>
+          <ion-button
+            color="transparent"
+            class="bg-gradient-to-b text-[0.6rem] from-[#313131] to-[#1f1f1f] h-7 -mt-3 w-[85px] rounded-md text-primary hover:border border-primary border-solid"
+            >Todos
+          </ion-button>
+        </ion-item>
+        <ion-item class="-ml-3">
+          <ion-button
+            color="transparent"
+            class="bg-gradient-to-b text-[0.6rem] from-[#313131] to-[#1f1f1f] h-7 -mt-3 w-[85px] rounded-md text-primary hover:border border-primary border-solid"
+            >Mineiro
+          </ion-button>
+        </ion-item>
+        <ion-item class="-ml-3">
+          <ion-button
+            color="transparent"
+            class="bg-gradient-to-b text-[0.6rem] from-[#313131] to-[#1f1f1f] h-7 -mt-3 w-[85px] rounded-md text-primary hover:border border-primary border-solid"
+            >Paulista
+          </ion-button>
+        </ion-item>
+      </ion-row>
+    </ion-accordion>
+    <ion-accordion value="numbers">
+      <ion-item class="text-primary" slot="header">
+        <span class="mb-6">Distribuição de jogadores</span>
+      </ion-item>
+
+      <ion-row class="bg-[#171717]" slot="content">
+        <ion-item>
+          <ion-button
+            color="transparent"
+            class="bg-gradient-to-b text-[0.7rem] from-[#313131] to-[#1f1f1f] h-7 -mt-3 w-[85px] rounded-md text-primary hover:border border-primary border-solid"
+            >Todos
+          </ion-button>
+        </ion-item>
+        <ion-item class="-ml-3">
+          <ion-button
+            color="transparent"
+            class="bg-gradient-to-b text-[0.7rem] from-[#313131] to-[#1f1f1f] h-7 -mt-3 w-[85px] rounded-md text-primary hover:border border-primary border-solid"
+            >1x1
+          </ion-button>
+        </ion-item>
+        <ion-item class="-ml-3">
+          <ion-button
+            color="transparent"
+            class="bg-gradient-to-b text-[0.7rem] from-[#313131] to-[#1f1f1f] h-7 -mt-3 w-[85px] rounded-md text-primary hover:border border-primary border-solid"
+            >2x2
+          </ion-button>
+        </ion-item>
+      </ion-row>
+    </ion-accordion>
+  </ion-accordion-group>
+</ion-header>
+<ion-content>
+  <div class="flex justify-center">
+    <app-mesas></app-mesas>
+  </div>
+</ion-content>
+<!-- <cdk-virtual-scroll-viewport itemSize="100" class="h-5/6 grow w-full mt-2">
+</cdk-virtual-scroll-viewport> -->
+<!-- </div> -->

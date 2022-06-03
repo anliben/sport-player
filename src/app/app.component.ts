@@ -24,4 +24,9 @@ export class AppComponent implements OnInit {
       this.translate.use('pt');
     }
   }
+
+  ionViewWillEnter(){
+    console.log(`asdsd`);
+    
+  }
 }

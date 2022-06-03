@@ -1,4 +1,21 @@
-.checkboxMesas{
-    font-size: 6px;
-    line-height: 10px;
+.checkboxMesas {
+  font-size: 6px;
+  line-height: 10px;
+}
+:host {
+  background: #fff url("/assets/game/game/fundo.png") no-repeat center center /
+    cover;
+
+  .background-content {
+    --background: green;
+  }
+  ion-content {
+    --background: #fff url("/assets/game/game/fundo.png") no-repeat center
+      center / cover;
+  }
+  ion-item { 
+    font-size: small;
+    --background: rgb(22, 22, 22);
+    height: 35px;
+}
 }

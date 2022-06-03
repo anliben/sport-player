@@ -3,6 +3,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
 import { VerifyComponent } from './auth/verify/verify.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { RefreshGuard } from './guards/refresh.guard';
 
 const routes: Routes = [
   {
@@ -69,15 +70,21 @@ const routes: Routes = [
   },
   {
     path: 'register',
-    component: RegisterComponent
+    component: RegisterComponent,
   },
   {
     path: 'disconnected',
-    loadChildren: () => import('./pages/disconnected/disconnected.module').then( m => m.DisconnectedPageModule)
+    loadChildren: () =>
+      import('./pages/disconnected/disconnected.module').then(
+        (m) => m.DisconnectedPageModule
+      ),
   },
   {
     path: 'painel-jogador',
-    loadChildren: () => import('./pages/clube/painel-jogador/painel-jogador.module').then( m => m.PainelJogadorPageModule)
+    loadChildren: () =>
+      import('./pages/clube/painel-jogador/painel-jogador.module').then(
+        (m) => m.PainelJogadorPageModule
+      ),
   },
   {
     path: '**',
@@ -85,22 +92,32 @@ const routes: Routes = [
   },
   {
     path: 'em-breve',
-    loadChildren: () => import('./pages/em-breve/em-breve.module').then( m => m.EmBrevePageModule)
+    loadChildren: () =>
+      import('./pages/em-breve/em-breve.module').then(
+        (m) => m.EmBrevePageModule
+      ),
   },
   {
     path: 'suporte-modal',
-    loadChildren: () => import('./shared/components/modais/suporte-modal/suporte-modal.module').then( m => m.SuporteModalPageModule)
-  },  {
+    loadChildren: () =>
+      import(
+        './shared/components/modais/suporte-modal/suporte-modal.module'
+      ).then((m) => m.SuporteModalPageModule),
+  },
+  {
     path: 'convidar-amigos-modal',
-    loadChildren: () => import('./shared/components/modais/convidar-amigos-modal/convidar-amigos-modal.module').then( m => m.ConvidarAmigosModalPageModule)
+    loadChildren: () =>
+      import(
+        './shared/components/modais/convidar-amigos-modal/convidar-amigos-modal.module'
+      ).then((m) => m.ConvidarAmigosModalPageModule),
   },
   {
     path: 'sinal-secreto-modal',
-    loadChildren: () => import('./shared/components/modais/sinal-secreto-modal/sinal-secreto-modal.module').then( m => m.SinalSecretoModalPageModule)
-  }
-
-
-
+    loadChildren: () =>
+      import(
+        './shared/components/modais/sinal-secreto-modal/sinal-secreto-modal.module'
+      ).then((m) => m.SinalSecretoModalPageModule),
+  },
 ];
 @NgModule({
   imports: [
@@ -108,4 +125,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

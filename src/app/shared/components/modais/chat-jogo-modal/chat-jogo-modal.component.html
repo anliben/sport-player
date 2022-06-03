@@ -1,0 +1,42 @@
+<ion-header>
+  <div class="w-full bg-[#1e1e1e] p-2">
+    <img
+      (click)="closeModal()"
+      src="../../../../../assets/game/partidaTruco/sair-part-club.png"
+      class="h-6 cursor-pointer active:scale-110 duration-300"
+    />
+    <!-- <img src="../../../../../assets/game/partidaTruco/seta.png" alt="" /> -->
+  </div>
+</ion-header>
+<ion-content>
+  <div class="flex flex-col h-full w-full p-2">
+    <app-chat-mensagem
+      [eu]="true"
+      src="../../../../assets/game/partidaTruco/perfil-foto-exemplo.png"
+      playerName="João"
+      message="Pessoal partiu trucar??"
+    ></app-chat-mensagem>
+    <app-chat-mensagem
+      playerName="Rodopo"
+      message="Nada, vou nada. Lorem ipsuim lorem position on"
+    ></app-chat-mensagem>
+  </div>
+</ion-content>
+<ion-footer>
+  <div class="w-full bg-[#1e1e1e] p-2 flex items-center justify-between">
+    <img
+      src="../../../../../assets/game/partidaTruco/chat-off.png"
+      class="h-8 cursor-pointer active:scale-110 duration-300"
+    />
+    <ion-input
+      type="text"
+      color="transparent"
+      placeholder="ESCREVER MENSAGEM..."
+      class="mx-2 h-6 rounded-sm text-[1rem] font-vag border-[1px] border-solid border-primary"
+    ></ion-input>
+    <img
+      src="../../../../../assets/game/partidaTruco/enviar -msg-chat.png"
+      class="h-8 cursor-pointer active:scale-110 duration-300"
+    />
+  </div>
+</ion-footer>

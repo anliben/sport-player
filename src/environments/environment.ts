@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  socketUrl: 'https://sportplayer-backend-8o1h3zb1u-anliben.vercel.app'
+  socketUrl: 'http://127.0.0.1:8080',
+  api: 'https://f7a1f124586c.sa.ngrok.io'
 };
 
 /*

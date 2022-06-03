@@ -1,7 +1,5 @@
 import { Component, OnInit, ViewChild, ViewChildren } from '@angular/core';
-import { Router } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
-
+import { webSocket } from 'rxjs/webSocket'
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
@@ -12,9 +10,24 @@ export class HomePage implements OnInit {
   @ViewChild('store') storeElemnt: any;
   @ViewChild('config') configElemnt: any;
 
+  web;
 
-  constructor() {}
-  ngOnInit() {}
+  constructor(
+  ) {
+    this.web = webSocket('ws://localhost:3000');
+  }
+
+  ngOnInit() {
+
+  }
+
+  callPlayer(){
+    this.web.next({Find: 'player'})
+    this.web.subscribe((response) => {
+      console.log(response);
+    })
+
+  }
 
   elemntHidden(e: any, idx1: number, idx2?: number) {
     e.nativeElement.childNodes[idx1].style.visibility = 'hidden';

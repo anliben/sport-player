@@ -1,0 +1,151 @@
+<ion-content>
+  <div
+    class="bg-[url('/assets/game/game/fundo-loja.png')] bg-cover bg-no-repeat w-full h-full"
+  >
+    <header>
+      <div class="flex justify-between">
+        <div class="flex flex-col pr-2">
+          <div
+            class="bg-[url('/assets/game/game/homem.png')] absolute bg-black z-20 rounded-full border border-amber-100/50 border-solid w-14 h-14 bg-no-repeat bg-contain"
+          ></div>
+          <figure class="w-44 mt-2 ml-16 relative right-5">
+            <img src="/assets/game/truco8/fundo-info-Jogador.png" />
+            <span
+              class="absolute left-6 top-0 -mt-0.5 text-[#fdfca7] font-medium uppercase text-xs leading-6"
+              >{{nickname}}</span
+            >
+            <span
+              class="absolute left-6 top-4 -mt-0.5 text-[#fdfca7] font-medium uppercase text-xs"
+              >ID: {{id}}</span
+            >
+          </figure>
+          <figure class="w-32 ml-16 relative right-5">
+            <img src="/assets/game/truco8/fundo-info-Jogador.png " />
+            <span class="absolute bottom-0 left-6 mb-0.5 text-[#fdfca7] text-xs"
+              >{{level}}</span
+            >
+          </figure>
+        </div>
+        <div class="pr-[5%]">
+          <div class="mt-1 ml-2 relative">
+            <img src="/assets/game/perfil/fundo-fichas.png" class="h-7" />
+            <span class="absolute -mt-6 ml-14 text-[0.8rem] text-primary"
+              >{{moeda}}</span
+            >
+            <ion-row class="mt-2">
+              <img
+                (click)="showAdicionarFichasModal()"
+                src="/assets/game/perfil/adicionar.png"
+                class="h-5 mr-2 cursor-pointer transition ease-in-out hover:scale-110"
+              />
+              <img
+                (click)="showSaqueModal()"
+                src="/assets/game/perfil/sacar.png"
+                class="h-5 cursor-pointer transition ease-in-out hover:scale-110"
+              />
+            </ion-row>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="flex justify-center">
+      <img
+        class="h-[1.3rem] mt-3 mr-2 object-cover"
+        [routerLink]="['/painel-jogador']"
+        src="/assets/game/perfil/painel-do-jogador.png"
+      />
+      <img
+        (click)="showFriensModal()"
+        class="h-[1.3rem] mt-3 object-cover"
+        src="/assets/game/perfil/amigos.png"
+      />
+    </div>
+    <div
+      class="w-5/6 mx-auto mt-2 h-24 border-solid border border-amber-200/50"
+    >
+      <div class="flex justify-center mt-1">
+        <ion-row>
+          <img
+            class="h-10 mx-auto my-2"
+            src="/assets/game/perfil/jackpot.png"
+          />
+          <img
+            class="h-5 left-0 ml-1 mt-2 rounded-md"
+            src="/assets/game/perfil/seta-baixo.png"
+          />
+        </ion-row>
+      </div>
+      <div class="flex justify-center">
+        <ion-row>
+          <img class="h-5" src="/assets/game/perfil/real.png" />
+          <app-jackpot></app-jackpot>
+        </ion-row>
+      </div>
+    </div>
+    <div class="w-5/6 mx-auto mt-2 border-solid border border-amber-200/50">
+      <img class="h-5 mx-auto my-2" src="/assets/game/perfil/loja.png" />
+
+      <div class="flex justify-center mb-6">
+        <div class="grid grid-cols-3 gap-3">
+          <div
+            *ngFor="let storeItem of storeItens"
+            (click)="showConfirmBuyItemModal(storeItem)"
+            class="cursor-pointer"
+          >
+            <div class="h-[122px] w-20 relative">
+              <div
+                class="h-24 w-20 border-solid border border-amber-200/50 rounded-md"
+              ></div>
+
+              <div
+                *ngIf="storeItem.type === 'vip'"
+                class="absolute top-0 mt-5 h-28 w-20 left-[1.5rem]"
+              >
+                <img class="h-10" src="{{ storeItem.imgItem }}" />
+              </div>
+              <div
+                *ngIf="storeItem.type === 'diamante'"
+                class="absolute top-0 mt-5 h-28 w-20 left-[1rem]"
+              >
+                <img class="h-10" src="{{ storeItem.imgItem }}" />
+              </div>
+              <div
+                *ngIf="storeItem.type === 'emoji'"
+                class="absolute bottom-0 h-28 w-20 mb-1 left-[1.1rem]"
+              >
+                <img class="h-14 my-4 -ml-1" src="{{ storeItem.imgItem }}" />
+              </div>
+              <div
+                *ngIf="storeItem.type === 'diamante'"
+                class="h-8 w-full -mt-8 text-center"
+              >
+                <h3 class="text-[#23bee2] text-[0.9rem]">
+                  {{ storeItem.quantity }}
+                </h3>
+              </div>
+
+              <div
+                *ngIf="storeItem.type === 'vip'"
+                class="h-8 w-full -mt-8 text-center"
+              >
+                <h3 class="text-[#fde870] text-[0.9rem]">
+                  {{ storeItem.quantity }}
+                </h3>
+              </div>
+              <div class="absolute bottom-0">
+                <img class="h-6" src="/assets/game/perfil/preco.png" />
+                <h3
+                  class="absolute bottom-0 left-1 text-[0.7rem] text-primary ml-6 mb-1.5"
+                >
+                  {{ storeItem.price }}
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="h-5"></div>
+      </div>
+    </div>
+  </div>
+</ion-content>

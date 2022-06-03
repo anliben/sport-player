@@ -1,0 +1,44 @@
+<ion-header>
+  <div class="bg-[#222222] h-full">
+    <div class="flex justify-between items-center border-b-[1px] border-solid border-primary p-1">
+      <div class="flex grow justify-center">
+        <span class="text-primary font-vag">Solicitações</span>
+      </div>
+      <img (click)="dismiss()" src="../../../../../assets/game/partidaTruco/botao-fechar.png"
+        class="h-6 rounded-md transition cursor-pointer active:scale-110 duration-300" />
+    </div>
+  </div>
+</ion-header>
+<ion-content>
+  <div class="bg-[#222222] h-full">
+    <div class="flex justify-center pt-2">
+      <div class="items-center w-[100px]">
+        <h2 class="text-[0.6rem] text-primary -ml-[3px]">Adicionar amigos por ID: </h2>
+      </div>
+      <div class="w-16 h-5 border-b-2 border-solid border-primary">
+        <ion-input name="password" class="h-5 rounded-sm text-[0.8rem] font-vag pr-1" color="transparent"
+          placeholder="Ex: 1234">
+        </ion-input>
+      </div>
+      <img src="/assets/game/amigos/btn-solicitar.png"
+        class="h-6 ml-[3px] rounded-lg cursor-pointer transition active:scale-110 duration-300 " />
+    </div>
+    <div class="flex justify-center my-3">
+      <img (click)="showFriensModal()" class="h-6 mr-2 rounded-md active:border border-solid"
+        src="/assets/game/amigos/btn-amigos.png">
+      <img class="h-6 rounded-md active:border border-solid" src="/assets/game/amigos/btn-amigos-solicitacoes.png">
+    </div>
+    <div class="p-2 flex items-center justify-between">
+      <div class="flex items-center relative">
+        <img src="../../../../../assets/game/partidaTruco/perfil-foto-exemplo.png"
+          class="h-10 w-10 rounded-full mr-2" />
+        <span class="text-primary text-[0.7rem]">SPTRUCO</span>
+        <div class="absolute -top-0.5 left-8 w-3 h-3 bg-[#24bd0f] rounded-full"></div>
+      </div>
+      <img src="/assets/game/amigos/btn-aceitar.png"
+        class="h-5 ml-10 mt-2 cursor-pointer transition active:scale-110 duration-300" />
+      <img src="/assets/game/amigos/btn-excluir.png"
+        class="h-5 mt-2 cursor-pointer transition active:scale-110 duration-300" />
+    </div>
+  </div>
+</ion-content>

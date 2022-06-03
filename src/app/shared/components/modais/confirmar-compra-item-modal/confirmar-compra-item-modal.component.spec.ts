@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { PerfilJogadorComponent } from './perfil-jogador.component';
+import { ConfirmarCompraItemModalComponent } from './confirmar-compra-item-modal.component';
 
-describe('PerfilJogadorComponent', () => {
-  let component: PerfilJogadorComponent;
-  let fixture: ComponentFixture<PerfilJogadorComponent>;
+describe('ConfirmarCompraItemModalComponent', () => {
+  let component: ConfirmarCompraItemModalComponent;
+  let fixture: ComponentFixture<ConfirmarCompraItemModalComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ PerfilJogadorComponent ],
+      declarations: [ ConfirmarCompraItemModalComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(PerfilJogadorComponent);
+    fixture = TestBed.createComponent(ConfirmarCompraItemModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

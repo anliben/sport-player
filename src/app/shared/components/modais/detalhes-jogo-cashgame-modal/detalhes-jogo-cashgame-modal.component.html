@@ -1,0 +1,112 @@
+<ion-header>
+  <div
+    class="flex fundo justify-between items-center border-b-[1px] border-solid border-primary p-1"
+  >
+    <div class="flex grow justify-center">
+      <span class="text-primary font-vag">DETALHES DO JOGO</span>
+    </div>
+    <img
+      (click)="closeModal()"
+      src="../../../../../assets/game/partidaTruco/botao-fechar.png"
+      class="h-6 rounded-md transition cursor-pointer active:scale-110 duration-300"
+    />
+  </div>
+</ion-header>
+<ion-content>
+  <div class="flex flex-col items-center justify-between grow h-full">
+    <div class="w-full flex flex-col justify-center items-center">
+      <span class="text-primary text-[0.7rem] my-1">Premiação</span>
+      <div
+        class="w-[90%] flex flex-col justify-center items-center border-[1px] border-solid border-primary"
+      >
+        <p
+          *ngIf="playersDistribution === '2x2'"
+          class="text-primary text-[0.7rem] mt-1"
+        >
+          Dupla Vencedora
+        </p>
+        <p
+          *ngIf="playersDistribution === '1x1'"
+          class="text-primary text-[0.7rem] mt-1"
+        >
+          Vencedor
+        </p>
+        <p
+          *ngIf="playersDistribution === '2x2'"
+          class="text-primary text-[0.6rem] my-2"
+        >
+          Prêmio por jogador: +{{ awardTotal / 2 }}
+        </p>
+        <p
+          *ngIf="playersDistribution === '1x1'"
+          class="text-primary text-[0.6rem] my-2"
+        >
+          Prêmio do vencedor: +{{ awardTotal }}
+        </p>
+        <div class="w-full bg-primary flex justify-center items-center">
+          <span
+            *ngIf="playersDistribution === '2x2'"
+            class="text-black opacity-60 text-[0.7rem] my-0.5"
+            >Premiação Total: +{{ awardTotal / 2 }}</span
+          >
+          <span
+            *ngIf="playersDistribution === '1x1'"
+            class="text-black opacity-60 text-[0.7rem] my-0.5"
+            >Premiação Total: +{{ awardTotal }}</span
+          >
+        </div>
+      </div>
+      <div
+        class="w-[90%] mt-1 flex flex-col justify-center items-center border-[1px] border-solid border-primary"
+      >
+        <p
+          *ngIf="playersDistribution === '2x2'"
+          class="text-primary text-[0.7rem] mt-1"
+        >
+          Dupla Perdedora
+        </p>
+        <p
+          *ngIf="playersDistribution === '1x1'"
+          class="text-primary text-[0.7rem] mt-1"
+        >
+          Perdedor
+        </p>
+        <p
+          *ngIf="playersDistribution === '2x2'"
+          class="text-primary text-[0.6rem] my-2"
+        >
+          Prêmio por jogador: 0
+        </p>
+        <p
+          *ngIf="playersDistribution === '1x1'"
+          class="text-primary text-[0.6rem] my-2"
+        >
+          Prêmio do perdedor: 0
+        </p>
+        <div class="w-full bg-primary flex justify-center items-center">
+          <span
+            *ngIf="playersDistribution === '2x2'"
+            class="text-black opacity-60 text-[0.7rem] my-0.5"
+            >Premiação Total: 0</span
+          >
+          <span
+            *ngIf="playersDistribution === '1x1'"
+            class="text-black opacity-60 text-[0.7rem] my-0.5"
+            >Premiação Total: 0</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full flex flex-col justify-center items-center">
+      <div class="w-full bg-primary flex justify-center items-center py-0.5">
+        <span class="text-black opacity-60 text-[0.7rem]"
+          >Entrada
+          <ion-text class="text-[0.8rem]">{{ buyMatch }}</ion-text> prêmio
+          <ion-text class="text-[0.8rem]">{{ awardTotal }}</ion-text></span
+        >
+      </div>
+      <span class="text-primary text-[0.7rem] my-2">Espectadores(0)</span>
+    </div>
+  </div>
+</ion-content>

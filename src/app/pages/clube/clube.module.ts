@@ -9,20 +9,22 @@ import { ClubePageRoutingModule } from './clube-routing.module';
 import { ClubePage } from './clube.page';
 import { SuperTabsModule } from '@ionic-super-tabs/angular';
 import { SharedModule } from '../../shared/shared.module';
-import { PerfilJogadorComponent } from './perfil-jogador/perfil-jogador.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { PerfilClubePageModule } from './perfil-clube/perfil-clube.module';
+import { EmBrevePageModule } from '../em-breve/em-breve.module';
 
 @NgModule({
-
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     ClubePageRoutingModule,
     SuperTabsModule,
+    PerfilClubePageModule,
+    EmBrevePageModule,
     SharedModule,
-    ScrollingModule
+    ScrollingModule,
   ],
-  declarations: [ ClubePage, PerfilJogadorComponent],
+  declarations: [ClubePage],
 })
 export class ClubePageModule {}

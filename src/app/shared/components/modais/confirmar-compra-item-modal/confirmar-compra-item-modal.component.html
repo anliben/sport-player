@@ -1,0 +1,76 @@
+<ion-header>
+  <div
+    class="flex fundo justify-between items-center border-b-[1px] border-solid border-primary p-1"
+  >
+    <div class="flex grow justify-center">
+      <span class="text-primary font-vag">{{ itemStore.type }}</span>
+    </div>
+    <img
+      (click)="closeModal()"
+      src="../../../../../assets/game/partidaTruco/botao-fechar.png"
+      class="h-6 rounded-md transition cursor-pointer active:scale-110 duration-300"
+    />
+  </div>
+</ion-header>
+<ion-content fullscreen>
+  <div class="h-full flex flex-col items-center justify-between">
+    <div class="w-full flex grow flex-col justify-between items-center">
+      <div class="flex flex-col items-center mt-2">
+        <img [src]="itemStore.imgItem" class="h-14" />
+        <span
+          *ngIf="itemStore.type !== 'emoji'"
+          class="text-[1.2rem] text-primary"
+          [ngClass]="{
+            'text-[#23bee2]': itemStore.type === 'diamante',
+            'text-[#fde870]':
+              itemStore.type === 'moeda' || itemStore.type === 'vip'
+          }"
+          >{{ itemStore.quantity }}</span
+        >
+      </div>
+
+      <div
+        class="w-[90%] rounded-full bg-[#262728] mb-2 p-0.5 flex items-center justify-center"
+      >
+        <span class="text-[0.7rem] text-primary">Custo: </span>
+        <span
+          *ngIf="itemStore.typePayments === 'reais'"
+          class="ml-1 text-[0.7rem] text-[#fde870]"
+          >R$ {{ itemStore.price }}</span
+        >
+        <div
+          *ngIf="itemStore.typePayments === 'diamante'"
+          class="flex items-center ml-1"
+        >
+          <span class="text-[0.7rem] text-[#23bee2] mr-1">{{
+            itemStore.price
+          }}</span>
+          <img src="../../../../../assets/game/game/diamente.png" class="h-4" />
+        </div>
+        <div
+          *ngIf="itemStore.typePayments === 'fichaSp'"
+          class="flex items-center ml-1"
+        >
+          <span class="text-[0.7rem] text-primary mr-1">{{
+            itemStore.price
+          }}</span>
+          <img src="../../../../../assets/icon/fichaSp.png" class="h-4" />
+        </div>
+      </div>
+    </div>
+    <!-- rs#fde870 -->
+    <div class="w-full bg-[#191c1c] flex items-center justify-center p-2">
+      <div
+        (click)="closeModal()"
+        class="py-0.5 px-3 cursor-pointer rounded-md bg-[#262728] active:scale-110 duration-300"
+      >
+        <span class="text-white text-[0.6rem]">Cancelar</span>
+      </div>
+      <div
+        class="ml-3 py-0.5 px-3 cursor-pointer rounded-md bg-gradient-to-b from-[#00f33f] to-[#006e05] active:scale-110 duration-300"
+      >
+        <span class="text-white text-[0.6rem]">Confirmar</span>
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,24 +1,33 @@
 <ion-content>
   <div class="bg-background-home h-full p-0 m-0 bg-cover bg-no-repeat z-0">
-    <app-header moeda="55" diamante="20"></app-header>
+    <app-header></app-header>
     <app-perfil></app-perfil>
     <div class="flex flex-col items-center justify-center mt-2">
       <img
         (click)="changeScreen('clube')"
-        class="cursor-pointer w-42 h-52 mb-8"
+        class="cursor-pointer w-42 h-52 mb-8 active:scale-110 duration-300"
         src="/assets/game/game/clube.png"
       />
 
-      <div class="bg-black z-30" (click)="changeScreen('trucco')">
-        <img class="w-38 h-16" src="/assets/game/game/truco.png" />
+      <div class="z-30" (click)="changeScreen('trucco')">
+        <img
+          class="h-12 cursor-pointer active:scale-110 duration-300"
+          src="/assets/game/game/truco.png"
+        />
       </div>
 
-      <div class="bg-black z-30" (click)="changeScreen('em-breve')">
-        <img class="w-38 h-16" src="/assets/game/game/poker.png" />
+      <div class="z-30 my-2" (click)="changeScreen('em-breve')">
+        <img
+          class="h-16 cursor-pointer active:scale-110 duration-300"
+          src="/assets/game/game/poker.png"
+        />
       </div>
 
-      <div class="bg-black z-30" (click)="changeScreen('em-breve')">
-        <img class="w-38 h-16" src="/assets/game/game/futebol.png" />
+      <div class="z-30" (click)="changeScreen('em-breve')">
+        <img
+          class="h-16 cursor-pointer active:scale-110 duration-300"
+          src="/assets/game/game/futebol.png"
+        />
       </div>
     </div>
   </div>

@@ -1,9 +1,12 @@
 :root {
   --background: green;
 }
-
+super-tab-button, super-tabs-toolbar {
+  height: 2.5rem;
+}
 super-tabs-toolbar {
   --st-indicator-color: transparent;
+  --st-indicator-height: 20px
   --super-tabs-toolbar-background: yellow;
   background: var(--primaryLinearGradient);
 

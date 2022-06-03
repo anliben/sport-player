@@ -24,6 +24,7 @@ import { AmigosSolicilatoesComponent } from './components/modais/amigos-solicila
 import { MensagensRecebidasModalComponent } from './components/modais/mensagens-recebidas-modal/mensagens-recebidas-modal.component';
 import { MensagensEnviadasModalComponent } from './components/modais/mensagens-enviadas-modal/mensagens-enviadas-modal.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { RankModalComponent } from './components/modais/rank-modal/rank-modal.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
     AmigosModalComponent,
     AmigosSolicilatoesComponent,
     MensagensRecebidasModalComponent,
-    MensagensEnviadasModalComponent
+    MensagensEnviadasModalComponent,
+    RankModalComponent
   ],
   imports: [
     CommonModule,

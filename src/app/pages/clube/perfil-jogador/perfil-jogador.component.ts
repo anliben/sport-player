@@ -12,6 +12,8 @@ import { AmigosModalComponent } from '../../../shared/components/modais/amigos-m
   styleUrls: ['./perfil-jogador.component.scss'],
 })
 export class PerfilJogadorComponent implements OnInit {
+  moeda = 10;
+  
   storeItens: any[] = [
     {
       id: 1,

@@ -331,6 +331,15 @@ div.modal-shadow {
   --border-style: solid;
   --border-color: var(--primary);
 }
+.custom-class-modal-rank {
+  --height: 430px;
+  --width: 90%;
+  --max-width: 400px;
+  --border-radius: 3px;
+  --border-width: 1px;
+  --border-style: solid;
+  --border-color: var(--primary);
+}
 .modal-height-saque {
   --height: 260px;
 }
@@ -353,6 +362,7 @@ div.modal-shadow {
   --height: 450px;
   --width: 300px;
 }
+
 .text-vag {
   font-family: "Vag-Round";
   // color: #ffffb3;

@@ -53,7 +53,8 @@ export const firebaseConfig = {
   measurementId: 'G-09SNC100S8',
 };
 
-export const createTranslateLoader = (http: HttpClient): TranslateHttpLoader => new TranslateHttpLoader(http, './assets/i18n/', '.json');
+export const createTranslateLoader = (http: HttpClient): TranslateHttpLoader =>
+  new TranslateHttpLoader(http, './assets/i18n/', '.json');
 
 @NgModule({
   declarations: [
@@ -94,7 +95,7 @@ export const createTranslateLoader = (http: HttpClient): TranslateHttpLoader => 
     ReactiveFormsModule,
     SuperTabsModule.forRoot(),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
@@ -103,6 +104,4 @@ export const createTranslateLoader = (http: HttpClient): TranslateHttpLoader => 
   ],
   bootstrap: [AppComponent],
 })
-
-
 export class AppModule {}

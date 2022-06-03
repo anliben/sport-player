@@ -254,27 +254,6 @@ export class Cashgame2x2Page implements OnInit, OnDestroy {
     return await this.inviteFriendsModal.present();
   }
 
-  async showHandHistory() {
-    this.handHistory = await this.modalController.create({
-      component: HistoricoMaosModalComponent,
-      cssClass: 'custom-modal-historico-maos',
-      componentProps: {
-        playersDistribution: this.tableData.playersDistribution,
-      },
-    });
-    return await this.handHistory.present();
-  }
-
-  async showChatGame() {
-    this.chatGameModal = await this.modalController.create({
-      component: ChatJogoModalComponent,
-      cssClass: 'custom-modal-chat-jogo',
-      showBackdrop: false,
-      animated: false,
-    });
-    return await this.chatGameModal.present();
-  }
-
   generatePlayers() {
     const posicoes = ['top', 'bottom', 'left', 'right'];
     for (let i = 0; i < 100; i++) {

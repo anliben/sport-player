@@ -230,35 +230,7 @@
         </div>
       </section>
 
-      <section>
-        <div class="flex justify-between mt-1">
-          <img
-            class="cursor-pointer h-8"
-            src="/assets/game/partidaTruco/historico-de-maos.png"
-          />
-
-          <div class="flex items-center">
-            <!-- <img
-              class="h-6 ml-2 mr-2"
-              src="../../../assets/game/partidaTruco/lista-de-espera.png"
-            /> -->
-            <div
-              class="h-6 w-20 bg-contain bg-no-repeat ml-2 mr-2 bg-[url('/assets/game/partidaTruco/lista-de-espera.png')]"
-            >
-              <span class="font-vag text-[#8b8b5c] relative left-14">0</span>
-            </div>
-
-            <img
-              class="cursor-pointer h-8 ml-2 mr-2"
-              src="../../../assets/game/partidaTruco/MICROFONE.png"
-            />
-            <img
-              class="cursor-pointer h-8"
-              src="/assets/game/partidaTruco/CHAT.png"
-            />
-          </div>
-        </div>
-      </section>
+      <app-footer-mesa-truco [tableData]="tableData"></app-footer-mesa-truco>
     </section>
   </div>
 </ion-content>

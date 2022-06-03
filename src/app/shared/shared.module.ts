@@ -28,6 +28,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { HeaderMesaTrucoComponent } from './components/header-mesa-truco/header-mesa-truco.component';
 import { ChatMensagemComponent } from './components/chat-mensagem/chat-mensagem.component';
 import { RankModalComponent } from './components/modais/rank-modal/rank-modal.component';
+import { FooterMesaTrucoComponent } from './components/footer-mesa-truco/footer-mesa-truco.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { RankModalComponent } from './components/modais/rank-modal/rank-modal.co
     HeaderMesaTrucoComponent,
     ChatMensagemComponent,
     RankModalComponent,
+    FooterMesaTrucoComponent,
   ],
   imports: [
     CommonModule,
@@ -76,6 +78,7 @@ import { RankModalComponent } from './components/modais/rank-modal/rank-modal.co
     ConfigJogoItemComponent,
     HeaderMesaTrucoComponent,
     ChatMensagemComponent,
+    FooterMesaTrucoComponent,
   ],
 })
 export class SharedModule {}

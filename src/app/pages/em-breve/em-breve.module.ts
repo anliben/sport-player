@@ -9,12 +9,8 @@ import { EmBrevePageRoutingModule } from './em-breve-routing.module';
 import { EmBrevePage } from './em-breve.page';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    EmBrevePageRoutingModule
-  ],
-  declarations: [EmBrevePage]
+  imports: [CommonModule, FormsModule, IonicModule, EmBrevePageRoutingModule],
+  declarations: [EmBrevePage],
+  entryComponents: [EmBrevePage],
 })
 export class EmBrevePageModule {}

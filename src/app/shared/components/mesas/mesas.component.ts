@@ -16,7 +16,7 @@ export class MesasComponent implements OnInit {
   code = new HttpUrlEncodingCodec();
   mesasData: MesaInterface[] = [
     {
-      id: 1,
+      id: 1,  
       name: 'Mesa 1',
       tableType: 'torneio',
       awardTotal: '1000',

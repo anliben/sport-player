@@ -254,15 +254,6 @@ export class Cashgame2x2Page implements OnInit, OnDestroy {
     return await this.inviteFriendsModal.present();
   }
 
-  async showConfigGameModal() {
-    this.configGameModal = await this.modalController.create({
-      component: ConfiguracaoJogoModalComponent,
-      cssClass: 'custom-modal-configuracao-jogo',
-      animated: false,
-    });
-    return await this.configGameModal.present();
-  }
-
   async showHandHistory() {
     this.handHistory = await this.modalController.create({
       component: HistoricoMaosModalComponent,
@@ -272,19 +263,6 @@ export class Cashgame2x2Page implements OnInit, OnDestroy {
       },
     });
     return await this.handHistory.present();
-  }
-
-  async showDetailGame() {
-    this.detailGame = await this.modalController.create({
-      component: CGDetalhesJogoModalComponent,
-      cssClass: 'custom-modal-detalhes-jogo',
-      componentProps: {
-        playersDistribution: this.tableData.playersDistribution,
-        buyMatch: this.tableData.buy,
-        awardTotal: this.tableData.awardTotal,
-      },
-    });
-    return await this.detailGame.present();
   }
 
   async showChatGame() {

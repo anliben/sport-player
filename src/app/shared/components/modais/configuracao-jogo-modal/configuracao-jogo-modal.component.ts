@@ -6,9 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./configuracao-jogo-modal.component.scss'],
 })
 export class ConfiguracaoJogoModalComponent implements OnInit {
-
-  constructor() { }
+  volume = 0.5;
+  constructor() {}
 
   ngOnInit() {}
 
+  setVolume() {
+    console.log('aumentandio o volume');
+  }
 }

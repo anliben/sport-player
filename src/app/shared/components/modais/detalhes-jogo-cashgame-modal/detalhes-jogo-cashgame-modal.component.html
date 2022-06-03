@@ -3,7 +3,7 @@
     class="flex fundo justify-between items-center border-b-[1px] border-solid border-primary p-1"
   >
     <div class="flex grow justify-center">
-      <span class="text-primary font-vag">HISTÓRICO DE MÃOS</span>
+      <span class="text-primary font-vag">DETALHES DO JOGO</span>
     </div>
     <img
       (click)="closeModal()"
@@ -35,7 +35,7 @@
           *ngIf="playersDistribution === '2x2'"
           class="text-primary text-[0.6rem] my-2"
         >
-          Prêmio por jogador: +{{ awardTotal / 2 }}
+          Prêmio por jogador: +{{ awardTotalC / 2 }}
         </p>
         <p
           *ngIf="playersDistribution === '1x1'"

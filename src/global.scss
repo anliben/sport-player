@@ -238,6 +238,7 @@ table {
   align-items: flex-end; // Y
   justify-content: flex-end; // X
   &::part(content) {
+    background-color: rgba(39, 39, 39, 0.9019607843137255);
     width: 70%;
     height: 100%;
   }
@@ -262,7 +263,7 @@ table {
   justify-content: center; // X
   &::part(content) {
     width: 80%;
-    height: 30%;
+    height: 17rem;
     --max-width: 400px;
     --border-radius: 3px;
     --border-width: 1px;

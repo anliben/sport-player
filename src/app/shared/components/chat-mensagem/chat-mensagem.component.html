@@ -1,0 +1,33 @@
+<div
+  class="flex items-center justify-end flex-row-reverse w-full mt-4"
+  [ngClass]="{
+    'justify-start flex-row-reverse ': eu
+  }"
+>
+  <div
+    class="bg-white min-h-[1.2rem] p-1 relative min-w-[4rem] max-w-[60%] mx-2 rounded-md"
+  >
+    <span class="text-[0.7rem] text-black block font-vag">{{ message }}</span>
+    <span class="text-right text-[0.6rem] text-black block font-vag">{{
+      timeMessageSent ?? "00:00"
+    }}</span>
+  </div>
+  <div class="w-12 h-12">
+    <img
+      class="w-12 h-12 rounded-full border-solid border-[1px] border-[#eec26f]"
+      [src]="src ?? '../../../../assets/game/truco8/icone-pessoa.png'"
+    />
+
+    <div
+      class="flex relative bottom-2 justify-center items-center rounded-md border-solid border-[0.5px] border-[#eec26f] bg-[#272727] py-0.5 px-1.5"
+    >
+      <span class="text-white text-[0.4rem]">
+        {{
+          playerName.length > 4
+            ? playerName.substring(0, 4) + "..."
+            : playerName
+        }}
+      </span>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-chat-jogo-modal',
@@ -6,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./chat-jogo-modal.component.scss'],
 })
 export class ChatJogoModalComponent implements OnInit {
-
-  constructor() { }
+  constructor(private modalController: ModalController) {}
 
   ngOnInit() {}
 
+  closeModal() {
+    this.modalController.dismiss();
+  }
 }

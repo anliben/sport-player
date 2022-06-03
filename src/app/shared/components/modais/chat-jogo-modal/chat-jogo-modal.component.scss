@@ -1,0 +1,14 @@
+ion-content {
+  --background: transparent;
+  --background-color: red;
+}
+ion-footer {
+  ion-input {
+    text-transform: none;
+    caret-color: var(--primary);
+    --placeholder-color: var(--primary);
+    --placeholder-opacity: 1;
+    --ion-color-base: var(--primary);
+    --color: var(--primary);
+  }
+}

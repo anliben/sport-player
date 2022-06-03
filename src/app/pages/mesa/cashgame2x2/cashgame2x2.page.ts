@@ -291,6 +291,8 @@ export class Cashgame2x2Page implements OnInit, OnDestroy {
     this.chatGameModal = await this.modalController.create({
       component: ChatJogoModalComponent,
       cssClass: 'custom-modal-chat-jogo',
+      showBackdrop: false,
+      animated: false,
     });
     return await this.chatGameModal.present();
   }

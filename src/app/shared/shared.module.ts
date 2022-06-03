@@ -25,6 +25,8 @@ import { ChatJogoModalComponent } from './components/modais/chat-jogo-modal/chat
 import { MensagensRecebidasModalComponent } from './components/modais/mensagens-recebidas-modal/mensagens-recebidas-modal.component';
 import { MensagensEnviadasModalComponent } from './components/modais/mensagens-enviadas-modal/mensagens-enviadas-modal.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { HeaderMesaTrucoComponent } from './components/header-mesa-truco/header-mesa-truco.component';
+import { ChatMensagemComponent } from './components/chat-mensagem/chat-mensagem.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,8 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
     ChatJogoModalComponent,
     MensagensRecebidasModalComponent,
     MensagensEnviadasModalComponent,
+    HeaderMesaTrucoComponent,
+    ChatMensagemComponent,
   ],
   imports: [
     CommonModule,
@@ -68,6 +72,8 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
     MesasComponent,
     TampaPComponent,
     ConfigJogoItemComponent,
+    HeaderMesaTrucoComponent,
+    ChatMensagemComponent,
   ],
 })
 export class SharedModule {}

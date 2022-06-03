@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { PerfilJogadorComponent } from './perfil-jogador.component';
+import { PerfilClubePage } from './perfil-clube.page';
 
-describe('PerfilJogadorComponent', () => {
-  let component: PerfilJogadorComponent;
-  let fixture: ComponentFixture<PerfilJogadorComponent>;
+describe('PerfilClubePage', () => {
+  let component: PerfilClubePage;
+  let fixture: ComponentFixture<PerfilClubePage>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ PerfilJogadorComponent ],
+      declarations: [ PerfilClubePage ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(PerfilJogadorComponent);
+    fixture = TestBed.createComponent(PerfilClubePage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

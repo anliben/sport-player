@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { SaqueModalComponent } from '../../../shared/components/modais/saque-modal/saque-modal.component';
-import { AdicionarFichasModalComponent } from '../../../shared/components/modais/adicionar-fichas-modal/adicionar-fichas-modal.component';
+import { AdicionarFichasModalComponent } from 'src/app/shared/components/modais/adicionar-fichas-modal/adicionar-fichas-modal.component';
+import { AmigosModalComponent } from 'src/app/shared/components/modais/amigos-modal/amigos-modal.component';
 // eslint-disable-next-line max-len
 import { ConfirmarCompraItemModalComponent } from 'src/app/shared/components/modais/confirmar-compra-item-modal/confirmar-compra-item-modal.component';
-import { AmigosModalComponent } from '../../../shared/components/modais/amigos-modal/amigos-modal.component';
+import { SaqueModalComponent } from 'src/app/shared/components/modais/saque-modal/saque-modal.component';
 
 @Component({
-  selector: 'app-perfil-jogador',
-  templateUrl: './perfil-jogador.component.html',
-  styleUrls: ['./perfil-jogador.component.scss'],
+  selector: 'app-perfil-clube',
+  templateUrl: './perfil-clube.page.html',
+  styleUrls: ['./perfil-clube.page.scss'],
 })
-export class PerfilJogadorComponent implements OnInit {
+export class PerfilClubePage implements OnInit {
   moeda = 10;
-  
+
   storeItens: any[] = [
     {
       id: 1,

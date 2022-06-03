@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: ClubePage
+  },
+  {
+    path: 'perfil-clube',
+    loadChildren: () => import('./perfil-clube/perfil-clube.module').then( m => m.PerfilClubePageModule)
   }
 ];
 

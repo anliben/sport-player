@@ -249,7 +249,7 @@ table {
   justify-content: center; // X
   &::part(content) {
     width: 80%;
-    height: 56%;
+    height: 32rem;
     --max-width: 400px;
     --border-radius: 3px;
     --border-width: 1px;

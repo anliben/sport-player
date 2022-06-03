@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   socketUrl: 'http://127.0.0.1:8080',
-  api: 'https://216e2142d1e9.sa.ngrok.io'
+  api: 'https://f7a1f124586c.sa.ngrok.io'
 };
 
 /*

@@ -1,6 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -9,27 +10,45 @@ import { Observable } from 'rxjs';
 export class PlayerService {
 
   players = [];
+
+  url: string;
+
   constructor(
-    private db: AngularFireDatabase,
-  ) { }
-
-  getPlayer() {
-    let player = [];
-    return new Observable((subscriber) => {
-      this.db.list('/player').snapshotChanges().forEach(snapshot => {
-        player = snapshot.map(c => ({ key: c.payload.key, ...c.payload.toJSON() }));
-      });
-      this.players = player;
-      subscriber.next(player);
-    });
-  }
-  getOnePlayer(key: string) {
-    this.db.object('/player/' + key).snapshotChanges().forEach(snapshot => {
-    });
+    private httpClient: HttpClient
+  ) {
+    this.url = environment.api
   }
 
-  getToken() {
-
+  getAllPlayer(): Observable<Object>{
+    return this.httpClient.get(this.url + '/player/getAllPlayers')
   }
 
+  getOnePlayer(id): Observable<Object>{
+    return this.httpClient.get(this.url + '/player/getOnePlayer', {
+      params: {
+        id: id
+      }
+    })
+  }
+
+  requestFriend(id, id_friend): Observable<Object> {
+    return this.httpClient.post(this.url + '/player/requestFriend', {
+      id: id,
+      friend_id: id_friend
+    })
+  }
+
+  deleteFriend(id, id_friend): Observable<Object> {
+    return this.httpClient.post(this.url + '/player/deleteFriend', {
+      id: id,
+      friend_id: id_friend
+    })
+  }
+  acceptFriend(id, id_friend): Observable<Object> {
+    return this.httpClient.post(this.url + '/player/acceptFriend', {
+      id: id,
+      friend_id: id_friend
+    })
+  }
+  
 }

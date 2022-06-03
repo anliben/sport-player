@@ -10,6 +10,7 @@
     />
     <div class="flex">
       <img
+        (click)="showMessageModal()"
         class="cursor-pointer h-6 mr-2 active:scale-110 duration-300"
         src="../../../assets/game/truco8/mensagem.png"
       />
@@ -43,16 +44,22 @@
       </super-tab>
 
       <super-tab>
-        <ion-nav [root]="trucoPage" [rootParams]=""></ion-nav>
+        <ion-nav [root]="trucoPage" [rootParams]="{hideHeader: true}"></ion-nav>
       </super-tab>
       <super-tab>
         <ion-content>
-          <ion-nav [root]="emBreve"></ion-nav>
+          <ion-nav
+            [root]="emBreve"
+            [rootParams]="{hideBtnVoltar: true}"
+          ></ion-nav>
         </ion-content>
       </super-tab>
       <super-tab>
         <ion-content>
-          <ion-nav [root]="emBreve"></ion-nav>
+          <ion-nav
+            [root]="emBreve"
+            [rootParams]="{hideBtnVoltar: true}"
+          ></ion-nav>
         </ion-content>
       </super-tab>
     </super-tabs-container>

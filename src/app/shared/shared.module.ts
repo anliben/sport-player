@@ -29,6 +29,8 @@ import { HeaderMesaTrucoComponent } from './components/header-mesa-truco/header-
 import { ChatMensagemComponent } from './components/chat-mensagem/chat-mensagem.component';
 import { RankModalComponent } from './components/modais/rank-modal/rank-modal.component';
 import { FooterMesaTrucoComponent } from './components/footer-mesa-truco/footer-mesa-truco.component';
+import { MaosPremiadasComponent } from './components/maos-premiadas/maos-premiadas.component';
+import { AssociarClubeModalComponent } from './components/modais/associar-clube-modal/associar-clube-modal.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +59,8 @@ import { FooterMesaTrucoComponent } from './components/footer-mesa-truco/footer-
     ChatMensagemComponent,
     RankModalComponent,
     FooterMesaTrucoComponent,
+    MaosPremiadasComponent,
+    AssociarClubeModalComponent,
   ],
   imports: [
     CommonModule,
@@ -79,6 +83,8 @@ import { FooterMesaTrucoComponent } from './components/footer-mesa-truco/footer-
     HeaderMesaTrucoComponent,
     ChatMensagemComponent,
     FooterMesaTrucoComponent,
+    MaosPremiadasComponent,
+    AssociarClubeModalComponent,
   ],
 })
 export class SharedModule {}

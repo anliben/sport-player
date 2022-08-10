@@ -51,13 +51,13 @@
 
     <div class="flex justify-center">
       <img
-        class="h-[1.3rem] mt-3 mr-2 object-cover"
+        class="h-[1.3rem] mt-3 mr-2 object-cover cursor-pointer active:scale-110 duration-300"
         [routerLink]="['/painel-jogador']"
         src="/assets/game/perfil/painel-do-jogador.png"
       />
       <img
         (click)="showFriensModal()"
-        class="h-[1.3rem] mt-3 object-cover"
+        class="h-[1.3rem] mt-3 object-cover cursor-pointer active:scale-110 duration-300"
         src="/assets/game/perfil/amigos.png"
       />
     </div>
@@ -71,9 +71,13 @@
             src="/assets/game/perfil/jackpot.png"
           />
           <img
-            class="h-5 left-0 ml-1 mt-2 rounded-md"
+            (click)="showMaosPremiadas($event)"
+            class="h-5 left-0 ml-1 mt-2 rounded-md cursor-pointer"
             src="/assets/game/perfil/seta-baixo.png"
+            [ngClass]="{'rotate-180': isOpenMaosPremiadas}"
           />
+          <!-- trigger="side-button" -->
+          <!-- [isOpen]="showMaosPremiadas" -->
         </ion-row>
       </div>
       <div class="flex justify-center">

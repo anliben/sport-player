@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, PopoverController } from '@ionic/angular';
 import { AdicionarFichasModalComponent } from 'src/app/shared/components/modais/adicionar-fichas-modal/adicionar-fichas-modal.component';
 import { AmigosModalComponent } from 'src/app/shared/components/modais/amigos-modal/amigos-modal.component';
 // eslint-disable-next-line max-len
@@ -7,6 +7,7 @@ import { ConfirmarCompraItemModalComponent } from 'src/app/shared/components/mod
 import { SaqueModalComponent } from 'src/app/shared/components/modais/saque-modal/saque-modal.component';
 import { StorageServiceService } from 'src/app/services/storage-service.service';
 import { ClubeService } from '../clube.service';
+import { MaosPremiadasComponent } from 'src/app/shared/components/maos-premiadas/maos-premiadas.component';
 
 @Component({
   selector: 'app-perfil-clube',
@@ -15,6 +16,7 @@ import { ClubeService } from '../clube.service';
 })
 export class PerfilClubePage implements OnInit {
   moeda = 10;
+  isOpenMaosPremiadas = false;
 
   storeItens: any[] = [];
   confirmBuyItemModal: HTMLIonModalElement;
@@ -26,8 +28,9 @@ export class PerfilClubePage implements OnInit {
   constructor(
     private modalController: ModalController,
     private storageService: StorageServiceService,
-    private clubeService: ClubeService
-    ) {
+    private clubeService: ClubeService,
+    private popoverController: PopoverController
+  ) {
     this.storageService.getPlayer().then((player: any) => {
       this.id = player.id;
       this.nickname = player.name;
@@ -35,13 +38,11 @@ export class PerfilClubePage implements OnInit {
       this.level = player.level;
       this.clubeService.getStore().subscribe((store: any) => {
         this.storeItens = store;
-      })
-    })
+      });
+    });
   }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
   async showSaqueModal() {
     const modal = await this.modalController.create({
@@ -76,7 +77,25 @@ export class PerfilClubePage implements OnInit {
     const modal = await this.modalController.create({
       component: AmigosModalComponent,
       cssClass: 'custom-class-modal-pattern modal-height-amigos',
+      animated: false,
     });
     return await modal.present();
+  }
+
+  async showMaosPremiadas(ev: any) {
+    const popover = await this.popoverController.create({
+      component: MaosPremiadasComponent,
+      cssClass: 'popover-maos-premiadas',
+      event: ev,
+      translucent: true,
+      animated: false,
+      mode: 'ios',
+    });
+    this.isOpenMaosPremiadas = true;
+    await popover.present();
+
+    const { role } = await popover.onDidDismiss();
+    console.log('onDidDismiss resolved with role', role);
+    this.isOpenMaosPremiadas = false;
   }
 }

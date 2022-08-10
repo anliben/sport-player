@@ -1,0 +1,8 @@
+app-carta-baralho {
+  // "w-8 h-14
+  transform: scale(0.75);
+  &::part(contain) {
+    // width: calc(2rem / 2);
+    height: calc(3.5rem / 2);
+  }
+}
